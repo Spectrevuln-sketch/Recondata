@@ -1,0 +1,12 @@
+200 OK
+Cache-Control: max-age=600, private, must-revalidate
+Vary: Accept-Encoding
+X-Amz-Cf-Id: fqFX_GfozJrXElA1TOj8_G68UykdX2aZafOSs79_nc2aHHDSGE8N-Q==
+Age: 4171225
+Content-Type: text/html; charset=UTF-8
+Server: Apache
+X-Cache: Hit from cloudfront
+Via: 1.1 2e4ea5ed710a1104b183ead6b210a514.cloudfront.net (CloudFront)
+X-Amz-Cf-Pop: SIN52-C2
+Retry-Count: 0
+Date: Tue, 29 Oct 2019 06:51:37 GMT

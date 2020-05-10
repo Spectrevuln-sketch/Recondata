@@ -1,0 +1,11 @@
+404 Not Found
+X-Content-Type-Options: nosniff
+Content-Type: text/plain; charset=utf-8
+Access-Control-Allow-Headers: Content-type, Authorization, Access-Control-Allow-Origin
+Access-Control-Allow-Origin: *
+Access-Control-Expose-Headers: Content-type
+Retry-Count: 0
+Content-Length: 19
+Access-Control-Allow-Methods: GET, POST, OPTIONS
+X-Tkp-Srv-Id: sauron-172-21-33-75
+Date: Fri, 22 Nov 2019 03:46:09 GMT

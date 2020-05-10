@@ -1,0 +1,13 @@
+200 OK
+Via: 1.1 google 1.1 varnish 1.1 varnish
+Accept-Ranges: bytes
+X-Timer: S1576504360.288647,VS0,VE356
+Vary: Accept-Encoding
+Retry-Count: 0
+X-Cache-Hits: 0, 0
+Date: Mon, 16 Dec 2019 13:52:40 GMT
+X-Served-By: cache-mdw17331-MDW, cache-sin18050-SIN
+X-Cache: MISS, MISS
+Content-Type: text/html; charset=utf-8
+Cache-Control: public, max-age=300, must-revalidate
+Age: 0

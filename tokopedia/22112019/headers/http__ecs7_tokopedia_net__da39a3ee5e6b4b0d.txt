@@ -1,0 +1,10 @@
+403 Forbidden
+X-Amz-Bucket-Region: ap-southeast-1
+X-Amz-Id-2: sH/O1xnmQugbWHQ9byrHlanXfXr59tCO+WDRt9s8QHLSTmr81axoz48b7V4l8jloDeLXD9IOAM8=
+Access-Control-Allow-Origin: *
+Retry-Count: 0
+X-Amz-Request-Id: 51143AE33DFC684E
+Content-Type: application/xml
+Server: AmazonS3
+Date: Fri, 22 Nov 2019 03:45:41 GMT
+Access-Control-Max-Age: 31536000

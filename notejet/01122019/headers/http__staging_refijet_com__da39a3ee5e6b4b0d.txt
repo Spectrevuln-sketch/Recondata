@@ -1,0 +1,8 @@
+200 OK
+Server: nginx
+Content-Type: text/html; charset=UTF-8
+Set-Cookie: tag_ip=190.72.88.237
+Date: Sun, 01 Dec 2019 11:55:14 GMT
+Retry-Count: 0
+X-Powered-By: PHP/7.0.33 PleskLin
+Link: <https://staging.refijet.com/wp-json/>; rel="https://api.w.org/", <https://staging.refijet.com/>; rel=shortlink

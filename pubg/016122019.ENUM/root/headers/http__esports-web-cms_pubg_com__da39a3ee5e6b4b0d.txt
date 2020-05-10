@@ -1,0 +1,14 @@
+200 OK
+Server: nginx
+X-Frame-Options: DENY
+Vary: Accept-Encoding Accept-Encoding Accept-Encoding,Cookie
+X-Cacheable: SHORT
+X-Pass-Why: 
+X-Cache-Group: normal
+Date: Mon, 16 Dec 2019 13:52:48 GMT
+Link: <https://esports-web-cms.pubg.com/wp-json/>; rel="https://api.w.org/"
+X-Cache: HIT: 1
+Content-Type: text/html; charset=UTF-8
+Cache-Control: max-age=600, must-revalidate
+X-Xss-Protection: 1; mode=block
+Retry-Count: 0

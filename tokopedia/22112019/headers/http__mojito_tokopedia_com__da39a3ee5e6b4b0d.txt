@@ -1,0 +1,7 @@
+405 Method Not Allowed
+Content-Length: 91
+Access-Control-Allow-Origin: *
+X-Content-Type-Options: nosniff
+Date: Fri, 22 Nov 2019 03:45:48 GMT
+Retry-Count: 0
+Content-Type: text/plain; charset=utf-8

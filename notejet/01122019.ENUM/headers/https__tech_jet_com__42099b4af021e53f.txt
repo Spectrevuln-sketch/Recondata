@@ -1,0 +1,23 @@
+200 OK
+Set-Cookie: __cfduid=d8b7f187f7076ec8251b05feea494a9531575208196; expires=Tue, 31-Dec-19 13:49:56 GMT; path=/; domain=.medium.com; HttpOnly uid=lo_YYKvTUvi5TuV; Expires=Mon, 30-Nov-20 13:49:57 GMT; Domain=.medium.com; Path=/; Secure; HttpOnly optimizelyEndUserId=lo_YYKvTUvi5TuV; path=/; expires=Mon, 30 Nov 2020 13:49:57 GMT; domain=.medium.com; secure sid=1:Wds+pxI5xZf2xDYNHGfh2fCy7QFftmjhDTlNfAK2xnrbAYcM3k593ud1iMWcpELi; path=/; expires=Mon, 30 Nov 2020 13:49:57 GMT; domain=.medium.com; secure; httponly puid=; path=/; expires=Sun, 01 Dec 2019 13:49:56 GMT; domain=medium.com; secure; httponly puid=; path=/; expires=Sun, 01 Dec 2019 13:49:56 GMT; domain=.medium.com; secure; httponly puid=; path=/; expires=Sun, 01 Dec 2019 13:49:56 GMT; secure; httponly puid=; path=/; expires=Sun, 01 Dec 2019 13:49:56 GMT; domain=.medium.com; secure; httponly __cfruid=69ed7d2c2b9f919fbda02ea2f4a13d05aaa52d8f-1575208198; path=/; domain=.medium.com; HttpOnly
+Expires: Thu, 09 Sep 1999 09:09:09 GMT
+Content-Security-Policy: default-src 'self'; connect-src https://localhost https://*.instapaper.com https://*.stripe.com https://glyph.medium.com https://*.paypal.com https://getpocket.com https://medium.com https://*.medium.com https://*.medium.com https://medium.com https://*.medium.com https://*.algolia.net https://cdn-static-1.medium.com https://dnqgz544uhbo8.cloudfront.net https://cdn-videos-1.medium.com https://cdn-audio-1.medium.com https://*.lightstep.com https://*.branch.io 'self'; font-src data: https://*.amazonaws.com https://*.medium.com https://glyph.medium.com https://medium.com https://*.gstatic.com https://dnqgz544uhbo8.cloudfront.net https://cdn-static-1.medium.com 'self'; frame-src chromenull: https: webviewprogressproxy: medium: 'self'; img-src blob: data: https: 'self'; media-src https://*.cdn.vine.co https://d1fcbxp97j4nb2.cloudfront.net https://d262ilb51hltx0.cloudfront.net https://*.medium.com https://gomiro.medium.com https://miro.medium.com https://pbs.twimg.com 'self' blob:; object-src 'self'; script-src 'unsafe-eval' 'unsafe-inline' about: https: 'self'; style-src 'unsafe-inline' data: https: 'self'; report-uri https://csp.medium.com
+X-Frame-Options: sameorigin
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Strict-Transport-Security: max-age=15552000; includeSubDomains; preload
+Expect-Ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+Server: cloudflare
+Retry-Count: 0
+Date: Sun, 01 Dec 2019 13:49:58 GMT
+Content-Type: text/html; charset=utf-8
+X-Xss-Protection: 1; mode=block
+X-Ua-Compatible: IE=edge, Chrome=1
+X-Obvious-Info: 39395-442f9de,442f9de3412
+Link: <https://medium.com/humans.txt>; rel="humans"
+Pragma: no-cache
+Cf-Cache-Status: DYNAMIC
+Cf-Ray: 53e586fee85bcc20-SIN
+X-Content-Type-Options: nosniff
+X-Powered-By: Medium
+X-Obvious-Tid: 1575208197783:1eafcf06c200
+Alt-Svc: h3-23=":443"; ma=86400

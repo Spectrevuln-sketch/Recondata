@@ -1,0 +1,8 @@
+200 OK
+Set-Cookie: JSESSIONID=NFy0Y6mdMEyb7RoogUnSZnRW.undefined; Path=/ dmid=933ee822-b89d-4062-8bfd-1c3fcca23b03; Expires=Tue, 15-Oct-2024 12:40:37 GMT; Path=/ uiTicket=b85cbf6e-0414-476c-8b3f-78e2509c301c; Path=/
+Last-Modified: Thu, 03 Nov 2016 12:04:44 GMT
+Cache-Control: no-cache, no-store
+Server: QRATOR
+Date: Sun, 01 Dec 2019 12:40:38 GMT
+Content-Type: text/html;charset=UTF-8
+Retry-Count: 0

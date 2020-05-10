@@ -1,0 +1,10 @@
+200 OK
+Server: openresty
+Content-Length: 263
+Etag: "1d58a83462cfc07"
+Date: Sun, 01 Dec 2019 12:42:08 GMT
+X-Akamai-Staging: ESSL
+Retry-Count: 0
+Content-Type: text/html
+Last-Modified: Thu, 24 Oct 2019 15:54:10 GMT
+Strict-Transport-Security: max-age=15768000

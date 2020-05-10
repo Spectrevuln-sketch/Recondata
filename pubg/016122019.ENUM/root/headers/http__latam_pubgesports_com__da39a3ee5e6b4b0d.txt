@@ -1,0 +1,14 @@
+200 OK
+Link: <https://latam.pubgesports.com/wp-json/>; rel="https://api.w.org/" <https://latam.pubgesports.com/>; rel=shortlink
+X-Cacheable: SHORT
+X-Pass-Why: 
+X-Xss-Protection: 1; mode=block
+Server: nginx
+Retry-Count: 0
+X-Cache-Group: normal
+Cache-Control: max-age=600, must-revalidate
+X-Cache: MISS
+Date: Mon, 16 Dec 2019 13:52:45 GMT
+Vary: Accept-Encoding Accept-Encoding Accept-Encoding,Cookie
+X-Frame-Options: DENY
+Content-Type: text/html; charset=UTF-8

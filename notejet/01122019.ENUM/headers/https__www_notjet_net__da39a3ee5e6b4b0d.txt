@@ -1,0 +1,18 @@
+200 OK
+Content-Type: text/html; charset=utf-8
+X-Powered-By: Next.js 8.0.0
+Server: envoy
+X-Envoy-Decorator-Operation: batmanweb-proxy-qa
+Vary: Accept-Encoding
+Retry-Count: 0
+Strict-Transport-Security: max-age=31536000
+Jet: 4:1.861:1575061838:540a6
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 1; mode=block;
+X-Content-Type-Options: nosniff
+Etag: "5c7e6-9P/83G5L/Tg4OQjSCOdHeMsvBkY"
+Jet-Dr-Orpheus: {"headerSchemaVersion":3,"correlationIds":["7bf795183a0b4fd89262839e10e25984"],"messageId":"fa66ff992d554e1aa45e55f6015ccbcd","parentIds":["8940844b59074e47891d7ef5f960556d"],"producerId":"Batman-API","ticksFromEpoch":637108052084232800,"payloadSchemaUri":"CmsProxy/cms/GET/1.0","mTags":[],"pTags":[["phaser","2;e86ac23f065f4637aef093489250001c;7tJh;7uvR;92CBI;93oFG;98Cw0;996pFe;9GQ1;9GSao;9HLr;9J12T;9JJvH;9Jp4i;9MAixN;9UbxmC;9gQC;9ln3;9n8jG;9uJgwR;9vFW8X;9x6au;9zfkN;1575208408"]]}
+Referrer-Policy: strict-origin-when-cross-origin
+Set-Cookie: jet.csrf=cwI5Zd-dNG1HUGr0947a-bHR; path=/; secure; httponly signupShown=; path=/; expires=Sat, 01 Jan 2039 00:00:00 GMT; domain=batmanweb-proxy-qa.envoy.eastus2.qa.notjet.net; secure signupShown=0; Domain=batmanweb-proxy-qa.envoy.eastus2.qa.notjet.net; Path=/; Expires=Sat, 01 Jan 2039 00:00:00 GMT jid=5274a558-dbc2-441b-a171-d0eb3d6161cd; path=/; expires=Sat, 01 Jan 2039 00:00:00 GMT; domain=batmanweb-proxy-qa.envoy.eastus2.qa.notjet.net; secure; httponly jid=5274a558-dbc2-441b-a171-d0eb3d6161cd; Domain=batmanweb-proxy-qa.envoy.eastus2.qa.notjet.net; Path=/; Expires=Sat, 01 Jan 2039 00:00:00 GMT jet-referer=%2F; Path=/ jet-phaser=2%3Be86ac23f065f4637aef093489250001c%3B7tJh%3B7uvR%3B92CBI%3B93oFG%3B98Cw0%3B996pFe%3B9GQ1%3B9GSao%3B9HLr%3B9J12T%3B9JJvH%3B9Jp4i%3B9MAixN%3B9UbxmC%3B9gQC%3B9ln3%3B9n8jG%3B9uJgwR%3B9vFW8X%3B9x6au%3B9zfkN%3B1575208408; path=/; expires=Tue, 31 Dec 2019 13:53:28 GMT; secure; httponly jet-phaser=2%3Be86ac23f065f4637aef093489250001c%3B7tJh%3B7uvR%3B92CBI%3B93oFG%3B98Cw0%3B996pFe%3B9GQ1%3B9GSao%3B9HLr%3B9J12T%3B9JJvH%3B9Jp4i%3B9MAixN%3B9UbxmC%3B9gQC%3B9ln3%3B9n8jG%3B9uJgwR%3B9vFW8X%3B9x6au%3B9zfkN%3B1575208408; Max-Age=2592000000; Path=/; Expires=Fri, 20 Jan 2102 13:53:28 GMT; HttpOnly jet.qa-id=fb4c5acb-9ce0-40c1-b849-9bc0fe1bd781; path=/; expires=Tue, 31 Dec 2019 13:53:28 GMT; secure; httponly jet.qa-jetGeoIp=%7B%22postal_code%22%3A%2290009%22%2C%22city_name%22%3A%22Los%20Angeles%22%2C%22country_code%22%3A%22US%22%2C%22time_zone%22%3A%22America%2FLos_Angeles%22%7D; path=/; expires=Tue, 31 Dec 2019 13:53:28 GMT; secure; httponly ipZipcode=90009; path=/; expires=Tue, 31 Dec 2019 13:53:28 GMT; secure jet.qa-clientTicket=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiIxZjYzYTU0NjI5ZDc0NDE2OWE2OGJiNDU0NjNmNmMwNyIsImlzcyI6ImpldC5jb20iLCJhdWQiOiJ3ZWJjbGllbnQifQ.HYLRi9eKFDiAKnkwg5xivgBpGppRejkKfxFSuLv3pYM; path=/; expires=Tue, 31 Dec 2019 13:53:28 GMT; secure; httponly X-Akamai-Chosen=qa_phased_nomad_eastus2 akacd_phased_release=3752661206~rv=87~id=5c8731d72238ce4cace495ab38311f2a; path=/;
+X-Envoy-Upstream-Service-Time: 293
+Date: Sun, 01 Dec 2019 13:53:29 GMT

@@ -1,0 +1,13 @@
+400 Bad Request
+Date: Fri, 22 Nov 2019 03:45:40 GMT
+X-Akamai-Staging: ESSL
+Content-Type: application/json
+Access-Control-Allow-Methods: GET, HEAD, PUT, PATCH, POST, DELETE
+X-Envoy-Upstream-Service-Time: 0
+X-Amz-Cf-Pop: SIN52-C3
+X-Amz-Cf-Id: iwrHDKDLCr0Gtu-3TP5KJ2k-Z1lr9Wlzz3xw4dVmIj1yWMJQnS5Cgw==
+Content-Length: 86
+Access-Control-Allow-Headers: Content-type, Fingerprint-Data, x-user-id, Webview-App-Version, Redirect, Access-Control-Allow-Origin, Content-MD5, Tkpd-UserId, X-Tkpd-UserId, Tkpd-SessionId, X-Device, X-Source, X-Method, X-Date, Authorization, Accounts-Authorization, flight-thirdparty, x-origin, Cshld-SessionID, X-Mitra-Device, x-tkpd-akamai, x-tkpd-lite-service
+Access-Control-Allow-Origin: https://www.tokopedia.com
+Access-Control-Allow-Credentials: true
+Retry-Count: 0

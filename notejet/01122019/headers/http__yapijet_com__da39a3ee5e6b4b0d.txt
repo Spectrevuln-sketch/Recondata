@@ -1,0 +1,10 @@
+200 OK
+Server: nginx
+Date: Sun, 01 Dec 2019 12:42:04 GMT
+X-Powered-By: PHP/7.0.33 PleskLin
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Set-Cookie: ci_session=6ssruusv76ut28m8dun7afiuij61gt94; expires=Sun, 01-Dec-2019 14:42:03 GMT; Max-Age=7200; path=/; HttpOnly
+Content-Type: text/html; charset=UTF-8
+Retry-Count: 0
+Pragma: no-cache

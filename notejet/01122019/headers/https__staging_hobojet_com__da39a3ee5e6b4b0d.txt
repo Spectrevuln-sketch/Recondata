@@ -1,0 +1,13 @@
+200 OK
+Vary: Accept-Encoding
+Set-Cookie: XSRF-TOKEN=eyJpdiI6InhmcnZET3lVOU5wa2VNQVhhSWJwSVE9PSIsInZhbHVlIjoidG9GdVY1UmVWdEdUUmNxYUREOTlUM0ZlcFVJbmRGZUlQZ3RPcGxLbTdkOU9DT2lzWmJqQzFcL2h1cTRHbFBNWk92VnlCRmpSTmh2Q0QxYUs2cGtxM013PT0iLCJtYWMiOiI1YjlkODkxYzkzYzYyMDQyYzIwNjg3OTg4M2JiMmIzZTk0OWQxNzZlMmYyNTE1NDEwMmVlOGEwZDRmMzg2ZmZlIn0%3D; expires=Sun, 01-Dec-2019 14:27:13 GMT; Max-Age=7200; path=/; domain=.hobojet.com laravel_session_new=eyJpdiI6IkF3MmJST0dNTDRXK0RJUVQzUk1WMWc9PSIsInZhbHVlIjoiNjVlYnBDUFRlcUNrVkhNTTdcL2xDVDhEUEZaU0RNR1wva2FpdG5JYURiN2pZc0pMc3Q2ZzFvaktVaVVOY2ltTnJ2TUVmbDVJQWY4dFg1NFNzVGJ0aXhTdz09IiwibWFjIjoiOGVlZDlmYjUzMmE0MDcwM2ZkY2QyNmFhMGVkYTU1YWUzYjFiODIzYmVjNWMxY2RjNzk1ZTVjYzEyOWM2YTc0NyJ9; expires=Sun, 01-Dec-2019 14:27:13 GMT; Max-Age=7200; path=/; domain=.hobojet.com; httponly
+Strict-Transport-Security: max-age=15768000; includeSubdomains; preload
+X-Xss-Protection: 1; mode=block
+Retry-Count: 0
+Server: nginx/1.4.6 (Ubuntu)
+Content-Type: text/html; charset=UTF-8
+X-Powered-By: PHP/5.5.9-1ubuntu4.17
+Cache-Control: no-cache
+X-Frame-Options: DENY SAMEORIGIN
+X-Content-Type-Options: nosniff nosniff
+Date: Sun, 01 Dec 2019 12:27:13 GMT

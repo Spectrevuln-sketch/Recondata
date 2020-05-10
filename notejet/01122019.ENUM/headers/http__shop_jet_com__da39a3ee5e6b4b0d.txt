@@ -1,0 +1,27 @@
+200 OK
+X-Frame-Options: sameorigin
+Custom_cache_rule_location: AssetTypeLevel
+Host_service: FutureTenseContentServer:12c
+Retry-Count: 0
+Server-Timing: cdn-cache; desc=HIT edge; dur=1
+X-Oracle-Apmcs-Tag: 
+X-Content-Type-Options: nosniff
+Date: Sun, 01 Dec 2019 13:53:28 GMT
+Custom_akamai_autopurge: YES
+Cache-Control: max-age=1800
+X-Oracle-Apmcs-Request-Id: 61640C39D32FAB19338428FE55631EA04FF5620D
+Access-Control-Expose-Headers: X-ORACLE-APMCS-REQUEST-ID,X-ORACLE-APMCS-TAG
+Content-Type: text/html; charset=UTF-8
+X-Oracle-Dms-Rid: 0:1
+Vary: Accept-Encoding
+Content-Language: en-US
+Device_type: Any
+X-Akamai-Transformed: 9 - 0 pmb=mRUM,2
+Origin-Cache-Control: max-age=1800
+Content-Security-Policy: frame-ancestors 'self' https://explore.oracle.com
+X-Xss-Protection: 1
+Server: Oracle-HTTP-Server
+Last-Modified: Thu, 21 Nov 2019 06:10:55 GMT
+X-Oracle-Dms-Ecid: 005_yOtAlWH9Pdw70Fe9UF00019a000Jwy
+Origin-Edge-Control: !no-store,max-age=2592000,downstream-ttl=1800
+Actual-Object-Ttl: 2592000

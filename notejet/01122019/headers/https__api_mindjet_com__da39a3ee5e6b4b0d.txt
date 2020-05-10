@@ -1,0 +1,11 @@
+200 OK
+X-Frame-Options: SAMEORIGIN
+Date: Sun, 01 Dec 2019 12:40:34 GMT
+Content-Type: text/html; charset=utf-8
+Server: nginx
+Last-Modified: Fri, 05 Aug 2016 00:04:06 GMT
+Etag: W/"57a3d7f6-eba"
+X-Content-Type-Options: nosniff
+Retry-Count: 0
+Vary: Accept-Encoding
+X-Xss-Protection: 1; mode=block

@@ -1,0 +1,9 @@
+200 OK
+Vary: Accept-Encoding
+Keep-Alive: timeout=305, max=100
+X-Powered-By: Brightspot
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=UTF-8
+Retry-Count: 0
+Date: Sun, 01 Dec 2019 12:40:32 GMT
+Set-Cookie: walcar.ab=6ed3dfa2-51ac-482c-ae42-bc7a97dc2af9; Path=/ JSESSIONID=00409B8AD185899EFCE52F6FD0D47766; Path=/; Secure; HttpOnly

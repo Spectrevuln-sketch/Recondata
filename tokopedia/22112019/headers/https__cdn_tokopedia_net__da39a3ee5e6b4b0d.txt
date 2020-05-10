@@ -1,0 +1,10 @@
+403 Forbidden
+X-Oss-Request-Id: 5DD759E5DDD9CB3130F1497E
+Date: Fri, 22 Nov 2019 03:45:41 GMT
+Access-Control-Allow-Origin: *
+Retry-Count: 0
+Access-Control-Max-Age: 31536000
+Server: AliyunOSS
+Content-Type: application/xml
+Content-Length: 269
+X-Oss-Server-Time: 0

@@ -1,0 +1,10 @@
+200 OK
+Set-Cookie: fm=; Domain=.tiket.tokopedia.com; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT
+Etag: W/"18393-97UbgDU7lg6SfFJKAWD9IyXf2O8"
+Content-Type: text/html; charset=utf-8
+Vary: Accept-Encoding
+Cache-Control: no-transform
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 1; mode=block
+Retry-Count: 0
+Date: Fri, 22 Nov 2019 03:46:16 GMT

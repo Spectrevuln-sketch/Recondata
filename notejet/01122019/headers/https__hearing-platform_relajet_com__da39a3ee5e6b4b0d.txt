@@ -1,0 +1,12 @@
+200 OK
+X-Xss-Protection: 1; mode=block
+Strict-Transport-Security: max-age=31536000;
+Vary: Accept-Encoding
+X-Content-Type-Options: nosniff
+Server: Caddy
+Date: Sun, 01 Dec 2019 12:40:36 GMT
+Retry-Count: 0
+Accept-Ranges: bytes
+Content-Type: text/html; charset=utf-8
+Etag: W/"pxclux1m8"
+Last-Modified: Thu, 05 Sep 2019 07:52:09 GMT

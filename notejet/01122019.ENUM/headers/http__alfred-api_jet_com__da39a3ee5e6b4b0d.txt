@@ -1,0 +1,20 @@
+200 OK
+Date: Sun, 01 Dec 2019 13:53:22 GMT
+Content-Type: text/plain; charset=utf-8
+Content-Length: 51
+Jetapiversion: 3.0.128-master-commit-6f0bdb08b
+Jet_request_id: b92af1b3-de56-4527-8c67-8f34df5aa47f
+Strict-Transport-Security: max-age=31536000; includeSubDomains;
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 1; mode=block;
+Server: envoy
+Upstream-Op-Id: 9fe8af31fb9e4560a35a617954008a2f
+X-Envoy-Decorator-Operation: guardians-batman-api-assignment-service
+Retry-Count: 0
+Referrer-Policy: strict-origin-when-cross-origin
+X-Content-Type-Options: nosniff
+X-Edgeconnect-Cache-Status: 0
+X-Request-Id: 70491cc7-b034-93cb-9b63-6133ad47fa31
+Upstream-Op-Name: batman-webapi-prod-task
+X-Envoy-Upstream-Service-Time: 4
+Jet-Dr-Orpheus: {"headerSchemaVersion":3,"correlationIds":["69ab5c86cc2548fea411c0144ac1d569"],"messageId":"68a4ca4f7fef4412997c277343b11c97","parentIds":[],"producerId":"Batman-API","ticksFromEpoch":637108052026806835,"payloadSchemaUri":"Home//GET/1.0","mTags":[]}

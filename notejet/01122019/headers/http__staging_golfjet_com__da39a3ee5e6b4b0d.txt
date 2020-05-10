@@ -1,0 +1,12 @@
+200 OK
+Vary: Accept-Encoding
+Authentication: ngMtLURYDl087aeYstfPUwpxFICP0jX0DOFqavUu46BSBFKe
+Cf-Cache-Status: DYNAMIC
+Server: cloudflare
+Cf-Ray: 53e524716fcfe80d-LAX
+Retry-Count: 0
+Link: <https://staging.golfjet.com/wp-json/>; rel="https://api.w.org/"
+Access-Control-Allow-Origin: *
+Expect-Ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+Date: Sun, 01 Dec 2019 12:42:41 GMT
+Content-Type: text/html; charset=UTF-8

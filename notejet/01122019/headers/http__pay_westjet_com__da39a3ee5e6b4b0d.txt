@@ -1,0 +1,11 @@
+200 OK
+Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+Set-Cookie: JSESSIONID=17a131c1674a9ec2b85936afdbbf; Path=/hw2web; Secure; HttpOnly JSESSIONIDSSO=46CE052C7A246F849BBC85C0764D07FF; Path=/; Secure; HttpOnly csfcfc=L0D5qw8k%2F0rl7wwXqgnPp1MB5w%3D%3D; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/hw2web; Secure; HttpOnly
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Content-Type: text/html;charset=UTF-8
+Pragma: no-cache
+X-Frame-Options: SAMEORIGIN
+Server: nginx
+Retry-Count: 0
+Date: Sun, 01 Dec 2019 12:40:33 GMT
+Strict-Transport-Security: max-age=15780000; includeSubDomains

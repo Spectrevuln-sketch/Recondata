@@ -1,0 +1,7 @@
+401 Unauthorized
+Server: nginx/1.10.3
+Date: Sun, 01 Dec 2019 12:42:35 GMT
+Content-Type: text/html
+Content-Length: 597
+Retry-Count: 0
+Www-Authenticate: Basic realm="Restricted Content"

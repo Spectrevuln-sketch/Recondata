@@ -1,0 +1,10 @@
+401 Access Denied
+Date: Sun, 01 Dec 2019 12:41:32 GMT
+Pragma: no-cache
+X-Frame-Options: SAMEORIGIN
+Cache-Control: no-cache, no-store, must-revalidate, private, no-cache, no-store, must-revalidate, private, proxy-revalidate
+Server: Apache
+X-Content-Type-Options: nosniff
+Set-Cookie: cprelogin=no; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=80 cpsession=%3asZnH4cQd9D6v95uD%2cb5d4641f70b91d86f8877e506b735dda; HttpOnly; path=/; port=80 roundcube_sessid=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=80 roundcube_sessauth=expired; HttpOnly; domain=cpanel.vanuatujet.com; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=80 Horde=expired; HttpOnly; domain=.cpanel.vanuatujet.com; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=80 horde_secret_key=expired; HttpOnly; domain=.cpanel.vanuatujet.com; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=80 Horde=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=80 Horde=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/horde; port=80 PPA_ID=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=80 imp_key=expired; HttpOnly; domain=cpanel.vanuatujet.com; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=80
+Content-Type: text/html; charset="utf-8"
+Retry-Count: 0

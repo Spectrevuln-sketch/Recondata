@@ -1,0 +1,10 @@
+200 OK
+Server: cloudflare
+Retry-Count: 0
+Date: Sun, 01 Dec 2019 12:42:42 GMT
+Content-Type: text/html; charset=UTF-8
+Cf-Cache-Status: DYNAMIC
+Link: <https://staging.evolutioninkjet.com/wp-json/>; rel="https://api.w.org/", <https://staging.evolutioninkjet.com/>; rel=shortlink
+Expect-Ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+Cf-Ray: 53e5247abeded382-LAX
+Vary: Accept-Encoding

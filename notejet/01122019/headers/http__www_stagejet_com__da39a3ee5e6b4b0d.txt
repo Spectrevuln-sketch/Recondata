@@ -1,0 +1,12 @@
+200 OK
+Date: Sun, 01 Dec 2019 12:42:11 GMT
+Content-Type: text/html; charset=UTF-8
+Vary: Accept-Encoding
+Domain: www.stagejet.com
+Theme file: static__/_theme_file.var.html
+Brandbucket-Domain: stagejet.com #55555
+Retry-Count: 0
+Server: nginx/1.15.8
+Ptype: cache only
+X-Frame-Options: sameorigin
+Age: 0

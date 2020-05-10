@@ -1,0 +1,13 @@
+200 OK
+Etag: W/"07c9e7b372e75ef5feafcbe66a6ecc6d--gzip"
+Retry-Count: 0
+X-Contextid: ixtf5Gxh/o5b5qJUV
+Age: 61275
+Server: Squarespace
+Date: Sat, 30 Nov 2019 19:39:32 GMT
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Content-Type: text/html;charset=utf-8
+Vary: Accept-Encoding
+Set-Cookie: crumb=BeHZptVxEuiqZWQ2M2QwNTViNDBkMWE1MjIzMjIyMzEyZjkxYmQy;Path=/
+Strict-Transport-Security: max-age=0
+Accept-Ranges: bytes

@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Aquatone Report">
+  <meta name="author" content="Michael Henriksen (https://twiter.com/michenriksen)">
+  <meta name="generator" content="Aquatone v1.7.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Aquatone Report</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/visjs-network@4.24.7/dist/vis.min.css"
+    integrity="sha384-hv6STAGuk4qTwmryFbZZTn3QrGRyZW1soC9K/Dy68zs8subBFOU69tg/GGZfkIBb" crossorigin="anonymous">
+  <style type="text/css">
+    footer {
+      border-top: 1px solid rgba(0, 0, 0, .125);
+      margin-top: 50px;
+      padding: 50px;
+      text-align: center;
+      font-size: 12px;
+      color: rgb(68, 68, 68);
+    }
+
+    footer a {
+      color: inherit !important;
+      text-decoration: underline;
+    }
+
+    .carousel {
+      margin-bottom: 50px;
+    }
+
+    .carousel-item {
+      color: #383d41;
+      text-align: center;
+    }
+
+    .carousel-item .page-card {
+      width: 300px;
+      text-align: left;
+      margin: 25px 10px 55px 10px;
+      display: inline-block;
+    }
+
+    .single-page-container .page-card,
+    .single-page-container .page-headers-table {
+      margin: 0px 0px 50px 0px;
+    }
+
+    .page-screenshot-container {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(0, 0, 0, .125);
+    }
+
+    .page-screenshot {
+      transition: transform .5s ease-out;
+      cursor: zoom-in;
+      width: 100%;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 5%;
+    }
+
+    .carousel-control-prev-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%236c757d' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e");
+    }
+
+    .carousel-control-next-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%236c757d' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3e%3c/svg%3e");
+    }
+
+    .carousel-indicators li {
+      background-color: #6c757d;
+    }
+
+    .badge {
+      margin-right: 5px;
+    }
+
+    .page-headers-table {
+      width: 100%;
+    }
+
+    .page-headers-table td {
+      font-family: Anonymous Pro, Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    }
+
+    .page-headers-table td.header-value {
+      word-break: break-all;
+    }
+
+    .single-page-container {
+      border-bottom: 1px solid rgba(0, 0, 0, .125);
+      margin-bottom: 50px;
+    }
+
+    .graph-container {
+      position: relative;
+      width: 100%;
+      height: 700px;
+      margin-top: 20px;
+      border: 1px solid rgba(0, 0, 0, .125);
+    }
+
+    .graph {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .graph-loading-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      background-color: #ffffff;
+      text-align: center;
+      padding-top: 25%;
+    }
+
+    .graph-loading-overlay .progress {
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+      height: 35px;
+    }
+
+    .show-more-button {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+
+    #screenshotModal .page-screenshot {
+      width: 100%;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">AQUATONE</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu"
+      aria-controls="#navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Pages
+          </a>
+          <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <a class="dropdown-item" href="#/pages/by-similarity">By Similarity</a>
+            <a class="dropdown-item" href="#/pages/by-hosts">By Hosts</a>
+            <a class="dropdown-item" href="#/pages/single">Single Pages</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#/pages/graph">Graph</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main role="main" class="container" id="app">
+    <router-view></router-view>
+  </main>
+
+  <footer id="footer">
+    <p class="text-muted">AQUATONE v1.7.0 &middot; made with <span
+        style="color:red;font-weight:bold">&#65533;</span> by <a href="https://michenriksen.com" target="_blank">Michael
+        Henriksen</a></p>
+    <p><a href="https://www.buymeacoffee.com/michenriksen" target="_blank"><img
+          src="data:image/png;base64,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"
+          alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;"></a></p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/underscore@1.9.1/underscore-min.js"
+    integrity="sha384-5DWzr9S4agqS3WKvPrhFKJagpYyHOBsf3/DxuDKORyqCv2sYer9c/ExdhPOL8CGh"
+    crossorigin="anonymous"></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"
+    integrity="sha384-8t+aLluUVnn5SPPG/NbeZCH6TWIvaXIm/gDbutRvtEeElzxxWaZN+G/ZIEdI/f+y"
+    crossorigin="anonymous"></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue-router@3.0.6/dist/vue-router.min.js"
+    integrity="sha384-eNSGvYAboU/sfO4dGv1q8C58mrNJs93uBoyn/VQ5S8+KB/XqmiocEDAkgdaCGOMT"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/visjs-network@4.24.7/dist/vis.min.js"
+    integrity="sha384-oakKFXWtujbJX7wGZH2I3z1MXq8kc0RqfMnyFBYctBBM/1G5r9ZpLG7ese6fTdu4"
+    crossorigin="anonymous"></script>
+
+  <script type="text/x-template" id="pageCarouselTemplate">
+      <div class="page-similarity-cluster carousel slide" :id="'carousel_' + id" data-interval="false">
+        <ol class="carousel-indicators">
+          <li :data-target="'#carousel_' + id" v-for="(pageGroup, index) in pagesInGroups" :data-slide-to="index" :class="{ 'active': index === 0 }"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item" v-for="(pageGroup, index) in pagesInGroups" :class="{ 'active': index === 0 }">
+            <page-card v-for="page in pageGroup" v-bind:page="page" v-bind:key="page.uuid"></page-card>
+          </div>
+
+          <a class="carousel-control-prev" :href="'#carousel_' + id" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" :href="'#carousel_' + id" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+        <hr />
+    </div>
+  </script>
+
+  <script type="text/x-template" id="PageCardTemplate">
+    <div class="card page-card">
+      <div class="card-header text-truncate" :title="page.url">
+        ${ page.url }
+      </div>
+      <div class="page-screenshot-container" v-on:mouseover="zoomScreenshot" v-on:mouseout="unzoomScreenshot" v-on:mousemove="alignZoomWithCursor">
+        <img v-if="page.hasScreenshot" :src="page.screenshotPath" class="card-img page-screenshot" :alt="page.url" v-on:click="openScreenshotModal" />
+        <img v-else src="data:image/png;base64,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" class="card-img page-screenshot page-no-screenshot" />
+      </div>
+      <div class="card-body">
+        <h5 class="card-title" v-if="page.pageTitle">${ page.pageTitle }</h5>
+        <h5 class="card-title" v-else><em>No title</em></h5>
+        <p class="card-text">
+          <span :class="'badge badge-pill text-break text-wrap ' + badgeClassForStatus()">${ page.status }</span><a v-for="tag in page.tags" :href="tag.link" target="_blank" class="badge badge-pill text-break" :class="'badge-' + tag.type">${ tag.text }</a>
+        </p>
+      </div>
+      <div class="card-footer">
+        <a href="#" class="btn btn-outline-primary btn-sm card-link" v-on:click="openDetailsModal">View Details</a> <a class="btn btn-outline-secondary btn-sm card-link float-right" :href="page.url" target="_blank">Visit Page</a>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/x-template" id="pageHeadersTableTemplate">
+    <table class="table table-striped table-hover table-sm page-headers-table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Header</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="header in headers" :class="classForHeader(header)">
+          <td class="header-name">${ header.name }</td>
+          <td class="header-value">${ header.value }</td>
+        </tr>
+      </tbody>
+    </table>
+  </script>
+
+  <script type="text/x-template" id="singlePageTemplate">
+    <div class="row single-page-container">
+        <div class="col-4">
+          <page-card v-bind:page="page"></page-card>
+        </div>
+        <div class="col-8">
+          <page-headers-table v-bind:headers="page.headers"></page-headers-table>
+        </div>
+    </div>
+  </script>
+
+  <script type="text/x-template" id="pagesBySimilarityPageTemplate">
+    <div>
+      <h2 class="display-4 text-center border-bottom pb-3">Pages by Similarity</h2>
+      <div v-if="clusterIndex - 1 < pageSimilarityClusters.length" v-for="clusterIndex in clustersToShow">
+        <page-carousel v-bind:id="pageSimilarityClusters[clusterIndex - 1].uuid" v-bind:pages="pageSimilarityClusters[clusterIndex - 1].pages"
+          v-bind:key="pageSimilarityClusters[clusterIndex - 1].uuid">
+        </page-carousel>
+      </div>
+      <button @click="clustersToShow += 15" :disabled="clustersToShow >= pageSimilarityClusters.length" class="btn btn-primary btn-lg btn-block show-more-button">Show More</button>
+    </div>
+  </script>
+
+  <script type="text/x-template" id="pagesByHostsPageTemplate">
+    <div>
+      <h2 class="display-4 text-center border-bottom pb-3">Pages by Hosts</h2>
+      <div v-if="clusterIndex - 1 < pagesByHosts.length" v-for="clusterIndex in clustersToShow">
+        <page-carousel v-bind:id="pagesByHosts[clusterIndex - 1].id" v-bind:pages="pagesByHosts[clusterIndex - 1].pages"
+          v-bind:key="pagesByHosts[clusterIndex - 1].id">
+        </page-carousel>
+      </div>
+      <button @click="clustersToShow += 15" :disabled="clustersToShow >= pagesByHosts.length" class="btn btn-primary btn-lg btn-block show-more-button">Show More</button>
+    </div>
+  </script>
+
+  <script type="text/x-template" id="singlePagesPageTemplate">
+    <div>
+      <h2 class="display-4 text-center border-bottom pb-3">Pages</h2>
+      <div v-if="pageIndex - 1 < pages.length" v-for="pageIndex in pagesToShow">
+        <single-page v-bind:id="pages[pageIndex - 1].uuid" v-bind:page="pages[pageIndex - 1]" v-bind:key="pages[pageIndex - 1].uuid"></single-page>
+      </div>
+      <button @click="pagesToShow += 15" :disabled="pagesToShow >= pages.length" class="btn btn-primary btn-lg btn-block show-more-button">Show More</button>
+    </div>
+  </script>
+
+  <script type="text/x-template" id="graphPageTemplate">
+    <div class="graph-container">
+      <div class="graph" id="graph"></div>
+      <div class="graph-loading-overlay" id="graphLoadingOverlay">
+        <h3>Loading graph...</h3>
+        <div class="progress">
+          <div class="progress-bar bg-info" id="graphProgress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="2500"></div>
+        </div>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/javascript">
+    function parseSession(session) {
+      let data = {
+        version: session.version,
+        stats: session.stats,
+        pages: [],
+        pageSimilarityClusters: []
+      }
+      for (let pageUrl in session.pages) {
+        data.pages.push(session.pages[pageUrl]);
+      }
+      for (let uuid in session.pageSimilarityClusters) {
+        let cluster = {
+          uuid: uuid,
+          pages: []
+        }
+        for (let pageUrl of session.pageSimilarityClusters[uuid]) {
+          cluster.pages.push(session.pages[pageUrl])
+        }
+        data.pageSimilarityClusters.push(cluster);
+      }
+      data.pageSimilarityClusters.sort((a, b) => {
+        return a.pages.length - b.pages.length;
+      });
+      return data;
+    }
+
+    Vue.component('PagesBySimilarityPage', {
+      template: '#pagesBySimilarityPageTemplate',
+      delimiters: ['${', '}'],
+      data() {
+        return {
+          clustersToShow: 15
+        }
+      },
+      props: {
+        pageSimilarityClusters: Array
+      }
+    });
+
+    Vue.component('PagesByHostsPage', {
+      template: '#pagesByHostsPageTemplate',
+      delimiters: ['${', '}'],
+      data() {
+        return {
+          clustersToShow: 15
+        }
+      },
+      props: {
+        pages: Array
+      },
+      computed: {
+        pagesByHosts() {
+          result = {}
+          for (let page of this.pages) {
+            if (page.hostname in result) {
+              result[page.hostname].pages.push(page);
+            } else {
+              result[page.hostname] = {
+                id: _.uniqueId('host-cluster_'),
+                pages: [page]
+              }
+            }
+          }
+          return _.values(result);
+        }
+      }
+    });
+
+    Vue.component('SinglePagesPage', {
+      template: '#singlePagesPageTemplate',
+      delimiters: ['${', '}'],
+      data() {
+        return {
+          pagesToShow: 15
+        }
+      },
+      props: {
+        pages: Array
+      }
+    });
+
+    Vue.component('GraphPage', {
+      template: '#graphPageTemplate',
+      delimiters: ['${', '}'],
+      props: {
+        pages: Array,
+        pageSimilarityClusters: Array
+      },
+      computed: {
+        makeDatasets() {
+          let nodes = {};
+          let edges = [];
+
+          for (let page of this.pages) {
+            pageId = `page_${page.uuid}`;
+            nodes[pageId] = {
+              id: pageId,
+              label: page.url,
+              group: 'page',
+              value: 1
+            };
+
+            if (page.tags) {
+              for (let tag of page.tags) {
+                let tagId = `tag_${tag.hash}`;
+                if (!(tagId in nodes)) {
+                  nodes[tagId] = {
+                    id: tagId,
+                    label: tag.text,
+                    group: 'tag',
+                    value: 1,
+                  };
+                } else {
+                  nodes[tagId].value += 3;
+                }
+                edges.push({
+                  from: pageId, to: tagId
+                });
+              }
+            }
+
+            if (page.addrs) {
+              for (let addr of page.addrs) {
+                let addrId = `addr_${addr}`;
+                if (!(addrId in nodes)) {
+                  nodes[addrId] = {
+                    id: addrId,
+                    label: addr,
+                    group: 'addr',
+                    value: 1
+                  };
+                } else {
+                  nodes[addrId].value += 3
+                }
+                edges.push({
+                  from: pageId, to: addrId
+                });
+              }
+            }
+          }
+
+          for (let cluster of this.pageSimilarityClusters) {
+            if (cluster.pages.length <= 1) {
+              continue;
+            }
+
+            clusterId = `cluster_${cluster.uuid}`;
+            nodes[clusterId] = {
+              id: clusterId,
+              label: 'Similar',
+              group: 'similarity',
+              value: 1 + (cluster.pages.length * 3)
+            };
+
+            for (page of cluster.pages) {
+              edges.push({
+                from: `page_${page.uuid}`, to: clusterId
+              });
+            }
+          }
+
+
+          return [new vis.DataSet(_.values(nodes)), new vis.DataSet(edges)]
+        }
+      },
+      mounted: function () {
+        this.$nextTick(() => {
+          $('#footer').hide();
+          $('#graphLoadingOverlay').show();
+          let datasets = this.makeDatasets;
+          let data = {
+            nodes: datasets[0],
+            edges: datasets[1]
+          }
+          let progress = $('#graphProgress');
+
+          let network = new vis.Network($('#graph')[0], data, {
+            layout: {
+              improvedLayout: false,
+            },
+            nodes: {
+              shape: 'dot',
+            },
+            edges: {
+              color: { inherit: 'to' },
+              smooth: false,
+            },
+            physics: {
+              enabled: false,
+              forceAtlas2Based: {
+                springLength: 230,
+                springConstant: 0.18
+              },
+              maxVelocity: 146,
+              solver: 'forceAtlas2Based',
+              timestep: 0.35,
+              stabilization: {
+                enabled: true,
+                iterations: 2500,
+                updateInterval: 25
+              },
+            },
+            groups: {
+              'page': {
+                color: '#28a745'
+              },
+              'tag': {
+                color: '#007bff'
+              },
+              'addr': {
+                color: '#17a2b8'
+              },
+              'similarity': {
+                color: '#ffc107'
+              }
+            }
+          });
+
+          network.on('stabilizationProgress', (params) => {
+            let percentage = (params.iterations / params.total) * 100;
+            progress.attr('aria-valuenow', params.iterations).css('width', `${percentage}%`);
+          });
+
+          network.once('stabilizationIterationsDone', () => {
+            progress.attr('aria-valuenow', 2500).css('width', '100%');
+            $('#graphLoadingOverlay').hide();
+          });
+
+          network.stabilize(2500);
+        });
+      },
+      destroyed: function () {
+        this.$nextTick(() => {
+          $('#footer').show();
+        });
+      }
+    });
+
+    Vue.component('NotFoundPage', {
+      template: "<h1>Ooops. Don't know where that is.</h1>"
+    });
+
+    Vue.component('page-carousel', {
+      template: '#pageCarouselTemplate',
+      delimiters: ['${', '}'],
+      props: {
+        id: String,
+        pages: Array,
+      },
+      computed: {
+        pagesInGroups() {
+          return _.chunk(this.pages, 3);
+        }
+      }
+    });
+
+    Vue.component('page-card', {
+      template: '#PageCardTemplate',
+      delimiters: ['${', '}'],
+      props: {
+        page: Object
+      },
+      methods: {
+        badgeClassForStatus() {
+          let statusCode = parseInt(/^(\d+)\s/.exec(this.page.status)[0]);
+          if (statusCode > 499) {
+            return 'badge-danger';
+          } else if (statusCode > 399) {
+            return 'badge-warning';
+          } else if (statusCode > 299) {
+            return 'badge-info';
+          } else if (statusCode > 199) {
+            return 'badge-success';
+          } else {
+            return 'badge-secondary';
+          }
+        },
+        zoomScreenshot(event) {
+          $(event.target).css({ 'transform': 'scale(2)' });
+        },
+        unzoomScreenshot(event) {
+          $(event.target).css({ 'transform': 'scale(1)' });
+        },
+        alignZoomWithCursor(event) {
+          let container = $(event.target).closest('.page-screenshot-container');
+          $(event.target).css({ 'transform-origin': ((event.pageX - container.offset().left) / container.width()) * 100 + '% ' + ((event.pageY - container.offset().top) / container.height()) * 100 + '%' });
+        },
+        openScreenshotModal(event) {
+          event.preventDefault();
+          let modalTemplate = $("#screenshotModal");
+          modalTemplate.find('.modal-title').text(this.page.url);
+          modalTemplate.find('.screenshot-link').attr('href', this.page.screenshotPath);
+          modalTemplate.find('.page-screenshot').attr('src', this.page.screenshotPath).attr('alt', this.page.url);
+          modalTemplate.modal('show');
+        },
+        openDetailsModal(event) {
+          event.preventDefault();
+          let modalTemplate = $("#detailsModal");
+          let res = Vue.compile('<page-headers-table v-bind:headers="headers"></page-headers-table>');
+          new Vue({
+            data: {
+              headers: this.page.headers
+            },
+            render: res.render,
+            staticRenderFns: res.staticRenderFns
+          }).$mount('#detailsModal .page-headers-table');
+          modalTemplate.find('.modal-title').text(this.page.url);
+          modalTemplate.find('.visit-page-button').attr('href', this.page.url);
+          modalTemplate.find('.view-raw-headers-button').attr('href', this.page.headersPath);
+          modalTemplate.find('.view-raw-response-button').attr('href', this.page.bodyPath);
+          modalTemplate.modal('show');
+        }
+      }
+    });
+
+    Vue.component('page-headers-table', {
+      template: '#pageHeadersTableTemplate',
+      delimiters: ['${', '}'],
+      props: {
+        headers: Array
+      },
+      methods: {
+        classForHeader(header) {
+          if (header.increasesSecurity) {
+            return 'table-success';
+          } else if (header.decreasesSecurity) {
+            return 'table-warning';
+          }
+          return '';
+        }
+      }
+    });
+
+    Vue.component('single-page', {
+      template: '#singlePageTemplate',
+      delimiters: ['${', '}'],
+      props: {
+        page: Object
+      }
+    })
+
+    const session = {"version":"1.7.0","stats":{"startedAt":"2019-12-01T20:53:20.265143391-05:00","finishedAt":"0001-01-01T00:00:00Z","portOpen":0,"portClosed":0,"requestSuccessful":24,"requestFailed":1,"responseCode2xx":17,"responseCode3xx":0,"responseCode4xx":6,"responseCode5xx":1,"screenshotSuccessful":22,"screenshotFailed":2},"pages":{"http://alfred-api.jet.com":{"uuid":"a8eae2c0-0d24-4c7f-97a1-9f769fb5bac6","url":"http://alfred-api.jet.com","hostname":"alfred-api.jet.com","addrs":["23.0.179.2","2600:1417:3f:7a3::c21","2600:1417:3f:7a6::c21"],"status":"200 OK","pageTitle":"","headersPath":"headers/http__alfred-api_jet_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__alfred-api_jet_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/http__alfred-api_jet_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Date","value":"Sun, 01 Dec 2019 13:53:22 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/plain; charset=utf-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Length","value":"51","decreasesSecurity":false,"increasesSecurity":false},{"name":"Jetapiversion","value":"3.0.128-master-commit-6f0bdb08b","decreasesSecurity":false,"increasesSecurity":false},{"name":"Jet_request_id","value":"b92af1b3-de56-4527-8c67-8f34df5aa47f","decreasesSecurity":false,"increasesSecurity":false},{"name":"Strict-Transport-Security","value":"max-age=31536000; includeSubDomains;","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Frame-Options","value":"SAMEORIGIN","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Xss-Protection","value":"1; mode=block;","decreasesSecurity":false,"increasesSecurity":true},{"name":"Server","value":"envoy","decreasesSecurity":true,"increasesSecurity":false},{"name":"Upstream-Op-Id","value":"9fe8af31fb9e4560a35a617954008a2f","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Envoy-Decorator-Operation","value":"guardians-batman-api-assignment-service","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Referrer-Policy","value":"strict-origin-when-cross-origin","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Content-Type-Options","value":"nosniff","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Edgeconnect-Cache-Status","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Request-Id","value":"70491cc7-b034-93cb-9b63-6133ad47fa31","decreasesSecurity":false,"increasesSecurity":false},{"name":"Upstream-Op-Name","value":"batman-webapi-prod-task","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Envoy-Upstream-Service-Time","value":"4","decreasesSecurity":false,"increasesSecurity":false},{"name":"Jet-Dr-Orpheus","value":"{\"headerSchemaVersion\":3,\"correlationIds\":[\"69ab5c86cc2548fea411c0144ac1d569\"],\"messageId\":\"68a4ca4f7fef4412997c277343b11c97\",\"parentIds\":[],\"producerId\":\"Batman-API\",\"ticksFromEpoch\":637108052026806835,\"payloadSchemaUri\":\"Home//GET/1.0\",\"mTags\":[]}","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Envoy","type":"info","link":"https://www.envoyproxy.io/","hash":"44d65a1a14994ebe2a128f985c212fe056e87ac3"}],"notes":null},"http://askjay.jet.com":{"uuid":"8984b917-b49c-4454-b3fd-4a9a84ecdbdd","url":"http://askjay.jet.com","hostname":"askjay.jet.com","addrs":["104.209.192.206"],"status":"200 OK","pageTitle":"Sign in to your account","headersPath":"headers/http__askjay_jet_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__askjay_jet_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/http__askjay_jet_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Link","value":"\u003chttps://aadcdn.msftauth.net\u003e; rel=preconnect; crossorigin \u003chttps://aadcdn.msftauth.net\u003e; rel=dns-prefetch \u003chttps://aadcdn.msauth.net\u003e; rel=dns-prefetch","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Ms-Ests-Server","value":"2.1.9677.8 - SAN ProdSlices","decreasesSecurity":false,"increasesSecurity":false},{"name":"Expires","value":"-1","decreasesSecurity":false,"increasesSecurity":false},{"name":"Pragma","value":"no-cache","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Content-Type-Options","value":"nosniff","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Frame-Options","value":"DENY","decreasesSecurity":false,"increasesSecurity":true},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Control","value":"no-cache, no-store","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Ms-Request-Id","value":"39a461cd-0efa-4712-a2fb-dee52b9df700","decreasesSecurity":false,"increasesSecurity":false},{"name":"P3p","value":"CP=\"DSP CUR OTPi IND OTRi ONL FIN\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Set-Cookie","value":"buid=AQABAAEAAACQN9QBRU3jT6bcBQLZNUj7aqCdB9QJSQPK__JEy4_Il7IYQA3VaCs1E2bNd5SYFhQ1ZRT5XX6sTFkbSAnRoJZqsUj0UC0Os960P6ufoNGpEDj87AfphT2OtGedY5ePZrYgAA; expires=Tue, 31-Dec-2019 13:53:30 GMT; path=/; secure; HttpOnly; SameSite=None fpc=AkeFqnXVQe9Gg2He9R15E95uhVbsAQAAANq8ddUOAAAA; expires=Tue, 31-Dec-2019 13:53:30 GMT; path=/; secure; HttpOnly; SameSite=None esctx=AQABAAAAAACQN9QBRU3jT6bcBQLZNUj7fpSvVYWQvGk8qx-GDVgqemvaMKTPdZnRWlN72DjzXLbdYCU8qOc2M3jcY7fgem2wlbptz77bPBqvqqUOyVCSnAb48xuhQqHBsJmuLx-6-29DXm2LFQdf4nkKsGA_z-zm-3IXHf43-nnn5bfzH_QTCdPJeXHGoLkO3oqZFgqKeKcgAA; domain=.login.microsoftonline.com; path=/; secure; HttpOnly; SameSite=None x-ms-gateway-slice=prod; path=/; SameSite=None; secure; HttpOnly stsservicecookie=ests; path=/; SameSite=None; secure; HttpOnly","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Dns-Prefetch-Control","value":"on","decreasesSecurity":false,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding","decreasesSecurity":false,"increasesSecurity":false},{"name":"Strict-Transport-Security","value":"max-age=31536000; includeSubDomains","decreasesSecurity":false,"increasesSecurity":true},{"name":"Referrer-Policy","value":"strict-origin-when-cross-origin","decreasesSecurity":false,"increasesSecurity":true},{"name":"Date","value":"Sun, 01 Dec 2019 13:53:30 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=utf-8","decreasesSecurity":false,"increasesSecurity":false}],"tags":null,"notes":null},"http://autodiscover.jet.com":{"uuid":"4a11f97d-5b29-4fa0-84d9-fb1aa6a4e525","url":"http://autodiscover.jet.com","hostname":"autodiscover.jet.com","addrs":["52.98.65.8","40.100.29.248","40.100.29.216","52.98.84.88","2603:1046:3:15::8","2603:1046:3::8","2603:1046:1:16::8","2603:1046:c01:854::8"],"status":"200 OK","pageTitle":"Sign in to Outlook","headersPath":"headers/http__autodiscover_jet_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__autodiscover_jet_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/http__autodiscover_jet_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Strict-Transport-Security","value":"max-age=31536000; includeSubDomains","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Dns-Prefetch-Control","value":"on","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Expires","value":"-1","decreasesSecurity":false,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=utf-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Frame-Options","value":"DENY","decreasesSecurity":false,"increasesSecurity":true},{"name":"Link","value":"\u003chttps://aadcdn.msftauth.net\u003e; rel=preconnect; crossorigin \u003chttps://aadcdn.msftauth.net\u003e; rel=dns-prefetch \u003chttps://aadcdn.msauth.net\u003e; rel=dns-prefetch","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Ms-Ests-Server","value":"2.1.9677.8 - SIN1 ProdSlices","decreasesSecurity":false,"increasesSecurity":false},{"name":"P3p","value":"CP=\"DSP CUR OTPi IND OTRi ONL FIN\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Set-Cookie","value":"buid=AQABAAEAAACQN9QBRU3jT6bcBQLZNUj7ee3fdUonLzAsLvWrDW8-cOdZwlZVTsI89knAqn7_bNhFXTeceItj-xszgE-YMr9L0ogfr9BtgPaGzzquZwCjiOBKM4sUKeOmHTNQgguatpsgAA; expires=Tue, 31-Dec-2019 13:53:23 GMT; path=/; secure; HttpOnly; SameSite=None fpc=Ahj6hr3brS1AqR-TSYc43KM-NjKRAQAAANO8ddUOAAAA; expires=Tue, 31-Dec-2019 13:53:23 GMT; path=/; secure; HttpOnly; SameSite=None esctx=AQABAAAAAACQN9QBRU3jT6bcBQLZNUj77kXqWKY-hou3yos5xMBGVPUYNj4U4ozjqEUxzCMlOMfMBjexbkDCph1OiEN4X_hJrQFOf84LH-zoaE2yyFJcvtmBrHYEft_6yIB6JjK-brvWhFYLTYhkwCNSEica2xLmkH3SqJdz1UkPXuEFkBhy6KoeRPzvCai9oG9mppEyUmAgAA; domain=.login.microsoftonline.com; path=/; secure; HttpOnly; SameSite=None x-ms-gateway-slice=prod; path=/; SameSite=None; secure; HttpOnly stsservicecookie=ests; path=/; SameSite=None; secure; HttpOnly","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Control","value":"no-cache, no-store","decreasesSecurity":false,"increasesSecurity":false},{"name":"Pragma","value":"no-cache","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Sun, 01 Dec 2019 13:53:23 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Ms-Request-Id","value":"8c851686-82a5-47dd-9dea-dae9fb752401","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Content-Type-Options","value":"nosniff","decreasesSecurity":false,"increasesSecurity":true}],"tags":null,"notes":null},"http://batman-api.jet.com":{"uuid":"b69fafa8-9edd-4c77-b42f-9742d88386c7","url":"http://batman-api.jet.com","hostname":"batman-api.jet.com","addrs":["23.0.179.2","2001:4488:1:1b8::c21","2001:4488:1:1b4::c21"],"status":"200 OK","pageTitle":"","headersPath":"headers/http__batman-api_jet_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__batman-api_jet_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/http__batman-api_jet_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Server","value":"envoy","decreasesSecurity":true,"increasesSecurity":false},{"name":"Upstream-Op-Id","value":"1a44aaae4ffe445688dbabaa8cd12af9","decreasesSecurity":false,"increasesSecurity":false},{"name":"Referrer-Policy","value":"strict-origin-when-cross-origin","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Xss-Protection","value":"1; mode=block;","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Edgeconnect-Cache-Status","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Upstream-Op-Name","value":"batman-webapi-prod-task","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Envoy-Decorator-Operation","value":"guardians-batman-api-assignment-service","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Frame-Options","value":"SAMEORIGIN","decreasesSecurity":false,"increasesSecurity":true},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Request-Id","value":"da598e2d-2d4e-9cf7-8a9d-8f7dc3c375ff","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Content-Type-Options","value":"nosniff","decreasesSecurity":false,"increasesSecurity":true},{"name":"Jet-Dr-Orpheus","value":"{\"headerSchemaVersion\":3,\"correlationIds\":[\"a7e4709384dd4c368dc1adf3d478f119\"],\"messageId\":\"1aa45ad8029a45e580f41fc321cf9c56\",\"parentIds\":[],\"producerId\":\"Batman-API\",\"ticksFromEpoch\":637108052032018542,\"payloadSchemaUri\":\"Home//GET/1.0\",\"mTags\":[]}","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/plain; charset=utf-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Length","value":"51","decreasesSecurity":false,"increasesSecurity":false},{"name":"Jetapiversion","value":"3.0.128-master-commit-6f0bdb08b","decreasesSecurity":false,"increasesSecurity":false},{"name":"Jet_request_id","value":"0e58188e-1ee8-4890-a95d-18aed1c98805","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Envoy-Upstream-Service-Time","value":"4","decreasesSecurity":false,"increasesSecurity":false},{"name":"Strict-Transport-Security","value":"max-age=31536000; includeSubDomains;","decreasesSecurity":false,"increasesSecurity":true},{"name":"Date","value":"Sun, 01 Dec 2019 13:53:23 GMT","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Envoy","type":"info","link":"https://www.envoyproxy.io/","hash":"44d65a1a14994ebe2a128f985c212fe056e87ac3"}],"notes":null},"http://blog.jet.com":{"uuid":"931e241b-a867-4998-91ca-8f4f8ec67f78","url":"http://blog.jet.com","hostname":"blog.jet.com","addrs":["192.0.78.13","192.0.78.12"],"status":"200 OK","pageTitle":"Jet.com – Everything You Need and Want and Why","headersPath":"headers/http__blog_jet_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__blog_jet_com__da39a3ee5e6b4b0d.html","screenshotPath":"","hasScreenshot":false,"headers":[{"name":"X-Nananana","value":"Batcache","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=UTF-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Link","value":"\u003chttps://wp.me/7Frx3\u003e; rel=shortlink","decreasesSecurity":false,"increasesSecurity":false},{"name":"Last-Modified","value":"Sun, 01 Dec 2019 13:53:25 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Strict-Transport-Security","value":"max-age=86400","decreasesSecurity":false,"increasesSecurity":true},{"name":"Server","value":"nginx","decreasesSecurity":true,"increasesSecurity":false},{"name":"Cache-Control","value":"max-age=300, must-revalidate","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Ac","value":"1.sin _bur","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Hacker","value":"If you're reading this, you should visit automattic.com/jobs and apply to join the fun, mention this header.","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Sun, 01 Dec 2019 13:53:25 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding Cookie","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Nginx","type":"info","link":"http://nginx.org/en","hash":"c5f9bde4da1314a38cd29cddb1dd216b15d84c8e"},{"text":"Adobe DTM","type":"info","link":"https://marketing.adobe.com/resources/help/en_US/dtm/c_overview.html","hash":"1624680194a53e6c284b2aadcd2d1f2c5daef609"},{"text":"WordPress","type":"info","link":"https://wordpress.org","hash":"a52bef2d19c06ff28d27be1ed14383fc8a3ce31d"}],"notes":null},"http://careers.jet.com":{"uuid":"def5a867-52db-4c98-8d66-ae15e5832905","url":"http://careers.jet.com","hostname":"careers.jet.com","addrs":["148.62.5.223"],"status":"200 OK","pageTitle":"Jet.com Careers","headersPath":"headers/http__careers_jet_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__careers_jet_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/http__careers_jet_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Server","value":"Apache-Coyote/1.1","decreasesSecurity":true,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html;charset=UTF-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Sun, 01 Dec 2019 13:53:30 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Keep-Alive","value":"timeout=305, max=100","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Powered-By","value":"Brightspot","decreasesSecurity":true,"increasesSecurity":false},{"name":"Set-Cookie","value":"walcar.ab=dbbc6421-f98a-4904-8eef-f77d2829feaf; Path=/ JSESSIONID=9F9B55C013113593E3A199889ABCDF27; Path=/; Secure; HttpOnly","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Apache Tomcat","type":"info","link":"http://tomcat.apache.org","hash":"77b151a477b752293bce02d0881bdbf6aab8003a"},{"text":"Brightspot","type":"info","link":"https://www.brightspot.com","hash":"8cdfc057fd4d3c0af3f34a6d685df1f1eddb9508"},{"text":"Adobe DTM","type":"info","link":"https://marketing.adobe.com/resources/help/en_US/dtm/c_overview.html","hash":"1624680194a53e6c284b2aadcd2d1f2c5daef609"},{"text":"Google Maps","type":"info","link":"http://maps.google.com","hash":"f81fec940a39394fc27cf62ee71e8a8f53f09307"},{"text":"Google Tag Manager","type":"info","link":"http://www.google.com/tagmanager","hash":"32c1785f479b1aa00e898891bc206fd131fcf7b7"},{"text":"Handlebars","type":"info","link":"http://handlebarsjs.com","hash":"293bbcefb77a2fe7f6dde5b1510b6e8a8ab17076"}],"notes":null},"http://goto.jet.com":{"uuid":"7122d1d6-360e-4b63-80a9-192ba78b4f24","url":"http://goto.jet.com","hostname":"goto.jet.com","addrs":["35.244.228.149"],"status":"200 OK","pageTitle":"Dead End","headersPath":"headers/http__goto_jet_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__goto_jet_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/http__goto_jet_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Etag","value":"\"AAJR3+Nem/h\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=utf-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"P3p","value":"policyref=\"/w3c/p3p.xml\", CP=\"ALL BUS LEG DSP COR ADM CUR DEV PSA OUR NAV INT\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Last-Modified","value":"Fri, 12 Oct 2018 11:39:57 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Length","value":"1767","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Sun, 01 Dec 2019 13:53:24 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Set-Cookie","value":"epersist=!3Szx+PaKEo3jF4xeMtGhcv/9zNbJr9qsEpN44QxB0drT5vsT6ZcTdR8zKOrTlAMB2VaOg1ATRjBs5g==; path=/; Httponly","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"","decreasesSecurity":true,"increasesSecurity":false}],"tags":null,"notes":null},"http://link.jet.com":{"uuid":"fac754ca-8c77-4708-a81f-511264d57327","url":"http://link.jet.com","hostname":"link.jet.com","addrs":["162.208.117.53"],"status":"200 OK","pageTitle":"Jet.com | Shop curated brands and city essentials, all in one place","headersPath":"headers/http__link_jet_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__link_jet_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/http__link_jet_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Server","value":"envoy","decreasesSecurity":true,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Edgeconnect-Midmile-Rtt","value":"256 256","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Xss-Protection","value":"1; mode=block;","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Envoy-Decorator-Operation","value":"batmanweb-proxy-prod","decreasesSecurity":false,"increasesSecurity":false},{"name":"Jet-Dr-Orpheus","value":"{\"headerSchemaVersion\":3,\"correlationIds\":[\"82986cbf332342c982aa18ce27589b2b\"],\"messageId\":\"f900519e98e04b97be323a39d5be21a3\",\"parentIds\":[\"f0f576249119403599dbf41d2a319c29\"],\"producerId\":\"Batman-API\",\"ticksFromEpoch\":637108052064491000,\"payloadSchemaUri\":\"CmsProxy/cms/GET/1.0\",\"mTags\":[]}","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=utf-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Referrer-Policy","value":"strict-origin-when-cross-origin","decreasesSecurity":false,"increasesSecurity":true},{"name":"Vary","value":"Accept-Encoding","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Edgeconnect-Cache-Status","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Powered-By","value":"Next.js 8.0.0","decreasesSecurity":true,"increasesSecurity":false},{"name":"X-Edgeconnect-Origin-Mex-Latency","value":"242 242","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Akamai-Transformed","value":"9 260853 0 pmb=mTOE,2","decreasesSecurity":false,"increasesSecurity":false},{"name":"Strict-Transport-Security","value":"max-age=31536000; preload","decreasesSecurity":false,"increasesSecurity":true},{"name":"Jet","value":"4:1.857:1574714943:971fa","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Frame-Options","value":"SAMEORIGIN","decreasesSecurity":false,"increasesSecurity":true},{"name":"Date","value":"Sun, 01 Dec 2019 13:53:27 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Set-Cookie","value":"jet.csrf=tpf4FsKXZL24K0UJDwx16oT_; path=/; secure; httponly signupShown=; path=/; expires=Sat, 01 Jan 2039 00:00:00 GMT; domain=batmanweb-proxy-prod.envoy.eastus2.prod.jet.com; secure signupShown=0; Domain=batmanweb-proxy-prod.envoy.eastus2.prod.jet.com; Path=/; Expires=Sat, 01 Jan 2039 00:00:00 GMT jid=d94bac7a-d3b7-41ad-aa56-7ee9499dd326; path=/; expires=Sat, 01 Jan 2039 00:00:00 GMT; domain=batmanweb-proxy-prod.envoy.eastus2.prod.jet.com; secure; httponly jid=d94bac7a-d3b7-41ad-aa56-7ee9499dd326; Domain=batmanweb-proxy-prod.envoy.eastus2.prod.jet.com; Path=/; Expires=Sat, 01 Jan 2039 00:00:00 GMT jet-referer=%2F; Path=/ jet-id=b6dcf751-fbf8-4b85-af41-067b8b150bae; path=/; expires=Tue, 31 Dec 2019 13:53:26 GMT; secure; httponly jet-jetGeoIp=%7B%22postal_code%22%3A%2220149%22%2C%22city_name%22%3A%22Ashburn%22%2C%22country_code%22%3A%22US%22%2C%22time_zone%22%3A%22America%2FNew_York%22%7D; path=/; expires=Tue, 31 Dec 2019 13:53:26 GMT; secure; httponly ipZipcode=20149; path=/; expires=Tue, 31 Dec 2019 13:53:26 GMT; secure jet-clientTicket=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiJkMGRhZDk5MzQ0ODA0ZWY2OWZiYjlhZTgwOWNhNGU3YSIsImlzcyI6ImpldC5jb20iLCJhdWQiOiJ3ZWJjbGllbnQifQ.jBiydt5-SuQTbpMVPpnk-TzpagaZ4tQdgvqk56DYOUA; path=/; expires=Tue, 31 Dec 2019 13:53:26 GMT; secure; httponly ak_bmsc=D36E7E98C6DEC30706C45B0DE3C0DE3E1700A215CD520000D6C5E35D92AD4571~plPxBjDv6Xl9ot/A2a6CEIKFyWW9AZz+CufMa7XrKCexwATbyQEaUTL9iYbfZtvmDSzx+8iDZuFylKEc3BkdhiIuUQxZcBvnpIYuz6gWrnZEnzxR6vl1HfDM9enm0i2WtHu8ALn9F6yKlMEyDyXNvMhW2K+wQpZKqD6j6uxwTAMfMb0jlubqv6x0uGkNdpE4fYj97B55ILC3BLAQ2LzgEe7wuCKEMWtpLh4SAxkCLYIZ4=; expires=Sun, 01 Dec 2019 15:53:26 GMT; max-age=7200; path=/; domain=.jet.com; HttpOnly bm_mi=42D352E6E0C6ADCC6AC74FFD4CE4547B~4W/JAWyx0KNg/E7jU+i11CZwxTNAwnpAOFDBa2bv3rN5IrfikyhxSvLuJU3dvI9xtO4smfjt2LhlHnYB43LxjZ3NhPEDlQFSHTSsRRlNhPHiCgNzYlCG/NfGBXqiUwcR5RHnklU1ZmRsWBUSpc6KTD7jUS2HKYjirurUxmSbNbbdKEnG+2TqgoB1Vw04WvjjdqNBnfJ7XSTfYOv73nbnag==; Domain=.jet.com; Path=/; Max-Age=0; HttpOnly","decreasesSecurity":false,"increasesSecurity":false},{"name":"Etag","value":"\"3faf5-6Jdw6Ql7M9rMI36eOLaZ1aUzy+0\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Envoy-Upstream-Service-Time","value":"233","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Content-Type-Options","value":"nosniff","decreasesSecurity":false,"increasesSecurity":true}],"tags":[{"text":"Envoy","type":"info","link":"https://www.envoyproxy.io/","hash":"44d65a1a14994ebe2a128f985c212fe056e87ac3"},{"text":"Akamai","type":"info","link":"http://akamai.com","hash":"89c20e23b42fd2aae1ddb85d86fd17b8f7463212"},{"text":"Adobe DTM","type":"info","link":"https://marketing.adobe.com/resources/help/en_US/dtm/c_overview.html","hash":"1624680194a53e6c284b2aadcd2d1f2c5daef609"}],"notes":null},"http://merchant-api.jet.com":{"uuid":"2d9fc99d-2adf-48ba-8a8c-d89360e453e4","url":"http://merchant-api.jet.com","hostname":"merchant-api.jet.com","addrs":["23.9.205.226","2600:1417:3f:784::30e1","2600:1417:3f:792::30e1"],"status":"200 OK","pageTitle":"Jet Partners Web API","headersPath":"headers/http__merchant-api_jet_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__merchant-api_jet_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/http__merchant-api_jet_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Content-Type","value":"text/html","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Length","value":"263","decreasesSecurity":false,"increasesSecurity":false},{"name":"Last-Modified","value":"Thu, 24 Oct 2019 19:40:35 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Etag","value":"\"1d58aa2e7777a87\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Strict-Transport-Security","value":"max-age=15768000","decreasesSecurity":false,"increasesSecurity":true},{"name":"Date","value":"Sun, 01 Dec 2019 13:53:23 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"openresty","decreasesSecurity":true,"increasesSecurity":false}],"tags":[{"text":"OpenResty","type":"info","link":"http://openresty.org","hash":"ae496bd80e83c950d089be1823eb168bea870899"}],"notes":null},"http://shop.jet.com":{"uuid":"c72d8313-b793-44c7-92fe-e60fdd7239f3","url":"http://shop.jet.com","hostname":"shop.jet.com","addrs":["162.223.233.179"],"status":"200 OK","pageTitle":"Oracle Marketing Cloud and  Data Cloud Privacy Policy | Oracle","headersPath":"headers/http__shop_jet_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__shop_jet_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/http__shop_jet_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"X-Frame-Options","value":"sameorigin","decreasesSecurity":false,"increasesSecurity":true},{"name":"Custom_cache_rule_location","value":"AssetTypeLevel","decreasesSecurity":false,"increasesSecurity":false},{"name":"Host_service","value":"FutureTenseContentServer:12c","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server-Timing","value":"cdn-cache; desc=HIT edge; dur=1","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Oracle-Apmcs-Tag","value":"","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Content-Type-Options","value":"nosniff","decreasesSecurity":false,"increasesSecurity":true},{"name":"Date","value":"Sun, 01 Dec 2019 13:53:28 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Custom_akamai_autopurge","value":"YES","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Control","value":"max-age=1800","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Oracle-Apmcs-Request-Id","value":"61640C39D32FAB19338428FE55631EA04FF5620D","decreasesSecurity":false,"increasesSecurity":false},{"name":"Access-Control-Expose-Headers","value":"X-ORACLE-APMCS-REQUEST-ID,X-ORACLE-APMCS-TAG","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=UTF-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Oracle-Dms-Rid","value":"0:1","decreasesSecurity":false,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Language","value":"en-US","decreasesSecurity":false,"increasesSecurity":false},{"name":"Device_type","value":"Any","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Akamai-Transformed","value":"9 - 0 pmb=mRUM,2","decreasesSecurity":false,"increasesSecurity":false},{"name":"Origin-Cache-Control","value":"max-age=1800","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Security-Policy","value":"frame-ancestors 'self' https://explore.oracle.com","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Xss-Protection","value":"1","decreasesSecurity":false,"increasesSecurity":true},{"name":"Server","value":"Oracle-HTTP-Server","decreasesSecurity":true,"increasesSecurity":false},{"name":"Last-Modified","value":"Thu, 21 Nov 2019 06:10:55 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Oracle-Dms-Ecid","value":"005_yOtAlWH9Pdw70Fe9UF00019a000Jwy","decreasesSecurity":false,"increasesSecurity":false},{"name":"Origin-Edge-Control","value":"!no-store,max-age=2592000,downstream-ttl=1800","decreasesSecurity":false,"increasesSecurity":false},{"name":"Actual-Object-Ttl","value":"2592000","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Akamai","type":"info","link":"http://akamai.com","hash":"89c20e23b42fd2aae1ddb85d86fd17b8f7463212"},{"text":"Oracle HTTP Server","type":"info","link":"http://oracle.com","hash":"76bab6e6ea2f69898aa4396ae0b3fb2f98e8c84c"},{"text":"Adobe DTM","type":"info","link":"https://marketing.adobe.com/resources/help/en_US/dtm/c_overview.html","hash":"1624680194a53e6c284b2aadcd2d1f2c5daef609"},{"text":"jQuery","type":"info","link":"https://jquery.com","hash":"61ca870c2763b90da43197f43bf497893e9b1166"}],"notes":null},"http://sift.notjet.net":{"uuid":"01d8fd5d-4a73-4f1e-9a9a-81940b5a17cb","url":"http://sift.notjet.net","hostname":"sift.notjet.net","addrs":["34.102.213.72"],"status":"404 Not Found","pageTitle":"","headersPath":"headers/http__sift_notjet_net__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__sift_notjet_net__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/http__sift_notjet_net__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Content-Type","value":"application/json","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding","decreasesSecurity":false,"increasesSecurity":false},{"name":"Via","value":"1.1 google","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"nginx","decreasesSecurity":true,"increasesSecurity":false},{"name":"Date","value":"Sun, 01 Dec 2019 13:53:26 GMT","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Google Cloud","type":"info","link":"https://cloud.google.com","hash":"ecce25fe11ac1344e889a7b4c4eba7979dcc3db2"},{"text":"Nginx","type":"info","link":"http://nginx.org/en","hash":"c5f9bde4da1314a38cd29cddb1dd216b15d84c8e"}],"notes":null},"http://tech.jet.com":{"uuid":"ad438117-b335-4d10-a188-2b816c80b58c","url":"http://tech.jet.com","hostname":"tech.jet.com","addrs":["23.9.205.226","2600:1417:3f:792::30e1","2600:1417:3f:784::30e1"],"status":"200 OK","pageTitle":"Jet Tech – Medium","headersPath":"headers/http__tech_jet_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__tech_jet_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/http__tech_jet_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Date","value":"Sun, 01 Dec 2019 13:53:24 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Set-Cookie","value":"__cfduid=d1a87fe5988fd8719cf32ecebdc55184a1575208404; expires=Tue, 31-Dec-19 13:53:24 GMT; path=/; domain=.medium.com; HttpOnly uid=lo_68GaWMFRaS9n; Expires=Mon, 30-Nov-20 13:53:24 GMT; Domain=.medium.com; Path=/; Secure; HttpOnly optimizelyEndUserId=lo_68GaWMFRaS9n; path=/; expires=Mon, 30 Nov 2020 13:53:24 GMT; domain=.medium.com; secure sid=1:bQVfboWkMaabLPrgWyqP2YmyWtnOqJR11wFNUq79pl1WIdD4uyBC4wttm0zJuXNe; path=/; expires=Mon, 30 Nov 2020 13:53:24 GMT; domain=.medium.com; secure; httponly puid=; path=/; expires=Sun, 01 Dec 2019 13:53:23 GMT; domain=medium.com; secure; httponly puid=; path=/; expires=Sun, 01 Dec 2019 13:53:23 GMT; domain=.medium.com; secure; httponly puid=; path=/; expires=Sun, 01 Dec 2019 13:53:23 GMT; secure; httponly puid=; path=/; expires=Sun, 01 Dec 2019 13:53:23 GMT; domain=.medium.com; secure; httponly __cfruid=db67ea2281377d2f738015088c14cd9714851a2d-1575208404; path=/; domain=.medium.com; HttpOnly","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Content-Type-Options","value":"nosniff","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Powered-By","value":"Medium","decreasesSecurity":true,"increasesSecurity":false},{"name":"Pragma","value":"no-cache","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cf-Cache-Status","value":"DYNAMIC","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=utf-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Xss-Protection","value":"1; mode=block","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Ua-Compatible","value":"IE=edge, Chrome=1","decreasesSecurity":false,"increasesSecurity":false},{"name":"Expires","value":"Thu, 09 Sep 1999 09:09:09 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Expect-Ct","value":"max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"cloudflare","decreasesSecurity":true,"increasesSecurity":false},{"name":"X-Frame-Options","value":"sameorigin","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Obvious-Info","value":"39395-442f9de,442f9de3412","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Control","value":"no-cache, no-store, max-age=0, must-revalidate","decreasesSecurity":false,"increasesSecurity":false},{"name":"Strict-Transport-Security","value":"max-age=15552000; includeSubDomains; preload","decreasesSecurity":false,"increasesSecurity":true},{"name":"Cf-Ray","value":"53e58c0f6ba77054-SIN","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Security-Policy","value":"default-src 'self'; connect-src https://localhost https://*.instapaper.com https://*.stripe.com https://glyph.medium.com https://*.paypal.com https://getpocket.com https://medium.com https://*.medium.com https://*.medium.com https://medium.com https://*.medium.com https://*.algolia.net https://cdn-static-1.medium.com https://dnqgz544uhbo8.cloudfront.net https://cdn-videos-1.medium.com https://cdn-audio-1.medium.com https://*.lightstep.com https://*.branch.io 'self'; font-src data: https://*.amazonaws.com https://*.medium.com https://glyph.medium.com https://medium.com https://*.gstatic.com https://dnqgz544uhbo8.cloudfront.net https://cdn-static-1.medium.com 'self'; frame-src chromenull: https: webviewprogressproxy: medium: 'self'; img-src blob: data: https: 'self'; media-src https://*.cdn.vine.co https://d1fcbxp97j4nb2.cloudfront.net https://d262ilb51hltx0.cloudfront.net https://*.medium.com https://gomiro.medium.com https://miro.medium.com https://pbs.twimg.com 'self' blob:; object-src 'self'; script-src 'unsafe-eval' 'unsafe-inline' about: https: 'self'; style-src 'unsafe-inline' data: https: 'self'; report-uri https://csp.medium.com","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Obvious-Tid","value":"1575208404504:f5fd99095e0b","decreasesSecurity":false,"increasesSecurity":false},{"name":"Link","value":"\u003chttps://medium.com/humans.txt\u003e; rel=\"humans\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Alt-Svc","value":"h3-23=\":443\"; ma=86400","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Medium","type":"info","link":"https://medium.com","hash":"b38e0afc866af4e905faebb14eec4d7e2b9a696a"},{"text":"CloudFlare","type":"info","link":"http://www.cloudflare.com","hash":"9ea92fc7dce5e740ccc8e64d8f9e3336a96efc2a"},{"text":"Google Analytics","type":"info","link":"http://google.com/analytics","hash":"8b3048ab834882a576e4c5c01e136b9ce47198df"}],"notes":null},"http://webhook-stg.jet.com":{"uuid":"cd6f9eec-0318-4b0e-b6bd-5eae9d5a555c","url":"http://webhook-stg.jet.com","hostname":"webhook-stg.jet.com","addrs":["104.71.83.73"],"status":"400 Bad Request","pageTitle":"","headersPath":"headers/http__webhook-stg_jet_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__webhook-stg_jet_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/http__webhook-stg_jet_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"X-Ms-Ratelimit-Burst-Remaining-Workflow-Reads","value":"14998","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Ms-Ratelimit-Time-Remaining-Directapirequests","value":"74998160","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Ms-Request-Id","value":"westus:b2ab4825-7d30-420a-a228-5443d3eaddb4","decreasesSecurity":false,"increasesSecurity":false},{"name":"Strict-Transport-Security","value":"max-age=31536000; includeSubDomains","decreasesSecurity":false,"increasesSecurity":true},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Pragma","value":"no-cache","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"application/json; charset=utf-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Expires","value":"-1","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Ms-Ratelimit-Remaining-Workflow-Download-Contentsize","value":"805301672","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Length","value":"142","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Sun, 01 Dec 2019 13:53:32 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Akamai-Staging","value":"ESSL","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Control","value":"no-cache","decreasesSecurity":false,"increasesSecurity":false}],"tags":null,"notes":null},"http://webhook.jet.com":{"uuid":"32656d78-f478-4bbc-87bd-9a3d0c0e30a6","url":"http://webhook.jet.com","hostname":"webhook.jet.com","addrs":["23.9.205.226"],"status":"400 Bad Request","pageTitle":"","headersPath":"headers/http__webhook_jet_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__webhook_jet_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/http__webhook_jet_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Cache-Control","value":"no-cache","decreasesSecurity":false,"increasesSecurity":false},{"name":"Expires","value":"-1","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Ms-Ratelimit-Time-Remaining-Directapirequests","value":"74999996","decreasesSecurity":false,"increasesSecurity":false},{"name":"Strict-Transport-Security","value":"max-age=31536000; includeSubDomains","decreasesSecurity":false,"increasesSecurity":true},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Sun, 01 Dec 2019 13:53:22 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Pragma","value":"no-cache","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"application/json; charset=utf-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Ms-Ratelimit-Burst-Remaining-Workflow-Reads","value":"14997","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Ms-Ratelimit-Remaining-Workflow-Download-Contentsize","value":"805306368","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Ms-Request-Id","value":"westus:4f7142f2-6a28-4cb3-a0c7-7f3d7bb995bf","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Length","value":"142","decreasesSecurity":false,"increasesSecurity":false}],"tags":null,"notes":null},"http://www.notjet.net":{"uuid":"9b2203ec-0abf-47df-be01-51f40f85f801","url":"http://www.notjet.net","hostname":"www.notjet.net","addrs":["23.11.112.110","2600:1417:3f:786::361f","2600:1417:3f:7a6::361f"],"status":"200 OK","pageTitle":"Jet.com | Shop curated brands and city essentials, all in one place","headersPath":"headers/http__www_notjet_net__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__www_notjet_net__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/http__www_notjet_net__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Content-Type","value":"text/html; charset=utf-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Envoy-Decorator-Operation","value":"batmanweb-proxy-qa","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Xss-Protection","value":"1; mode=block;","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Envoy-Upstream-Service-Time","value":"234","decreasesSecurity":false,"increasesSecurity":false},{"name":"Etag","value":"\"5c7e7-5VwFShXKAEsldivc5xg6MS4wJBk\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Frame-Options","value":"SAMEORIGIN","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Content-Type-Options","value":"nosniff","decreasesSecurity":false,"increasesSecurity":true},{"name":"Vary","value":"Accept-Encoding","decreasesSecurity":false,"increasesSecurity":false},{"name":"Strict-Transport-Security","value":"max-age=31536000","decreasesSecurity":false,"increasesSecurity":true},{"name":"Jet","value":"4:1.861:1575061838:540a6","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Powered-By","value":"Next.js 8.0.0","decreasesSecurity":true,"increasesSecurity":false},{"name":"Server","value":"envoy","decreasesSecurity":true,"increasesSecurity":false},{"name":"Date","value":"Sun, 01 Dec 2019 13:53:27 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Set-Cookie","value":"jet.csrf=J9b00ooTq-NMyUPY0YhTMt38; path=/; secure; httponly signupShown=; path=/; expires=Sat, 01 Jan 2039 00:00:00 GMT; domain=batmanweb-proxy-qa.envoy.eastus2.qa.notjet.net; secure signupShown=0; Domain=batmanweb-proxy-qa.envoy.eastus2.qa.notjet.net; Path=/; Expires=Sat, 01 Jan 2039 00:00:00 GMT jid=1c758ff1-3f63-4f40-8ef5-eb3dda090f25; path=/; expires=Sat, 01 Jan 2039 00:00:00 GMT; domain=batmanweb-proxy-qa.envoy.eastus2.qa.notjet.net; secure; httponly jid=1c758ff1-3f63-4f40-8ef5-eb3dda090f25; Domain=batmanweb-proxy-qa.envoy.eastus2.qa.notjet.net; Path=/; Expires=Sat, 01 Jan 2039 00:00:00 GMT jet-referer=%2F; Path=/ jet-phaser=2%3Be2d128e2922543c282c572fb7aaf76e4%3B7tJh%3B7uvR%3B92CBI%3B93oFG%3B98Cw0%3B996pFe%3B9GQ1%3B9GSao%3B9HLr%3B9J12T%3B9JJvH%3B9Jp4i%3B9MAixN%3B9UbxmC%3B9gQC%3B9ln3%3B9n8jG%3B9uJgwR%3B9vFW8X%3B9x6au%3B9zfkN%3B1575208407; path=/; expires=Tue, 31 Dec 2019 13:53:27 GMT; secure; httponly jet-phaser=2%3Be2d128e2922543c282c572fb7aaf76e4%3B7tJh%3B7uvR%3B92CBI%3B93oFG%3B98Cw0%3B996pFe%3B9GQ1%3B9GSao%3B9HLr%3B9J12T%3B9JJvH%3B9Jp4i%3B9MAixN%3B9UbxmC%3B9gQC%3B9ln3%3B9n8jG%3B9uJgwR%3B9vFW8X%3B9x6au%3B9zfkN%3B1575208407; Max-Age=2592000000; Path=/; Expires=Fri, 20 Jan 2102 13:53:27 GMT; HttpOnly jet.qa-id=04ce04f0-803e-4dd6-933b-27f0195fedd5; path=/; expires=Tue, 31 Dec 2019 13:53:27 GMT; secure; httponly jet.qa-jetGeoIp=%7B%22postal_code%22%3A%2290009%22%2C%22city_name%22%3A%22Los%20Angeles%22%2C%22country_code%22%3A%22US%22%2C%22time_zone%22%3A%22America%2FLos_Angeles%22%7D; path=/; expires=Tue, 31 Dec 2019 13:53:27 GMT; secure; httponly ipZipcode=90009; path=/; expires=Tue, 31 Dec 2019 13:53:27 GMT; secure jet.qa-clientTicket=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiIwZTI4NzZlYzljN2M0NTA1OWNiNTc1YjM5ODlhODM1ZSIsImlzcyI6ImpldC5jb20iLCJhdWQiOiJ3ZWJjbGllbnQifQ.yc9mtXMzrrVuje_4Z8pfXpFBcIlD1m9U_D8Nh8yaihQ; path=/; expires=Tue, 31 Dec 2019 13:53:27 GMT; secure; httponly X-Akamai-Chosen=qa_phased_nomad_eastus2 akacd_phased_release=3752661206~rv=71~id=310df267283d6eee3bc3e3e5bb369aaf; path=/;","decreasesSecurity":false,"increasesSecurity":false},{"name":"Jet-Dr-Orpheus","value":"{\"headerSchemaVersion\":3,\"correlationIds\":[\"41ecb8f7ce6a42ecaa59af6dcd7e707b\"],\"messageId\":\"70066d35bf6e4b71a534237d7075c589\",\"parentIds\":[\"84b796bbdf844f5788f16c830b88320b\"],\"producerId\":\"Batman-API\",\"ticksFromEpoch\":637108052072528300,\"payloadSchemaUri\":\"CmsProxy/cms/GET/1.0\",\"mTags\":[],\"pTags\":[[\"phaser\",\"2;e2d128e2922543c282c572fb7aaf76e4;7tJh;7uvR;92CBI;93oFG;98Cw0;996pFe;9GQ1;9GSao;9HLr;9J12T;9JJvH;9Jp4i;9MAixN;9UbxmC;9gQC;9ln3;9n8jG;9uJgwR;9vFW8X;9x6au;9zfkN;1575208407\"]]}","decreasesSecurity":false,"increasesSecurity":false},{"name":"Referrer-Policy","value":"strict-origin-when-cross-origin","decreasesSecurity":false,"increasesSecurity":true},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Envoy","type":"info","link":"https://www.envoyproxy.io/","hash":"44d65a1a14994ebe2a128f985c212fe056e87ac3"},{"text":"Adobe DTM","type":"info","link":"https://marketing.adobe.com/resources/help/en_US/dtm/c_overview.html","hash":"1624680194a53e6c284b2aadcd2d1f2c5daef609"}],"notes":null},"https://alfred-api.jet.com":{"uuid":"f98d07c6-165c-4888-bda9-66739e55c8fe","url":"https://alfred-api.jet.com","hostname":"alfred-api.jet.com","addrs":["23.0.179.2","2600:1417:3f:7a3::c21","2600:1417:3f:7a6::c21"],"status":"403 Forbidden","pageTitle":"Access Denied","headersPath":"headers/https__alfred-api_jet_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/https__alfred-api_jet_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/https__alfred-api_jet_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Content-Length","value":"271","decreasesSecurity":false,"increasesSecurity":false},{"name":"Set-Cookie","value":"X-Akamai-Chosen=phased-n-api-east; path=/ akacd_batman-api-origin-management=3752661201~rv=76~id=5a6944674f9525f2180346a8d3f164de; path=/;","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html","decreasesSecurity":false,"increasesSecurity":false},{"name":"Mime-Version","value":"1.0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Expires","value":"Sun, 01 Dec 2019 13:53:22 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Sun, 01 Dec 2019 13:53:22 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Edgeconnect-Cache-Status","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"AkamaiGHost","decreasesSecurity":true,"increasesSecurity":false}],"tags":null,"notes":null},"https://askjay.jet.com":{"uuid":"646797a1-5bbc-4bea-b4de-56df095a1b56","url":"https://askjay.jet.com","hostname":"askjay.jet.com","addrs":["104.209.192.206"],"status":"200 OK","pageTitle":"Sign in to your account","headersPath":"headers/https__askjay_jet_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/https__askjay_jet_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/https__askjay_jet_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Pragma","value":"no-cache","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Frame-Options","value":"DENY","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Ms-Request-Id","value":"aea075e1-bab7-4bdc-932e-4b09a236f200","decreasesSecurity":false,"increasesSecurity":false},{"name":"P3p","value":"CP=\"DSP CUR OTPi IND OTRi ONL FIN\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Expires","value":"-1","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Dns-Prefetch-Control","value":"on","decreasesSecurity":false,"increasesSecurity":false},{"name":"Referrer-Policy","value":"strict-origin-when-cross-origin","decreasesSecurity":false,"increasesSecurity":true},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=utf-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding","decreasesSecurity":false,"increasesSecurity":false},{"name":"Strict-Transport-Security","value":"max-age=31536000; includeSubDomains","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Content-Type-Options","value":"nosniff","decreasesSecurity":false,"increasesSecurity":true},{"name":"Link","value":"\u003chttps://aadcdn.msauth.net\u003e; rel=preconnect; crossorigin \u003chttps://aadcdn.msauth.net\u003e; rel=dns-prefetch \u003chttps://aadcdn.msftauth.net\u003e; rel=dns-prefetch","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Ms-Ests-Server","value":"2.1.9677.8 - SAN ProdSlices","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Sun, 01 Dec 2019 13:53:30 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Control","value":"no-cache, no-store","decreasesSecurity":false,"increasesSecurity":false},{"name":"Set-Cookie","value":"buid=AQABAAEAAACQN9QBRU3jT6bcBQLZNUj7BDVGL9lS-1F0T1pemBscLbpj3qnKAMFAIFkRhnll617laOh8pgfy-TeaLzEvNJhpfPKfidtwTSIgVFP3EUFg24wooLH2Kpy3Cxl2EWcXkAcgAA; expires=Tue, 31-Dec-2019 13:53:31 GMT; path=/; secure; HttpOnly; SameSite=None fpc=AqrMtQXoPsVPqQDY9_OGE2xuhVbsAQAAANq8ddUOAAAA; expires=Tue, 31-Dec-2019 13:53:31 GMT; path=/; secure; HttpOnly; SameSite=None esctx=AQABAAAAAACQN9QBRU3jT6bcBQLZNUj7Eb6lIldLNR7MdgeHX2d9Ev9JQ3pOkKzAi4vHSG-LNMVKKERTsA8DHaWcTfvtMWdJHKzPFR1o6hgu2xcpgDyN4SAkpALZr080fGwQa2PvtXxbVclAGC5ufZbOmaD0erdEwXvfiq3WC444dFWjoYQEickthXcq1VvvjO6zVX-ejssgAA; domain=.login.microsoftonline.com; path=/; secure; HttpOnly; SameSite=None x-ms-gateway-slice=prod; path=/; SameSite=None; secure; HttpOnly stsservicecookie=ests; path=/; SameSite=None; secure; HttpOnly","decreasesSecurity":false,"increasesSecurity":false}],"tags":null,"notes":null},"https://batman-api.jet.com":{"uuid":"5f92d63a-a373-49dc-a190-bdb868aabb06","url":"https://batman-api.jet.com","hostname":"batman-api.jet.com","addrs":["23.0.179.2","2001:4488:1:1b8::c21","2001:4488:1:1b4::c21"],"status":"403 Forbidden","pageTitle":"Access Denied","headersPath":"headers/https__batman-api_jet_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/https__batman-api_jet_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/https__batman-api_jet_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Content-Type","value":"text/html","decreasesSecurity":false,"increasesSecurity":false},{"name":"Mime-Version","value":"1.0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Length","value":"271","decreasesSecurity":false,"increasesSecurity":false},{"name":"Expires","value":"Sun, 01 Dec 2019 13:53:25 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Sun, 01 Dec 2019 13:53:25 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Set-Cookie","value":"X-Akamai-Chosen=phased-n-api-east; path=/ akacd_batman-api-origin-management=3752661204~rv=80~id=13b3b65d84bec36b5f47c91d1d332013; path=/;","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Edgeconnect-Cache-Status","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"AkamaiGHost","decreasesSecurity":true,"increasesSecurity":false}],"tags":null,"notes":null},"https://blog.jet.com":{"uuid":"780302f6-ec13-43b7-b76a-6bfc88dd79e0","url":"https://blog.jet.com","hostname":"blog.jet.com","addrs":["192.0.78.13","192.0.78.12"],"status":"200 OK","pageTitle":"Jet.com – Everything You Need and Want and Why","headersPath":"headers/https__blog_jet_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/https__blog_jet_com__da39a3ee5e6b4b0d.html","screenshotPath":"","hasScreenshot":false,"headers":[{"name":"Server","value":"nginx","decreasesSecurity":true,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding Cookie","decreasesSecurity":false,"increasesSecurity":false},{"name":"Link","value":"\u003chttps://wp.me/7Frx3\u003e; rel=shortlink","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Ac","value":"1.sin _bur","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Nananana","value":"Batcache","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Sun, 01 Dec 2019 13:53:28 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=UTF-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Strict-Transport-Security","value":"max-age=86400","decreasesSecurity":false,"increasesSecurity":true},{"name":"Last-Modified","value":"Sun, 01 Dec 2019 13:53:25 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Control","value":"max-age=297, must-revalidate","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Hacker","value":"If you're reading this, you should visit automattic.com/jobs and apply to join the fun, mention this header.","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Nginx","type":"info","link":"http://nginx.org/en","hash":"c5f9bde4da1314a38cd29cddb1dd216b15d84c8e"},{"text":"Adobe DTM","type":"info","link":"https://marketing.adobe.com/resources/help/en_US/dtm/c_overview.html","hash":"1624680194a53e6c284b2aadcd2d1f2c5daef609"},{"text":"WordPress","type":"info","link":"https://wordpress.org","hash":"a52bef2d19c06ff28d27be1ed14383fc8a3ce31d"}],"notes":null},"https://goto.jet.com":{"uuid":"d3a0cd78-dd7c-4e52-85be-c1a74b547eb3","url":"https://goto.jet.com","hostname":"goto.jet.com","addrs":["35.244.228.149"],"status":"200 OK","pageTitle":"Dead End","headersPath":"headers/https__goto_jet_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/https__goto_jet_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/https__goto_jet_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Content-Type","value":"text/html; charset=utf-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Set-Cookie","value":"epersist=!Ktg+5Z/LRxUV2yFeMtGhcv/9zNbJr6JJA3inT8PwjmbtBC7E1PIq7GyS4JCTBnm2fO69hz6U2AAALw==; path=/; Httponly; Secure","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"","decreasesSecurity":true,"increasesSecurity":false},{"name":"P3p","value":"policyref=\"/w3c/p3p.xml\", CP=\"ALL BUS LEG DSP COR ADM CUR DEV PSA OUR NAV INT\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Etag","value":"\"AAJR3+Nem/h\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Last-Modified","value":"Fri, 12 Oct 2018 11:39:57 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Length","value":"248","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Sun, 01 Dec 2019 13:53:27 GMT","decreasesSecurity":false,"increasesSecurity":false}],"tags":null,"notes":null},"https://sift.notjet.net":{"uuid":"cd1c8027-f086-4a13-b507-4ee73560f901","url":"https://sift.notjet.net","hostname":"sift.notjet.net","addrs":["34.102.213.72"],"status":"404 Not Found","pageTitle":"","headersPath":"headers/https__sift_notjet_net__da39a3ee5e6b4b0d.txt","bodyPath":"html/https__sift_notjet_net__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/https__sift_notjet_net__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Alt-Svc","value":"clear","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Sun, 01 Dec 2019 13:53:24 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"application/json","decreasesSecurity":false,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Via","value":"1.1 google","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"nginx","decreasesSecurity":true,"increasesSecurity":false}],"tags":[{"text":"Google Cloud","type":"info","link":"https://cloud.google.com","hash":"ecce25fe11ac1344e889a7b4c4eba7979dcc3db2"},{"text":"Nginx","type":"info","link":"http://nginx.org/en","hash":"c5f9bde4da1314a38cd29cddb1dd216b15d84c8e"}],"notes":null},"https://tech.jet.com":{"uuid":"f6b83886-c1a1-45e1-96b3-8df3a4447760","url":"https://tech.jet.com","hostname":"tech.jet.com","addrs":["23.9.205.226","2001:4488:1:19d::30e1","2001:4488:1:186::30e1"],"status":"200 OK","pageTitle":"Jet Tech – Medium","headersPath":"headers/https__tech_jet_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/https__tech_jet_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/https__tech_jet_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Content-Type","value":"text/html; charset=utf-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Powered-By","value":"Medium","decreasesSecurity":true,"increasesSecurity":false},{"name":"X-Obvious-Info","value":"39395-442f9de,442f9de3412","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Control","value":"no-cache, no-store, max-age=0, must-revalidate","decreasesSecurity":false,"increasesSecurity":false},{"name":"Strict-Transport-Security","value":"max-age=15552000; includeSubDomains; preload","decreasesSecurity":false,"increasesSecurity":true},{"name":"Server","value":"cloudflare","decreasesSecurity":true,"increasesSecurity":false},{"name":"Cf-Ray","value":"53e58c236ad4703c-SIN","decreasesSecurity":false,"increasesSecurity":false},{"name":"Expect-Ct","value":"max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Security-Policy","value":"default-src 'self'; connect-src https://localhost https://*.instapaper.com https://*.stripe.com https://glyph.medium.com https://*.paypal.com https://getpocket.com https://medium.com https://*.medium.com https://*.medium.com https://medium.com https://*.medium.com https://*.algolia.net https://cdn-static-1.medium.com https://dnqgz544uhbo8.cloudfront.net https://cdn-videos-1.medium.com https://cdn-audio-1.medium.com https://*.lightstep.com https://*.branch.io 'self'; font-src data: https://*.amazonaws.com https://*.medium.com https://glyph.medium.com https://medium.com https://*.gstatic.com https://dnqgz544uhbo8.cloudfront.net https://cdn-static-1.medium.com 'self'; frame-src chromenull: https: webviewprogressproxy: medium: 'self'; img-src blob: data: https: 'self'; media-src https://*.cdn.vine.co https://d1fcbxp97j4nb2.cloudfront.net https://d262ilb51hltx0.cloudfront.net https://*.medium.com https://gomiro.medium.com https://miro.medium.com https://pbs.twimg.com 'self' blob:; object-src 'self'; script-src 'unsafe-eval' 'unsafe-inline' about: https: 'self'; style-src 'unsafe-inline' data: https: 'self'; report-uri https://csp.medium.com","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Frame-Options","value":"sameorigin","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Content-Type-Options","value":"nosniff","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Xss-Protection","value":"1; mode=block","decreasesSecurity":false,"increasesSecurity":true},{"name":"Pragma","value":"no-cache","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Sun, 01 Dec 2019 13:53:28 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Set-Cookie","value":"__cfduid=d142934e2397645147765b3a878e682ef1575208407; expires=Tue, 31-Dec-19 13:53:27 GMT; path=/; domain=.medium.com; HttpOnly uid=lo_AxSx8Qt1xVOr; Expires=Mon, 30-Nov-20 13:53:27 GMT; Domain=.medium.com; Path=/; Secure; HttpOnly optimizelyEndUserId=lo_AxSx8Qt1xVOr; path=/; expires=Mon, 30 Nov 2020 13:53:27 GMT; domain=.medium.com; secure sid=1:tJPbEldNx69excznxvzUe44DC2CSZvHKcx53fgPtg+lpupMO7Ty9g7QnbOvK7ELB; path=/; expires=Mon, 30 Nov 2020 13:53:27 GMT; domain=.medium.com; secure; httponly puid=; path=/; expires=Sun, 01 Dec 2019 13:53:26 GMT; domain=medium.com; secure; httponly puid=; path=/; expires=Sun, 01 Dec 2019 13:53:26 GMT; domain=.medium.com; secure; httponly puid=; path=/; expires=Sun, 01 Dec 2019 13:53:26 GMT; secure; httponly puid=; path=/; expires=Sun, 01 Dec 2019 13:53:26 GMT; domain=.medium.com; secure; httponly __cfruid=d2033318f1df4623df3b9ce3e800743c80eb32a9-1575208408; path=/; domain=.medium.com; HttpOnly","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Obvious-Tid","value":"1575208407716:98a1f91afbfb","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cf-Cache-Status","value":"DYNAMIC","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Ua-Compatible","value":"IE=edge, Chrome=1","decreasesSecurity":false,"increasesSecurity":false},{"name":"Link","value":"\u003chttps://medium.com/humans.txt\u003e; rel=\"humans\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Expires","value":"Thu, 09 Sep 1999 09:09:09 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Alt-Svc","value":"h3-23=\":443\"; ma=86400","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Medium","type":"info","link":"https://medium.com","hash":"b38e0afc866af4e905faebb14eec4d7e2b9a696a"},{"text":"CloudFlare","type":"info","link":"http://www.cloudflare.com","hash":"9ea92fc7dce5e740ccc8e64d8f9e3336a96efc2a"},{"text":"Google Analytics","type":"info","link":"http://google.com/analytics","hash":"8b3048ab834882a576e4c5c01e136b9ce47198df"}],"notes":null},"https://torbit.notjet.net":{"uuid":"5107fbb4-209f-44d7-812c-22a97c7d119e","url":"https://torbit.notjet.net","hostname":"torbit.notjet.net","addrs":["23.101.148.215","40.79.39.119"],"status":"520 status code 520","pageTitle":"530 - Service Not Defined","headersPath":"headers/https__torbit_notjet_net__da39a3ee5e6b4b0d.txt","bodyPath":"html/https__torbit_notjet_net__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/https__torbit_notjet_net__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Date","value":"Sun, 01 Dec 2019 13:53:30 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"openresty","decreasesSecurity":true,"increasesSecurity":false},{"name":"X-Tb-Originstatus","value":"530","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Accept-Ranges","value":"bytes","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html","decreasesSecurity":false,"increasesSecurity":false},{"name":"Etag","value":"\"5c8180de-237\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Tb-Error","value":"DebugInfoDisabled","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"OpenResty","type":"info","link":"http://openresty.org","hash":"ae496bd80e83c950d089be1823eb168bea870899"}],"notes":null},"https://www.notjet.net":{"uuid":"61f8657b-49d6-4c64-bc34-229f356ac8c6","url":"https://www.notjet.net","hostname":"www.notjet.net","addrs":["23.11.112.110","2600:1417:3f:786::361f","2600:1417:3f:7a6::361f"],"status":"200 OK","pageTitle":"Jet.com | Shop curated brands and city essentials, all in one place","headersPath":"headers/https__www_notjet_net__da39a3ee5e6b4b0d.txt","bodyPath":"html/https__www_notjet_net__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/https__www_notjet_net__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Content-Type","value":"text/html; charset=utf-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Powered-By","value":"Next.js 8.0.0","decreasesSecurity":true,"increasesSecurity":false},{"name":"Server","value":"envoy","decreasesSecurity":true,"increasesSecurity":false},{"name":"X-Envoy-Decorator-Operation","value":"batmanweb-proxy-qa","decreasesSecurity":false,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Strict-Transport-Security","value":"max-age=31536000","decreasesSecurity":false,"increasesSecurity":true},{"name":"Jet","value":"4:1.861:1575061838:540a6","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Frame-Options","value":"SAMEORIGIN","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Xss-Protection","value":"1; mode=block;","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Content-Type-Options","value":"nosniff","decreasesSecurity":false,"increasesSecurity":true},{"name":"Etag","value":"\"5c7e6-9P/83G5L/Tg4OQjSCOdHeMsvBkY\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Jet-Dr-Orpheus","value":"{\"headerSchemaVersion\":3,\"correlationIds\":[\"7bf795183a0b4fd89262839e10e25984\"],\"messageId\":\"fa66ff992d554e1aa45e55f6015ccbcd\",\"parentIds\":[\"8940844b59074e47891d7ef5f960556d\"],\"producerId\":\"Batman-API\",\"ticksFromEpoch\":637108052084232800,\"payloadSchemaUri\":\"CmsProxy/cms/GET/1.0\",\"mTags\":[],\"pTags\":[[\"phaser\",\"2;e86ac23f065f4637aef093489250001c;7tJh;7uvR;92CBI;93oFG;98Cw0;996pFe;9GQ1;9GSao;9HLr;9J12T;9JJvH;9Jp4i;9MAixN;9UbxmC;9gQC;9ln3;9n8jG;9uJgwR;9vFW8X;9x6au;9zfkN;1575208408\"]]}","decreasesSecurity":false,"increasesSecurity":false},{"name":"Referrer-Policy","value":"strict-origin-when-cross-origin","decreasesSecurity":false,"increasesSecurity":true},{"name":"Set-Cookie","value":"jet.csrf=cwI5Zd-dNG1HUGr0947a-bHR; path=/; secure; httponly signupShown=; path=/; expires=Sat, 01 Jan 2039 00:00:00 GMT; domain=batmanweb-proxy-qa.envoy.eastus2.qa.notjet.net; secure signupShown=0; Domain=batmanweb-proxy-qa.envoy.eastus2.qa.notjet.net; Path=/; Expires=Sat, 01 Jan 2039 00:00:00 GMT jid=5274a558-dbc2-441b-a171-d0eb3d6161cd; path=/; expires=Sat, 01 Jan 2039 00:00:00 GMT; domain=batmanweb-proxy-qa.envoy.eastus2.qa.notjet.net; secure; httponly jid=5274a558-dbc2-441b-a171-d0eb3d6161cd; Domain=batmanweb-proxy-qa.envoy.eastus2.qa.notjet.net; Path=/; Expires=Sat, 01 Jan 2039 00:00:00 GMT jet-referer=%2F; Path=/ jet-phaser=2%3Be86ac23f065f4637aef093489250001c%3B7tJh%3B7uvR%3B92CBI%3B93oFG%3B98Cw0%3B996pFe%3B9GQ1%3B9GSao%3B9HLr%3B9J12T%3B9JJvH%3B9Jp4i%3B9MAixN%3B9UbxmC%3B9gQC%3B9ln3%3B9n8jG%3B9uJgwR%3B9vFW8X%3B9x6au%3B9zfkN%3B1575208408; path=/; expires=Tue, 31 Dec 2019 13:53:28 GMT; secure; httponly jet-phaser=2%3Be86ac23f065f4637aef093489250001c%3B7tJh%3B7uvR%3B92CBI%3B93oFG%3B98Cw0%3B996pFe%3B9GQ1%3B9GSao%3B9HLr%3B9J12T%3B9JJvH%3B9Jp4i%3B9MAixN%3B9UbxmC%3B9gQC%3B9ln3%3B9n8jG%3B9uJgwR%3B9vFW8X%3B9x6au%3B9zfkN%3B1575208408; Max-Age=2592000000; Path=/; Expires=Fri, 20 Jan 2102 13:53:28 GMT; HttpOnly jet.qa-id=fb4c5acb-9ce0-40c1-b849-9bc0fe1bd781; path=/; expires=Tue, 31 Dec 2019 13:53:28 GMT; secure; httponly jet.qa-jetGeoIp=%7B%22postal_code%22%3A%2290009%22%2C%22city_name%22%3A%22Los%20Angeles%22%2C%22country_code%22%3A%22US%22%2C%22time_zone%22%3A%22America%2FLos_Angeles%22%7D; path=/; expires=Tue, 31 Dec 2019 13:53:28 GMT; secure; httponly ipZipcode=90009; path=/; expires=Tue, 31 Dec 2019 13:53:28 GMT; secure jet.qa-clientTicket=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiIxZjYzYTU0NjI5ZDc0NDE2OWE2OGJiNDU0NjNmNmMwNyIsImlzcyI6ImpldC5jb20iLCJhdWQiOiJ3ZWJjbGllbnQifQ.HYLRi9eKFDiAKnkwg5xivgBpGppRejkKfxFSuLv3pYM; path=/; expires=Tue, 31 Dec 2019 13:53:28 GMT; secure; httponly X-Akamai-Chosen=qa_phased_nomad_eastus2 akacd_phased_release=3752661206~rv=87~id=5c8731d72238ce4cace495ab38311f2a; path=/;","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Envoy-Upstream-Service-Time","value":"293","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Sun, 01 Dec 2019 13:53:29 GMT","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Envoy","type":"info","link":"https://www.envoyproxy.io/","hash":"44d65a1a14994ebe2a128f985c212fe056e87ac3"},{"text":"Adobe DTM","type":"info","link":"https://marketing.adobe.com/resources/help/en_US/dtm/c_overview.html","hash":"1624680194a53e6c284b2aadcd2d1f2c5daef609"}],"notes":null}},"pageSimilarityClusters":{"008ae0a4-3ab7-45eb-901c-99b74a12460a":["http://link.jet.com"],"06edca08-3bc6-41fc-8e95-608f5782d854":["https://sift.notjet.net","http://webhook-stg.jet.com","http://alfred-api.jet.com","http://sift.notjet.net","http://webhook.jet.com","http://batman-api.jet.com"],"4824028f-3ce3-4af9-9680-bbf743d96d92":["https://blog.jet.com","http://blog.jet.com"],"482b2460-1206-4f15-a48c-f03c441b0f15":["http://askjay.jet.com","https://askjay.jet.com","http://autodiscover.jet.com"],"788bfc20-4a07-4e56-b1b2-0de9cd81407f":["http://merchant-api.jet.com"],"93cbb9a7-2ca6-44e3-bb8c-059ece19a13a":["http://shop.jet.com"],"9d050817-8da1-4abc-aea2-77216516dd68":["https://batman-api.jet.com","https://goto.jet.com","https://alfred-api.jet.com"],"a72fe661-1cdd-4cf0-9703-43665fbab66d":["http://goto.jet.com","https://torbit.notjet.net"],"b0ec0a2f-f7c8-4a80-a1ba-c7389925c135":["https://tech.jet.com","http://tech.jet.com"],"b1d1d95f-a7e5-41b5-9bc9-09195c0b6df2":["http://www.notjet.net","https://www.notjet.net"],"ee497301-fe76-43c6-9bec-a270be543181":["http://careers.jet.com"]}};
+    const data = _.extend(parseSession(session), { currentRoute: window.location.hash });
+    const router = new VueRouter({
+      routes: [
+        { path: '/', alias: '/pages/by-similarity', component: Vue.component('PagesBySimilarityPage'), props: { pageSimilarityClusters: data.pageSimilarityClusters } },
+        { path: '/pages/by-hosts', component: Vue.component('PagesByHostsPage'), props: { pages: data.pages } },
+        { path: '/pages/single', component: Vue.component('SinglePagesPage'), props: { pages: data.pages } },
+        { path: '/pages/graph', component: Vue.component('GraphPage'), props: { pages: data.pages, pageSimilarityClusters: data.pageSimilarityClusters } },
+        { path: '/pages/stats', component: Vue.component('StatsPage'), props: { pages: data.pages, pageSimilarityClusters: data.pageSimilarityClusters, stats: data.stats } },
+        { path: '*', component: Vue.component('NotFoundPage') }
+      ]
+    })
+
+    var app = new Vue({
+      el: '#app',
+      data: data,
+      delimiters: ['${', '}'],
+      router: router
+    });
+  </script>
+
+  <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="screenshotModal">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <a href="" target="_blank" class="screenshot-link"><img class="page-screenshot" src="" alt="" /></a>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="detailsModal">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h3>Response Headers:</h3>
+          <table class="page-headers-table"></table>
+        </div>
+        <div class="modal-footer">
+          <a href="" target="_blank" class="btn btn-primary visit-page-button">Visit Page</a>
+          <a href="" target="_blank" class="btn btn-primary view-raw-headers-button">View Raw Headers</a>
+          <a href="" target="_blank" class="btn btn-primary view-raw-response-button">View Raw Response</a>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+200 OK
+Server: cloudflare
+Cf-Ray: 53e520f4bbc6cbf0-SIN
+Vary: Accept-Encoding
+Surrogate-Control: no-store, bypass-cache
+Cf-Cache-Status: DYNAMIC
+Expect-Ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+Expires: Thu, 01 Jan 1970 00:00:01 GMT
+Content-Type: text/html
+Set-Cookie: __cfduid=d73e72263e354bbb4e14b0d530e44ae851575204017; expires=Tue, 31-Dec-19 12:40:17 GMT; path=/; domain=.byojet.com; HttpOnly; Secure
+Cache-Control: private, no-cache, no-store, must-revalidate
+Edge-Control: no-store, bypass-cache
+Date: Sun, 01 Dec 2019 12:40:17 GMT
+Retry-Count: 0

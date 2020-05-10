@@ -1,0 +1,12 @@
+403 Forbidden
+Server: cloudflare
+Cf-Ray: 53e523b72e7faa72-SIN
+Date: Sun, 01 Dec 2019 12:42:10 GMT
+Cache-Control: max-age=15
+Expires: Sun, 01 Dec 2019 12:42:25 GMT
+Expect-Ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+Content-Type: text/html; charset=UTF-8
+Retry-Count: 0
+Set-Cookie: __cfduid=d9bcee6957b2f8d829571eaffd6053e921575204130; expires=Tue, 31-Dec-19 12:42:10 GMT; path=/; domain=.uat-checkinapi.westjet.com; HttpOnly
+X-Frame-Options: SAMEORIGIN
+Vary: Accept-Encoding

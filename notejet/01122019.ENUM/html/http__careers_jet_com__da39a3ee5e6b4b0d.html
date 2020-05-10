@@ -1,0 +1,364 @@
+<!DOCTYPE html><html lang="en"><head><title>Jet.com Careers </title>  <link rel="shortcut icon" href="https://walmart-careers.scdn3.secure.raxcdn.com/86/96/23cceb744a969a73506186d6cbba/jet-favicon2x.ico"> <link rel="icon" href="https://walmart-careers.scdn3.secure.raxcdn.com/86/96/23cceb744a969a73506186d6cbba/jet-favicon2x.ico" sizes="16x16"  type="image/x-icon"> <link rel="icon" href="https://walmart-careers.scdn3.secure.raxcdn.com/86/96/23cceb744a969a73506186d6cbba/jet-favicon2x.ico" sizes="32x32"  type="image/x-icon"> <link rel="icon" href="https://walmart-careers.scdn3.secure.raxcdn.com/86/96/23cceb744a969a73506186d6cbba/jet-favicon2x.ico" sizes="180x180"  type="image/x-icon"> <link rel="icon" href="https://walmart-careers.scdn3.secure.raxcdn.com/86/96/23cceb744a969a73506186d6cbba/jet-favicon2x.ico" sizes="194x194"  type="image/x-icon">  <script src="https://use.typekit.net/ynq0iyx.js"></script><script>try{Typekit.load({async: true});}catch(e){}</script><link rel="stylesheet" type="text/css" href="/webfonts.css"><link rel="stylesheet" type="text/css" href="https://walmart-careers.scdn3.secure.raxcdn.com/resource/css/main.min.66bc14ebc46a262a906b1e1e854ed29f.gz.css"> <link rel="canonical" href="https://careers.walmart.com//"/> <meta name="viewport" content="width=device-width, initial-scale=1"> <meta name="title" content="Jet.com Careers "/>     <meta property="og:title" content="Jet.com Careers "><meta property="og:description" content=""><meta property="og:url" content="https://careers.walmart.com//"><meta property="og:image" content="https://walmart-careers.scdn3.secure.raxcdn.com/dims4/default/664d346/2147483647/resize/1600x/quality/90/?url&#x3D;https%3A%2F%2Fwalmart-careers.scdn3.secure.raxcdn.com%2F31%2F5d%2Fb61a0b32493489ce7683397c26a5%2Fjet.com%20Oct%202015%20%2872%29%20copy%202.jpg"><meta property="og:image:width" content=""><meta property="og:image:height" content=""><meta property="og:type" content="website">   <script>
+
+
+function parseQueryArgs(query) {
+  return !query ? {} :
+    (/^[?#]/.test(query) ? query.slice(1) : query)
+      .split('&')
+      .reduce(function(params, param) {
+        var key = param.split('=')[0];
+        var value = param.split('=')[1];
+
+        params[key] = value ? decodeURIComponent(value.replace(/\+/g, ' ')) : '';
+        return params;
+      }, {});
+}
+
+var s_ajaxListener = new Object();
+s_ajaxListener.tempOpen = XMLHttpRequest.prototype.open;
+
+XMLHttpRequest.prototype.open = function(a,b) {
+  try {
+    if (b.split('?')[0] === "/api/search") {
+      var ajaxUrl = b.split('?')[1];
+      var query = parseQueryArgs(ajaxUrl);
+      var jobCategoryList = query.jobCategory.split(',');
+      var newCats = [];
+      Array.prototype.forEach.call(jobCategoryList, function(jobCat) {
+        var jobSubFilterList = document.querySelector('#nestedfilter-'+jobCat);
+
+        if (jobSubFilterList) {
+            var jobSubCat = jobSubFilterList.querySelectorAll('[name="jobSubCategory"]');
+            var jobSubCatChecked = jobSubFilterList.querySelectorAll('[name="jobSubCategory"]:checked');
+
+            if (jobSubCat.length === jobSubCatChecked.length) {
+              newCats.push(jobCat)
+            }
+        } else {
+             newCats.push(jobCat)
+        }
+      });
+      query.jobCategory = newCats;
+
+      var newQuery = "";
+      for (var key in query) {
+          if (query.hasOwnProperty(key)) {
+              newQuery += ("&" + key + "=" + query[key]);
+          }
+       }
+      newQuery = '?' + newQuery.slice(1);
+      b = b.split('?')[0] + newQuery;
+      window.history.replaceState({}, document.title, window.location.origin + window.location.pathname + newQuery);
+      
+    } 
+  } catch(e) {
+  }
+  return s_ajaxListener.tempOpen.apply(this, arguments);
+}
+</script>
+
+<style>
+/* Keep in Debug */
+  body:not(.is-touch) .page-header__search:hover svg {
+    background-color: #0fdebd;
+    color: #fff;
+    fill: #fff;
+  }
+
+.jet-careers .hasSnackBar .job-details {
+    background: #fff;
+}
+
+.jet-careers .job-details .job-description h3 {
+    color: #333;
+    font-size: 26px;
+    font-family: bloomfield-light;
+}
+
+.recent-jobs .job-listing-logo {
+    display: none;
+}
+
+.search-page--results .job-listing-logo {
+    display: none;
+}
+
+.jet-careers .image-mosaic__img4 {
+    height: 612px;
+}
+
+.jet-careers .image-mosaic__img6 {
+    height: 612px;
+}
+
+.jet-careers .image-mosaic__img7 {
+    height: 612px;
+}
+
+.jet-careers .mosaic .spark {
+    bottom: 0;
+  top: -12em;
+}
+
+.page-header .main-menu__item-text.menu-item.main-menu__item-text--with-items {
+  pointer-events: none;
+}
+
+.timeline__info-wrap .eyebrow {
+  color: #8200ff;
+}
+.timeline nav ul li.active a {
+    background-color: #8200ff;
+}
+.timeline nav.normal li:first-child a {
+    background-color: #8200ff;
+}
+.timeline nav ul li a {
+    border: 2px solid #8200ff;
+}
+.timeline__slide::before {
+    background-color: #8200ff;
+    border: 2px solid #8200ff;
+}
+.jet-careers .image-mosaic {
+    margin-bottom: 2em;
+}
+
+.apply-job .button .icon {
+  display: none;
+}
+.apply-job .button:after {
+    content: url('/jet-xbutton.svg');
+    display: inline-block;
+    margin: -.16em 0 0 -.74em;
+    vertical-align: middle;
+    width: 15px;
+}
+.apply-job .button:hover:after {
+    content: url('/jet-xbutton-hover.svg');
+    display: inline-block;
+    margin: -.16em 0 0 -.74em;
+    vertical-align: middle;
+    width: 15px;
+}
+.apply-job--overlay .button--round:hover {
+    background-color: transparent;
+}
+
+.main-menu__item.main-menu__item--with-items.login {
+  display: none;
+}
+
+.job-benefits__item-title {
+  margin-right: -1.5em;
+}
+
+@media only screen and (max-width: 500px) {
+  .jet-careers .mosaic__article-information h3 {
+      font-size: 32px;
+  }
+  .jet-careers .recent-jobs h2 {
+      font-size: 32px;;
+  }
+  .button--basic, .button--inverted, .button--white {
+      padding: 0 1em;
+  }
+  .mosaic__article-information .eyebrow {
+    width: 75%
+  }
+  .jet-careers h1 {
+    font-size: 60px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .search-bar--overlay .search-bar__wrap .search-bar__category .button {
+    border-bottom: 2px solid #8200ff;
+  }
+  .search-bar *::-moz-placeholder {
+    color: #8200ff;
+  }
+  .search-bar--overlay .search-bar__wrap .search-bar__location {
+    border-bottom: 2px solid #8200ff;
+  }
+  .search-bar--overlay .search-bar__sort {
+    border-bottom: 2px solid #8200ff;
+  }
+  .search-bar--overlay .search-bar__sort .eyebrow {
+    color: #8200ff;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .related-faqs__item.accordion__list-item {
+    padding: 42px 0;
+  }
+ 
+  .job-benefits__item-title {
+    min-height: 107px;
+    padding: 42px 0;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .recent-jobs {
+    margin-top: 5em;
+  }
+}
+
+/* JS: Hide the career areas module on the homepage */
+section.career-areas {display:none}
+
+/* WALCAR-516 Fix iFrame scrolling in iPhone when Applying for a job. MG - 2018-02-27 */
+#apply-job {
+   -webkit-overflow-scrolling: touch;
+}
+
+
+/* Hide "What you'll do at" on job page (so you dont see a flicker of logo) */
+div.job-description h3.job-description__title { opacity: 0}
+
+</style>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-16351937-30"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-16351937-30');
+</script>
+
+
+<script src="//assets.adobedtm.com/5495d9872198d574fae7791c47c0d2e1c24ef51d/satelliteLib-b1d98fd1a6bd847f5170ec0e0fd151331e2248fe.js"></script>
+
+ </head><body class=" jet-careers   ">   <div class="header-container"><div class="pre-header"> <a href="https://careers.walmart.com"><span>A Walmart Company <img src="https://walmart-careers.scdn3.secure.raxcdn.com/56/1f/8ccc4d3547cebd9254482eb6700b/walmart-logos-thespark-wht-rgb.png"></span></a></div> <header class="page-header"><div class="container page-header__container grid--center" data-component="accordion">  <button class="page-header__hamburger button" aria-haspopup="true" aria-expanded="false" aria-label="menu" data-component="hamburger" data-toggle="#main-menu"><span class="page-header__hamburger-icon"><span></span><span></span><span></span><span></span></span></button> <a class="page-header__logo" href="/" data-gtm="click header link" aria-label="JET.com"><svg class="page-header__icon icon"><use xlink:href="/assets/jet.svg#jet-logo"></use></svg>  <span class="page-header__tagline">Careers</span> </a> <nav id="main-menu" class="main-menu"><ul class="main-menu__menu" data-component="menu"> <li class="main-menu__item main-menu__item--with-items" data-menu> <a class="main-menu__item-text menu-item main-menu__item-text--with-items"  aria-expanded="false" href='#' tabindex="0">Career Areas</a>  <div class="main-menu__submenu main-menu__submenu--departments"><ul class="container main-menu__departments-submenu"><li> <button class="main-menu__back heading-2">Back</button></li> <li class="main-menu__column"> <a class="eyebrow eyebrow--blue eyebrow--link" href="/technology" data-gtm="click header link">Technology<svg class="icon"><use xlink:href="/sprite.svg#arrow-right2"></use></svg></a><ul class="main-menu__departments-list"> <li class="main-menu__submenu-item main-menu__submenu-item--department submenu-item"> <a class="main-menu__link" href="/results?q&#x3D;customer%20experience" data-gtm="click header link">Customer Experience</a></li> <li class="main-menu__submenu-item main-menu__submenu-item--department submenu-item"> <a class="main-menu__link" href="/results?q&#x3D;engineering&amp;o&#x3D;0" data-gtm="click header link">Engineering</a></li> <li class="main-menu__submenu-item main-menu__submenu-item--department submenu-item"> <a class="main-menu__link" href="/results?q&#x3D;product&amp;o&#x3D;0" data-gtm="click header link">Product</a></li> <li class="main-menu__submenu-item main-menu__submenu-item--department submenu-item"> <a class="main-menu__link" href="/results?q&#x3D;security&amp;o&#x3D;0" data-gtm="click header link">Security</a></li> <li class="main-menu__submenu-item main-menu__submenu-item--department submenu-item"> <a class="main-menu__link" href="/results?q&#x3D;UX&amp;o&#x3D;0" data-gtm="click header link">UX/UI</a></li>  </ul></li> <li class="main-menu__column"> <a class="eyebrow eyebrow--blue eyebrow--link" href="/headquarters" data-gtm="click header link">Headquarters<svg class="icon"><use xlink:href="/sprite.svg#arrow-right2"></use></svg></a><ul class="main-menu__departments-list"> <li class="main-menu__submenu-item main-menu__submenu-item--department submenu-item"> <a class="main-menu__link" href="/results?q&#x3D;analytics" data-gtm="click header link">Analytics &amp; Insights</a></li> <li class="main-menu__submenu-item main-menu__submenu-item--department submenu-item"> <a class="main-menu__link" href="/results?q&#x3D;finance" data-gtm="click header link">Finance</a></li> <li class="main-menu__submenu-item main-menu__submenu-item--department submenu-item"> <a class="main-menu__link" href="/results?q&#x3D;marketing" data-gtm="click header link">Marketing</a></li> <li class="main-menu__submenu-item main-menu__submenu-item--department submenu-item"> <a class="main-menu__link" href="/results?q&#x3D;operations" data-gtm="click header link">Operations</a></li> <li class="main-menu__submenu-item main-menu__submenu-item--department submenu-item"> <a class="main-menu__link" href="/results?q&#x3D;talent" data-gtm="click header link">Talent</a></li>  </ul></li> <li class="main-menu__column"> <a class="eyebrow eyebrow--blue eyebrow--link" href="/fulfillment-centers" data-gtm="click header link">Fulfillment Centers<svg class="icon"><use xlink:href="/sprite.svg#arrow-right2"></use></svg></a><ul class="main-menu__departments-list"> <li class="main-menu__submenu-item main-menu__submenu-item--department submenu-item"> <a class="main-menu__link" href="/results?q&#x3D;fresh%20fulfillment" data-gtm="click header link">Fresh Fulfillment</a></li> <li class="main-menu__submenu-item main-menu__submenu-item--department submenu-item"> <a class="main-menu__link" href="/results?q&#x3D;general%20fulfillment" data-gtm="click header link">General Fulfillment</a></li>  </ul></li> <li class="main-menu__column"> <a class="eyebrow eyebrow--blue eyebrow--link" href="/member-services" data-gtm="click header link">Member Services<svg class="icon"><use xlink:href="/sprite.svg#arrow-right2"></use></svg></a><ul class="main-menu__departments-list"> <li class="main-menu__submenu-item main-menu__submenu-item--department submenu-item"> <a class="main-menu__link" href="/results?q&#x3D;call%20center" data-gtm="click header link">Call Center</a></li> <li class="main-menu__submenu-item main-menu__submenu-item--department submenu-item"> <a class="main-menu__link" href="/results?q&#x3D;follow%20up" data-gtm="click header link">Follow Up</a></li> <li class="main-menu__submenu-item main-menu__submenu-item--department submenu-item"> <a class="main-menu__link" href="/results?q&#x3D;quality" data-gtm="click header link">Quality</a></li> <li class="main-menu__submenu-item main-menu__submenu-item--department submenu-item"> <a class="main-menu__link" href="/results?q&#x3D;social%20media" data-gtm="click header link">Social Media</a></li> <li class="main-menu__submenu-item main-menu__submenu-item--department submenu-item"> <a class="main-menu__link" href="/results?q&#x3D;training" data-gtm="click header link">Training</a></li>  </ul></li> </ul></div>  </li> <li class="main-menu__item main-menu__item--with-items" data-menu> <a class="main-menu__item-text menu-item main-menu__item-text--with-items"  aria-expanded="false" href='#' tabindex="0">Locations</a>  <div class="main-menu__submenu"><ul class="main-menu__submenu-container"><li> <button class="main-menu__back heading-2">Back</button></li> <li class="main-menu__submenu-item submenu-item"> <a class="main-menu__link" href="/locations/dublin" data-gtm="click header link">Dublin, Ireland</a></li> <li class="main-menu__submenu-item submenu-item"> <a class="main-menu__link" href="/locations/hoboken" data-gtm="click header link">Hoboken, NJ</a></li> <li class="main-menu__submenu-item submenu-item"> <a class="main-menu__link" href="/locations/kansas-city" data-gtm="click header link">Kansas City, KS</a></li> <li class="main-menu__submenu-item submenu-item"> <a class="main-menu__link" href="/locations/pedricktown" data-gtm="click header link">Pedricktown, NJ</a></li> <li class="main-menu__submenu-item submenu-item"> <a class="main-menu__link" href="/locations/reno" data-gtm="click header link">Reno, NV</a></li> <li class="main-menu__submenu-item submenu-item"> <a class="main-menu__link" href="/locations/slc" data-gtm="click header link">Salt Lake City, UT</a></li> <li class="main-menu__submenu-item submenu-item"> <a class="main-menu__link" href="/locations/bronx" data-gtm="click header link">Bronx, NY</a></li> </ul></div>  </li> <li class="main-menu__item main-menu__item--with-items" data-menu> <a class="main-menu__item-text menu-item main-menu__item-text--with-items"  aria-expanded="false" href='#' tabindex="0">Culture</a>  <div class="main-menu__submenu"><ul class="main-menu__submenu-container"><li> <button class="main-menu__back heading-2">Back</button></li> <li class="main-menu__submenu-item submenu-item"> <a class="main-menu__link" href="/culture" data-gtm="click header link">#WorkPurple</a></li> <li class="main-menu__submenu-item submenu-item"> <a class="main-menu__link" href="/press" data-gtm="click header link">Press </a></li> </ul></div>  </li>   <li class="main-menu__item main-menu__item--with-items login" data-menu> <a class="main-menu__item-text menu-item main-menu__item-text--with-items" tabindex="0">Login</a><div class="main-menu__submenu main-menu__submenu--login"><ul class="main-menu__submenu-container"><li> <button class="main-menu__back heading-2">Back</button></li><li class="main-menu__submenu-item submenu-item"> <span class="title">Returning Applicants Login:</span></li><li class="main-menu__submenu-item submenu-item"> <a href="https://hiring.wal-mart.com/OnlineHiringCenter/ct_logon.jsp" class="eyebrow eyebrow--blue eyebrow--link" target="_blank">Store &amp; Club Hourly<svg class="icon department-grid__cta-icon"><use xlink:href="/sprite.svg#arrow-right2"></use></svg></a></li><li class="main-menu__submenu-item submenu-item"> <a href="https://sjobs.brassring.com/TGWebHost/home.aspx?partnerid=25222&siteid=5022" class="eyebrow eyebrow--blue eyebrow--link" target="_blank">All Other Applicants<svg class="icon department-grid__cta-icon"><use xlink:href="/sprite.svg#arrow-right2"></use></svg></a></li></ul></div></li>  </ul></nav>  <a href="/search" class="page-header__search button" aria-label="Search Jobs"><svg class="page-header__search_icon icon"><use xlink:href="/sprite.svg#magnifier"></use></svg></a> </div></header></div> <main>  <section role="section" class="hero hero--video hero--home"  data-component="searchbar"> <div class="clip cover gradient"><div class="video cover
+            video--hero
+             video--playing 
+            " data-component="video" data-options="{
+           'videoId': 'r-6hcmM8DN0',
+           'id': 'c299c94e-60d3-45ee-af50-c9a8fb8bca6d',
+           'autoplay': true,
+           'mute': true,
+           'hideOnTouch': true
+         }" aria-label="Reception Smaller"> <div class="cover
+                image-cover
+                video__cover
+                " style="background-image: url('https://walmart-careers.scdn3.secure.raxcdn.com/dims4/default/664d346/2147483647/resize/1600x/quality/90/?url&#x3D;https%3A%2F%2Fwalmart-careers.scdn3.secure.raxcdn.com%2F31%2F5d%2Fb61a0b32493489ce7683397c26a5%2Fjet.com%20Oct%202015%20%2872%29%20copy%202.jpg');"></div> <div id="video-c299c94e-60d3-45ee-af50-c9a8fb8bca6d" class="video__player"></div> <div class="video__controls
+                video__controls--bottom
+                video__controls--hero"> <button class="video__play-button button" aria-label="Play"><svg class="icon video__icon"><use xlink:href="/sprite.svg#button-play"></use></svg></button></div>     </div></div>   <div class="container grid grid--spaced grid--bottom">     <div class="search-bar"> <button class="button--close"></button><form class="grid" action="/results" method="get"  data-search-type="jobs" data-number-results-per-page="25" data-number-lines-of-pills="2" data-max-char-of-pills="35"> <label for="search" class="eyebrow search-bar__label">Search Jobs</label><div class="search-bar__wrap grid-item">  <div class="search-bar__category__wrap" ><div class="search-bar__category" data-component="accordion" data-accordion-select="true"> <span class="button" tabindex="0" role="button" data-toggle="#categories"><span class="search-bar__category-current" id="category_current"> All Career Areas</span></span><div class="accordion__target" id="categories"> <div class="form-item form-item--radio"> <input id="category0" type="radio" aria-hidden="true" name="jobCareerArea"  checked=""   value="all"  data-category="All Career Areas" data-job-departments=""> <label for="category0" role="button" tabindex="0" class="form-item__label"><span>All Career Areas</span></label></div> <div class="form-item form-item--radio"> <input id="category1" type="radio" aria-hidden="true" name="jobCareerArea"   value="0000015f-110b-de7b-addf-3f8f8bf10000"  data-category="Technology" data-job-departments="0000015f-113f-de7b-addf-3fbfe7570000,0000015f-2adb-d3ac-a3df-2bfb61f00000"> <label for="category1" role="button" tabindex="0" class="form-item__label"><span>Technology</span></label></div> <div class="form-item form-item--radio"> <input id="category2" type="radio" aria-hidden="true" name="jobCareerArea"   value="0000015f-1113-de7b-addf-3f9790ae0000"  data-category="Headquarters" data-job-departments="0000015f-1111-d77a-addf-1bd7f3b30000,0000015f-111f-de7b-addf-3f9fae580000,0000015f-112b-de7b-addf-3fafd89b0000,0000015f-1133-de7b-addf-3fb731460000,0000015f-1134-de7b-addf-3fb41cad0000,0000015f-1139-d77a-addf-1bfff4860000,0000015f-54f5-dcb2-abdf-def725b30000,0000015f-54f6-d6be-a7df-54f7bed10000,0000015f-54f6-dbbc-a1df-7eff05e20000,0000015f-b50d-deed-a37f-bf3f75e50000,0000015f-b50f-deed-a37f-bf3f187e0000,00000164-3855-dd70-a177-ff7d67510000,00000165-5965-d800-a1e5-7f7f46370000"> <label for="category2" role="button" tabindex="0" class="form-item__label"><span>Headquarters</span></label></div> <div class="form-item form-item--radio"> <input id="category3" type="radio" aria-hidden="true" name="jobCareerArea"   value="0000015f-14d0-d77a-addf-1fd763110000"  data-category="Fulfillment Centers" data-job-departments="0000015f-b52b-d7e6-ab5f-f57f0bb00000"> <label for="category3" role="button" tabindex="0" class="form-item__label"><span>Fulfillment Centers</span></label></div> <div class="form-item form-item--radio"> <input id="category4" type="radio" aria-hidden="true" name="jobCareerArea"   value="0000015f-14d2-d77a-addf-1fd777f30000"  data-category="Member Services" data-job-departments="0000015f-b513-d7e6-ab5f-f57ff5920000"> <label for="category4" role="button" tabindex="0" class="form-item__label"><span>Member Services</span></label></div> </div></div></div><div class="search-bar__query"> <input placeholder="Search job title or keyword" type="text" name="q" class="input search-bar__input" autocapitalize="none" autocorrect="none" autocomplete="off" aria-label="Search input" data-component="autocomplete" id="search"> <script id="search-autocomplete" type="text/x-template">
+  <div class="autocomplete__category">
+    <h3 class="eyebrow">{{ title }}</h3>
+    <ul>
+      {{# items }}
+        <li class="autocomplete__item">
+          <a tabindex="0" href="/results?q={{ name }}&amp;ref=search-suggestion">
+            {{ name }}
+          </a>
+        </li>
+      {{/ items }}
+    </ul>
+  </div>
+</script><div id="autocomplete" class="autocomplete"></div></div> <div class="search-bar__location"> <input placeholder="City, State" type="text" name="location" class="input search-bar__location__input" autocapitalize="none" autocorrect="none" autocomplete="off" aria-label="Location" data-component="locationAutocomplete" id="location"> <span class="search-bar__location__focus">Start typing city and state</span> <span class="search-bar__location__btn"><svg class="search-bar__location__icon icon"><use xlink:href="/sprite.svg#pin"></use></svg></span> <script id="search-location-autocomplete" type="text/x-template">
+    <div class="locationAutocomplete__category">
+        <h3 class="eyebrow">Select a City/State</h3>
+        <ul id="search-location-list">
+            {{# results }}
+            <li class="autocomplete__item">
+                <span tabindex="0" role="button" class="link" data-lat="{{ lat }}" data-lon="{{ long }}" >{{# city }}{{ city }}, {{/ city }}{{ state }}</span>
+            </li>
+            {{/ results }}
+            {{^ results}}<li class="autocomplete__item">No matches found</li>{{/ results}}
+        </ul>
+    </div>
+</script><div id="locationAutocomplete" class="locationAutocomplete"><div class="locationAutocomplete__userlocation"><h3 tabindex="0" class="locationAutocomplete__userlocation__title">Use my location</h3> <span tabindex="0" role="button" class="locationAutocomplete__userlocation__location"><svg aria-hidden="true" class="locationAutocomplete__userlocation__icon icon"><use xlink:href="/sprite.svg#pin"></use></svg><span class="userlocation">All Locations</span></span></div><div class="locationAutocomplete__nolocation"><h3 tabindex="0" class="locationAutocomplete__nolocation__title"> <img src="/assets/warning.png" aria-hidden><span>Cannot determine location</span></h3> <span class="locationAutocomplete__nolocation__blurb">Verify that location services are enabled on your mobile device or web browser.</span></div><div class="locationAutocomplete__results"></div></div></div>  </div><div class="search-bar__button grid-item grid--no-gutter"> <button class="button button--yellow" aria-label="Search" type="submit"> <span>Search</span> <svg class="search-bar__icon icon"><use xlink:href="/sprite.svg#magnifier"></use></svg></button></div> <input type="hidden" name="ref" value="manual"> <input type="hidden" name="origin" value="search"> </form></div>   </div> </section>  <section class="career-areas"><div class="career-areas__intro-text"><h1 tabindex="0" class="intro-text__heading grid-item grid--no-gutter heading-3">Career Areas</h1></div><div class="container tabs__container" data-component="tab"> <div class="tabs__wrapper" data-component="stickyTabs"><nav class="tabs navigation-tabs"><ul class="tabs__list"> <li class="tabs__item tab  tab--active " data-tab="0"> <a href="#" role="tab" aria-selected='true' class="tabs__name">Technology</a></li> <li class="tabs__item tab " data-tab="1"> <a href="#" role="tab"  class="tabs__name">Headquarters</a></li> <li class="tabs__item tab " data-tab="2"> <a href="#" role="tab"  class="tabs__name">Fulfillment Centers</a></li> <li class="tabs__item tab " data-tab="3"> <a href="#" role="tab"  class="tabs__name">Member Services</a></li> </ul></nav></div><div class="panes"> <div class="pane pane--active" data-pane="0"> <ul class="department-grid grid grid--wrap squared-grid squared-grid--col-two" data-component="animateIn" data-options="{'stagger':80}"> <li class="department-grid__item squared-grid__item fx fx--slide-up fx--fade-in"><a href="" class="department-grid__link"><div class="department-grid__title"><object aria-hidden="true" class="icon department-grid__title-icon" data="https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/compass.svg"></object><h4 class="department-grid__heading heading-4--fluid">Customer Experience</h4></div></a></li> <li class="department-grid__item squared-grid__item fx fx--slide-up fx--fade-in"><a href="" class="department-grid__link"><div class="department-grid__title"><object aria-hidden="true" class="icon department-grid__title-icon" data="https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/compass.svg"></object><h4 class="department-grid__heading heading-4--fluid">Technology</h4></div></a></li> </ul></div> <div class="pane " data-pane="1"> <ul class="department-grid grid grid--wrap squared-grid " data-component="animateIn" data-options="{'stagger':80}"> <li class="department-grid__item squared-grid__item fx fx--slide-up fx--fade-in"><a href="" class="department-grid__link"><div class="department-grid__title"><object aria-hidden="true" class="icon department-grid__title-icon" data="https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/compass.svg"></object><h4 class="department-grid__heading heading-4--fluid">Finance &amp; Accounting</h4></div></a></li> <li class="department-grid__item squared-grid__item fx fx--slide-up fx--fade-in"><a href="" class="department-grid__link"><div class="department-grid__title"><object aria-hidden="true" class="icon department-grid__title-icon" data="https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/compass.svg"></object><h4 class="department-grid__heading heading-4--fluid">Legal</h4></div></a></li> <li class="department-grid__item squared-grid__item fx fx--slide-up fx--fade-in"><a href="" class="department-grid__link"><div class="department-grid__title"><object aria-hidden="true" class="icon department-grid__title-icon" data="https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/compass.svg"></object><h4 class="department-grid__heading heading-4--fluid">Management</h4></div></a></li> <li class="department-grid__item squared-grid__item fx fx--slide-up fx--fade-in"><a href="" class="department-grid__link"><div class="department-grid__title"><object aria-hidden="true" class="icon department-grid__title-icon" data="https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/compass.svg"></object><h4 class="department-grid__heading heading-4--fluid">Marketing</h4></div></a></li> <li class="department-grid__item squared-grid__item fx fx--slide-up fx--fade-in"><a href="" class="department-grid__link"><div class="department-grid__title"><object aria-hidden="true" class="icon department-grid__title-icon" data="https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/compass.svg"></object><h4 class="department-grid__heading heading-4--fluid">Member Services Operations</h4></div></a></li> <li class="department-grid__item squared-grid__item fx fx--slide-up fx--fade-in"><a href="" class="department-grid__link"><div class="department-grid__title"><object aria-hidden="true" class="icon department-grid__title-icon" data="https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/compass.svg"></object><h4 class="department-grid__heading heading-4--fluid">Operations</h4></div></a></li> <li class="department-grid__item squared-grid__item fx fx--slide-up fx--fade-in"><a href="" class="department-grid__link"><div class="department-grid__title"><object aria-hidden="true" class="icon department-grid__title-icon" data="https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/compass.svg"></object><h4 class="department-grid__heading heading-4--fluid">Other</h4></div></a></li> <li class="department-grid__item squared-grid__item fx fx--slide-up fx--fade-in"><a href="" class="department-grid__link"><div class="department-grid__title"><object aria-hidden="true" class="icon department-grid__title-icon" data="https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/compass.svg"></object><h4 class="department-grid__heading heading-4--fluid">Retail</h4></div></a></li> <li class="department-grid__item squared-grid__item fx fx--slide-up fx--fade-in"><a href="" class="department-grid__link"><div class="department-grid__title"><object aria-hidden="true" class="icon department-grid__title-icon" data="https://walmart-careers.scdn3.secure.raxcdn.com/91/75/4fd52fe048319bad66b029af088f/jet-logo.svg"></object><h4 class="department-grid__heading heading-4--fluid">Retail Core Engine</h4></div></a></li> <li class="department-grid__item squared-grid__item fx fx--slide-up fx--fade-in"><a href="" class="department-grid__link"><div class="department-grid__title"><object aria-hidden="true" class="icon department-grid__title-icon" data="https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/compass.svg"></object><h4 class="department-grid__heading heading-4--fluid">Strategy</h4></div></a></li> <li class="department-grid__item squared-grid__item fx fx--slide-up fx--fade-in"><a href="" class="department-grid__link"><div class="department-grid__title"><object aria-hidden="true" class="icon department-grid__title-icon" data="https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/compass.svg"></object><h4 class="department-grid__heading heading-4--fluid">Talent</h4></div></a></li> <li class="department-grid__item squared-grid__item fx fx--slide-up fx--fade-in"><a href="" class="department-grid__link"><div class="department-grid__title"><object aria-hidden="true" class="icon department-grid__title-icon" data="https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/compass.svg"></object><h4 class="department-grid__heading heading-4--fluid">Transportation</h4></div></a></li> <li class="department-grid__item squared-grid__item fx fx--slide-up fx--fade-in"><a href="" class="department-grid__link"><div class="department-grid__title"><object aria-hidden="true" class="icon department-grid__title-icon" data="https://walmart-careers.scdn3.secure.raxcdn.com/91/75/4fd52fe048319bad66b029af088f/jet-logo.svg"></object><h4 class="department-grid__heading heading-4--fluid">Urban Grocery Operations and Curation</h4></div></a></li> </ul></div> <div class="pane " data-pane="2"> <ul class="department-grid grid grid--wrap squared-grid squared-grid--col-two" data-component="animateIn" data-options="{'stagger':80}"> <li class="department-grid__item squared-grid__item fx fx--slide-up fx--fade-in"><a href="" class="department-grid__link"><div class="department-grid__title"><object aria-hidden="true" class="icon department-grid__title-icon" data="https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/compass.svg"></object><h4 class="department-grid__heading heading-4--fluid">Fulfillment Center</h4></div></a></li> </ul></div> <div class="pane " data-pane="3"> <ul class="department-grid grid grid--wrap squared-grid squared-grid--col-two" data-component="animateIn" data-options="{'stagger':80}"> <li class="department-grid__item squared-grid__item fx fx--slide-up fx--fade-in"><a href="" class="department-grid__link"><div class="department-grid__title"><object aria-hidden="true" class="icon department-grid__title-icon" data="https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/compass.svg"></object><h4 class="department-grid__heading heading-4--fluid">Member Services</h4></div></a></li> </ul></div> </div></div></section>  <section class="half-and-half"><div class="container grid "> <div class="half-and-half__image grid-item"> <div class="ratio-portrait ratio-15-16"> <figure class="text-and-image__figure"> <img class="text-and-image__img" src="https://walmart-careers.scdn3.secure.raxcdn.com/dims4/default/bb8b709/2147483647/resize/800x/quality/90/?url&#x3D;https%3A%2F%2Fwalmart-careers.scdn3.secure.raxcdn.com%2Fd8%2Fd2%2Fdcafb7a145efa10915378b12f46e%2Feshopping.png"  srcset="https://walmart-careers.scdn3.secure.raxcdn.com/dims4/default/3567038/2147483647/resize/300x/quality/90/?url&#x3D;https%3A%2F%2Fwalmart-careers.scdn3.secure.raxcdn.com%2Fd8%2Fd2%2Fdcafb7a145efa10915378b12f46e%2Feshopping.png 300w,
+               https://walmart-careers.scdn3.secure.raxcdn.com/dims4/default/e815962/2147483647/resize/500x/quality/90/?url&#x3D;https%3A%2F%2Fwalmart-careers.scdn3.secure.raxcdn.com%2Fd8%2Fd2%2Fdcafb7a145efa10915378b12f46e%2Feshopping.png 500w,
+               https://walmart-careers.scdn3.secure.raxcdn.com/dims4/default/bb8b709/2147483647/resize/800x/quality/90/?url&#x3D;https%3A%2F%2Fwalmart-careers.scdn3.secure.raxcdn.com%2Fd8%2Fd2%2Fdcafb7a145efa10915378b12f46e%2Feshopping.png 800w" sizes="(min-width:1440px) 532px, 35vw"  alt="JET EShopping"/> </figure></div> </div><div class="half-and-half__text grid-item"><div><h2 tabindex="0">Fast-forward to the future of shopping</h2><div class="richtext" tabindex="0" role="textbox">With our cutting-edge technology, real-time pricing engine, and commitment to transparency, we’re changing the way the world shops and creating more value for customers. </div> <div class="half-and-half__btn-container"> <a href="/technology" aria-label='' class="button half-and-half__cta button--inverted">Learn more about Tech @Jet</a></div> </div></div></div></section>  <section class="mosaic"  ><div class="container"><h2 class="heading-2 mosaic__headline" tabindex="0"></h2><div class="grid grid--wrap mosaic__grid">   <div class="mosaic__row"> <a class="col-12 grid mosaic__article fx--scale " href="https://youtu.be/Ag4AX1Eg6kE"><div class="col-6 grid--no-gutter mosaic__image-container"><div class="mosaic__image image-cover" style="background-image: url(https://walmart-careers.scdn3.secure.raxcdn.com/dims4/default/6f97ac5/2147483647/resize/500x/quality/90/?url&#x3D;https%3A%2F%2Fwalmart-careers.scdn3.secure.raxcdn.com%2F6c%2F39%2F88ee5e454d27b28d1ae76eaf6344%2Fscreen-shot-2017-11-12-at-2.59.25%20PM.png);"></div> </div><div class="col-6 grid--no-gutter mosaic__article-information grid grid--bottom"><div class="mosaic__article-information--padded"><h3 class="heading-2 heading-2--fluid" tabindex="0"> Make an impact</h3><p> With a founder&#x27;s mentality and passion for retail, Category Specialists are given end-to-end ownership of an entire product category across all of Walmart&#x27;s eCommerce sites—managing P&amp;L, negotiating with vendors, and finding ways to optimize performance.</p> <span class="eyebrow">Hear from our Category Specialists<svg class="icon"><use xlink:href="/sprite.svg#arrow-right2"></use></svg></span></div></div></a> </div>       <div class="mosaic__row grid "> <a class="col-6 mosaic__article fx--scale mosaic__article--overlay" href="http://fortune.com/2017/09/27/5-moves-walmart-is-making-to-compete-with-amazon-and-target/"><div class="mosaic__image image-cover" style="background-image: url(https://walmart-careers.scdn3.secure.raxcdn.com/dims4/default/201481d/2147483647/resize/500x/quality/90/?url&#x3D;https%3A%2F%2Fwalmart-careers.scdn3.secure.raxcdn.com%2F69%2Fbd%2Fedf9aef843f4bd05eb106e6de9c2%2Fshoporgml.jpg);"></div><div class="mosaic__article-information mosaic__article-information--overlay"><h3 class="heading-2 heading-2--fluid"> Marc Lore Shares His Strategy</h3> <span class="eyebrow">5 Moves Walmart Is Making to Compete<svg class="icon"><use xlink:href="/sprite.svg#arrow-right2"></use></svg></span></div></a> <div class="col-6 grid--no-gutter nested-rows"> <a class="grid-item mosaic__article fx--scale mosaic__article-information mosaic__article-information--padded" href="/locations/hoboken"><h3 class="heading-2 heading-2--fluid"> Choose your own adventure</h3><p> With offices across the country—and unique opportunities at each—you can find a career that fits your lifestyle.</p> <span class="eyebrow">See our Hoboken office<svg class="icon"><use xlink:href="/sprite.svg#arrow-right2"></use></svg></span></a>  <a class="grid-item mosaic__article fx--scale mosaic__article-information mosaic__article-information--padded mosaic__article-information--blue" href="/press"><h3 class="heading-2 heading-2--fluid"> Disrupting eCommerce</h3><p> What does that mean exactly? See what Wall Street Journal, New York Times, and others have to say.</p> <span class="eyebrow">Latest Press Mentions<svg class="icon"><use xlink:href="/sprite.svg#arrow-right2"></use></svg></span></a> </div></div>  </div></div></section>  <section class="full-width-image"> <figure class="full-width-image__figure"> <img class="full-width-image__img" src="https://walmart-careers.scdn3.secure.raxcdn.com/dims4/default/63b7e49/2147483647/resize/1600x/quality/90/?url&#x3D;https%3A%2F%2Fwalmart-careers.scdn3.secure.raxcdn.com%2Fbc%2F5c%2F00ba262e4dbf8a604d2333da577b%2Fhomepage-full.png"  srcset="https://walmart-careers.scdn3.secure.raxcdn.com/dims4/default/99dccfa/2147483647/resize/600x/quality/90/?url&#x3D;https%3A%2F%2Fwalmart-careers.scdn3.secure.raxcdn.com%2Fbc%2F5c%2F00ba262e4dbf8a604d2333da577b%2Fhomepage-full.png 600w,
+               https://walmart-careers.scdn3.secure.raxcdn.com/dims4/default/75bf34a/2147483647/resize/1000x/quality/90/?url&#x3D;https%3A%2F%2Fwalmart-careers.scdn3.secure.raxcdn.com%2Fbc%2F5c%2F00ba262e4dbf8a604d2333da577b%2Fhomepage-full.png 1000w,
+               https://walmart-careers.scdn3.secure.raxcdn.com/dims4/default/63b7e49/2147483647/resize/1600x/quality/90/?url&#x3D;https%3A%2F%2Fwalmart-careers.scdn3.secure.raxcdn.com%2Fbc%2F5c%2F00ba262e4dbf8a604d2333da577b%2Fhomepage-full.png 1600w" sizes="100vw"  alt="Jet Homepage Full"/> </figure></section>  <section class="half-and-half"><div class="container grid "> <div class="half-and-half__image grid-item"> <div class="ratio-portrait ratio-15-16"> <figure class="text-and-image__figure"> <img class="text-and-image__img" src="https://walmart-careers.scdn3.secure.raxcdn.com/dims4/default/a698ab5/2147483647/resize/800x/quality/90/?url&#x3D;https%3A%2F%2Fwalmart-careers.scdn3.secure.raxcdn.com%2F63%2Ff6%2Fd92387fd4bc29afc7cf7501bd122%2Fhoboken-image-1.png"  srcset="https://walmart-careers.scdn3.secure.raxcdn.com/dims4/default/3d908c5/2147483647/resize/300x/quality/90/?url&#x3D;https%3A%2F%2Fwalmart-careers.scdn3.secure.raxcdn.com%2F63%2Ff6%2Fd92387fd4bc29afc7cf7501bd122%2Fhoboken-image-1.png 300w,
+               https://walmart-careers.scdn3.secure.raxcdn.com/dims4/default/e5e8864/2147483647/resize/500x/quality/90/?url&#x3D;https%3A%2F%2Fwalmart-careers.scdn3.secure.raxcdn.com%2F63%2Ff6%2Fd92387fd4bc29afc7cf7501bd122%2Fhoboken-image-1.png 500w,
+               https://walmart-careers.scdn3.secure.raxcdn.com/dims4/default/a698ab5/2147483647/resize/800x/quality/90/?url&#x3D;https%3A%2F%2Fwalmart-careers.scdn3.secure.raxcdn.com%2F63%2Ff6%2Fd92387fd4bc29afc7cf7501bd122%2Fhoboken-image-1.png 800w" sizes="(min-width:1440px) 532px, 35vw"  alt="Hoboken"/> </figure></div> </div><div class="half-and-half__text grid-item"><div><h2 tabindex="0">Hoboken, NJ</h2><div class="richtext" tabindex="0" role="textbox">Just a ten minute hop from Manhattan, Hoboken boasts a bustling community of professionals, with plenty of food and drink options and the best city views around.</div> <div class="half-and-half__btn-container"> <a href="/locations/hoboken" aria-label='' class="button half-and-half__cta button--inverted">Explore Hoboken</a></div> </div></div></div></section>  <section class="half-and-half"><div class="container grid  grid--reverse "> <div class="half-and-half__image grid-item"> <div class="ratio-portrait ratio-15-16"> <figure class="text-and-image__figure"> <img class="text-and-image__img" src="https://walmart-careers.scdn3.secure.raxcdn.com/dims4/default/7558bd7/2147483647/resize/800x/quality/90/?url&#x3D;https%3A%2F%2Fwalmart-careers.scdn3.secure.raxcdn.com%2Fc0%2Ff0%2F95670a1145238af4992419a66dc4%2Feck-0142.jpg"  srcset="https://walmart-careers.scdn3.secure.raxcdn.com/dims4/default/20723f3/2147483647/resize/300x/quality/90/?url&#x3D;https%3A%2F%2Fwalmart-careers.scdn3.secure.raxcdn.com%2Fc0%2Ff0%2F95670a1145238af4992419a66dc4%2Feck-0142.jpg 300w,
+               https://walmart-careers.scdn3.secure.raxcdn.com/dims4/default/c12b4f0/2147483647/resize/500x/quality/90/?url&#x3D;https%3A%2F%2Fwalmart-careers.scdn3.secure.raxcdn.com%2Fc0%2Ff0%2F95670a1145238af4992419a66dc4%2Feck-0142.jpg 500w,
+               https://walmart-careers.scdn3.secure.raxcdn.com/dims4/default/7558bd7/2147483647/resize/800x/quality/90/?url&#x3D;https%3A%2F%2Fwalmart-careers.scdn3.secure.raxcdn.com%2Fc0%2Ff0%2F95670a1145238af4992419a66dc4%2Feck-0142.jpg 800w" sizes="(min-width:1440px) 532px, 35vw"  alt="Fulfilling an Order"/> </figure></div> </div><div class="half-and-half__text grid-item"><div><h2 tabindex="0">Pedricktown, NJ </h2><div class="richtext" tabindex="0" role="textbox">Our Pedricktown facility ships out 40% of all Jet orders and we’re constantly looking for new talent to bring innovative ideas that make processes streamlined and efficient. And, our Photo Studio diligently works to make our products shine with awesome imagery.</div> <div class="half-and-half__btn-container"> <a href="/locations/pedricktown" aria-label='' class="button half-and-half__cta button--inverted">Explore Pedricktown</a></div> </div></div></div></section>  <section class="half-and-half"><div class="container grid "> <div class="half-and-half__image grid-item"> <div class="ratio-portrait ratio-15-16"> <figure class="text-and-image__figure"> <img class="text-and-image__img" src="https://walmart-careers.scdn3.secure.raxcdn.com/dims4/default/6750e75/2147483647/resize/800x/quality/90/?url&#x3D;https%3A%2F%2Fwalmart-careers.scdn3.secure.raxcdn.com%2F17%2F97%2F60a6ce1f4257bd3e9b2cbba997f3%2Fscreen-shot-2017-11-13-at-8.39.40%20AM.png"  srcset="https://walmart-careers.scdn3.secure.raxcdn.com/dims4/default/e01312e/2147483647/resize/300x/quality/90/?url&#x3D;https%3A%2F%2Fwalmart-careers.scdn3.secure.raxcdn.com%2F17%2F97%2F60a6ce1f4257bd3e9b2cbba997f3%2Fscreen-shot-2017-11-13-at-8.39.40%20AM.png 300w,
+               https://walmart-careers.scdn3.secure.raxcdn.com/dims4/default/8aa1d1e/2147483647/resize/500x/quality/90/?url&#x3D;https%3A%2F%2Fwalmart-careers.scdn3.secure.raxcdn.com%2F17%2F97%2F60a6ce1f4257bd3e9b2cbba997f3%2Fscreen-shot-2017-11-13-at-8.39.40%20AM.png 500w,
+               https://walmart-careers.scdn3.secure.raxcdn.com/dims4/default/6750e75/2147483647/resize/800x/quality/90/?url&#x3D;https%3A%2F%2Fwalmart-careers.scdn3.secure.raxcdn.com%2F17%2F97%2F60a6ce1f4257bd3e9b2cbba997f3%2Fscreen-shot-2017-11-13-at-8.39.40%20AM.png 800w" sizes="(min-width:1440px) 532px, 35vw"  alt="Office Shot"/> </figure></div> </div><div class="half-and-half__text grid-item"><div><h2 tabindex="0">Salt Lake City, UT</h2><div class="richtext" tabindex="0" role="textbox">From the canyons at Wasatch Front to the endless skiing, snowboarding, and hiking options, Salt Lake City is the ultimate playground for families. And our new Member Services office will have a game room, a meditation room, and a mini market, so spending time inside is just as nice.</div> <div class="half-and-half__btn-container"> <a href="/locations/slc" aria-label='' class="button half-and-half__cta button--inverted">Explore Salt Lake City</a></div> </div></div></div></section>   <section class="recent-jobs" data-component="recentJobs"><div class="container"><h2 class="heading-2 indent" tabindex="0">Recently viewed jobs</h2><ul class="job-listing__list accordion__list" data-component="accordion"></ul></div><script id="recent-jobs" type="text/x-handlebars-template">
+    <li class="search-result job-listing {{# brandCssClassName}} {{ brandCssClassName }} {{/ brandCssClassName}}"><div class="job-listing__headline"><h4 class="job-listing__title"><a class="job-listing__link" href="{{ jobSlug }}">{{{ jobTitle }}}</a></h4> <img aria-hidden="true" src="{{ brandImageUrl }}" class="job-listing-logo"> <span tabindex="0" role="contentinfo" class="job-listing__department eyebrow">{{{ jobDepartmentName }}}</span></div><div class="job-listing__info"> <span tabindex="0" role="contentinfo" class="job-listing__location">{{{ jobLocation }}}{{# jobState }},{{/ jobState }} {{{ jobState }}}</span> <span tabindex="0" role="contentinfo" class="job-listing__created">{{ dateCreated }}</span></div></li>
+  </script></section> </main> <footer class="page-footer"><div class="container"><ul class="footer-menu grid grid--center grid--wrap">  <li class="footer-menu__item"> <a href="/events" class="footer-link" aria-label="Events" data-gtm="click footer link">Events</a></li>   <li class="footer-menu__item"> <a href="/faqs" class="footer-link" aria-label="FAQ" data-gtm="click footer link">FAQ</a></li>   <li class="footer-menu__item"> <a href="/privacy-policy" class="footer-link" aria-label="Privacy Policy" data-gtm="click footer link">Privacy Policy</a></li>   <li class="footer-menu__item"> <a href="/sitemap" class="footer-link" aria-label="Site Map" data-gtm="click footer link">Site Map</a></li>           </ul><div class="footer-menu footer-menu--social grid grid--wrap">  <a class="share__link share__link--dark share__link--medium" aria-label="Facebook opens in a new window" href="https://www.facebook.com/jet/" target="_blank"><svg class="icon"><use xlink:href="/sprite.svg#facebook"></use></svg></a> </div><p class="page-footer__label">  ©2019 Copyright; JET.com 2017 </p><p class="page-footer__label"> </p>  <span class="page-footer__spark"><svg class="icon"><use xlink:href="/jetj.svg#JetJ"></use></svg></span> </div></footer><script>window.walmartDataLayer = [  { "siteId": "0000015f-1106-de7b-addf-3f86aa140000", "sectionName": "com.walmart.careers.layouts.HomepageLayout", "siteSection": "Homepage"              }];</script>  <script type="text/javascript" src="https://walmart-careers.scdn3.secure.raxcdn.com/resource/js/vendor.b5186422fd25c9e714430cbc28ac4305.gz.js"></script> <script>svg4everybody(); // run it now or whenever you are ready</script> <script type="text/javascript" src="https://walmart-careers.scdn3.secure.raxcdn.com/resource/js/main.8020adf6c61f77da709869f3b4a1cec0.gz.js"></script>   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqc32gKXeAAU59uNi4V6xkXgwUn4z28g8&callback=onMapsAPIReady"></script> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','walmartDataLayer','GTM-NGK8DC');</script><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NGK8DC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>   <script>
+const mobilemenu = document.querySelector('[data-component="menu"]');
+const menuItems = mobilemenu.querySelectorAll('.main-menu__item--with-items');
+
+
+let backBtns = mobilemenu.querySelectorAll('.main-menu__back');
+
+Array.prototype.forEach.call(menuItems, (item) => {
+
+  let backBtn = item.querySelector('.main-menu__back');
+  let sublinks = item.querySelector('.main-menu__link');
+
+  item.addEventListener('click', (e) => {
+    if(window.innerWidth < 768) {
+      item.classList.toggle('main-menu__item--active');
+      mobilemenu.classList.toggle('main-menu__menu--show-submenu');
+    }
+  });
+  
+  backBtn.addEventListener('click', (e) => {
+    if(window.innerWidth < 768) {
+      window.setTimeout(function(){
+        item.classList.toggle('main-menu__item--active');
+        mobilemenu.classList.toggle('main-menu__menu--show-submenu');
+      }, 100)
+    }
+  });
+});
+
+
+window.setTimeout(function(){
+  const menuSubItems = mobilemenu.querySelectorAll('.main-menu__link');
+
+  Array.prototype.forEach.call(menuSubItems, (link) => {
+    link.addEventListener('click', (e) => {
+      if(window.innerWidth < 768) {
+        e.stopPropagation();
+      }
+    });
+  });
+  
+}, 200);
+
+
+
+/* fix job id in url so iframe works as expected */
+if (new String(document.location.href).indexOf('/us/jobs/details/?gh_jid')  != -1) {
+   var l = new String(document.location.href);
+   l = l.replace("=GH","=");
+   window.history.replaceState(null, null, l );
+}
+
+
+if (document.querySelector('.job-data__apply a.button') != null) {
+      document.querySelector('.job-data__apply a.button').removeAttribute('target');
+}
+if (document.querySelector('.snackbar__button a.button') != null) {
+      document.querySelector('.snackbar__button a.button').removeAttribute('target');
+}
+
+/* Replace "What you'll do at" on job page & show it */
+if (document.querySelector('div.job-description h3.job-description__title') != null) {
+     document.querySelector('div.job-description h3.job-description__title').innerHTML = "What you'll do";
+}
+
+if (document.querySelector('div.job-description h3.job-description__title') != null) {
+     document.querySelector('div.job-description h3.job-description__title').style = 'opacity:1';
+}
+
+
+</script>
+
+<script type="text/javascript">_satellite.pageBottom();</script>
+  <div class="cookie-banner" id="jetcom_privacy" style="display:none"><div class="cookie-banner-inner"><div class="text">Jet.com and Walmart.com use cookies</div> <button class="btn btn-primary btn-small">I&#x27;m ok with this</button></div></div> </body></html>

@@ -1,0 +1,18 @@
+401 Unauthorized
+Date: Sun, 01 Dec 2019 12:42:20 GMT
+Vary: Cookie, Cookie
+Server: nginx
+Content-Length: 3097
+Content-Type: text/html
+X-Pantheon-Styx-Hostname: styx-fe2-a-5bcd6cdfcc-sl7l8
+Accept-Ranges: bytes
+Retry-Count: 0
+Www-Authenticate: Basic realm="Restricted Site"
+X-Served-By: cache-mdw17349-MDW, cache-sin18028-SIN
+X-Cache: MISS, MISS
+X-Cache-Hits: 0, 0
+Age: 0
+Etag: "5d889918-c19"
+X-Timer: S1575204141.628811,VS0,VE224
+Via: 1.1 varnish
+X-Styx-Req-Id: 0414dd39-1438-11ea-acc3-9261611861f0

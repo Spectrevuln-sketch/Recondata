@@ -1,0 +1,11 @@
+401 Unauthorized
+Www-Authenticate: Basic realm="Restricted Area"
+Content-Type: text/html; charset="utf-8"
+Retry-Count: 0
+Server: cPanel
+Persistent-Auth: false
+Host: webdisk.cscorporatejet.com:80
+Expires: Mon, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, no-store, must-revalidate, private, proxy-revalidate
+Date: Sun, 01 Dec 2019 12:41:04 GMT
+Vary: Accept-Encoding

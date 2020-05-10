@@ -1,0 +1,25 @@
+200 OK
+X-Ua-Compatible: IE=edge
+Expires: 0
+Vary: Accept-Encoding
+X-Okta-Request-Id: XhjZ6q8I7N4X7-vzcFKQVQAAArw
+X-Rate-Limit-Reset: 1578687014
+X-Rate-Limit-Limit: 850
+Cache-Control: no-cache, no-store
+Content-Language: en
+Retry-Count: 0
+Server: nginx
+X-Xss-Protection: 1; mode=block; report=https://okta.report-uri.com/r/d/xss/enforce
+Content-Security-Policy-Report-Only: default-src 'self' *.oktacdn.com seek.okta.com; connect-src 'self' *.oktacdn.com *.mixpanel.com *.mapbox.com app.pendo.io data.pendo.io pendo-static-5634101834153984.storage.googleapis.com seek.okta.com seek-admin.okta.com seek.kerberos.okta.com https://oinmanager.okta.com data:; script-src 'unsafe-inline' 'unsafe-eval' 'self' *.oktacdn.com; style-src 'unsafe-inline' 'self' *.oktacdn.com app.pendo.io cdn.pendo.io pendo-static-5634101834153984.storage.googleapis.com; frame-src 'self' login.okta.com seek.okta.com seek-admin.okta.com; img-src 'self' *.oktacdn.com seek.okta.com *.tiles.mapbox.com *.mapbox.com app.pendo.io data.pendo.io cdn.pendo.io pendo-static-5634101834153984.storage.googleapis.com data: blob:; font-src data: 'self' *.oktacdn.com fonts.gstatic.com; report-uri https://okta.report-uri.com/r/d/csp/reportOnly; report-to csp-report
+Report-To: {"group":"csp-report","max_age":31536000,"endpoints":[{"url":"https://okta.report-uri.com/r/d/csp/reportOnly"}],"include_subdomains":true}
+X-Frame-Options: SAMEORIGIN
+X-Robots-Tag: none
+Content-Type: text/html;charset=utf-8
+X-Rate-Limit-Remaining: 847
+Pragma: no-cache
+Strict-Transport-Security: max-age=315360000
+Set-Cookie: ADRUM_BTa=R; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/ ADRUM_BT1=R; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/ ADRUM_BTa="R:1827|g:d91b1116-2b36-448e-bbf6-9c74d4b24904"; Version=1; Max-Age=30; Expires=Fri, 10-Jan-2020 20:09:44 GMT; Path=/ ADRUM_BTa="R:1827|g:d91b1116-2b36-448e-bbf6-9c74d4b24904|n:Okta_6d5b1e30-d05a-4894-a37b-81b5f6c60e0e"; Version=1; Max-Age=30; Expires=Fri, 10-Jan-2020 20:09:44 GMT; Path=/ ADRUM_BT1="R:1827|i:11954"; Version=1; Max-Age=30; Expires=Fri, 10-Jan-2020 20:09:44 GMT; Path=/ ADRUM_BT1="R:1827|i:11954|e:40"; Version=1; Max-Age=30; Expires=Fri, 10-Jan-2020 20:09:44 GMT; Path=/ sid=""; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/ JSESSIONID=04BC626FE815AB3C14FE26EE82356E85; Path=/; Secure; HttpOnly t=blue-dark; Path=/ sid=""; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/
+Public-Key-Pins-Report-Only: pin-sha256="r5EfzZxQVvQpKo3AgYRaT7X2bDO/kj3ACwmxfdT2zt8="; pin-sha256="MaqlcUgk2mvY/RFSGeSwBRkI+rZ6/dxe/DuQfBT/vnQ="; pin-sha256="72G5IEvDEWn+EThf3qjR7/bQSWaS2ZSLqolhnO6iyJI="; pin-sha256="rrV6CLCCvqnk89gWibYT0JO6fNQ8cCit7GGoiVTjCOg="; max-age=60; report-uri="https://okta.report-uri.io/r/default/hpkp/reportOnly"
+P3p: CP="HONK"
+Date: Fri, 10 Jan 2020 20:09:14 GMT
+X-Content-Type-Options: nosniff

@@ -1,0 +1,14 @@
+200 OK
+X-Content-Type-Options: nosniff
+X-Tkp-Srv-Id: frontend-merchant-172-21-32-145
+Access-Control-Allow-Origin: https://seller.tokopedia.com https://www.tokopedia.com
+Retry-Count: 0
+Strict-Transport-Security: max-age=15552000; includeSubDomains
+Cache-Control: no-cache, no-store, must-revalidate, no-transform
+Content-Type: text/html; charset=utf-8
+X-Dns-Prefetch-Control: off
+X-Frame-Options: SAMEORIGIN ALLOW-FROM https://seller.tokopedia.com
+X-Download-Options: noopen
+Access-Control-Allow-Credentials: true
+Vary: Accept-Encoding
+Date: Fri, 22 Nov 2019 03:46:02 GMT

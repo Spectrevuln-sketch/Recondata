@@ -1,0 +1,1049 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <base href="https://staging.hobojet.com">
+    <title>Departure Club</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="Departure Club is the most cost efficient way to travel private! We use our operators for great flight deals and giveaways for you and your friends!">
+    <meta name="keywords" content="Departure Club, travel, private, flight, deals, flight deals, charter flight, charter, plane, private plane, private">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="https://staging.hobojet.com/images/favicon.png">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,300,700,900">
+            <link rel="stylesheet" href="https://staging.hobojet.com/build/css/app.css">
+        <!-- FONTS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <script>
+        var fbid = '908631779173608';
+        var user = null;
+            </script>
+</head>
+<body class="homepage" ng-app="app" ng-controller="AppController as app">
+
+    <div id="pagePreload">
+        <div id="status">&nbsp;</div>
+    </div>
+
+<header>
+    <div class="logo">
+        <a href="https://staging.hobojet.com">
+                        <img src="https://staging.hobojet.com/images/black_logo.png" alt="">
+        </a>
+    </div>
+    <button id="menu-btn" class="mobile-menu-btn"><i class="ti-menu"></i></button>
+    <div class="main-menu">
+        <ul class="mobile">
+                    </ul>
+
+        <ul>
+            <li>
+                <a class="" href="https://staging.hobojet.com/book-flight">One-Way Specials</a>
+            </li>
+                                                    <li>
+                <a class="" href="https://staging.hobojet.com/charter-flight">Charter</a>
+            </li>
+            <li>
+                <a class="" href="https://staging.hobojet.com/flights-alerts">Set Alerts</a>
+            </li>
+            <li>
+                <a class="" href="https://staging.hobojet.com/membership">Membership</a>
+            </li>
+                        <!-- Mobile User Menu li items -->
+                                        <li class="li-mobile">
+                    <a href="javascript:void(0)" ng-click="app.login()">
+                        Login
+                    </a>
+                </li>
+                <li class="li-mobile">
+                    <a href="javascript:void(0)" ng-click="app.register()">
+                        Register
+                    </a>
+                </li>
+                        <!-- / Mobile User Menu li items -->
+        </ul>
+    </div>
+
+    <div class="user-menu">
+        <ul>
+                                        <li>
+                    <a href="javascript:void(0)" ng-click="app.login()">
+                        Login
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" ng-click="app.register()">
+                        Register
+                    </a>
+                </li>
+                    </ul>
+    </div>
+    <button class="search-btn" onclick="location.href='https://staging.hobojet.com/book-flight'">
+        <i class="ti-search"></i>
+    </button>
+</header>
+<section class="hero">
+        <div class="hero-image" style="background-image: url(images/hero-jetguy.png);"></div>
+    <div class="hero-content">
+        <div class="hero-heading">
+            <h1>Need a lift?</h1>
+            <p>Search for empty one-way private flights and score an amazing deal!</p>
+        </div>
+
+        <div class="hero-search" flight-search>
+			<form action="https://staging.hobojet.com/book-flight" ng-submit="search($event)" method="post">
+				<input type="hidden" name="origin_location_input">
+				<input type="hidden" name="destination_location_input">
+				<ul class="inline-hero-form">
+					<li class="search-origin">
+						<input
+							ng-model="origin_location"
+							bs-options="data as data.formatted_address for data in citySearch($viewValue)"
+							placeholder="Origin"
+							data-animation="am-fade"
+							data-min-length="0"
+							data-limit="3"
+							bs-typeahead
+							data-trim-value="false" ng-trim="false"
+							type="text">
+							<i class="form-control-ico ico-orig"></i>
+					</li>
+					<li class="search-destination">
+						<input
+							ng-model="destination_location"
+							bs-options="data as data.formatted_address for data in citySearch($viewValue)"
+							placeholder="Destination"
+							data-animation="am-fade"
+							data-min-length="0"
+							data-limit="3"
+							bs-typeahead
+							data-trim-value="false" ng-trim="false"
+							type="text">
+							<i class="form-control-ico ico-dest"></i>
+					</li>
+					<li class="search-button">
+						<button class="btn btn-block btn-primary" ng-click="search($event)">Find a Jet</button>
+					</li>
+				</ul>
+			</form>
+        </div>
+    </div>
+
+    <div class="scroll-down">
+        <a href="#flights-section">
+            <img src="images/scroll-down.svg" alt="">
+        </a>
+        <ul class="vertical-dots">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </div>
+    </div>
+</section>
+
+<div class="page-container">
+
+    
+    
+<section class="flights-section" id="flights-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<div class="section-title">
+					<h1 class="h1">Featured Deals</h1>
+					<p>Check out some of our featured deals and save up to 96% on Private Jet Flights!</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row" ng-controller="FlightsController as flights">
+			<book-flight></book-flight>
+			<div class="col-md-8">
+				<ul class="row">
+									</ul>
+			</div>
+			<div class="col-md-4 hidden-sm hidden-xs">
+				<div class="widget become-member">
+					<h1>RECEIVE  EXCLUSIVE  FLIGHT DEALS</h1>
+					<p>Additional flight discounts for a modest membership fee.</p>
+					<div>
+						<a href="https://staging.hobojet.com/membership" class="btn btn-primary btn-block">Become a Member</a>
+					</div>
+				</div>
+																																					</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<a class="btn btn-primary" href="https://staging.hobojet.com/book-flight">View All</a>
+			</div>
+		</div>
+
+	</div><!-- /.container -->
+</section>
+
+
+
+<section class="testimonials-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<slick settings="testimonialsConfig" class="testimonials-slider">
+				   <div>
+				   		<article>
+				   							   			<div class="testimonials-avatar" style="background-image: url('images/symbol.png');">
+				   			</div>
+					   		<h6 class="text-uppercase">Troy</h6>
+					   		<p>“Our family takes advantage of our membership by getting out of the desert in the summer and escaping to much cooler places”</p>
+					   	</article>
+				   </div>
+				   <div>
+				   		<article>
+				   			<div class="testimonials-avatar" style="background-image: url('images/symbol.png');">
+				   			</div>
+					   		<h6 class="text-uppercase">Jeff</h6>
+					   		<p>“The flight is more fun than the destination”</p>
+					   	</article>
+				   </div>
+				   <div>
+				   		<article>
+				   			<div class="testimonials-avatar" style="background-image: url('images/symbol.png');">
+				   			</div>
+					   		<h6 class="text-uppercase">Tony</h6>
+					   		<p>“If you have never taken a Private Jet than that should be on top of your bucket list”</p>
+					   	</article>
+				   </div>
+				</slick>
+			</div>
+		</div>
+	</div>
+</section>
+
+</div>
+
+    <script src="https://staging.hobojet.com/build/js/dependencies.js"></script>
+
+    <script src="https://staging.hobojet.com/build/js/app.js"></script>
+
+<section class="subscribe-section" subscribe>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="h1">Receive Additional Flight Deals</h1>
+                <p>Save up to 40% of your next trip. Secret Deals for our subscribers only.</p>
+            </div>
+            <div class="col-md-6">
+                <div class="subscribe-form">
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="email" class="form-control" ng-model="email" placeholder="Your Email">
+                            </td>
+                            <td>
+                                <button class="btn btn-primary btn-block" ng-click="send()">Subscribe</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- footer -->
+<footer>
+    <div class="container-fluid">
+        <div class="row footer-top">
+            <div class="col-sm-2">
+                <div class="footer-logo">
+                                        <img src="images/white_logo.png" alt="">
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <ul class="footer-nav">
+                    <li>
+                        <a href="https://staging.hobojet.com">Home</a>
+                    </li>
+                    <li>
+                        <a href="https://staging.hobojet.com/book-flight">One-Way Specials</a>
+                    </li>
+                    <li>
+                        <a href="https://staging.hobojet.com/charter-flight">Charter</a>
+                    </li>
+                    <!-- <li>
+                        <a href="">Blog</a>
+                    </li> -->
+                    <li>
+                        <a href="https://staging.hobojet.com/contact">Contact</a>
+                    </li>
+                    <li>
+                        <a href="https://staging.hobojet.com/faq">FAQ</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="col-sm-2">
+                <table class="footer-social">
+                    <tr>
+                                                                                                                                                                <td>
+                            <a href="https://www.instagram.com/privatejettravel/" target="_blank">
+                                <i class="ti-instagram"></i>
+                            </a>
+                        </td>
+                                                                                                                                                            </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row footer-bottom">
+            <div class="col-sm-6">
+                <div class="copyright">
+                    <p>Copyright@ 2016 Departure Club</p>
+                                    </div>
+            </div>
+            <div class="col-sm-6">
+                <ul class="legal list-inline">
+                    <li><a href="https://staging.hobojet.com/terms-conditions">Terms & Conditions</a></li>
+                    <!-- <li><a href="">Privacy Policy</a></li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Login Modal -->
+<script type="text/ng-template" id="login-modal.html">
+	<div class="modal auth-modal" tabindex="-1" role="dialog" aria-hidden="true" ng-controller="LoginController as login">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" aria-label="Close" ng-click="$hide()">
+						<span aria-hidden="true"><i class="ti-close"></i>
+						</span>
+					</button>
+					<h3 class="modal-title">Login</h3>
+				</div>
+				<div class="modal-body">
+					<form novalidate name="form.login" ng-submit="login()">
+						<a href="javascript:void(0);" ng-click="facebook()" class="btn btn-fb btn-block">
+							<span>Login with Facebook</span>
+						</a>
+						<div class="or-separate">
+							or
+						</div>
+						<div class="form-group">
+							<input id="email" name="email" type="text" placeholder="Email" class="form-control" ng-model="email">
+							<span class="form-control-ico ti-email"></span>
+							<span ng-message-exp="errors.password" class="help-inline" ng-bind="errors.email"></span>
+						</div>
+						<div class="form-group">
+							<input id="password" name="password" type="password" placeholder="Password" class="form-control" ng-model="password">
+							<span class="form-control-ico ti-lock"></span>
+							<span ng-message-exp="errors.password" class="help-inline" ng-bind="errors.password"></span>
+						</div>
+
+						<div class="clearfix">
+							<div class="pull-left">
+		                        <div class="form-group">
+		                            <div class="checkbox">
+		                                <input type="checkbox" id="check" name="remember" ng-model="remember">
+		                                <label for="check">Remember me</label>
+		                            </div>
+		                        </div>
+							</div>
+							<div class="pull-right">
+								<div class="form-group text-right">
+									<a class="normal" href="javascript:void(0)" ng-click="app.password()">
+			                    		Forgot Password?
+			                    	</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<button class="btn btn-primary btn-block">
+								Login
+							</button>
+						</div>
+						<p>Don’t have an account?
+							<a class="normal" href="javascript:void(0)" ng-click="app.register()">
+	                    		Register
+	                    	</a>
+						</p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+
+
+
+<!-- Register Modal -->
+<script type="text/ng-template" id="register-modal.html">
+	<div class="modal auth-modal" tabindex="-1" role="dialog" aria-hidden="true" ng-controller="RegisterController">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" aria-label="Close" ng-click="$hide()">
+						<span aria-hidden="true"><i class="ti-close"></i>
+						</span>
+					</button>
+					<h3 class="modal-title">Register</h3>
+				</div>
+				<div class="modal-body">
+					<form novalidate name="form.register" ng-submit="register()">
+						<a href="javascript:void(0)" class="btn btn-fb btn-block" ng-click="facebook()">
+							<span>Register with Facebook</span>
+						</a>
+						<div class="or-separate">
+							or
+						</div>
+						<div class="form-group">
+							<input id="email" name="email" type="text" class="form-control" placeholder="Email" ng-model="email">
+							<span class="form-control-ico ti-email"></span>
+							<span ng-message-exp="errors.email" class="help-inline" ng-bind="errors.email"></span>
+
+						</div>
+						<div class="form-group">
+							<input id="first_name" name="first_name" type="text" placeholder="First name" class="form-control" ng-model="first_name">
+							<span class="form-control-ico ti-user"></span>
+							<span ng-message-exp="errors.first_name" class="help-inline" ng-bind="errors.first_name"></span>
+
+						</div>
+						<div class="form-group">
+							<input id="last_name" name="last_name" type="text" placeholder="Last name" class="form-control" ng-model="last_name">
+							<span class="form-control-ico ti-user"></span>
+							<span ng-message-exp="errors.last_name" class="help-inline" ng-bind="errors.last_name"></span>
+
+						</div>
+						<div class="form-group">
+							<input id="password" name="password" type="password" class="form-control" placeholder="Password"  ng-model="password">
+							<span class="form-control-ico ti-lock"></span>
+							<span ng-message-exp="errors.password" class="help-inline" ng-bind="errors.password"></span>
+						</div>
+
+
+						<div class="clearfix">
+							<div class="pull-right">
+								<div class="form-group text-right">
+									<a class="normal" href="#">Terms of Use</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<button class="btn btn-primary btn-block">
+								Register
+							</button>
+						</div>
+						<p>Already have an account?
+							<a class="normal" href="javascript:void(0)" ng-click="app.login()">
+	                    		Login
+	                    	</a>
+                    	</p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+
+
+<!-- Password Modal -->
+<script type="text/ng-template" id="password-modal.html">
+	<div class="modal auth-modal" tabindex="-1" role="dialog" aria-hidden="true" ng-controller="ResetController">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" aria-label="Close" ng-click="$hide()">
+						<span aria-hidden="true"><i class="ti-close"></i>
+						</span>
+					</button>
+					<h3 class="modal-title">Forgot Password</h3>
+				</div>
+				<div class="modal-body">
+					<form novalidate name="form.reset" ng-submit="reset()">
+						<label for="email">Type your email address</label>
+						<div class="form-group">
+							<input id="email" name="email" type="text" placeholder="Email" class="form-control" ng-model="email">
+							<span class="form-control-ico ti-email"></span>
+							<span ng-message-exp="errors.email" class="help-inline" ng-bind="errors.email"></span>
+						</div>
+
+						<div class="form-group">
+							<button class="btn btn-primary btn-block">
+								Reset Password
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+
+<!-- Subscribe Modal -->
+<script type="text/ng-template" id="subscribe-modal.html">
+	<div class="modal subscribe-modal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" aria-label="Close" ng-click="$hide()">
+						<span aria-hidden="true"><i class="ti-close"></i>
+						</span>
+					</button>
+					<h3 class="modal-title">Receive Exclusive Flight Deals!</h3>
+				</div>
+				<div class="modal-body">
+					<form novalidate name="" ng-submit="">
+						<div class="form-group">
+							<input id="name" name="name" type="text" placeholder="Your Name" class="form-control" ng-model="form.name">
+							<span class="form-control-ico ti-user"></span>
+						</div>
+						<div class="form-group">
+							<input id="email" name="email" type="text" placeholder="Your Email" class="form-control" ng-model="form.email">
+							<span class="form-control-ico ti-email"></span>
+							<span ng-message-exp="errors.email" class="help-inline" ng-bind="errors.email"></span>
+						</div>
+						<div class="form-group">
+							<div class="ui-select">
+								<select ng-model="form.state">
+									<option value="" disabled selected hidden>Select State</option>
+									<option value="Alabama">Alabama</option>
+									<option value="Arizona">Arizona</option>
+									<option value="Arkansas">Arkansas</option>
+									<option value="California">California</option>
+									<option value="Colorado">Colorado</option>
+									<option value="Connecticut">Connecticut</option>
+									<option value="Delaware">Delaware</option>
+									<option value="Florida">Florida</option>
+									<option value="Georgia">Georgia</option>
+									<option value="Hawaii">Hawaii</option>
+									<option value="Idaho">Idaho</option>
+									<option value="Illinois">Illinois</option>
+									<option value="Indiana">Indiana</option>
+									<option value="Iowa">Iowa</option>
+									<option value="Kansas">Kansas</option>
+									<option value="Kentucky">Kentucky</option>
+									<option value="Louisiana">Louisiana</option>
+									<option value="Maine">Maine</option>
+									<option value="Maryland">Maryland</option>
+									<option value="Massachusetts">Massachusetts</option>
+									<option value="Michigan">Michigan</option>
+									<option value="Minnesota">Minnesota</option>
+									<option value="Mississippi">Mississippi</option>
+									<option value="Missouri">Missouri</option>
+									<option value="Montana">Montana</option>
+									<option value="Nebraska">Nebraska</option>
+									<option value="Nevada">Nevada</option>
+									<option value="New Hampshire">New Hampshire</option>
+									<option value="New Jersey">New Jersey</option>
+									<option value="New Mexico">New Mexico</option>
+									<option value="New York">New York</option>
+									<option value="North Carolina">North Carolina</option>
+									<option value="North Dakota">North Dakota</option>
+									<option value="Ohio">Ohio</option>
+									<option value="Oklahoma">Oklahoma</option>
+									<option value="Oregon">Oregon</option>
+									<option value="Pennsylvania">Pennsylvania</option>
+									<option value="Rhode Island">Rhode Island</option>
+									<option value="South Carolina">South Carolina</option>
+									<option value="South Dakota">South Dakota</option>
+									<option value="Tennessee">Tennessee</option>
+									<option value="Texas">Texas</option>
+									<option value="Utah">Utah</option>
+									<option value="Vermont">Vermont</option>
+									<option value="Virginia">Virginia</option>
+									<option value="Washington">Washington</option>
+									<option value="West Virginia">West Virginia</option>
+									<option value="Wisconsin">Wisconsin</option>
+									<option value="Wyoming">Wyoming</option>
+									<option value="District of Columbia">District of Columbia</option>
+									<option value="Puerto Rico">Puerto Rico</option>
+									<option value="Guam">Guam</option>
+									<option value="American Samoa">American Samoa</option>
+									<option value="U.S. Virgin Islands">U.S. Virgin Islands</option>
+									<option value="Northern Mariana Islands">Northern Mariana Islands</option>
+								</select>
+								<span class="form-control-ico ti-angle-down"></span>
+							</div>
+						</div>
+
+						<div class="form-group" style="margin-top: 30px;">
+							<button class="btn btn-primary btn-block" ng-click="send(form)">
+								Accept & Subscribe
+							</button>
+						</div>
+
+						<div class="by-clicking">
+							<small><i class="ti-lock"></i>By clicking 'Accept and Subscribe', you will receive all the latest HJ news and deals. Including, promos from our trusted partners to help maximize your trips</small>.
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+<!-- Fight Details -->
+<script type="text/ng-template" id="flight-details.html">
+	<div class="modal flight-details-modal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">
+					<button type="button" class="close" aria-label="Close" ng-click="$hide()">
+						<span aria-hidden="true"><i class="ti-close"></i>
+						</span>
+					</button>
+					<form>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="flight-img">
+									<div class="product-badge">
+										<div class="days">{{flight_details.until_takeoff}} DAYS</div>
+										<div class="until">UNTIL TAKEOFF</div>
+									</div>
+									<img ng-src="{{flight_details.aircraft_image}}" alt="">
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<article>
+									<h3 class="modal-title">
+										<span>Aircraft</span>
+										<div>{{flight_details.aircraft_name}}</div>
+									</h3>
+									<hr>
+									<div class="flight-price">
+										<small>Price</small>
+										<h1>${{flight_details.price}}</h1>
+									</div>
+									<div class="flight-info">
+										<table>
+											<tr>
+												<td>
+													<small>Departing from</small>
+													<div>{{flight_details.origin_location}}</div>
+												</td>
+												<td>
+													<small>Arriving to</small>
+													<div>{{flight_details.destination_location}}</div>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<small>Date</small>
+													<div>{{flight_details.flight_start_human}}</div>
+												</td>
+												<td>
+													<small>Number of Seats</small>
+													<div>{{flight_details.seats}}</div>
+												</td>
+											</tr>
+										</table>
+									</div>
+									<hr>
+									<div class="flight-availability">
+										<p class="normal">When are you available to fly?</p>
+																																																															        										<table class="from-to-wrapper">
+											<tr>
+												<td>
+													<span>from</span>
+												</td>
+												<td>
+													<button class="btn-time-picker"
+														ng-model="time_start"
+														data-time-format="HH:mm"
+														data-min-time="{{time_period.min_time}}"
+														data-max-time="{{time_period.max_time}}"
+														bs-timepicker
+														data-length="3"
+														trigger="focus"
+														data-minute-step="1"
+														data-auto-close="1"
+														data-icon-up="ti-angle-up"
+														data-icon-down="ti-angle-down">
+														<i class="ti-time"></i><span>{{time_start|moment_filter:'HH:mm'}}</span>
+													</button>
+												</td>
+												<td>
+													<span>to</span>
+												</td>
+												<td>
+													<button class="btn-time-picker"
+														ng-model="time_end"
+														data-time-format="HH:mm"
+														data-min-time="{{time_start}}"
+														data-max-time="{{time_period.max_time}}"
+														bs-timepicker
+														data-length="3"
+														trigger="focus"
+														data-minute-step="1"
+														data-auto-close="1"
+														data-icon-up="ti-angle-up"
+														data-icon-down="ti-angle-down">
+														<i class="ti-time"></i><span>{{time_end|moment_filter:'HH:mm'}}</span>
+													</button>
+												</td>
+											</tr>
+										</table>
+										<div class="row">
+											<div class="col-xs-4">
+
+											</div>
+											<div class="col-xs-4">
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="modal-footer">
+									<div class="modal-footer-btn">
+										<button class="btn btn-gray" ng-click="$hide()">Cancel</button>
+										<button ng-click="step('passengers')" class="btn btn-primary">
+											Continue Booking
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+
+<!-- Passenger Modal -->
+<script type="text/ng-template" id="passenger-modal.html">
+	<div class="modal modal-mini" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" aria-label="Close" ng-click="$hide()">
+						<span aria-hidden="true"><i class="ti-close"></i>
+						</span>
+					</button>
+					<h3 class="modal-title">Passengers({{flight.passangers.length}}/{{flight_details.seats}})</h3>
+				</div>
+				<!-- Passenger list Content -->
+				<div class="modal-body" ng-if="passengersTab == 'list'">
+					<div class="alert alert-danger" ng-if="error">
+						<strong>Error:</strong> {{error}}
+					</div>
+						<div class="row">
+							<div class="col-md-12">
+								<ul class="passenger-list">
+									<li ng-repeat="passenger in flight.passangers">
+										<a href="javascript:void(0)" ng-click="editPassenger(passenger, $index)">
+											{{passenger.first_name}} {{passenger.last_name}}
+											<div class="pass-info">
+												<span ng-if="passenger.birth_date == null">Birth: ?</span>
+												<span ng-if="passenger.birth_date != null">Birth: {{passenger.birth_date | date: 'shortDate'}}</span>
+												<span ng-if="passenger.weight == null">Weight: ?</span>
+												<span ng-if="passenger.weight != null">Weight: {{passenger.weight}}</span>
+											</div>
+											<span class="remove-passenger" ng-click="removePassenger($index)">
+												<i class="ti-close"></i>
+											</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group text-right">
+									<a href class="add-passenger-link" ng-hide="flight.passangers.length == flight_details.seats" ng-click="passengersTabAction('form')">Add</a>
+								</div>
+
+								<div class="form-group">
+									<button class="btn btn-gray btn-block" ng-click="step('time')">
+										Back
+									</button>
+								</div>
+								<div class="form-group">
+									<button class="btn btn-primary btn-block" ng-click="step('checkout')">
+										Continue
+									</button>
+								</div>
+							</div>
+						</div>
+				</div>
+
+				<!-- Add Passenger Content -->
+				<div class="modal-body" ng-if="passengersTab == 'form'">
+					<div class="alert alert-danger" ng-if="error">
+						<strong>Error:</strong> {{error}}
+					</div>
+					<form name="passengers" novalidate>
+						<div class="row">
+							<div class="col-md-12 add-passenger-inputs">
+								<div class="form-group">
+									<input type="text" name="first_name" placeholder="Firstname" class="form-control" ng-model="passengers_form.first_name" required>
+								</div>
+								<div class="form-group">
+									<input type="text" name="last_name" placeholder="Lastname" class="form-control"  ng-model="passengers_form.last_name" required>
+								</div>
+								<div class="form-group">
+									<input
+										type="text"
+										name="dob"
+										ng-model="passengers_form.dob"
+										placeholder="Birthdate MM/DD/YYYY"
+										class="form-control">
+									<i class="form-control-ico ti-calendar"></i>
+								</div>
+								<div class="form-group">
+									<input type="number" name="weight" placeholder="Weight (lbs)" class="form-control" ng-model="passengers_form.weight" required="" min="1">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<button
+										class="btn btn-gray btn-block"
+										ng-click="passengersTabAction('list')">
+										Back
+									</button>
+								</div>
+								<div class="form-group">
+									<button class="btn btn-primary btn-block" ng-click="addPassenger(passengers)" ng-if="passengers_form.type == 'add'">
+										Save
+									</button>
+									<button class="btn btn-primary btn-block" ng-click="updatePassenger(passengers)" ng-if="passengers_form.type == 'edit'">
+										Edit
+									</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+
+
+<!-- Flight itinerary -->
+<script type="text/ng-template" id="flight-itinerary.html">
+	<div class="modal flight-details-modal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">
+					<button type="button" class="close" aria-label="Close" ng-click="$hide()">
+						<span aria-hidden="true"><i class="ti-close"></i>
+						</span>
+					</button>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="flight-img">
+									<div class="product-badge">
+										<div class="days">{{flight_details.until_takeoff}} DAYS</div>
+										<div class="until">UNTIL TAKEOFF</div>
+									</div>
+									<img ng-src="{{flight_details.aircraft_image}}" alt="">
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<article>
+									<h3 class="modal-title">
+										<div>Flight itinerary</div>
+									</h3>
+									<legend class="text-uppercase">Flight Details</legend>
+									<!--<div class="flight-price">
+										<small>Price</small>
+										<h1>$950</h1>
+									</div>-->
+									<div class="flight-info">
+										<table>
+																																																																																			<tr>
+												<td>
+													<small>Aircraft</small>
+													<div>{{flight_details.aircraft_name}}</div>
+												</td>
+																																																													</tr>
+											<tr>
+												<td>
+													<small>Origin</small>
+													<div>{{flight_details.origin_location}}</div>
+												</td>
+												<td>
+													<small>Destination</small>
+													<div>{{flight_details.destination_location}}</div>
+												</td>
+																																																													</tr>
+											<tr>
+												<td>
+													<small>Date</small>
+													<div>{{ flight_details.flight_start_human }}</div>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<small>Passenger(s)</small>
+													<div>{{passengers_lenght}}</div>
+												</td>
+												<td>
+													<small>Number of Seats</small>
+													<div>{{ flight_details.seats }}</div>
+												</td>
+																																																													</tr>
+										</table>
+									</div>
+									<legend class="text-uppercase">TOTAL PRICE (including Tax)</legend>
+									<h2>${{ flight_details.price }}</h2>
+									<div class="alert alert-danger" ng-if="error">
+										<strong>Error:</strong> {{error}}
+									</div>
+								</article>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="modal-footer">
+									<div class="modal-footer-btn">
+										<button class="btn btn-gray" ng-click="step('passengers')">Go back</button>
+																					<input class="btn-paypal btn" type="image" ng-click="checkout()" src="https://staging.hobojet.com/images/paypall-btn.png" border="0" alt="PayPal - The safer, easier way to pay online!">
+
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top" id="paypalbookform">
+    <input type="hidden" name="cmd" value="_xclick">
+    <input type="hidden" name="business" value="EL28KWY8LJKVA">
+    <input type="hidden" name="lc" value="US">
+
+    <input type="hidden" name="item_name" value="Flight">
+        
+    <input type="hidden" name="currency_code" value="USD">
+    <input type="hidden" name="button_subtype" value="services">
+    <input type="hidden" name="no_note" value="1">
+    <input type="hidden" name="no_shipping" value="1">
+    <input type="hidden" name="rm" value="1">
+    <input type="hidden" name="return" value="https://hobojet.smc-ol.com/paypal/success">
+    <input type="hidden" name="cancel_return" value="https://hobojet.smc-ol.com/paypal/cancel">
+    <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted">
+    <input type="hidden" name="paymentaction" value="authorization">
+        <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+																			</div>
+								</div>
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+
+
+
+<!-- Trip Details (Flight Status modal) -->
+<script type="text/ng-template" id="trip-details.html">
+	<div class="modal flight-details-modal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">
+					<button type="button" class="close" aria-label="Close" ng-click="$hide()">
+						<span aria-hidden="true"><i class="ti-close"></i>
+						</span>
+					</button>
+					<form>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="flight-img">
+									<div class="product-badge">
+										<div class="days">{{booking.until_takeoff}} DAYS</div>
+										<div class="until">UNTIL TAKEOFF</div>
+									</div>
+									<img ng-src="{{booking.aircraft_image}}" alt="">
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<article>
+									<h3 class="modal-title">
+										<div>Trip Details</div>
+									</h3>
+									<legend class="text-uppercase">Status <small class="pull-right badge">{{booking.status}}</small></legend>
+									<legend class="text-uppercase">Flight Details</legend>
+									<div class="flight-info">
+										<table>
+																																																																																			<tr>
+												<td>
+													<small>Aircraft</small>
+													<div>{{booking.aircraft_name}}</div>
+												</td>
+																																																													</tr>
+											<tr>
+												<td>
+													<small>Origin</small>
+													<div>{{booking.flight_origin}}</div>
+												</td>
+												<td>
+													<small>Airport facilties</small>
+													<div>{{booking.flight_origin_airport_info.name}}</div>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<small>Destination</small>
+													<div>{{booking.flight_destination}}</div>
+												</td>
+												<td>
+													<small>Airport facilties</small>
+													<div>{{booking.flight_destination_airport_info.name}}</div>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<small>Date</small>
+													<div>{{booking.departure_date_human}}</div>
+												</td>
+												<td>
+													<small>Passenger(s)</small>
+													<div>{{ booking.flight_passengers_count }}</div>
+												</td>
+											</tr>
+											<tr>
+																																																																																																															</tr>
+										</table>
+									</div>
+									<legend class="text-uppercase">TOTAL PRICE (including Tax)</legend>
+									<h2>${{booking.price}}</h2>
+								</article>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="modal-footer">
+									<div class="modal-footer-btn" ng-if="booking.status != 'Waiting for payment'">
+										<a class="btn btn-primary" target="_blank" href="https://maps.google.com?daddr={{booking.flight_origin_airport_info.name}}">
+											Get Directions
+										</a>
+									</div>
+									<div class="modal-footer-btn" ng-if="booking.status == 'Waiting for payment'">
+										<button class="btn btn-primary" ng-click="finishBooking()" >
+											Finish booking
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+<div id="fb-root"></div>
+
+</body>
+</html>

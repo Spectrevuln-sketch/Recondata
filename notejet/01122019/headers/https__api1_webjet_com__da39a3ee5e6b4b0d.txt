@@ -1,0 +1,7 @@
+200 OK
+Retry-Count: 0
+Server: Apache-Coyote/1.1
+Set-Cookie: JSESSIONID=E9012EC2E3BC421B8160B415B3AB42A7; Path=/; HttpOnly
+Content-Type: text/html;charset=ISO-8859-1
+Content-Length: 38
+Date: Sun, 01 Dec 2019 12:40:17 GMT

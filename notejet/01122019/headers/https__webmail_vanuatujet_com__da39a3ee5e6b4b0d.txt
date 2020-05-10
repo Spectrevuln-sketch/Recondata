@@ -1,0 +1,10 @@
+401 Access Denied
+Date: Sun, 01 Dec 2019 12:41:44 GMT
+Content-Type: text/html; charset="utf-8"
+Set-Cookie: webmailrelogin=no; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=443; secure webmailsession=%3azmQ_D79EYjuGqEme%2c88dcebfe2c483713b0153fdfb332fc54; HttpOnly; path=/; port=443; secure roundcube_sessid=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=443; secure roundcube_sessauth=expired; HttpOnly; domain=webmail.vanuatujet.com; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=443; secure Horde=expired; HttpOnly; domain=.webmail.vanuatujet.com; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=443; secure horde_secret_key=expired; HttpOnly; domain=.webmail.vanuatujet.com; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=443; secure Horde=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=443; secure Horde=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/horde; port=443; secure PPA_ID=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=443; secure imp_key=expired; HttpOnly; domain=webmail.vanuatujet.com; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=443; secure Horde=expired; HttpOnly; domain=.webmail.vanuatujet.com; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=443 horde_secret_key=expired; HttpOnly; domain=.webmail.vanuatujet.com; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=443 roundcube_cookies=enabled; HttpOnly; expires=Mon, 30-Nov-2020 12:41:44 GMT; path=/; port=443; secure
+Server: Apache
+Cache-Control: no-cache, no-store, must-revalidate, private no-cache, no-store, must-revalidate, private
+Pragma: no-cache
+X-Frame-Options: SAMEORIGIN
+Retry-Count: 0
+X-Content-Type-Options: nosniff

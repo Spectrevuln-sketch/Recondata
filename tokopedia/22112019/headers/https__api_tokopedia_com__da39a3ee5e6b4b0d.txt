@@ -1,0 +1,15 @@
+200 OK
+Content-Type: text/html; charset=utf-8
+X-Dns-Prefetch-Control: off
+X-Download-Options: noopen
+Set-Cookie: ak_bmsc=84B20A2B7B71CC86BB94D268590811A576619EDC754C0000E959D75DF7C1945E~plKODg0iYVBSLI/g+Ejs1XxKfUmFosbIAkJmfbadblqe5GA2rxPcN7S0WG6+aYBtpcYsZuyzf+3XkJNWu1oZOiJ2T/xvPVaXAqCHEItnEJiYBcv4OHzJ3/+Yhw5Qq/DQ4FsQzVo2zieI/YmX+nv/DPugK7EfFTXEMk7+NB5Xv4wqFNEYzw4yu2USUgBXQg8Yad1R5dhIkj2ffjGUUE8Mh2lmiZwxcx/AIQ81uWuZCVZns=; expires=Fri, 22 Nov 2019 05:45:45 GMT; max-age=7200; path=/; domain=.tokopedia.com; HttpOnly bm_mi=18087301DCBA4648D28864C02AC2A1D1~N+yj+mnTrl7Aq9y83S1sYpGajvB2UP7M94DL48V/TxG0nC8v94OAF8Xv82pH77Pp5dYnrMqsP0UUVEnWiM3VK4SpXC3qq1alPrnOG2P2ohokqCNb5Wbo7p2CuNKMODxmm8NYUQsF21ZCB8DbujSdZm5Y59nLVUALB+kIhQ/si8SVlYYW8I+UCJY3NrIdd97XcwsEqLFufZ7uFjSqTI1wr0skMF6Szfru1EI3fb66uMU=; Domain=.tokopedia.com; Path=/; Expires=Fri, 22 Nov 2019 03:45:45 GMT; HttpOnly
+X-Tkp-Srv-Id: lite-zeus-172-21-34-6
+X-Proxy-Cache: HIT
+Vary: Accept-Encoding
+X-Xss-Protection: 1; mode=block
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+Cache-Control: no-cache, no-store, must-revalidate, no-transform
+X-Akamai-Transformed: 9 - 0 pmb=mTOE,3
+Date: Fri, 22 Nov 2019 03:45:45 GMT
+Retry-Count: 0

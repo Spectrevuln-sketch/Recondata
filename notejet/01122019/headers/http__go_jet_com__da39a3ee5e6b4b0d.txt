@@ -1,0 +1,13 @@
+200 OK
+Content-Type: text/html; charset=utf-8
+Content-Length: 41898
+Last-Modified: Tue, 26 Nov 2019 21:39:46 GMT
+Cache-Control: no-cache
+P3p: CP="CAO PSA OUR"
+Alt-Svc: clear
+Retry-Count: 0
+Server: nginx
+Date: Sun, 01 Dec 2019 12:41:35 GMT
+Set-Cookie: _xsrf=eb4c876435c5414bbc7be9e27eb7bf30; Domain=bitly.com; Path=/ anon_u=cHN1X182ODhhMDI0YS1lZjI3LTRmMmUtODJmOS1jN2E2ZjQxOWJmN2Y=|1575204095|e5914a87ae329c036da6f58e45ec69444c1f9d5b; Domain=bitly.com; expires=Mon, 30 Nov 2020 12:41:35 GMT; httponly; Path=/
+Etag: "b920671e0a15f1a28eaded809a79fcf863578084"
+Via: 1.1 google

@@ -1,0 +1,27 @@
+200 OK
+Last-Modified: Thu, 21 Nov 2019 06:10:55 GMT
+X-Oracle-Apmcs-Tag: 
+Vary: Accept-Encoding
+Content-Security-Policy: frame-ancestors 'self' https://explore.oracle.com
+Content-Language: en-US
+Custom_cache_rule_location: AssetTypeLevel
+X-Content-Type-Options: nosniff
+Custom_akamai_autopurge: YES
+Date: Sun, 01 Dec 2019 12:42:34 GMT
+X-Frame-Options: sameorigin
+Retry-Count: 0
+Server-Timing: cdn-cache; desc=HIT edge; dur=1
+X-Oracle-Apmcs-Request-Id: 61640C39D32FAB19338428FE55631EA04FF5620D
+Device_type: Any
+Origin-Edge-Control: !no-store,max-age=2592000,downstream-ttl=1800
+X-Akamai-Transformed: 9 - 0 pmb=mRUM,2
+X-Xss-Protection: 1
+Server: Oracle-HTTP-Server
+X-Oracle-Dms-Ecid: 005_yOtAlWH9Pdw70Fe9UF00019a000Jwy
+Access-Control-Expose-Headers: X-ORACLE-APMCS-REQUEST-ID,X-ORACLE-APMCS-TAG
+X-Oracle-Dms-Rid: 0:1
+Origin-Cache-Control: max-age=1800
+Cache-Control: max-age=1800
+Actual-Object-Ttl: 2592000
+Host_service: FutureTenseContentServer:12c
+Content-Type: text/html; charset=UTF-8

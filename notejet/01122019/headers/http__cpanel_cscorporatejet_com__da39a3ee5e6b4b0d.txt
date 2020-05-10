@@ -1,0 +1,10 @@
+401 Access Denied
+Pragma: no-cache
+Set-Cookie: cprelogin=no; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=80 cpsession=%3apiRMi8kNQj54EY1L%2ccf51a251b35c820a27d3ed38aa5bb5ea; HttpOnly; path=/; port=80 roundcube_sessid=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=80 roundcube_sessauth=expired; HttpOnly; domain=cpanel.cscorporatejet.com; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=80 Horde=expired; HttpOnly; domain=.cpanel.cscorporatejet.com; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=80 horde_secret_key=expired; HttpOnly; domain=.cpanel.cscorporatejet.com; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=80 Horde=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=80 Horde=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/horde; port=80 PPA_ID=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=80 imp_key=expired; HttpOnly; domain=cpanel.cscorporatejet.com; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=80
+Content-Type: text/html; charset="utf-8"
+X-Content-Type-Options: nosniff
+Date: Sun, 01 Dec 2019 12:41:29 GMT
+Retry-Count: 0
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Cache-Control: no-cache, no-store, must-revalidate, private, no-cache, no-store, must-revalidate, private, proxy-revalidate

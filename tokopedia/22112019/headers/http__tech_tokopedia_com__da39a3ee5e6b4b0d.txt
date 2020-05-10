@@ -1,0 +1,23 @@
+200 OK
+Content-Security-Policy: default-src 'self'; connect-src https://localhost https://*.instapaper.com https://*.stripe.com https://glyph.medium.com https://*.paypal.com https://getpocket.com https://medium.com https://*.medium.com https://*.medium.com https://medium.com https://*.medium.com https://*.algolia.net https://cdn-static-1.medium.com https://dnqgz544uhbo8.cloudfront.net https://cdn-videos-1.medium.com https://cdn-audio-1.medium.com https://*.lightstep.com https://*.branch.io 'self'; font-src data: https://*.amazonaws.com https://*.medium.com https://glyph.medium.com https://medium.com https://*.gstatic.com https://dnqgz544uhbo8.cloudfront.net https://cdn-static-1.medium.com 'self'; frame-src chromenull: https: webviewprogressproxy: medium: 'self'; img-src blob: data: https: 'self'; media-src https://*.cdn.vine.co https://d1fcbxp97j4nb2.cloudfront.net https://d262ilb51hltx0.cloudfront.net https://*.medium.com https://gomiro.medium.com https://miro.medium.com https://pbs.twimg.com 'self' blob:; object-src 'self'; script-src 'unsafe-eval' 'unsafe-inline' about: https: 'self'; style-src 'unsafe-inline' data: https: 'self'; report-uri https://csp.medium.com
+X-Content-Type-Options: nosniff
+X-Xss-Protection: 1; mode=block
+X-Powered-By: Medium
+X-Obvious-Info: 39348-4e2c9b7,4e2c9b7f067
+Pragma: no-cache
+Date: Fri, 22 Nov 2019 03:46:06 GMT
+Expect-Ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+Expires: Thu, 09 Sep 1999 09:09:09 GMT
+Server: cloudflare
+Cf-Ray: 5397ea1248a1ddb7-SIN
+Retry-Count: 0
+X-Ua-Compatible: IE=edge, Chrome=1
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Link: <https://medium.com/humans.txt>; rel="humans"
+Strict-Transport-Security: max-age=15552000; includeSubDomains; preload
+Cf-Cache-Status: DYNAMIC
+X-Frame-Options: sameorigin
+X-Obvious-Tid: 1574394365939:fe9711decb0a
+Alt-Svc: h3-23=":443"; ma=86400
+Content-Type: text/html; charset=utf-8
+Set-Cookie: __cfduid=d209370c940ecb74d3ddd4c5563df35c41574394365; expires=Sun, 22-Dec-19 03:46:05 GMT; path=/; domain=.medium.com; HttpOnly uid=lo_I6XjEtSAkfHQ; Expires=Sat, 21-Nov-20 03:46:05 GMT; Domain=.medium.com; Path=/; Secure; HttpOnly optimizelyEndUserId=lo_I6XjEtSAkfHQ; path=/; expires=Sat, 21 Nov 2020 03:46:05 GMT; domain=.medium.com; secure sid=1:nOOXFPnAONs03DzkWTJYRWAVJ1soHIyBZyeiucSBeVcN8Ax737G5hh+v/V7ucaqe; path=/; expires=Sat, 21 Nov 2020 03:46:05 GMT; domain=.medium.com; secure; httponly puid=; path=/; expires=Fri, 22 Nov 2019 03:46:04 GMT; domain=medium.com; secure; httponly puid=; path=/; expires=Fri, 22 Nov 2019 03:46:04 GMT; domain=.medium.com; secure; httponly puid=; path=/; expires=Fri, 22 Nov 2019 03:46:04 GMT; secure; httponly puid=; path=/; expires=Fri, 22 Nov 2019 03:46:04 GMT; domain=.medium.com; secure; httponly __cfruid=2ed5d2655486ded58021ee649973b60bb031857f-1574394366; path=/; domain=.medium.com; HttpOnly

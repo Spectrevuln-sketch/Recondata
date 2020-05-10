@@ -1,0 +1,20 @@
+200 OK
+X-Frame-Options: SAMEORIGIN
+Vary: Origin
+X-Iinfo: 2-21405332-21405334 NNYN CT(211 433 0) RT(1575204140898 23) q(0 0 6 -1) r(14 14) U12
+Retry-Count: 0
+Content-Type: text/html; charset=utf-8
+X-Request-Id: 2ea3ba37-6340-45a1-9143-71dcd1ff557d
+X-Runtime: 0.523994
+Set-Cookie: _mom_catalogue_session_staging=SURCOG1rcmlLZnBGK054LzMxOUJuaE5RT1VjdTJMeE5KZnBhVWRJUVVCclJqYjFBaFVqVWFKZitpdWwxL1RHWll0S2d2NnJaVHRhMm1GcnhxTDRQNFJOTFkraDI2U1Z3NTFVdkRVUGVEYzZPODUvVnk4MW1jR1FuN2VGTjgzdG1TeXRRcytxU2crRnZHcVdDbnhFNUlnPT0tLVJSU3IzSFZLMWwrZDhCU0lFNEh5SVE9PQ%3D%3D--2bb60ff6f657b55ff3dafd27ac44df23da67425b; path=/; secure; HttpOnly
+X-Rack-Cors: miss; no-origin
+X-Content-Type-Options: nosniff
+Etag: W/"91506c62caa3d2ac5caad594e77abc3b"
+Cache-Control: max-age=0, private, must-revalidate
+P3p: CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"
+Strict-Transport-Security: max-age=31536000
+Via: 1.1 vegur
+X-Cdn: Incapsula
+Server: Cowboy
+Date: Sun, 01 Dec 2019 12:42:21 GMT
+X-Xss-Protection: 1; mode=block

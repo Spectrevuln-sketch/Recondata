@@ -1,0 +1,10 @@
+200 OK
+Vary: Accept-Encoding
+Date: Sun, 01 Dec 2019 12:42:33 GMT
+Server: Apache
+Upgrade: h2,h2c
+Last-Modified: Tue, 23 Jul 2019 13:04:14 GMT
+Accept-Ranges: bytes
+Retry-Count: 0
+Cache-Control: no-cache
+Content-Type: text/html

@@ -1,0 +1,14 @@
+200 OK
+Via: 1.1 db75d9999621c662b2eccf4f496b12ab.cloudfront.net (CloudFront)
+X-Amz-Cf-Pop: SIN52-C3
+Content-Length: 3298
+Date: Fri, 10 Jan 2020 20:09:16 GMT
+Last-Modified: Mon, 06 Jan 2020 04:05:32 GMT
+Cache-Control: public, max-age=60
+Server: AmazonS3
+X-Cache: Miss from cloudfront
+Retry-Count: 0
+Content-Type: text/html
+Etag: "23c7a462f8f2860539487decb664fa7a"
+Accept-Ranges: bytes
+X-Amz-Cf-Id: SeO5iIhem-Lxl9Wq7f9gk4xyVn5qYBHNgUIN2JqWN34o1Pi5fQm-Zw==

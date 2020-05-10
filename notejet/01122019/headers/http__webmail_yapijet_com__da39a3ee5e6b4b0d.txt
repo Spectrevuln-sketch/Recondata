@@ -1,0 +1,15 @@
+200 OK
+Content-Language: en
+Last-Modified: Sun, 01 Dec 2019 12:41:31 GMT
+Retry-Count: 0
+Expires: Sun, 01 Dec 2019 12:41:31 GMT
+Pragma: no-cache
+X-Dns-Prefetch-Control: off
+X-Frame-Options: sameorigin
+X-Robots-Tag: noindex, nofollow
+Date: Sun, 01 Dec 2019 12:41:31 GMT
+Cache-Control: private, no-cache, no-store, must-revalidate, post-check=0, pre-check=0
+Vary: Accept-Encoding
+Server: nginx
+Content-Type: text/html; charset=UTF-8
+Set-Cookie: roundcube_sessid=b256c85ff445834b9b671d20b0a9d4a8; path=/; secure; HttpOnly

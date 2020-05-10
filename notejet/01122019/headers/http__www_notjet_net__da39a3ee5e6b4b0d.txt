@@ -1,0 +1,18 @@
+200 OK
+Date: Sun, 01 Dec 2019 12:42:20 GMT
+Strict-Transport-Security: max-age=31536000
+Retry-Count: 0
+X-Powered-By: Next.js 8.0.0
+X-Xss-Protection: 1; mode=block;
+Set-Cookie: jet.csrf=nPDQ7d3HeIpUFJILgxmrBJSA; path=/; secure; httponly signupShown=; path=/; expires=Sat, 01 Jan 2039 00:00:00 GMT; domain=batmanweb-proxy-qa.envoy.eastus2.qa.notjet.net; secure signupShown=0; Domain=batmanweb-proxy-qa.envoy.eastus2.qa.notjet.net; Path=/; Expires=Sat, 01 Jan 2039 00:00:00 GMT jid=41c09c84-111f-42a1-8773-97945066515b; path=/; expires=Sat, 01 Jan 2039 00:00:00 GMT; domain=batmanweb-proxy-qa.envoy.eastus2.qa.notjet.net; secure; httponly jid=41c09c84-111f-42a1-8773-97945066515b; Domain=batmanweb-proxy-qa.envoy.eastus2.qa.notjet.net; Path=/; Expires=Sat, 01 Jan 2039 00:00:00 GMT jet-referer=%2F; Path=/ jet-phaser=2%3B0a16789a0f4649c7afd9d6ca2ba0758d%3B7tJh%3B7uvR%3B92CBI%3B93oFG%3B98Cw0%3B996pFe%3B9GQ1%3B9GSao%3B9HLr%3B9J12T%3B9JJvH%3B9Jp4i%3B9MAixN%3B9UbxmC%3B9gQC%3B9ln3%3B9n8jG%3B9uJgwR%3B9vFW8X%3B9x6au%3B9zfkN%3B1575204139; path=/; expires=Tue, 31 Dec 2019 12:42:19 GMT; secure; httponly jet-phaser=2%3B0a16789a0f4649c7afd9d6ca2ba0758d%3B7tJh%3B7uvR%3B92CBI%3B93oFG%3B98Cw0%3B996pFe%3B9GQ1%3B9GSao%3B9HLr%3B9J12T%3B9JJvH%3B9Jp4i%3B9MAixN%3B9UbxmC%3B9gQC%3B9ln3%3B9n8jG%3B9uJgwR%3B9vFW8X%3B9x6au%3B9zfkN%3B1575204139; Max-Age=2592000000; Path=/; Expires=Fri, 20 Jan 2102 12:42:19 GMT; HttpOnly jet.qa-id=d561e684-1455-4083-9ddc-7faf8ec13ee9; path=/; expires=Tue, 31 Dec 2019 12:42:19 GMT; secure; httponly jet.qa-clientTicket=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiJiZjA5ZTljNTRmODM0NTk1ODc1ZGY0OWM1ZjUwOTQyMCIsImlzcyI6ImpldC5jb20iLCJhdWQiOiJ3ZWJjbGllbnQifQ.pXCGS6pXGZ6oy3VBSumgPCpvjvFt9MCmFATpewPpIEE; path=/; expires=Tue, 31 Dec 2019 12:42:19 GMT; secure; httponly X-Akamai-Chosen=qa_phased_nomad_eastus2 akacd_phased_release=3752656938~rv=79~id=41b1ea7eec1a05a707a6e8416146dadd; path=/;
+X-Frame-Options: SAMEORIGIN
+X-Envoy-Upstream-Service-Time: 247
+Vary: Accept-Encoding
+Etag: "5bc11-4/5RQaH1Fh+TcwpjWDHHZIzH528"
+Referrer-Policy: strict-origin-when-cross-origin
+Jet-Dr-Orpheus: {"headerSchemaVersion":3,"correlationIds":["26347a57e97c47b9b8bcf56cdf225b48"],"messageId":"8d170976021c4b2abcbe97bfc74b6c4a","parentIds":["c57846a752da432e8afa934be0bdc568"],"producerId":"Batman-API","ticksFromEpoch":637108009395535900,"payloadSchemaUri":"CmsProxy/cms/GET/1.0","mTags":[],"pTags":[["phaser","2;0a16789a0f4649c7afd9d6ca2ba0758d;7tJh;7uvR;92CBI;93oFG;98Cw0;996pFe;9GQ1;9GSao;9HLr;9J12T;9JJvH;9Jp4i;9MAixN;9UbxmC;9gQC;9ln3;9n8jG;9uJgwR;9vFW8X;9x6au;9zfkN;1575204139"]]}
+Server: envoy
+Content-Type: text/html; charset=utf-8
+X-Content-Type-Options: nosniff
+Jet: 4:1.861:1575061838:540a6
+X-Envoy-Decorator-Operation: batmanweb-proxy-qa

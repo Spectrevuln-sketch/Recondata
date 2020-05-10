@@ -1,0 +1,15 @@
+200 OK
+Date: Mon, 16 Dec 2019 13:32:18 GMT
+Link: <https://www.pubg.com/wp-json/>; rel="https://api.w.org/" <https://bit.ly/2UN53Vp>; rel=shortlink
+Cache-Control: max-age=600, must-revalidate
+X-Cache: HIT: 9
+Retry-Count: 0
+Vary: Accept-Encoding Accept-Encoding Accept-Encoding,Cookie
+X-Cacheable: SHORT
+X-Cache-Group: normal
+Server: nginx
+Content-Type: text/html; charset=UTF-8
+X-Xss-Protection: 1; mode=block
+Content-Security-Policy: upgrade-insecure-requests
+X-Pass-Why: 
+X-Frame-Options: DENY

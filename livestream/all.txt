@@ -1,0 +1,6 @@
+http://api.new.livestream.com
+http://gl.api.new.livestream.com
+https://gl.api.new.livestream.com
+https://api.new.livestream.com
+http://new.livestream.com
+https://new.livestream.com

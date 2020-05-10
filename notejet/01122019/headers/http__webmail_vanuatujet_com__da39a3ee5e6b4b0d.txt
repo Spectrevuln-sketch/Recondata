@@ -1,0 +1,10 @@
+401 Access Denied
+Server: Apache
+Pragma: no-cache
+Cache-Control: no-cache, no-store, must-revalidate, private, no-cache, no-store, must-revalidate, private, proxy-revalidate
+Retry-Count: 0
+Set-Cookie: webmailrelogin=no; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=80 webmailsession=%3a7SzHg7X431gYM8GG%2c774cbdc38167878a1653182b6640577b; HttpOnly; path=/; port=80 roundcube_sessid=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=80 roundcube_sessauth=expired; HttpOnly; domain=webmail.vanuatujet.com; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=80 Horde=expired; HttpOnly; domain=.webmail.vanuatujet.com; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=80 horde_secret_key=expired; HttpOnly; domain=.webmail.vanuatujet.com; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=80 Horde=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=80 Horde=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/horde; port=80 PPA_ID=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=80 imp_key=expired; HttpOnly; domain=webmail.vanuatujet.com; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=80 roundcube_cookies=enabled; HttpOnly; expires=Mon, 30-Nov-2020 12:41:38 GMT; path=/; port=80
+Date: Sun, 01 Dec 2019 12:41:38 GMT
+Content-Type: text/html; charset="utf-8"
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff

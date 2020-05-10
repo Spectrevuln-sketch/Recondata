@@ -1,0 +1,10 @@
+200 OK
+Strict-Transport-Security: max-age=86400
+X-Ac: 1.sin _bur
+Date: Sun, 01 Dec 2019 12:40:16 GMT
+Retry-Count: 0
+Vary: Accept-Encoding Cookie
+X-Hacker: If you're reading this, you should visit automattic.com/jobs and apply to join the fun, mention this header.
+Link: <https://wp.me/7Frx3>; rel=shortlink
+Server: nginx
+Content-Type: text/html; charset=UTF-8

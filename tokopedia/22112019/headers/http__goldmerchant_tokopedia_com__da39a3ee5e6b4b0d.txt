@@ -1,0 +1,11 @@
+200 OK
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Pragma: no-cache
+Date: Fri, 22 Nov 2019 03:45:42 GMT
+Retry-Count: 0
+Vary: Accept-Encoding
+Set-Cookie: PHPSESSID=7j2r3b2oae2cplgj0qpn6k94j6; path=/
+Content-Type: text/html; charset=UTF-8
+Link: <https://seller.tokopedia.com/edu/wp-json/>; rel="https://api.w.org/" <https://wp.me/P9cJ79-2KB>; rel=shortlink
+Cache-Control: no-store, no-cache, must-revalidate
+Access-Control-Allow-Origin: https://static.tokopedia.net https://seller.tokopedia.com

@@ -1,0 +1,12 @@
+200 OK
+X-Cache: Hit from cloudfront
+X-Amz-Cf-Pop: SIN52-C2
+Retry-Count: 0
+Cache-Control: max-age=600, private, must-revalidate
+Vary: Accept-Encoding
+Via: 1.1 954b8d80dcd7af3bf76c1075b84b3ef9.cloudfront.net (CloudFront)
+X-Amz-Cf-Id: v0TTzDryuaFxFu52IDnvEHCUOtgzmkqfktDYIFTbeSjQMbluVqjrHQ==
+Age: 4172471
+Content-Type: text/html; charset=UTF-8
+Date: Tue, 29 Oct 2019 06:51:37 GMT
+Server: Apache

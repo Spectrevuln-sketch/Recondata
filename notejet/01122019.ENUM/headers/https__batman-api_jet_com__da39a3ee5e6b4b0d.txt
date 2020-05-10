@@ -1,0 +1,10 @@
+403 Forbidden
+Content-Type: text/html
+Mime-Version: 1.0
+Content-Length: 271
+Expires: Sun, 01 Dec 2019 13:53:25 GMT
+Date: Sun, 01 Dec 2019 13:53:25 GMT
+Retry-Count: 0
+Set-Cookie: X-Akamai-Chosen=phased-n-api-east; path=/ akacd_batman-api-origin-management=3752661204~rv=80~id=13b3b65d84bec36b5f47c91d1d332013; path=/;
+X-Edgeconnect-Cache-Status: 0
+Server: AkamaiGHost

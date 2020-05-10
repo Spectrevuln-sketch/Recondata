@@ -1,0 +1,16 @@
+200 OK
+Vary: Accept-Encoding
+X-Cache-Status: MISS
+X-Content-Type-Options: nosniff
+Strict-Transport-Security: max-age=15552000; includeSubDomains
+Cache-Control: no-cache, no-store, must-revalidate
+Via: 1.1 vegur
+X-Download-Options: noopen
+X-Frame-Options: SAMEORIGIN
+Server: openresty
+Etag: W/"7ccb-6d683oo5j3OoLc+oXJ6hIoQnCns"
+X-Xss-Protection: 1; mode=block
+Retry-Count: 0
+Content-Type: text/html; charset=utf-8
+X-Dns-Prefetch-Control: off
+Date: Sun, 01 Dec 2019 12:41:58 GMT

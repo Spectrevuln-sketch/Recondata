@@ -1,0 +1,195 @@
+<!DOCTYPE html><html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml" itemscope="itemscope" itemtype="http://schema.org/Product" ng-app="hub"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="readme-deploy" content="9d89fc66d0dfb65d1d77d96de9c5fb1304ce18b4"><meta name="readme-subdomain" content="jet-api-documentation"><meta name="readme-version" content="2.1"><title>Jet API Documentation</title><meta http-equiv="Content-type" content="text/html;charset=UTF-8"><meta name="description" content="Jet API Documentation was created using ReadMe"><link href="https://files.readme.io/X7rGeCJJTVeoE9C06NYf_favicon%20(1).ico" rel="shortcut icon" type="image/x-icon"><meta property="og:title" content="Jet API Documentation"><meta property="og:description" content="Jet API Documentation was created using ReadMe"><!-- Removed due to XSS--><!--meta(property="og:url", content=og('url'))--><meta property="og:image" content="https://files.readme.io/wfDaPChpSKqJXLWECDZo_JetPartner.png"><meta property="og:site_name" content="Jet API Documentation"><meta id="config-proxy-url" content="https://proxy.readme.io/proxy"><link rel="canonical" href="https://developer.jet.com/"><link rel="alternate" type="application/rss+xml" title="RSS Feed for Jet API Documentation" href="/blog.rss"><!-- Application styles--><link rel="stylesheet" href="https://cdn-hub1.readme.io/css/bundle-hub.css?1574814851489"><!--if lt IE 9script(src="http://html5shim.googlecode.com/svn/trunk/html5.js")
+--><script>var is_hub = true;
+var is_hub_edit = false;
+var is_hub2 = false;
+
+</script><script src="https://cdn-hub1.readme.io/js/bundle-hub1.js?1574814851489"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-52479696-1', 'auto');
+ga('send', 'pageview');
+</script><script>ga('create', 'UA-66295993-2', 'auto', {'name': 'custom'});
+ga('custom.send', 'pageview');
+</script><link href="//fonts.googleapis.com/css?family=Open+Sans:400:sans-serif|Open+Sans:400:sans-serif" rel="stylesheet" type="text/css"><style>.theme-line header {  border-bottom-color: #8200ff;}.theme-line header a.btn {  background-color: #8200ff;}.theme-line header a.btn:hover {  background-color: #4e0099;}.theme-line header .navbar-nav a:hover ,.theme-line header .navbar-nav .open > a {  color: #8200ff;}.theme-line header .navbar-nav .tt-cursor {  background-color: #8200ff;}.theme-line .navbar-nav .active a {  font-weight: bold;  color: #006cff;}.theme-line .navbar-nav .active a:hover {  color: #004199;}.theme-line .main-links .links a:hover {  color: #006cff;}.theme-line .main-content a {  color: #006cff;}.theme-line .main-content a:hover {  color: #004199;}.theme-line .sidebar-nav ul li a.active:before {  background-color: #006cff;}.theme-line .sidebar-nav ul li a.active {  color: #006cff;}.theme-line .sidebar-nav ul li a:hover,.theme-line .sidebar-nav ul li a.active:hover {  color: #004199;}.theme-line .btn-primary {  background-color: #006cff;}.theme-line .btn-primary:hover {  background-color: #004199;}.theme-line .main-content .nav-horizontal a.active {  border-color: #006cff;  color: #006cff;}.theme-line .main-content .nav-horizontal a:hover {  color: #004199;}.theme-line .main-content .nav-horizontal a.active:hover {  border-color: #004199;}.theme-line header .navbar-nav a.active ,.theme-line #versions-list li a:hover strong,.theme-line #versions-list li a.active .current,.theme-line #versions-list li a:active .current {  color: #006cff;}.theme-line.body-threes .section-right .threes-nav .btn-default:hover,.theme-line.page-docs.body-threes .section-right .threes-nav .pull-right a:hover {  color: #006cff;  border-color: #006cff;}.theme-solid header {  background-color: #8200ff;}.theme-solid.header-custom header a.btn {  background-color: #4e0099;}.theme-solid.header-custom header a.btn:hover {  background-color: #1a0033;}.theme-solid header .navbar-nav .dropdown-menu a:hover {  color: #006cff;}.theme-line.lumosity-light header .navbar-nav a:hover,.theme-line.lumosity-light header .navbar-nav .open > a {  color: #006cff;}.theme-line.lumosity-light header a.btn {  background-color: #006cff;}.theme-line.lumosity-light header a.btn:hover {  background-color: #004199;}.theme-solid .main-links .links a:hover {  color: #006cff;}.theme-solid .main-content a {  color: #006cff;}.theme-solid .main-content a:hover {  color: #004199;}.theme-solid .sidebar-nav ul li a.active:before {  background-color: #006cff;}.theme-solid .sidebar-nav ul li a.active {  color: #006cff;}.theme-solid .sidebar-nav ul li a:hover,.theme-solid .sidebar-nav ul li a.active:hover {  color: #004199;}.theme-solid .btn-primary {  background-color: #006cff;}.theme-solid .btn-primary:hover {  background-color: #004199;}.theme-solid .main-content .nav-horizontal a.active {  border-color: #006cff;  color: #006cff;}.theme-solid .main-content .nav-horizontal a:hover {  color: #004199;}.theme-solid .main-content .nav-horizontal a.active:hover {  border-color: #004199;}.theme-solid header .navbar-nav a.active ,.theme-solid #versions-list li a:hover strong,.theme-solid #versions-list li a.active .current,.theme-solid #versions-list li a:active .current {  color: #006cff;}.theme-solid.body-threes .section-right .threes-nav .btn-default:hover,.theme-solid.page-docs.body-threes .section-right .threes-nav .pull-right a:hover {  color: #006cff;  border-color: #006cff;}.theme-solid.header-gradient header {  background: -moz-linear-gradient(top, #8200ff, #191515);  background: -webkit-gradient(linear, left top, #8200ff, #191515);  background: -webkit-linear-gradient(top, #8200ff, #191515);  background: linear-gradient(to bottom, #8200ff, #191515);}.theme-solid.header-custom .header {  background-image: url("undefined");  background-position: center center;}body {  font-weight: 400;font-family: Open Sans, sans-serif;;}h1, h2, h3, h4, h5, h6 {  font-weight: 400;font-family: Open Sans, sans-serif;;}.submit-vote.submit-vote-parent.voted a.submit-vote-button,.submit-vote.submit-vote-parent a.submit-vote-button:hover {  background-color: #006cff;}div.submit-vote.submit-vote-parent.voted a.submit-vote-button:hover {  background-color: #004199;}a,.link .title {  color: #006cff;}a:hover,.link:hover .title {  color: #004199;}.header h1.navbar-brand a {  background-image: url("https://files.readme.io/wfDaPChpSKqJXLWECDZo_JetPartner.png")}.header h1.navbar-brand {  width: 228px;}
+</style><style>/* Status.io Widget */
+.status-list-container {
+		border: 1px solid black;
+}
+.status-list-item:not(:last-child) {
+	border-bottom: 1px solid black;
+}
+.status-name {
+		display: inline-block;
+  	margin-bottom: 0;
+  	padding: 10px 0 10px 10px;
+  	width: 300px; 
+  	border-right: 1px solid black;
+  	font-weight: bold;
+}
+a {
+	padding: 10px 0;
+}
+.current-status-indicator {
+    width: 12px;
+    height: 12px;
+    margin: 0 0 0 10px;
+    display: inline-block;
+    border-radius: 6px
+}
+
+.current-status-indicator.small {
+    width: 8px;
+    height: 8px;
+    margin: 0 0 0 5px;
+    display: inline-block;
+    border-radius: 4px
+}
+
+.current-status-indicator.green {
+    background: #27ae60
+}
+
+.current-status-indicator.yellow {
+    background: #ffa837
+}
+
+.current-status-indicator.red {
+    background: #c44031
+}
+
+.current-status-indicator.blue {
+    background: #00aaf0
+}</style></head><body ng-controller="Root" class="layout page-home body-threes theme-line header-gradient header-bg-size-auto header-bg-pos-tl header-overlay-triangles lumosity-normal undefined theme-threes"><div class="wrapper"><header id="header" class="header"><div class="container"><h1 class="navbar-brand"><a href="/">Jet API Documentation</a></h1><div class="navbar-collapse collapse"><div id="project-info">{&quot;id&quot;:&quot;562e25f2e01a430d00c2c91e&quot;,&quot;name&quot;:&quot;Jet API Documentation&quot;,&quot;subdomain&quot;:&quot;jet-api-documentation&quot;,&quot;versions&quot;:[{&quot;_id&quot;:&quot;562e25f3e01a430d00c2c921&quot;,&quot;releaseDate&quot;:&quot;2015-10-26T13:09:07.321Z&quot;,&quot;is_deprecated&quot;:true,&quot;is_hidden&quot;:true,&quot;is_beta&quot;:false,&quot;is_stable&quot;:false,&quot;codename&quot;:&quot;&quot;,&quot;version_clean&quot;:&quot;0.9.0&quot;,&quot;version&quot;:&quot;0.9&quot;},{&quot;_id&quot;:&quot;56a3a52e5e57f20d000eae28&quot;,&quot;releaseDate&quot;:&quot;2016-01-23T16:07:10.400Z&quot;,&quot;is_deprecated&quot;:true,&quot;is_hidden&quot;:true,&quot;is_beta&quot;:false,&quot;is_stable&quot;:false,&quot;codename&quot;:&quot;Alt&quot;,&quot;version_clean&quot;:&quot;1.0.0&quot;,&quot;version&quot;:&quot;1.0&quot;},{&quot;_id&quot;:&quot;56bcb7d63ad5140d000552ca&quot;,&quot;releaseDate&quot;:&quot;2016-02-11T16:33:26.814Z&quot;,&quot;is_deprecated&quot;:true,&quot;is_hidden&quot;:true,&quot;is_beta&quot;:false,&quot;is_stable&quot;:false,&quot;codename&quot;:&quot;Shipping Exception Validation&quot;,&quot;version_clean&quot;:&quot;1.1.0&quot;,&quot;version&quot;:&quot;1.01&quot;},{&quot;_id&quot;:&quot;56fd2bf327b4321900186ec6&quot;,&quot;releaseDate&quot;:&quot;2016-03-31T13:53:55.310Z&quot;,&quot;is_deprecated&quot;:true,&quot;is_hidden&quot;:true,&quot;is_beta&quot;:false,&quot;is_stable&quot;:false,&quot;codename&quot;:&quot;New Return/Refund Reasons&quot;,&quot;version_clean&quot;:&quot;1.2.0&quot;,&quot;version&quot;:&quot;1.02&quot;},{&quot;_id&quot;:&quot;574cb782f520351900c5fa53&quot;,&quot;releaseDate&quot;:&quot;2016-05-30T21:58:26.292Z&quot;,&quot;is_deprecated&quot;:true,&quot;is_hidden&quot;:true,&quot;is_beta&quot;:false,&quot;is_stable&quot;:false,&quot;codename&quot;:&quot;Settlement Reports&quot;,&quot;version_clean&quot;:&quot;1.25.0&quot;,&quot;version&quot;:&quot;1.025&quot;},{&quot;_id&quot;:&quot;59e8f94aaa561e00241c4591&quot;,&quot;releaseDate&quot;:&quot;2017-10-19T19:13:14.211Z&quot;,&quot;is_deprecated&quot;:true,&quot;is_hidden&quot;:false,&quot;is_beta&quot;:false,&quot;is_stable&quot;:false,&quot;codename&quot;:&quot;October 2017 Release&quot;,&quot;version_clean&quot;:&quot;1.3.0&quot;,&quot;version&quot;:&quot;1.03&quot;},{&quot;_id&quot;:&quot;59e8fa29c5f0db00103e47d1&quot;,&quot;releaseDate&quot;:&quot;2017-10-19T19:16:57.003Z&quot;,&quot;is_deprecated&quot;:false,&quot;is_hidden&quot;:false,&quot;is_beta&quot;:false,&quot;is_stable&quot;:false,&quot;codename&quot;:&quot;January 2018 Release&quot;,&quot;version_clean&quot;:&quot;2.0.0&quot;,&quot;version&quot;:&quot;2.00&quot;},{&quot;_id&quot;:&quot;5a71de892687c8003500e3c9&quot;,&quot;releaseDate&quot;:&quot;2018-01-31T15:19:37.568Z&quot;,&quot;is_deprecated&quot;:false,&quot;is_hidden&quot;:false,&quot;is_beta&quot;:false,&quot;is_stable&quot;:true,&quot;codename&quot;:&quot;February 2018 Release&quot;,&quot;version_clean&quot;:&quot;2.1.0&quot;,&quot;version&quot;:&quot;2.1&quot;}],&quot;current_version&quot;:{&quot;version_clean&quot;:&quot;2.1.0&quot;,&quot;version&quot;:&quot;2.1&quot;},&quot;oauth&quot;:{&quot;enabled&quot;:false},&quot;api&quot;:{&quot;name&quot;:&quot;&quot;,&quot;url&quot;:&quot;https://merchant-api.jet.com/api&quot;,&quot;contenttype&quot;:&quot;json&quot;,&quot;auth&quot;:&quot;token&quot;,&quot;explorer&quot;:false,&quot;proxyEnabled&quot;:true,&quot;jwt&quot;:false,&quot;authextra&quot;:[],&quot;headers&quot;:[{&quot;_id&quot;:&quot;582b450f4c28ec2700ae86e1&quot;,&quot;value&quot;:&quot;bearer {token}&quot;,&quot;key&quot;:&quot;Authorization&quot;}],&quot;object_definitions&quot;:[]},&quot;apiAlt&quot;:[{&quot;_id&quot;:&quot;56a39442dba3f40d00f9724f&quot;,&quot;object_definitions&quot;:[],&quot;headers&quot;:[{&quot;_id&quot;:&quot;56a394f37ed81e0d00c3d1d6&quot;,&quot;value&quot;:&quot;blockblob&quot;,&quot;key&quot;:&quot;x-ms-blob-type&quot;}],&quot;authextra&quot;:[],&quot;jwt&quot;:false,&quot;proxyEnabled&quot;:true,&quot;explorer&quot;:false,&quot;auth&quot;:&quot;&quot;,&quot;contenttype&quot;:&quot;form&quot;,&quot;url&quot;:&quot;{url}&quot;,&quot;name&quot;:&quot;File Upload URL&quot;},{&quot;_id&quot;:&quot;56a3954adba3f40d00f97250&quot;,&quot;object_definitions&quot;:[],&quot;headers&quot;:[],&quot;authextra&quot;:[],&quot;jwt&quot;:false,&quot;proxyEnabled&quot;:true,&quot;explorer&quot;:false,&quot;auth&quot;:&quot;&quot;,&quot;contenttype&quot;:&quot;json&quot;,&quot;url&quot;:&quot;https://merchant-api.jet.com/api&quot;,&quot;name&quot;:&quot;Security&quot;}],&quot;plan_details&quot;:{&quot;name&quot;:&quot;Business&quot;,&quot;is_active&quot;:true,&quot;cost&quot;:199,&quot;versions&quot;:10000,&quot;custom_domain&quot;:true,&quot;custom_pages&quot;:true,&quot;whitelabel&quot;:true,&quot;errors&quot;:true,&quot;password&quot;:true,&quot;landing_page&quot;:true,&quot;stylesheet&quot;:true,&quot;javascript&quot;:true,&quot;html&quot;:true,&quot;extra_html&quot;:true,&quot;admins&quot;:true},&quot;intercom&quot;:&quot;&quot;,&quot;intercom_secure_emailonly&quot;:false,&quot;flags&quot;:{&quot;allow_hub2&quot;:false,&quot;hub2&quot;:false,&quot;migrationRun&quot;:false,&quot;oauth&quot;:false,&quot;swagger&quot;:false,&quot;correctnewlines&quot;:false,&quot;speedyRender&quot;:false,&quot;allowXFrame&quot;:false,&quot;jwt&quot;:false,&quot;hideGoogleAnalytics&quot;:false,&quot;stripe&quot;:false,&quot;disableDiscuss&quot;:false,&quot;newApiExplorer&quot;:false,&quot;ssl&quot;:false},&quot;asset_base_url&quot;:&quot;&quot;}</div><ul class="nav navbar-nav"><li><a href="/docs" title="Documentation">API Schemas</a></li><li><a href="/v2.1/page/status">Status</a></li><li><a href="/v2.1/page/integration-videos">Integration Videos</a></li><li><a href="https://jetsupport.desk.com/">Support Center</a></li><li><a href="https://jetsupport.desk.com/customer/portal/emails/new">Contact Us</a></li><li><a href="/v2.1/page/api-release-schedule">API Change Schedule</a></li></ul><ul class="nav navbar-nav pull-right"><li><a id="versions" href="" data-toggle="dropdown"> 
+v2.1 <div class="fa fa-caret-down"></div></a><ul role="menu" aria-labelledby="versions" class="dropdown-menu"><li role="presentation" ng-repeat="v in project.versions | filter:(!u.user.is_admin ? {is_hidden: false} : {}) | limitTo: 10"><a role="menuitem" tabindex="-1" href="{{url('v' + v.version)}}" ng-class="{active: v.version_clean == project.current_version.version_clean}">v{{v.version}}<span ng-show="v.is_stable" class="stable">latest</span><span ng-show="v.is_beta" class="beta">beta</span><span ng-show="v.is_hidden" class="private">private</span><span ng-show="v.is_deprecated" class="deprecated">deprecated</span></a></li><li role="presentation" class="divider"></li><li role="presentation"><a href="/versions">View all versions</a></li></ul></li><li><div class="searchbox"><div class="fa fa-search"></div><input type="text" placeholder="Search" class="typeahead"></div></li></ul></div><div id="jumbotron" class="promos"><div class="row"><div class="col-sm-offset-2 col-sm-8"><h2>Welcome to the Developer Portal</h2><p>Learn how to integrate to our API and sell on Jet.</p><div class="search-bar"><div class="fa fa-search"></div><input placeholder="Search" class="typeahead"></div></div></div></div></div></header><div class="container body-container"><div><div class="main-head"></div><div class="hub-landing-category-columns"><div class="row"><div class="col-xs-4"><h4>Introduction</h4><ul><li ng-show="(0 &lt; 5) || all"><a href="/docs/getting-started"><span>Welcome to the Jet Developer Portal</span></a></li><li ng-show="(1 &lt; 5) || all"><a href="/docs/jet-api-responses-and-errors"><span>Responses and Errors</span></a></li><li><a ng-show="2 &gt; 5 &amp;&amp; !all" href="" ng-click="all=true" class="view-all text-muted">View All 2</a></li></ul></div><div class="col-xs-4"><h4>API Authorization</h4><ul><li ng-show="(0 &lt; 5) || all"><a href="/docs/retrieving-a-token"><span title="post" class="pg-type type-post">post</span><span>Retrieve Token</span></a></li><li ng-show="(1 &lt; 5) || all"><a href="/docs/api-headers"><span>API Headers</span></a></li><li><a ng-show="2 &gt; 5 &amp;&amp; !all" href="" ng-click="all=true" class="view-all text-muted">View All 2</a></li></ul></div><div class="col-xs-4"><h4>Products API</h4><ul><li ng-show="(0 &lt; 5) || all"><a href="/docs/overview"><span>Products API v. File Upload</span></a></li><li ng-show="(1 &lt; 5) || all"><a href="/docs/merchant-sku-price"><span title="put" class="pg-type type-put">put</span><span>Price Upload</span></a></li><li ng-show="(2 &lt; 5) || all"><a href="/docs/merchant-sku-variation"><span title="put" class="pg-type type-put">put</span><span>Variation Upload</span></a></li><li ng-show="(3 &lt; 5) || all"><a href="/docs/merchant-sku-shipping-exception"><span title="put" class="pg-type type-put">put</span><span>Shipping Exception Upload</span></a></li><li ng-show="(4 &lt; 5) || all"><a href="/docs/merchant-sku"><span title="put" class="pg-type type-put">put</span><span>SKU Upload</span></a></li><li ng-show="(5 &lt; 5) || all"><a href="/docs/sku-upload-v2-shoe-category"><span title="put" class="pg-type type-put">put</span><span>SKU Upload V2 (Only Shoe Category)</span></a></li><li ng-show="(6 &lt; 5) || all"><a href="/docs/creating-a-returns-exception"><span title="put" class="pg-type type-put">put</span><span>Returns Exception</span></a></li><li ng-show="(7 &lt; 5) || all"><a href="/docs/inventory-upload"><span title="patch" class="pg-type type-patch">patch</span><span>Inventory Upload</span></a></li><li ng-show="(8 &lt; 5) || all"><a href="/docs/merchant-sku-archive"><span title="put" class="pg-type type-put">put</span><span>Archive SKU</span></a></li><li ng-show="(9 &lt; 5) || all"><a href="/docs/get-skus"><span title="get" class="pg-type type-get">get</span><span>Single SKU Retrieval</span></a></li><li ng-show="(10 &lt; 5) || all"><a href="/docs/price-retrieval"><span title="get" class="pg-type type-get">get</span><span>Price Retrieval</span></a></li><li ng-show="(11 &lt; 5) || all"><a href="/docs/check-inventory"><span title="get" class="pg-type type-get">get</span><span>Inventory Retrieval</span></a></li><li ng-show="(12 &lt; 5) || all"><a href="/docs/variation-upload"><span title="get" class="pg-type type-get">get</span><span>Variation Retrieval</span></a></li><li ng-show="(13 &lt; 5) || all"><a href="/docs/shipping-exception-upload"><span title="get" class="pg-type type-get">get</span><span>Shipping Exception Retrieval</span></a></li><li ng-show="(14 &lt; 5) || all"><a href="/docs/returns-exception"><span title="get" class="pg-type type-get">get</span><span>Returns Exception</span></a></li><li ng-show="(15 &lt; 5) || all"><a href="/docs/verify-the-existence-of-multiple-skus"><span title="get" class="pg-type type-get">get</span><span>SKU Link Retrieval</span></a></li><li ng-show="(16 &lt; 5) || all"><a href="/docs/sku-sales-data"><span title="get" class="pg-type type-get">get</span><span>SKU Sales Data</span></a></li><li><a ng-show="17 &gt; 5 &amp;&amp; !all" href="" ng-click="all=true" class="view-all text-muted">View All 17</a></li></ul></div></div><div class="row"><div class="col-xs-4"><h4>Bulk File Upload</h4><ul><li ng-show="(0 &lt; 5) || all"><a href="/docs/batched-api-file-uploads"><span>JSON File Examples</span></a></li><li ng-show="(1 &lt; 5) || all"><a href="/docs/upload-token-url"><span title="get" class="pg-type type-get">get</span><span>Request Upload URL</span></a></li><li ng-show="(2 &lt; 5) || all"><a href="/docs/testinput-1"><span title="put" class="pg-type type-put">put</span><span>Upload File to URL</span></a></li><li ng-show="(3 &lt; 5) || all"><a href="/docs/uploaded-files"><span title="post" class="pg-type type-post">post</span><span>Request to Process Uploaded File</span></a></li><li ng-show="(4 &lt; 5) || all"><a href="/docs/jet-file-id"><span title="get" class="pg-type type-get">get</span><span>Verify Processing Success</span></a></li><li ng-show="(5 &lt; 5) || all"><a href="/docs/request-to-process-uploaded-file-with-shoe"><span title="post" class="pg-type type-post">post</span><span>Request to Process Uploaded File (Only Shoe Category)</span></a></li><li ng-show="(6 &lt; 5) || all"><a href="/docs/json-file-examples-shoe-category"><span>JSON File Examples (Only Shoe Category)</span></a></li><li><a ng-show="7 &gt; 5 &amp;&amp; !all" href="" ng-click="all=true" class="view-all text-muted">View All 7</a></li></ul></div><div class="col-xs-4"><h4>Orders API</h4><ul><li ng-show="(0 &lt; 5) || all"><a href="/docs/order-status"><span title="get" class="pg-type type-get">get</span><span>Check for Orders</span></a></li><li ng-show="(1 &lt; 5) || all"><a href="/docs/check-new-order-details"><span title="get" class="pg-type type-get">get</span><span>Check Order Details</span></a></li><li ng-show="(2 &lt; 5) || all"><a href="/docs/acknowledge-order"><span title="put" class="pg-type type-put">put</span><span>Acknowledge Order</span></a></li><li ng-show="(3 &lt; 5) || all"><a href="/docs/ship-order"><span title="put" class="pg-type type-put">put</span><span>Ship Order</span></a></li><li ng-show="(4 &lt; 5) || all"><a href="/docs/tag-order"><span title="put" class="pg-type type-put">put</span><span>Tag Order</span></a></li><li ng-show="(5 &lt; 5) || all"><a href="/docs/check-for-tagged-orders"><span title="get" class="pg-type type-get">get</span><span>Check for Tagged Orders</span></a></li><li><a ng-show="6 &gt; 5 &amp;&amp; !all" href="" ng-click="all=true" class="view-all text-muted">View All 6</a></li></ul></div><div class="col-xs-4"><h4>Returns API</h4><ul><li ng-show="(0 &lt; 5) || all"><a href="/docs/check-for-returns"><span title="get" class="pg-type type-get">get</span><span>Check for Returns</span></a></li><li ng-show="(1 &lt; 5) || all"><a href="/docs/check-return-info"><span title="get" class="pg-type type-get">get</span><span>Check Return Detail</span></a></li><li ng-show="(2 &lt; 5) || all"><a href="/docs/complete-return"><span title="put" class="pg-type type-put">put</span><span>Complete Return</span></a></li><li ng-show="(3 &lt; 5) || all"><a href="/docs/tag-return"><span title="put" class="pg-type type-put">put</span><span>Tag Return</span></a></li><li><a ng-show="4 &gt; 5 &amp;&amp; !all" href="" ng-click="all=true" class="view-all text-muted">View All 4</a></li></ul></div></div><div class="row"><div class="col-xs-4"><h4>Refunds API</h4><ul><li ng-show="(0 &lt; 5) || all"><a href="/docs/merchant-initiated-refund"><span title="post" class="pg-type type-post">post</span><span>Create Merchant Initiated Refund</span></a></li><li ng-show="(1 &lt; 5) || all"><a href="/docs/check-refund-state"><span title="get" class="pg-type type-get">get</span><span>Check Refund State</span></a></li><li ng-show="(2 &lt; 5) || all"><a href="/docs/check-refund-status"><span title="get" class="pg-type type-get">get</span><span>Check for Created Refunds</span></a></li><li><a ng-show="3 &gt; 5 &amp;&amp; !all" href="" ng-click="all=true" class="view-all text-muted">View All 3</a></li></ul></div><div class="col-xs-4"><h4>Taxonomy API</h4><ul><li ng-show="(0 &lt; 5) || all"><a href="/docs/taxonomy-nodes"><span title="get" class="pg-type type-get">get</span><span>Call Taxonomy Nodes</span></a></li><li ng-show="(1 &lt; 5) || all"><a href="/docs/taxonomy-node-ids"><span title="get" class="pg-type type-get">get</span><span>Taxonomy Node IDs</span></a></li><li ng-show="(2 &lt; 5) || all"><a href="/docs/taxonomy-node-id-attributes"><span title="get" class="pg-type type-get">get</span><span>Category's Attribute Mapping</span></a></li><li><a ng-show="3 &gt; 5 &amp;&amp; !all" href="" ng-click="all=true" class="view-all text-muted">View All 3</a></li></ul></div><div class="col-xs-4"><h4>Bulk Reporting API</h4><ul><li ng-show="(0 &lt; 5) || all"><a href="/docs/create-new-report"><span title="post" class="pg-type type-post">post</span><span>Create New Report</span></a></li><li ng-show="(1 &lt; 5) || all"><a href="/docs/get-report-status"><span title="get" class="pg-type type-get">get</span><span>Report Status</span></a></li><li ng-show="(2 &lt; 5) || all"><a href="/docs/report-examples"><span>Report Examples</span></a></li><li><a ng-show="3 &gt; 5 &amp;&amp; !all" href="" ng-click="all=true" class="view-all text-muted">View All 3</a></li></ul></div></div><div class="row"><div class="col-xs-4"><h4>Fulfillment Nodes</h4><ul><li ng-show="(0 &lt; 5) || all"><a href="/docs/get-fulfillment-nodes"><span title="get" class="pg-type type-get">get</span><span>Get Fulfillment Nodes</span></a></li><li ng-show="(1 &lt; 5) || all"><a href="/docs/get-fulfillment-node"><span title="get" class="pg-type type-get">get</span><span>Get Fulfillment Node Details</span></a></li><li><a ng-show="2 &gt; 5 &amp;&amp; !all" href="" ng-click="all=true" class="view-all text-muted">View All 2</a></li></ul></div></div></div></div></div></div><!-- Include partials--><div><script type="text/ng-template" id="content"><div class="block-content"><div class="blocks-parent"><div ng-repeat="(k, section) in sections" data-pos="{{ k }}" ng-if="is_sidebar === undefined || is_sidebar == !!section.sidebar" class="block section"><div ng-switch="section.type"><div ng-switch-when="textarea"><div marked="section.text"></div></div><!-- TODO: Make this generic using 'default' --><div ng-switch-when="api-header"><div type="section.type" ng-model="section.data" class="block-api-header"></div></div><div ng-switch-when="code"><div type="section.type" ng-model="section.data" class="block-code"></div></div><div ng-switch-when="image"><div type="section.type" ng-model="section.data" class="block-image"></div></div><div ng-switch-when="embed"><div type="section.type" ng-model="section.data" class="block-embed"></div></div><div ng-switch-when="callout"><div type="section.type" ng-model="section.data" class="block-callout"></div></div><div ng-switch-when="parameters"><div type="section.type" ng-model="section.data" class="block-parameters"></div></div><div ng-switch-when="html"><div type="section.type" ng-model="section.data" class="block-html"></div></div></div></div></div></div></script></div><div><script type="text/ng-template" id="blocks/api-header/show"><div class="block-display-api-header">
+  <!--
+  <div class="picker-offset">
+    <input type-picker ng-cloak ng-model="doc.type">
+  </div>
+  -->
+  <h2 id="{{ slugify(data.title) }}">
+    <span ng-show="data.type && data.type != 'basic'" class="pg-type-big pg-type type-{{data.type}}">{{data.type}}</span>
+    {{ data.title }}
+    <a class="fa fa-anchor fa-left" href="#{{ slugify(data.title) }}"></a>
+  </h2>
+  <hr>
+</div>
+</script><script type="text/ng-template" id="blocks/callout/show"><div class="block-show-callout {{ !data.title? 'no-title' : ''}} type-{{data.type}}">
+  <h3>
+    <i class="fa fa-info-circle {{data.type == 'info' ? 'on' : ''}}" title="Info"></i>
+    <i class="fa fa-exclamation-circle {{data.type == 'warning' ? 'on' : ''}}" title="Warning"></i>
+    <i class="fa fa-exclamation-triangle {{data.type == 'danger' ? 'on' : ''}}" title="Danger"></i>
+    <i class="fa fa-check-square {{data.type == 'success' ? 'on' : ''}}" title="Success"></i>
+
+    <span>{{ data.title }}</span>
+  </h3>
+
+  <div marked="data.body"></div>
+</div>
+</script><script type="text/ng-template" id="blocks/code/show"><div class="block-show-code">
+  <div class="code-tabs">
+    <div ng-class="{tab: true, on:$index==current, off:$index!=current}" ng-repeat="tab in data.codes track by $id($index)">
+      <a href="" ng-click="choose($index)">
+        <span ng-if="tab.status">
+          <span ng-if="tab.status" class="status-icon status-icon-{{ getStatusCode(tab.status)[2] }}"></span>
+          <em ng-if="!getStatusCode(tab.status)[3]">{{getStatusCode(tab.status)[0]}}</em>
+          {{ tab.name ? tab.name : getStatusCode(tab.status)[1] }}
+        </span>
+        <span ng-if="!tab.status">
+          {{ tab.name ? tab.name : code_types_obj[tab.language] }}
+        </span>
+      </a><span ng-hide="$last">&middot;</span>
+    </div>
+  </div>
+
+  <div ng-repeat="tab in data.codes track by $id($index)" ng-show="$index==current">
+  <pre ng-if='data.codes[$index].code == ""' class="{{theme}}" data-mode='text'><div class='text-muted'>No Content</div></pre>
+  <pre ng-if='data.codes[$index].code != ""' class="{{theme}}" data-mode="{{ data.codes[$index].language }}">{{ data.codes[$index].code }}</pre>
+</div>
+</div>
+</script><script type="text/ng-template" id="blocks/image/show"><div class="block-display-image" ng-show="data.images.length > 0">
+  <figure ng-show="data.images[0].image.length">
+    <a href="{{ data.images[0].image[0] }}" class="block-display-image-parent block-display-image-size-{{data.images[0].sizing || 'smart'}} {{data.images[0].border ? 'block-display-image-border' : ''}}">
+      <img ng-src="{{ data.images[0].image[0] }}">
+    </a>
+    <figcaption>{{ data.images[0].caption }}</figcaption>
+  </figure>
+</div>
+</script><script type="text/ng-template" id="blocks/parameters/show"><div class="block-display-parameters">
+  <table>
+    <tr ng-if="data.data['h-0'] || data.data['h-1']"> <!-- Rough check -->
+      <th ng-repeat="(c, col) in getNumber(data.cols) track by $index">
+        {{ data.data['h-' + c] }}
+      </th>
+    </tr>
+    <tr ng-repeat="(r, row) in getNumber(data.rows) track by $index">
+      <td ng-repeat="(c, col) in getNumber(data.cols) track by $index">
+        <div marked="data.data[r + '-' + c]"></div>
+      </th>
+    </tr>
+  </table>
+</div>
+
+</script><script type="text/ng-template" id="blocks/html/show"><div class="block-display-html"></div>
+
+</script><script type="text/ng-template" id="blocks/embed/show"><div class="block-display-embed">
+  <div class="html-replace" ng-if="data.html"></div>
+  <div ng-if="!data.html">
+    <div ng-if="data.iframe" class="iframe-replace"></div>
+    <div ng-if="!data.iframe">
+      <strong>
+        <img ng-src="{{data.favicon}}" class="favicon" ng-if="data.favicon">
+        <a href="{{ data.url }}" target="_new">{{ data.title || data.url }}</a>
+      </strong>
+    </div>
+  </div>
+</div>
+
+</script></div><div class="container container-footer"><footer></footer></div><p>Jet.com Copyright 2016</p><script>/* Status.io Widget */
+var container = $('.status-list-container');
+container.ready(function($){
+  var statusAPI = "https://api.status.io/1.0/status/547c834fb09d71e90e000015";
+  $.getJSON(statusAPI)
+  .done(function(data){
+    $.each(data.result.status, function(s,status){
+      var tmpl = '<div class="status-list-item">' +
+                        '<p class="status-name">' +
+                        status.name +
+                        '</p>' + 
+                        '<a href="http://partnerstatus.jet.com/" target="_blank" style="margin-left: 15px;">' + 
+                        '<span id="current-status-description">' + 
+                        status.containers[0].status + 
+                        '</span>' +
+                        '<i class="current-status-indicator"></i></a></div>';
+      var jObj = $(tmpl);
+      
+      switch (status.containers[0].status_code) {
+        case '':
+          break;
+        case 100:
+          // Operational
+          jObj.find('.current-status-indicator').addClass("green");
+          break;
+        case 200:
+          // Scheduled Maintenance
+          jObj.find('.current-status-indicator').addClass("blue");
+          break;
+        case 300:
+          // Degraded Performance
+        case 400:
+          // Partial Outage
+          jObj.find('.current-status-indicator').addClass("yellow");
+          break;
+        case 500:
+          // Service Disrtuption
+        case 600:
+          // Security Issue
+          jObj.find('.current-status-indicator').addClass("red");
+          break;
+      }
+      container.append(jObj);
+    })
+  })
+});
+</script></body></html>

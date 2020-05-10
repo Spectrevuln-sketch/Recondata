@@ -1,0 +1,14 @@
+200 OK
+Vary: Accept-Encoding Accept-Encoding Accept-Encoding,Cookie
+X-Cacheable: SHORT
+X-Cache: HIT: 93
+X-Cache-Group: normal
+X-Frame-Options: DENY
+Server: nginx
+Date: Mon, 16 Dec 2019 13:32:17 GMT
+Retry-Count: 0
+Content-Type: text/html; charset=UTF-8
+Link: <https://lite.pubg.com/wp-json/>; rel="https://api.w.org/" <https://lite.pubg.com/>; rel=shortlink
+Cache-Control: max-age=600, must-revalidate
+X-Pass-Why: 
+X-Xss-Protection: 1; mode=block

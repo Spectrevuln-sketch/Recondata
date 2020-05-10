@@ -1,0 +1,11 @@
+200 OK
+Vary: Accept-Encoding
+X-Nf-Request-Id: e4e57541-2996-4799-8c8b-e5836ea55e0d-3243322
+Content-Type: text/html; charset=UTF-8
+Etag: "7c438f15dc9fe361100493a0c14308a6-ssl-df"
+Strict-Transport-Security: max-age=31536000
+Retry-Count: 0
+Age: 1911502
+Server: Netlify
+Cache-Control: public, max-age=0, must-revalidate
+Date: Sun, 24 Nov 2019 10:54:20 GMT

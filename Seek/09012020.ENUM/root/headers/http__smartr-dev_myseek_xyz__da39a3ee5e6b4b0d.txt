@@ -1,0 +1,14 @@
+200 OK
+Cache-Control: public, max-age=60
+Via: 1.1 a372f2a2c858a55a472ec9d3d1c6b817.cloudfront.net (CloudFront)
+X-Amz-Cf-Id: 0yVqBXHMUWUBoOsUBGLqfLYm1TE5cR0hiapSxecKkWUIv0QYTyQ9kw==
+Last-Modified: Mon, 06 Jan 2020 04:01:08 GMT
+Content-Length: 3298
+Retry-Count: 0
+Date: Fri, 10 Jan 2020 19:57:35 GMT
+Etag: "23c7a462f8f2860539487decb664fa7a"
+Accept-Ranges: bytes
+Server: AmazonS3
+X-Cache: RefreshHit from cloudfront
+Content-Type: text/html
+X-Amz-Cf-Pop: SIN52-C2

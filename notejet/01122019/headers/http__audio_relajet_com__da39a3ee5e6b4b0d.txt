@@ -1,0 +1,12 @@
+200 OK
+Accept-Ranges: bytes
+Content-Type: text/html; charset=utf-8
+Etag: W/"pj5n5r6kz"
+Last-Modified: Mon, 03 Dec 2018 09:46:39 GMT
+Server: Caddy
+Strict-Transport-Security: max-age=31536000;
+Vary: Accept-Encoding
+X-Content-Type-Options: nosniff
+X-Xss-Protection: 1; mode=block
+Date: Sun, 01 Dec 2019 12:40:13 GMT
+Retry-Count: 0

@@ -1,0 +1,23 @@
+200 OK
+X-Frame-Options: sameorigin
+Expires: Thu, 09 Sep 1999 09:09:09 GMT
+X-Powered-By: Medium
+X-Obvious-Info: 39348-4e2c9b7,4e2c9b7f067
+Link: <https://medium.com/humans.txt>; rel="humans"
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Date: Fri, 22 Nov 2019 03:46:17 GMT
+Content-Type: text/html; charset=utf-8
+Set-Cookie: __cfduid=d3e430048d518f25ebe511556217bd7b11574394376; expires=Sun, 22-Dec-19 03:46:16 GMT; path=/; domain=.medium.com; HttpOnly uid=lo_Wgz3I5dIcTAf; Expires=Sat, 21-Nov-20 03:46:16 GMT; Domain=.medium.com; Path=/; Secure; HttpOnly optimizelyEndUserId=lo_Wgz3I5dIcTAf; path=/; expires=Sat, 21 Nov 2020 03:46:16 GMT; domain=.medium.com; secure sid=1:+jVz+bdFDYcXbyhnIfghAGYr1eyJc721i7qV+uTsIe2HWyjUDxREZESqMk5qNMlu; path=/; expires=Sat, 21 Nov 2020 03:46:16 GMT; domain=.medium.com; secure; httponly puid=; path=/; expires=Fri, 22 Nov 2019 03:46:15 GMT; domain=medium.com; secure; httponly puid=; path=/; expires=Fri, 22 Nov 2019 03:46:15 GMT; domain=.medium.com; secure; httponly puid=; path=/; expires=Fri, 22 Nov 2019 03:46:15 GMT; secure; httponly puid=; path=/; expires=Fri, 22 Nov 2019 03:46:15 GMT; domain=.medium.com; secure; httponly __cfruid=db0ab83e9683d31f24d8e0fa2978e431e8c18cb3-1574394377; path=/; domain=.medium.com; HttpOnly
+Retry-Count: 0
+Content-Security-Policy: default-src 'self'; connect-src https://localhost https://*.instapaper.com https://*.stripe.com https://glyph.medium.com https://*.paypal.com https://getpocket.com https://medium.com https://*.medium.com https://*.medium.com https://medium.com https://*.medium.com https://*.algolia.net https://cdn-static-1.medium.com https://dnqgz544uhbo8.cloudfront.net https://cdn-videos-1.medium.com https://cdn-audio-1.medium.com https://*.lightstep.com https://*.branch.io 'self'; font-src data: https://*.amazonaws.com https://*.medium.com https://glyph.medium.com https://medium.com https://*.gstatic.com https://dnqgz544uhbo8.cloudfront.net https://cdn-static-1.medium.com 'self'; frame-src chromenull: https: webviewprogressproxy: medium: 'self'; img-src blob: data: https: 'self'; media-src https://*.cdn.vine.co https://d1fcbxp97j4nb2.cloudfront.net https://d262ilb51hltx0.cloudfront.net https://*.medium.com https://gomiro.medium.com https://miro.medium.com https://pbs.twimg.com 'self' blob:; object-src 'self'; script-src 'unsafe-eval' 'unsafe-inline' about: https: 'self'; style-src 'unsafe-inline' data: https: 'self'; report-uri https://csp.medium.com
+Server: cloudflare
+Cf-Ray: 5397ea556beddcd6-SIN
+X-Ua-Compatible: IE=edge, Chrome=1
+X-Obvious-Tid: 1574394376681:beee8221ea9e
+Strict-Transport-Security: max-age=15552000; includeSubDomains; preload
+Cf-Cache-Status: DYNAMIC
+X-Content-Type-Options: nosniff
+X-Xss-Protection: 1; mode=block
+Alt-Svc: h3-23=":443"; ma=86400
+Expect-Ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"

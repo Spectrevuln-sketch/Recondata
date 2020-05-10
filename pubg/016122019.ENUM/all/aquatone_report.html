@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Aquatone Report">
+  <meta name="author" content="Michael Henriksen (https://twiter.com/michenriksen)">
+  <meta name="generator" content="Aquatone v1.7.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Aquatone Report</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/visjs-network@4.24.7/dist/vis.min.css"
+    integrity="sha384-hv6STAGuk4qTwmryFbZZTn3QrGRyZW1soC9K/Dy68zs8subBFOU69tg/GGZfkIBb" crossorigin="anonymous">
+  <style type="text/css">
+    footer {
+      border-top: 1px solid rgba(0, 0, 0, .125);
+      margin-top: 50px;
+      padding: 50px;
+      text-align: center;
+      font-size: 12px;
+      color: rgb(68, 68, 68);
+    }
+
+    footer a {
+      color: inherit !important;
+      text-decoration: underline;
+    }
+
+    .carousel {
+      margin-bottom: 50px;
+    }
+
+    .carousel-item {
+      color: #383d41;
+      text-align: center;
+    }
+
+    .carousel-item .page-card {
+      width: 300px;
+      text-align: left;
+      margin: 25px 10px 55px 10px;
+      display: inline-block;
+    }
+
+    .single-page-container .page-card,
+    .single-page-container .page-headers-table {
+      margin: 0px 0px 50px 0px;
+    }
+
+    .page-screenshot-container {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(0, 0, 0, .125);
+    }
+
+    .page-screenshot {
+      transition: transform .5s ease-out;
+      cursor: zoom-in;
+      width: 100%;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 5%;
+    }
+
+    .carousel-control-prev-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%236c757d' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e");
+    }
+
+    .carousel-control-next-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%236c757d' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3e%3c/svg%3e");
+    }
+
+    .carousel-indicators li {
+      background-color: #6c757d;
+    }
+
+    .badge {
+      margin-right: 5px;
+    }
+
+    .page-headers-table {
+      width: 100%;
+    }
+
+    .page-headers-table td {
+      font-family: Anonymous Pro, Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    }
+
+    .page-headers-table td.header-value {
+      word-break: break-all;
+    }
+
+    .single-page-container {
+      border-bottom: 1px solid rgba(0, 0, 0, .125);
+      margin-bottom: 50px;
+    }
+
+    .graph-container {
+      position: relative;
+      width: 100%;
+      height: 700px;
+      margin-top: 20px;
+      border: 1px solid rgba(0, 0, 0, .125);
+    }
+
+    .graph {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .graph-loading-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      background-color: #ffffff;
+      text-align: center;
+      padding-top: 25%;
+    }
+
+    .graph-loading-overlay .progress {
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+      height: 35px;
+    }
+
+    .show-more-button {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+
+    #screenshotModal .page-screenshot {
+      width: 100%;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">AQUATONE</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu"
+      aria-controls="#navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Pages
+          </a>
+          <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <a class="dropdown-item" href="#/pages/by-similarity">By Similarity</a>
+            <a class="dropdown-item" href="#/pages/by-hosts">By Hosts</a>
+            <a class="dropdown-item" href="#/pages/single">Single Pages</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#/pages/graph">Graph</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main role="main" class="container" id="app">
+    <router-view></router-view>
+  </main>
+
+  <footer id="footer">
+    <p class="text-muted">AQUATONE v1.7.0 &middot; made with <span
+        style="color:red;font-weight:bold">&#65533;</span> by <a href="https://michenriksen.com" target="_blank">Michael
+        Henriksen</a></p>
+    <p><a href="https://www.buymeacoffee.com/michenriksen" target="_blank"><img
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKoAAAAlCAYAAADSkHKPAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAACOBJREFUeNrsXM9PVEccn10VJG2VxDTtSTfEpIdGWe5G4dK0J/EfqNDYM+K1acC/AEyvJqCH9mICntpDk8Vwanpgj01MA6Y2PYmIpssKMp3PwOfx3WHe2/e2u8trmU8yWXbe/PjOd77z/TWPLSgPtNaj5qOsAgKOBtVCobAoKwqOgA6bjzlTSoFXAUeMNVPGjcAuNQiqEdKxfSENCMgTIKzzBaFJK4EnATnFCAV1NZj7gDy7AcX9wCkIaUCeUTrZyej+2bNntqTBhQsXbAkI8OFkJwe/deuW2tjYUP39/cl6fW1NXbt2Td2/f//ww62lvc/Tw2G3jjOM6Z/WHUC1WtWnTp3SRgibtkUbb9vtVa3/KBsPul/r+ooOOL5ou0ZdWlpST548UcvLy9aUP3z4MFU/aN07d+6oy5cvW+06PGw06PMhpXY39hrg7wEdNEsw/e0BhHR+fl4NDAyo8+fPW8FNg0uXLlk3AX0BK6gfzin1YlKpnTWlzs2E3QqC2uYQrVRSV69ebanv7u7uwZf3Rg806gdjsf4tihXsgLYCisO4cId4C35zn3MvqFtbW2p7e1sVCgXV19enTpw4YethtqEVq78uqvLFavoB/zZuQ8UwYadkx4gQI6DE+Pi41dqjo6OWscTNmzfV2NhYkLZ/gcnJSbuXc3NzDbwcGhqyvDauY74FtV6vq1qtporFotWAOzs7UWSP01cul1X503419VUGQX2+V9Y+Gs6kHSmci4uLh3xlPLt9+3aQuBZBzSkBDSsVQrdQbKXT27dv7eeZM2dUb2+vPVnv3r2LnkNQ1/7MOKjRqNXn2c0JGAdMT0+rSqWiVldXo9N/7969IG1tEFS5JxTSbpr9lgW1p6fHfr5+/doKLcw/TT8wODi4t8i+DH7jpmHMumo0+xkwNTVlNTEYODEx0cDUbm4sNbmr3X3aic/u3r0bBZGd8DNnZ2ftHEn8wDM38PXRnOSfMhjGXFQgBCwe6l3Llxqt5FGNuddv3rzR6+vr2hCnjbBGz16+fKlnZmbgvOjKo7KufK/SlW+U7WP8ITtGGqAd+himNdQbc2/rjd9qvxtNa7+jnjBa39YZDWzHwXcUF6BnYWHBOz/6Ym6jzW07jIdi3CC9srISPWc9+OKOzWcoGCdpreYgRm2xNrTHPEl9uE7yCTQR4IukDwXtyX/Wyf3AnKgDLUlzgQecy1i4hjni+JmEtif8wThJVCslraBSAMEg/A0mSmahTjKXggsGsg3o5cFyBV6uJWl+bIq7BowlBYuFm4c1sh+Fxd18Cd9Yck0+UEB8PCHtvgJ+yOcS5KU89AB5iDVxXTiIchyuE3RlRbHdpgb+KWA2We0fhNQFPiZMSrMrV5+fOjIyYv1UaXIePHgQmVdmJOR3zAN6kfsFkDmQoI/LNblg0EeTiv5YB9ZANwBzGKGMxqDphAlEP7Q1GiZxfTCnpBkROHhLJLlKNLNGiLzZEtJM2sA/4PHjx1E7dy/IX7eevMZcDGDRhmMhbgDtvr4d81GbARsY55M1E7gsTrqcA3OC0ShgFJiBDYZ/RuZyQyiY/E4hgG8t/S1udNosBAVCtict7uaQBmwgNzPuQMjNRpG+Zhxt9JUxL313/g1+gHf4DuEhbdevXz8UNLk0xfm55DHGp7+NvqzH2Dz4ks8d9VGbAao9yd+KA8wJ+9Xrdb25udng/7qgGfLNRf9Pmj2CJoj9XLMox5btYK5dn9BngmVf19/jHDTl0qTTX4YZle5PnCsj14Q+MLmuW+JzJ9ifJpgugnRB4nxR0it5Jc07+c1+bj1oJB+xR0dm+hkRulFfWo3KV/2Qq0V+Fp/NcPbs2abpK2pqahMAc7lamW1oBmleoUmQ6EbxIU4bQVvJOai92EaadNCIyBiJdh//SF/DNbMwvWmzHC5PmCUhnXjOOaSFsxc5Dl2Yk2affbFu151BPdYO9w6fWCfdjyPTqIwmM0d2+8ENYIRU12o1+xkHaDH3dDMIokPvnnAZgTIAk9EoTrkbHEFbcRyZGWDWQQZJUutQE7uBifyOsdkXn5jb5Z2cQ9LLNXE8GaSwzh1Lrl9qSzmum4kAX9xgjrySWQP8LSN6OabM5pC2pECw41G/3MAsYCSeBWQeFowNB2MovBQqMI5MZGTqRqG+wnSVrGPayWfyfHRx02Q79Jfzsg3qOZ9rEuPopGDwYLluCetpyjmOHA+CS7eBbUGvu/a47IYcTx4Kl9c8jBib47gKpuuCSibRV01T0NaXx0wjqL6C8XBgpNaTz1yNSWaDbvjKPqF2BYGHwPXjsB7USS3rbjK/41Ouw+dTujlan9ZP8tN9fPE9kzlUl7dYfxwv5frQztWypFsKv5veOjJBBSF2E66U9PSEii9fm825eCAgWV0MCBRzodgs1Ll5WGwKGE/NQg0uzW7SBnNzfVaAifdm4Jg8wOjrJsix/rgcMtrLtWHNmBtrci8SXDcI9PnWSteH5t2nBPCMQihNOS9VqEWlZpfa3rUgaNNKoN0+Qf1tWeufvtP6r6eN0f+3Rvh+V/HlZ8OAL7KfsE7Bd2GRJTptZb4sJrBbkNG9zABIP50CKC8x0N53+FGfdIvWvTf8f3lkwkYTEZ5+X6mPLzZG/8X+g/dKXWybyPepiZo/y8c/9iHilhE1ovJOvoARlzvNE9xLBWYueLGBIvO0SZcjXX0pxYvBzw3lhumfXGlYoE159CZsxou9l1HysGG8TWK6iOmaVm5S/k84itf6OiuoX85G2rRBo/YkCGEtP4LKmyjQgs3h7c1/Qeu1GzycuEFDztPNM4NXPNTd4E9H/12aJnP+h6oqnYtJPv+ocqO1Xr16FdEi78KPI3CBAWGUFx/4rwkIJ8qNGzci4e3G3hUQTJnPqU5NgA1vdu+PE+l7caLbwAbg5RapVfACSLdfEs4LwAtqTb5swheA+B4Bbpq6oVEL+z/ps6AComtCXgnyZezjjLgXpSHA3eRN+JG0gP/EeWEwNR54EZBjjFtB3f9V3yCsAbkUUshn+Gn0gNyaeyV+Gv0fAQYAjgHbsU2Sh1QAAAAASUVORK5CYII="
+          alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;"></a></p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/underscore@1.9.1/underscore-min.js"
+    integrity="sha384-5DWzr9S4agqS3WKvPrhFKJagpYyHOBsf3/DxuDKORyqCv2sYer9c/ExdhPOL8CGh"
+    crossorigin="anonymous"></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"
+    integrity="sha384-8t+aLluUVnn5SPPG/NbeZCH6TWIvaXIm/gDbutRvtEeElzxxWaZN+G/ZIEdI/f+y"
+    crossorigin="anonymous"></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue-router@3.0.6/dist/vue-router.min.js"
+    integrity="sha384-eNSGvYAboU/sfO4dGv1q8C58mrNJs93uBoyn/VQ5S8+KB/XqmiocEDAkgdaCGOMT"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/visjs-network@4.24.7/dist/vis.min.js"
+    integrity="sha384-oakKFXWtujbJX7wGZH2I3z1MXq8kc0RqfMnyFBYctBBM/1G5r9ZpLG7ese6fTdu4"
+    crossorigin="anonymous"></script>
+
+  <script type="text/x-template" id="pageCarouselTemplate">
+      <div class="page-similarity-cluster carousel slide" :id="'carousel_' + id" data-interval="false">
+        <ol class="carousel-indicators">
+          <li :data-target="'#carousel_' + id" v-for="(pageGroup, index) in pagesInGroups" :data-slide-to="index" :class="{ 'active': index === 0 }"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item" v-for="(pageGroup, index) in pagesInGroups" :class="{ 'active': index === 0 }">
+            <page-card v-for="page in pageGroup" v-bind:page="page" v-bind:key="page.uuid"></page-card>
+          </div>
+
+          <a class="carousel-control-prev" :href="'#carousel_' + id" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" :href="'#carousel_' + id" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+        <hr />
+    </div>
+  </script>
+
+  <script type="text/x-template" id="PageCardTemplate">
+    <div class="card page-card">
+      <div class="card-header text-truncate" :title="page.url">
+        ${ page.url }
+      </div>
+      <div class="page-screenshot-container" v-on:mouseover="zoomScreenshot" v-on:mouseout="unzoomScreenshot" v-on:mousemove="alignZoomWithCursor">
+        <img v-if="page.hasScreenshot" :src="page.screenshotPath" class="card-img page-screenshot" :alt="page.url" v-on:click="openScreenshotModal" />
+        <img v-else src="data:image/png;base64,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" class="card-img page-screenshot page-no-screenshot" />
+      </div>
+      <div class="card-body">
+        <h5 class="card-title" v-if="page.pageTitle">${ page.pageTitle }</h5>
+        <h5 class="card-title" v-else><em>No title</em></h5>
+        <p class="card-text">
+          <span :class="'badge badge-pill text-break text-wrap ' + badgeClassForStatus()">${ page.status }</span><a v-for="tag in page.tags" :href="tag.link" target="_blank" class="badge badge-pill text-break" :class="'badge-' + tag.type">${ tag.text }</a>
+        </p>
+      </div>
+      <div class="card-footer">
+        <a href="#" class="btn btn-outline-primary btn-sm card-link" v-on:click="openDetailsModal">View Details</a> <a class="btn btn-outline-secondary btn-sm card-link float-right" :href="page.url" target="_blank">Visit Page</a>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/x-template" id="pageHeadersTableTemplate">
+    <table class="table table-striped table-hover table-sm page-headers-table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Header</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="header in headers" :class="classForHeader(header)">
+          <td class="header-name">${ header.name }</td>
+          <td class="header-value">${ header.value }</td>
+        </tr>
+      </tbody>
+    </table>
+  </script>
+
+  <script type="text/x-template" id="singlePageTemplate">
+    <div class="row single-page-container">
+        <div class="col-4">
+          <page-card v-bind:page="page"></page-card>
+        </div>
+        <div class="col-8">
+          <page-headers-table v-bind:headers="page.headers"></page-headers-table>
+        </div>
+    </div>
+  </script>
+
+  <script type="text/x-template" id="pagesBySimilarityPageTemplate">
+    <div>
+      <h2 class="display-4 text-center border-bottom pb-3">Pages by Similarity</h2>
+      <div v-if="clusterIndex - 1 < pageSimilarityClusters.length" v-for="clusterIndex in clustersToShow">
+        <page-carousel v-bind:id="pageSimilarityClusters[clusterIndex - 1].uuid" v-bind:pages="pageSimilarityClusters[clusterIndex - 1].pages"
+          v-bind:key="pageSimilarityClusters[clusterIndex - 1].uuid">
+        </page-carousel>
+      </div>
+      <button @click="clustersToShow += 15" :disabled="clustersToShow >= pageSimilarityClusters.length" class="btn btn-primary btn-lg btn-block show-more-button">Show More</button>
+    </div>
+  </script>
+
+  <script type="text/x-template" id="pagesByHostsPageTemplate">
+    <div>
+      <h2 class="display-4 text-center border-bottom pb-3">Pages by Hosts</h2>
+      <div v-if="clusterIndex - 1 < pagesByHosts.length" v-for="clusterIndex in clustersToShow">
+        <page-carousel v-bind:id="pagesByHosts[clusterIndex - 1].id" v-bind:pages="pagesByHosts[clusterIndex - 1].pages"
+          v-bind:key="pagesByHosts[clusterIndex - 1].id">
+        </page-carousel>
+      </div>
+      <button @click="clustersToShow += 15" :disabled="clustersToShow >= pagesByHosts.length" class="btn btn-primary btn-lg btn-block show-more-button">Show More</button>
+    </div>
+  </script>
+
+  <script type="text/x-template" id="singlePagesPageTemplate">
+    <div>
+      <h2 class="display-4 text-center border-bottom pb-3">Pages</h2>
+      <div v-if="pageIndex - 1 < pages.length" v-for="pageIndex in pagesToShow">
+        <single-page v-bind:id="pages[pageIndex - 1].uuid" v-bind:page="pages[pageIndex - 1]" v-bind:key="pages[pageIndex - 1].uuid"></single-page>
+      </div>
+      <button @click="pagesToShow += 15" :disabled="pagesToShow >= pages.length" class="btn btn-primary btn-lg btn-block show-more-button">Show More</button>
+    </div>
+  </script>
+
+  <script type="text/x-template" id="graphPageTemplate">
+    <div class="graph-container">
+      <div class="graph" id="graph"></div>
+      <div class="graph-loading-overlay" id="graphLoadingOverlay">
+        <h3>Loading graph...</h3>
+        <div class="progress">
+          <div class="progress-bar bg-info" id="graphProgress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="2500"></div>
+        </div>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/javascript">
+    function parseSession(session) {
+      let data = {
+        version: session.version,
+        stats: session.stats,
+        pages: [],
+        pageSimilarityClusters: []
+      }
+      for (let pageUrl in session.pages) {
+        data.pages.push(session.pages[pageUrl]);
+      }
+      for (let uuid in session.pageSimilarityClusters) {
+        let cluster = {
+          uuid: uuid,
+          pages: []
+        }
+        for (let pageUrl of session.pageSimilarityClusters[uuid]) {
+          cluster.pages.push(session.pages[pageUrl])
+        }
+        data.pageSimilarityClusters.push(cluster);
+      }
+      data.pageSimilarityClusters.sort((a, b) => {
+        return a.pages.length - b.pages.length;
+      });
+      return data;
+    }
+
+    Vue.component('PagesBySimilarityPage', {
+      template: '#pagesBySimilarityPageTemplate',
+      delimiters: ['${', '}'],
+      data() {
+        return {
+          clustersToShow: 15
+        }
+      },
+      props: {
+        pageSimilarityClusters: Array
+      }
+    });
+
+    Vue.component('PagesByHostsPage', {
+      template: '#pagesByHostsPageTemplate',
+      delimiters: ['${', '}'],
+      data() {
+        return {
+          clustersToShow: 15
+        }
+      },
+      props: {
+        pages: Array
+      },
+      computed: {
+        pagesByHosts() {
+          result = {}
+          for (let page of this.pages) {
+            if (page.hostname in result) {
+              result[page.hostname].pages.push(page);
+            } else {
+              result[page.hostname] = {
+                id: _.uniqueId('host-cluster_'),
+                pages: [page]
+              }
+            }
+          }
+          return _.values(result);
+        }
+      }
+    });
+
+    Vue.component('SinglePagesPage', {
+      template: '#singlePagesPageTemplate',
+      delimiters: ['${', '}'],
+      data() {
+        return {
+          pagesToShow: 15
+        }
+      },
+      props: {
+        pages: Array
+      }
+    });
+
+    Vue.component('GraphPage', {
+      template: '#graphPageTemplate',
+      delimiters: ['${', '}'],
+      props: {
+        pages: Array,
+        pageSimilarityClusters: Array
+      },
+      computed: {
+        makeDatasets() {
+          let nodes = {};
+          let edges = [];
+
+          for (let page of this.pages) {
+            pageId = `page_${page.uuid}`;
+            nodes[pageId] = {
+              id: pageId,
+              label: page.url,
+              group: 'page',
+              value: 1
+            };
+
+            if (page.tags) {
+              for (let tag of page.tags) {
+                let tagId = `tag_${tag.hash}`;
+                if (!(tagId in nodes)) {
+                  nodes[tagId] = {
+                    id: tagId,
+                    label: tag.text,
+                    group: 'tag',
+                    value: 1,
+                  };
+                } else {
+                  nodes[tagId].value += 3;
+                }
+                edges.push({
+                  from: pageId, to: tagId
+                });
+              }
+            }
+
+            if (page.addrs) {
+              for (let addr of page.addrs) {
+                let addrId = `addr_${addr}`;
+                if (!(addrId in nodes)) {
+                  nodes[addrId] = {
+                    id: addrId,
+                    label: addr,
+                    group: 'addr',
+                    value: 1
+                  };
+                } else {
+                  nodes[addrId].value += 3
+                }
+                edges.push({
+                  from: pageId, to: addrId
+                });
+              }
+            }
+          }
+
+          for (let cluster of this.pageSimilarityClusters) {
+            if (cluster.pages.length <= 1) {
+              continue;
+            }
+
+            clusterId = `cluster_${cluster.uuid}`;
+            nodes[clusterId] = {
+              id: clusterId,
+              label: 'Similar',
+              group: 'similarity',
+              value: 1 + (cluster.pages.length * 3)
+            };
+
+            for (page of cluster.pages) {
+              edges.push({
+                from: `page_${page.uuid}`, to: clusterId
+              });
+            }
+          }
+
+
+          return [new vis.DataSet(_.values(nodes)), new vis.DataSet(edges)]
+        }
+      },
+      mounted: function () {
+        this.$nextTick(() => {
+          $('#footer').hide();
+          $('#graphLoadingOverlay').show();
+          let datasets = this.makeDatasets;
+          let data = {
+            nodes: datasets[0],
+            edges: datasets[1]
+          }
+          let progress = $('#graphProgress');
+
+          let network = new vis.Network($('#graph')[0], data, {
+            layout: {
+              improvedLayout: false,
+            },
+            nodes: {
+              shape: 'dot',
+            },
+            edges: {
+              color: { inherit: 'to' },
+              smooth: false,
+            },
+            physics: {
+              enabled: false,
+              forceAtlas2Based: {
+                springLength: 230,
+                springConstant: 0.18
+              },
+              maxVelocity: 146,
+              solver: 'forceAtlas2Based',
+              timestep: 0.35,
+              stabilization: {
+                enabled: true,
+                iterations: 2500,
+                updateInterval: 25
+              },
+            },
+            groups: {
+              'page': {
+                color: '#28a745'
+              },
+              'tag': {
+                color: '#007bff'
+              },
+              'addr': {
+                color: '#17a2b8'
+              },
+              'similarity': {
+                color: '#ffc107'
+              }
+            }
+          });
+
+          network.on('stabilizationProgress', (params) => {
+            let percentage = (params.iterations / params.total) * 100;
+            progress.attr('aria-valuenow', params.iterations).css('width', `${percentage}%`);
+          });
+
+          network.once('stabilizationIterationsDone', () => {
+            progress.attr('aria-valuenow', 2500).css('width', '100%');
+            $('#graphLoadingOverlay').hide();
+          });
+
+          network.stabilize(2500);
+        });
+      },
+      destroyed: function () {
+        this.$nextTick(() => {
+          $('#footer').show();
+        });
+      }
+    });
+
+    Vue.component('NotFoundPage', {
+      template: "<h1>Ooops. Don't know where that is.</h1>"
+    });
+
+    Vue.component('page-carousel', {
+      template: '#pageCarouselTemplate',
+      delimiters: ['${', '}'],
+      props: {
+        id: String,
+        pages: Array,
+      },
+      computed: {
+        pagesInGroups() {
+          return _.chunk(this.pages, 3);
+        }
+      }
+    });
+
+    Vue.component('page-card', {
+      template: '#PageCardTemplate',
+      delimiters: ['${', '}'],
+      props: {
+        page: Object
+      },
+      methods: {
+        badgeClassForStatus() {
+          let statusCode = parseInt(/^(\d+)\s/.exec(this.page.status)[0]);
+          if (statusCode > 499) {
+            return 'badge-danger';
+          } else if (statusCode > 399) {
+            return 'badge-warning';
+          } else if (statusCode > 299) {
+            return 'badge-info';
+          } else if (statusCode > 199) {
+            return 'badge-success';
+          } else {
+            return 'badge-secondary';
+          }
+        },
+        zoomScreenshot(event) {
+          $(event.target).css({ 'transform': 'scale(2)' });
+        },
+        unzoomScreenshot(event) {
+          $(event.target).css({ 'transform': 'scale(1)' });
+        },
+        alignZoomWithCursor(event) {
+          let container = $(event.target).closest('.page-screenshot-container');
+          $(event.target).css({ 'transform-origin': ((event.pageX - container.offset().left) / container.width()) * 100 + '% ' + ((event.pageY - container.offset().top) / container.height()) * 100 + '%' });
+        },
+        openScreenshotModal(event) {
+          event.preventDefault();
+          let modalTemplate = $("#screenshotModal");
+          modalTemplate.find('.modal-title').text(this.page.url);
+          modalTemplate.find('.screenshot-link').attr('href', this.page.screenshotPath);
+          modalTemplate.find('.page-screenshot').attr('src', this.page.screenshotPath).attr('alt', this.page.url);
+          modalTemplate.modal('show');
+        },
+        openDetailsModal(event) {
+          event.preventDefault();
+          let modalTemplate = $("#detailsModal");
+          let res = Vue.compile('<page-headers-table v-bind:headers="headers"></page-headers-table>');
+          new Vue({
+            data: {
+              headers: this.page.headers
+            },
+            render: res.render,
+            staticRenderFns: res.staticRenderFns
+          }).$mount('#detailsModal .page-headers-table');
+          modalTemplate.find('.modal-title').text(this.page.url);
+          modalTemplate.find('.visit-page-button').attr('href', this.page.url);
+          modalTemplate.find('.view-raw-headers-button').attr('href', this.page.headersPath);
+          modalTemplate.find('.view-raw-response-button').attr('href', this.page.bodyPath);
+          modalTemplate.modal('show');
+        }
+      }
+    });
+
+    Vue.component('page-headers-table', {
+      template: '#pageHeadersTableTemplate',
+      delimiters: ['${', '}'],
+      props: {
+        headers: Array
+      },
+      methods: {
+        classForHeader(header) {
+          if (header.increasesSecurity) {
+            return 'table-success';
+          } else if (header.decreasesSecurity) {
+            return 'table-warning';
+          }
+          return '';
+        }
+      }
+    });
+
+    Vue.component('single-page', {
+      template: '#singlePageTemplate',
+      delimiters: ['${', '}'],
+      props: {
+        page: Object
+      }
+    })
+
+    const session = {"version":"1.7.0","stats":{"startedAt":"2019-12-16T20:31:57.880696622-05:00","finishedAt":"0001-01-01T00:00:00Z","portOpen":0,"portClosed":0,"requestSuccessful":27,"requestFailed":2,"responseCode2xx":25,"responseCode3xx":0,"responseCode4xx":2,"responseCode5xx":0,"screenshotSuccessful":22,"screenshotFailed":5},"pages":{"http://esports-web-cms.pubg.com":{"uuid":"94e9246d-9d82-4c65-86bf-5894061d5ffb","url":"http://esports-web-cms.pubg.com","hostname":"esports-web-cms.pubg.com","addrs":["3.134.122.203","3.13.69.252","18.217.44.250","3.18.254.75"],"status":"200 OK","pageTitle":"PUBG Esports","headersPath":"headers/http__esports-web-cms_pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__esports-web-cms_pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/http__esports-web-cms_pubg_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Vary","value":"Accept-Encoding Accept-Encoding Accept-Encoding,Cookie","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Cache","value":"HIT: 1","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Cache-Group","value":"normal","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Frame-Options","value":"DENY","decreasesSecurity":false,"increasesSecurity":true},{"name":"Server","value":"nginx","decreasesSecurity":true,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=UTF-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Cacheable","value":"SHORT","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Pass-Why","value":"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Link","value":"\u003chttps://esports-web-cms.pubg.com/wp-json/\u003e; rel=\"https://api.w.org/\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Xss-Protection","value":"1; mode=block","decreasesSecurity":false,"increasesSecurity":true},{"name":"Date","value":"Mon, 16 Dec 2019 13:32:13 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Control","value":"max-age=600, must-revalidate","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Nginx","type":"info","link":"http://nginx.org/en","hash":"c5f9bde4da1314a38cd29cddb1dd216b15d84c8e"}],"notes":null},"http://esports.pubg.com":{"uuid":"ee710711-fdf5-41bb-be96-de34dc848f1d","url":"http://esports.pubg.com","hostname":"esports.pubg.com","addrs":["13.250.39.137","2406:da18:880:3801:ea36:adbc:f0bb:df90"],"status":"200 OK","pageTitle":"PUBG Global Esports","headersPath":"headers/http__esports_pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__esports_pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/http__esports_pubg_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"X-Nf-Request-Id","value":"e4e57541-2996-4799-8c8b-e5836ea55e0d-3230077","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Control","value":"public, max-age=0, must-revalidate","decreasesSecurity":false,"increasesSecurity":false},{"name":"Strict-Transport-Security","value":"max-age=31536000","decreasesSecurity":false,"increasesSecurity":true},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"Netlify","decreasesSecurity":true,"increasesSecurity":false},{"name":"Age","value":"479859","decreasesSecurity":false,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=UTF-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Wed, 11 Dec 2019 00:14:24 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Etag","value":"\"eac916e5261989b1819e7de94de5e75e-ssl-df\"","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Netlify","type":"info","link":"https://www.netlify.com/","hash":"83d65b7190f2ad536cd78cfc16fed00cf050b976"},{"text":"Polyfill","type":"info","link":"https://polyfill.io","hash":"e3324b020c5d630481a56b61a263109e8d75e9b1"}],"notes":null},"http://lite.pubg.com":{"uuid":"0974d5e5-28e7-4e69-ae37-bc7e27d22adb","url":"http://lite.pubg.com","hostname":"lite.pubg.com","addrs":["3.13.69.252","3.18.254.75","3.134.122.203","18.217.44.250"],"status":"200 OK","pageTitle":"PLAYERUNKNOWN'S BATTLEGROUNDS LITEaccountaccountpubg-bluehole","headersPath":"headers/http__lite_pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__lite_pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/http__lite_pubg_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"X-Cacheable","value":"SHORT","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Cache","value":"HIT: 89","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Pass-Why","value":"","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Cache-Group","value":"normal","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Mon, 16 Dec 2019 13:32:06 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding Accept-Encoding Accept-Encoding,Cookie","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Control","value":"max-age=600, must-revalidate","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Frame-Options","value":"DENY","decreasesSecurity":false,"increasesSecurity":true},{"name":"Server","value":"nginx","decreasesSecurity":true,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Link","value":"\u003chttps://lite.pubg.com/wp-json/\u003e; rel=\"https://api.w.org/\" \u003chttps://lite.pubg.com/\u003e; rel=shortlink","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Xss-Protection","value":"1; mode=block","decreasesSecurity":false,"increasesSecurity":true},{"name":"Content-Type","value":"text/html; charset=UTF-8","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Nginx","type":"info","link":"http://nginx.org/en","hash":"c5f9bde4da1314a38cd29cddb1dd216b15d84c8e"},{"text":"Google Font API","type":"info","link":"http://google.com/fonts","hash":"eeca1cac1d3c4856be7c3bdf554889341e16c738"},{"text":"Google Tag Manager","type":"info","link":"http://www.google.com/tagmanager","hash":"32c1785f479b1aa00e898891bc206fd131fcf7b7"},{"text":"Modernizr","type":"info","link":"https://modernizr.com","hash":"afa67ee2e20e952692a3a8cfcd1598ae0615ebeb"},{"text":"WordPress","type":"info","link":"https://wordpress.org","hash":"a52bef2d19c06ff28d27be1ed14383fc8a3ce31d"},{"text":"jQuery","type":"info","link":"https://jquery.com","hash":"61ca870c2763b90da43197f43bf497893e9b1166"},{"text":"jQuery Migrate","type":"info","link":"https://github.com/jquery/jquery-migrate","hash":"8e6409adfb62d2e46014dbcb21585f311899771a"}],"notes":null},"http://litesupport.pubg.com":{"uuid":"469fe89f-761b-448c-96cf-4287c84ceac2","url":"http://litesupport.pubg.com","hostname":"litesupport.pubg.com","addrs":["104.16.51.111","104.16.52.111","104.16.53.111","104.16.54.111","104.16.55.111"],"status":"200 OK","pageTitle":"PUBG LITE Support","headersPath":"headers/http__litesupport_pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__litesupport_pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"","hasScreenshot":false,"headers":[{"name":"Protocol","value":"HTTP/1.0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Expect-Ct","value":"max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Language","value":"en-us","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Xss-Protection","value":"1; mode=block","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Runtime","value":"0.170679","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Zendesk-User-Id","value":"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Age","value":"2","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cf-Ray","value":"5461056ffbfbc31d-SIN","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Mon, 16 Dec 2019 13:32:04 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Etag","value":"W/\"0bd3f72dcb35e720d2a8ae505ff124c9\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Request-Id","value":"546102907a73d509-IAD","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cf-Cache-Status","value":"HIT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"cloudflare","decreasesSecurity":true,"increasesSecurity":false},{"name":"X-Ua-Compatible","value":"IE=edge","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Tags","value":"resource:help_center#index, pod:pod14","decreasesSecurity":false,"increasesSecurity":false},{"name":"Strict-Transport-Security","value":"max-age=259200;","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Zendesk-Origin-Server","value":"help-center-unicorn-55cb847cf6-pqvjz","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Content-Type-Options","value":"nosniff","decreasesSecurity":false,"increasesSecurity":true},{"name":"Vary","value":"Accept-Encoding","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=utf-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Frame-Options","value":"SAMEORIGIN","decreasesSecurity":false,"increasesSecurity":true},{"name":"Cache-Control","value":"max-age=0, public, s-maxage=180, stale-while-revalidate=60, stale-if-error=10800","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"CloudFlare","type":"info","link":"http://www.cloudflare.com","hash":"9ea92fc7dce5e740ccc8e64d8f9e3336a96efc2a"},{"text":"Font Awesome","type":"info","link":"http://fontawesome.io","hash":"99fb5103c4d099ae7f570cd1a507ac4e61a74bee"},{"text":"Google Font API","type":"info","link":"http://google.com/fonts","hash":"eeca1cac1d3c4856be7c3bdf554889341e16c738"},{"text":"Highlight.js","type":"info","link":"https://highlightjs.org/","hash":"700243272d936493db46a13421a0dc5c5c530b25"},{"text":"Ruby on Rails","type":"info","link":"https://rubyonrails.org","hash":"e4a7da106756a0c1f4e6537f9f039cd9a37628cb"},{"text":"jQuery","type":"info","link":"https://jquery.com","hash":"61ca870c2763b90da43197f43bf497893e9b1166"}],"notes":null},"http://msupport.pubg.com":{"uuid":"c60ae7eb-23b6-4c3f-95c4-7d282f9d961e","url":"http://msupport.pubg.com","hostname":"msupport.pubg.com","addrs":["34.206.241.1","54.172.126.223","34.225.199.37"],"status":"200 OK","pageTitle":"asd","headersPath":"headers/http__msupport_pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__msupport_pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/http__msupport_pubg_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Strict-Transport-Security","value":"max-age=31536000;","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Zendesk-Origin-Server","value":"classic-app-server-5f5b6755f5-v7q2d","decreasesSecurity":false,"increasesSecurity":false},{"name":"Set-Cookie","value":"_zendesk_authenticated=; path=/; expires=Thu, 01 Jan 1970 00:00:00 -0000; secure; HttpOnly _zendesk_session=BAh7C0kiD3Nlc3Npb25faWQGOgZFVEkiJWY3ODgwMmY5YzY5NjI3ZTlhMzE5ZjU3YmYxNDcxYjQzBjsAVEkiDGFjY291bnQGOwBGaQP9TpFJIgpyb3V0ZQY7AEZpA1KKLkkiDmlzX21vYmlsZQY7AFRGSSITd2FyZGVuLm1lc3NhZ2UGOwBUewBJIhBfY3NyZl90b2tlbgY7AEZJIkVYV1Z4RWUxcU5XRXlzRVdoTlZqQzBEZStOblRIVkUrcHQvZzRTYUN5K01nWUpiVGhCK1ByYjkveFA4LzYvMnpjBjsARg%3D%3D--9d93234cd688b9979d62812f06f14eb5bad8f45b; path=/; secure; HttpOnly","decreasesSecurity":false,"increasesSecurity":false},{"name":"P3p","value":"CP=\"NOI DSP COR NID ADMa OPTa OUR NOR\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Etag","value":"W/\"929600282c795155ee19b008e74bc3ab\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Frame-Options","value":"SAMEORIGIN","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Request-Id","value":"c28ad0fee937cdb1879400628b16b542","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Runtime","value":"0.094065","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Mon, 16 Dec 2019 13:32:13 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=UTF-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Xss-Protection","value":"1; mode=block","decreasesSecurity":false,"increasesSecurity":true},{"name":"Cache-Control","value":"max-age=0, private, must-revalidate","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Content-Type-Options","value":"nosniff nosniff","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"nginx","decreasesSecurity":true,"increasesSecurity":false},{"name":"Vary","value":"Accept","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Nginx","type":"info","link":"http://nginx.org/en","hash":"c5f9bde4da1314a38cd29cddb1dd216b15d84c8e"},{"text":"Ruby on Rails","type":"info","link":"https://rubyonrails.org","hash":"e4a7da106756a0c1f4e6537f9f039cd9a37628cb"},{"text":"jQuery","type":"info","link":"https://jquery.com","hash":"61ca870c2763b90da43197f43bf497893e9b1166"}],"notes":null},"http://pass-dev.pubg.com":{"uuid":"e4e597db-5551-45a1-bf05-3ea87718f003","url":"http://pass-dev.pubg.com","hostname":"pass-dev.pubg.com","addrs":["23.92.24.94"],"status":"401 Unauthorized","pageTitle":"401 Authorization Required","headersPath":"headers/http__pass-dev_pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__pass-dev_pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/http__pass-dev_pubg_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Server","value":"nginx/1.15.8","decreasesSecurity":true,"increasesSecurity":false},{"name":"Date","value":"Mon, 16 Dec 2019 13:32:03 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=utf-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Length","value":"581","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Www-Authenticate","value":"Basic realm=\"Secure Area\"","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Nginx","type":"info","link":"http://nginx.org/en","hash":"c5f9bde4da1314a38cd29cddb1dd216b15d84c8e"}],"notes":null},"http://pass.pubg.com":{"uuid":"ed8b32f1-6c38-4c95-b9a8-891e18e8023e","url":"http://pass.pubg.com","hostname":"pass.pubg.com","addrs":["13.227.243.35","13.227.243.109","13.227.243.69","13.227.243.86"],"status":"200 OK","pageTitle":"PUBG Survivor Pass: BadlandsPUBG","headersPath":"headers/http__pass_pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__pass_pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/http__pass_pubg_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Cache-Control","value":"max-age=600, private, must-revalidate","decreasesSecurity":false,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Amz-Cf-Id","value":"fqFX_GfozJrXElA1TOj8_G68UykdX2aZafOSs79_nc2aHHDSGE8N-Q==","decreasesSecurity":false,"increasesSecurity":false},{"name":"Age","value":"4171225","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=UTF-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"Apache","decreasesSecurity":true,"increasesSecurity":false},{"name":"X-Cache","value":"Hit from cloudfront","decreasesSecurity":false,"increasesSecurity":false},{"name":"Via","value":"1.1 2e4ea5ed710a1104b183ead6b210a514.cloudfront.net (CloudFront)","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Amz-Cf-Pop","value":"SIN52-C2","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Tue, 29 Oct 2019 06:51:37 GMT","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Amazon Cloudfront","type":"info","link":"http://aws.amazon.com/cloudfront/","hash":"f1fbd77bc96e18c6434c0f483da45f2d87a552b7"},{"text":"Apache","type":"info","link":"http://apache.org","hash":"9e65aeab151c3b7d08b1950c6fefa366b79f81e4"},{"text":"Google Font API","type":"info","link":"http://google.com/fonts","hash":"eeca1cac1d3c4856be7c3bdf554889341e16c738"},{"text":"Google Tag Manager","type":"info","link":"http://www.google.com/tagmanager","hash":"32c1785f479b1aa00e898891bc206fd131fcf7b7"},{"text":"Polyfill","type":"info","link":"https://polyfill.io","hash":"e3324b020c5d630481a56b61a263109e8d75e9b1"}],"notes":null},"http://project-thai.pubg.com":{"uuid":"dbf2093c-a38b-4966-94ce-d277c131ef7f","url":"http://project-thai.pubg.com","hostname":"project-thai.pubg.com","addrs":["18.217.44.250","3.13.69.252","3.18.254.75","3.134.122.203"],"status":"200 OK","pageTitle":"PLAYERUNKNOWN'S BATTLEGROUNDS LITEaccountaccountpubg-bluehole","headersPath":"headers/http__project-thai_pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__project-thai_pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/http__project-thai_pubg_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"X-Pass-Why","value":"","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Cache-Group","value":"normal","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"nginx","decreasesSecurity":true,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=UTF-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Cacheable","value":"SHORT","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Xss-Protection","value":"1; mode=block","decreasesSecurity":false,"increasesSecurity":true},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Mon, 16 Dec 2019 13:32:13 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Link","value":"\u003chttps://lite.pubg.com/wp-json/\u003e; rel=\"https://api.w.org/\" \u003chttps://lite.pubg.com/\u003e; rel=shortlink","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Control","value":"max-age=600, must-revalidate","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Frame-Options","value":"DENY","decreasesSecurity":false,"increasesSecurity":true},{"name":"Vary","value":"Accept-Encoding Accept-Encoding Accept-Encoding,Cookie","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Cache","value":"HIT: 111","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Nginx","type":"info","link":"http://nginx.org/en","hash":"c5f9bde4da1314a38cd29cddb1dd216b15d84c8e"},{"text":"Google Font API","type":"info","link":"http://google.com/fonts","hash":"eeca1cac1d3c4856be7c3bdf554889341e16c738"},{"text":"Google Tag Manager","type":"info","link":"http://www.google.com/tagmanager","hash":"32c1785f479b1aa00e898891bc206fd131fcf7b7"},{"text":"Modernizr","type":"info","link":"https://modernizr.com","hash":"afa67ee2e20e952692a3a8cfcd1598ae0615ebeb"},{"text":"WordPress","type":"info","link":"https://wordpress.org","hash":"a52bef2d19c06ff28d27be1ed14383fc8a3ce31d"},{"text":"jQuery","type":"info","link":"https://jquery.com","hash":"61ca870c2763b90da43197f43bf497893e9b1166"},{"text":"jQuery Migrate","type":"info","link":"https://github.com/jquery/jquery-migrate","hash":"8e6409adfb62d2e46014dbcb21585f311899771a"}],"notes":null},"http://ps4support.pubg.com":{"uuid":"8205abbd-b412-4830-8559-1d86f97e3db0","url":"http://ps4support.pubg.com","hostname":"ps4support.pubg.com","addrs":["104.16.54.111","104.16.51.111","104.16.52.111","104.16.53.111","104.16.55.111"],"status":"200 OK","pageTitle":"PUBG PS4 Support","headersPath":"headers/http__ps4support_pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__ps4support_pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/http__ps4support_pubg_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Vary","value":"Accept-Encoding","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Mon, 16 Dec 2019 13:32:04 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Xss-Protection","value":"1; mode=block","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Frame-Options","value":"SAMEORIGIN","decreasesSecurity":false,"increasesSecurity":true},{"name":"Strict-Transport-Security","value":"max-age=259200;","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Zendesk-User-Id","value":"","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Zendesk-Origin-Server","value":"help-center-unicorn-55cb847cf6-mjkc8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cf-Cache-Status","value":"EXPIRED","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=utf-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Ua-Compatible","value":"IE=edge","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"cloudflare","decreasesSecurity":true,"increasesSecurity":false},{"name":"Cf-Ray","value":"5461056b3bf6cbe4-SIN","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Tags","value":"resource:help_center#index, pod:pod14","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Runtime","value":"0.253879","decreasesSecurity":false,"increasesSecurity":false},{"name":"Expect-Ct","value":"max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Request-Id","value":"5460fb8e7c3df561-SEA","decreasesSecurity":false,"increasesSecurity":false},{"name":"Protocol","value":"HTTP/1.0","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Content-Type-Options","value":"nosniff","decreasesSecurity":false,"increasesSecurity":true},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Language","value":"en-us","decreasesSecurity":false,"increasesSecurity":false},{"name":"Etag","value":"W/\"198fbfda0ddd292a2d05ac00ff0e448b\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Control","value":"max-age=0, public, s-maxage=180, stale-while-revalidate=60, stale-if-error=10800","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"CloudFlare","type":"info","link":"http://www.cloudflare.com","hash":"9ea92fc7dce5e740ccc8e64d8f9e3336a96efc2a"},{"text":"Font Awesome","type":"info","link":"http://fontawesome.io","hash":"99fb5103c4d099ae7f570cd1a507ac4e61a74bee"},{"text":"Highlight.js","type":"info","link":"https://highlightjs.org/","hash":"700243272d936493db46a13421a0dc5c5c530b25"},{"text":"Ruby on Rails","type":"info","link":"https://rubyonrails.org","hash":"e4a7da106756a0c1f4e6537f9f039cd9a37628cb"},{"text":"jQuery","type":"info","link":"https://jquery.com","hash":"61ca870c2763b90da43197f43bf497893e9b1166"}],"notes":null},"http://pubg.com":{"uuid":"d32edbf4-9452-4962-9e16-8971e007c18d","url":"http://pubg.com","hostname":"pubg.com","addrs":["18.217.44.250","3.13.69.252","3.18.254.75","3.134.122.203"],"status":"200 OK","pageTitle":"PLAYERUNKNOWN'S BATTLEGROUNDS - THIS IS BATTLE ROYALEPUBG-TMaccountglobePUBG-TMdropdownexternalexternalexternalaccountglobedropdownpcxboxplaystation4pcdropdowndropdownpcxboxplaystation4pctwitchfacebooktwitteryoutubeinstagramdiscordredditpubg-krafton","headersPath":"headers/http__pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/http__pubg_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"X-Cache-Group","value":"normal","decreasesSecurity":false,"increasesSecurity":false},{"name":"Link","value":"\u003chttps://www.pubg.com/wp-json/\u003e; rel=\"https://api.w.org/\" \u003chttps://bit.ly/2UN53Vp\u003e; rel=shortlink","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Cache","value":"HIT: 18","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Cacheable","value":"SHORT","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Pass-Why","value":"","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Xss-Protection","value":"1; mode=block","decreasesSecurity":false,"increasesSecurity":true},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"nginx","decreasesSecurity":true,"increasesSecurity":false},{"name":"Date","value":"Mon, 16 Dec 2019 13:32:08 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding Accept-Encoding Accept-Encoding,Cookie","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Security-Policy","value":"upgrade-insecure-requests","decreasesSecurity":false,"increasesSecurity":true},{"name":"Cache-Control","value":"max-age=600, must-revalidate","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Frame-Options","value":"DENY","decreasesSecurity":false,"increasesSecurity":true},{"name":"Content-Type","value":"text/html; charset=UTF-8","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Nginx","type":"info","link":"http://nginx.org/en","hash":"c5f9bde4da1314a38cd29cddb1dd216b15d84c8e"},{"text":"Google Font API","type":"info","link":"http://google.com/fonts","hash":"eeca1cac1d3c4856be7c3bdf554889341e16c738"},{"text":"Google Tag Manager","type":"info","link":"http://www.google.com/tagmanager","hash":"32c1785f479b1aa00e898891bc206fd131fcf7b7"},{"text":"Modernizr","type":"info","link":"https://modernizr.com","hash":"afa67ee2e20e952692a3a8cfcd1598ae0615ebeb"},{"text":"Sizmek","type":"info","link":"http://sizmek.com","hash":"ebe4b8f7c9aa9eefcae0ac09663862e2b4d47816"},{"text":"WordPress","type":"info","link":"https://wordpress.org","hash":"a52bef2d19c06ff28d27be1ed14383fc8a3ce31d"},{"text":"jQuery","type":"info","link":"https://jquery.com","hash":"61ca870c2763b90da43197f43bf497893e9b1166"}],"notes":null},"http://support.pubg.com":{"uuid":"8480d056-8ce8-4807-b66d-6046362ecca0","url":"http://support.pubg.com","hostname":"support.pubg.com","addrs":["104.16.53.111","104.16.52.111","104.16.54.111","104.16.55.111","104.16.51.111"],"status":"200 OK","pageTitle":"PUBG Support","headersPath":"headers/http__support_pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__support_pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/http__support_pubg_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Expect-Ct","value":"max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"cloudflare","decreasesSecurity":true,"increasesSecurity":false},{"name":"Cf-Ray","value":"546105cd299fcbd4-SIN","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Ua-Compatible","value":"IE=edge","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Tags","value":"resource:help_center#index, pod:pod14","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cf-Cache-Status","value":"HIT","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Frame-Options","value":"SAMEORIGIN","decreasesSecurity":false,"increasesSecurity":true},{"name":"Etag","value":"W/\"3643cf0c7ac19d4d67767b8d5856d40b\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Control","value":"max-age=0, public, s-maxage=180, stale-while-revalidate=60, stale-if-error=10800","decreasesSecurity":false,"increasesSecurity":false},{"name":"Strict-Transport-Security","value":"max-age=259200;","decreasesSecurity":false,"increasesSecurity":true},{"name":"Date","value":"Mon, 16 Dec 2019 13:32:19 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=utf-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Xss-Protection","value":"1; mode=block","decreasesSecurity":false,"increasesSecurity":true},{"name":"Age","value":"13","decreasesSecurity":false,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Zendesk-User-Id","value":"","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Request-Id","value":"5460f8542eaf7f29-IAD","decreasesSecurity":false,"increasesSecurity":false},{"name":"Protocol","value":"HTTP/1.0","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Content-Type-Options","value":"nosniff","decreasesSecurity":false,"increasesSecurity":true},{"name":"Content-Language","value":"en-us","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Zendesk-Origin-Server","value":"help-center-unicorn-55cb847cf6-k4hjm","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Runtime","value":"0.227890","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"CloudFlare","type":"info","link":"http://www.cloudflare.com","hash":"9ea92fc7dce5e740ccc8e64d8f9e3336a96efc2a"},{"text":"Font Awesome","type":"info","link":"http://fontawesome.io","hash":"99fb5103c4d099ae7f570cd1a507ac4e61a74bee"},{"text":"Highlight.js","type":"info","link":"https://highlightjs.org/","hash":"700243272d936493db46a13421a0dc5c5c530b25"},{"text":"Ruby on Rails","type":"info","link":"https://rubyonrails.org","hash":"e4a7da106756a0c1f4e6537f9f039cd9a37628cb"},{"text":"jQuery","type":"info","link":"https://jquery.com","hash":"61ca870c2763b90da43197f43bf497893e9b1166"}],"notes":null},"http://vikendi.pass.pubg.com":{"uuid":"645d1046-47a9-48a8-a57d-3be778c5d769","url":"http://vikendi.pass.pubg.com","hostname":"vikendi.pass.pubg.com","addrs":["178.128.17.49","2400:6180:0:d1::684:6001"],"status":"200 OK","pageTitle":"Survivor Pass : Vikendi | Every Day is a Snow DayPUBG_icon_white_TMXbox iconps4iconPUBG_icon_white_TMXbox iconps4iconFacebook iconTwitter iconYouTube iconInstagram iconDiscord iconReddit icon","headersPath":"headers/http__vikendi_pass_pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__vikendi_pass_pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"","hasScreenshot":false,"headers":[{"name":"Date","value":"Sun, 15 Dec 2019 15:58:07 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Etag","value":"\"474919ee8bd7f3625e99982e237ed732-ssl-df\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Strict-Transport-Security","value":"max-age=31536000","decreasesSecurity":false,"increasesSecurity":true},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"Netlify","decreasesSecurity":true,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Control","value":"public, max-age=0, must-revalidate","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=UTF-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Age","value":"77641","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Nf-Request-Id","value":"5747f465-0fb2-43ac-9758-450ebe868972-13592535","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Netlify","type":"info","link":"https://www.netlify.com/","hash":"83d65b7190f2ad536cd78cfc16fed00cf050b976"},{"text":"Angular","type":"info","link":"https://angular.io","hash":"dc36b02c1d4b9843077c22b2a0fafc168db087ae"},{"text":"Google Analytics","type":"info","link":"http://google.com/analytics","hash":"8b3048ab834882a576e4c5c01e136b9ce47198df"},{"text":"Google Font API","type":"info","link":"http://google.com/fonts","hash":"eeca1cac1d3c4856be7c3bdf554889341e16c738"},{"text":"Sizmek","type":"info","link":"http://sizmek.com","hash":"ebe4b8f7c9aa9eefcae0ac09663862e2b4d47816"}],"notes":null},"http://vikendi.pubg.com":{"uuid":"11b87b81-03af-44a3-8967-62f414a6967a","url":"http://vikendi.pubg.com","hostname":"vikendi.pubg.com","addrs":["206.189.89.118","2400:6180:0:d1::575:a001"],"status":"200 OK","pageTitle":"Vikendi is Here | Squad Up. Beat The Cold.PUBG_icon_white_TMXbox iconps4iconPUBG_icon_white_TMFacebook iconTwitter iconYouTube iconInstagram iconDiscord iconReddit icon","headersPath":"headers/http__vikendi_pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__vikendi_pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"","hasScreenshot":false,"headers":[{"name":"Server","value":"Netlify","decreasesSecurity":true,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Nf-Request-Id","value":"5747f465-0fb2-43ac-9758-450ebe868972-13588307","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Control","value":"public, max-age=0, must-revalidate","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=UTF-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Fri, 13 Dec 2019 06:52:44 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Age","value":"283156","decreasesSecurity":false,"increasesSecurity":false},{"name":"Etag","value":"\"f52c2619cbcbe5fd1ec0c4cecc573cb3-ssl-df\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Strict-Transport-Security","value":"max-age=31536000","decreasesSecurity":false,"increasesSecurity":true},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Netlify","type":"info","link":"https://www.netlify.com/","hash":"83d65b7190f2ad536cd78cfc16fed00cf050b976"},{"text":"Angular","type":"info","link":"https://angular.io","hash":"dc36b02c1d4b9843077c22b2a0fafc168db087ae"},{"text":"Google Analytics","type":"info","link":"http://google.com/analytics","hash":"8b3048ab834882a576e4c5c01e136b9ce47198df"},{"text":"Google Font API","type":"info","link":"http://google.com/fonts","hash":"eeca1cac1d3c4856be7c3bdf554889341e16c738"},{"text":"Sizmek","type":"info","link":"http://sizmek.com","hash":"ebe4b8f7c9aa9eefcae0ac09663862e2b4d47816"}],"notes":null},"http://www.pubg.com":{"uuid":"99b50fca-1bcb-4220-bc8e-cd6d21860ca9","url":"http://www.pubg.com","hostname":"www.pubg.com","addrs":["3.13.69.252","3.18.254.75","3.134.122.203","18.217.44.250"],"status":"200 OK","pageTitle":"PLAYERUNKNOWN'S BATTLEGROUNDS - THIS IS BATTLE ROYALEPUBG-TMaccountglobePUBG-TMdropdownexternalexternalexternalaccountglobedropdownpcxboxplaystation4pcdropdowndropdownpcxboxplaystation4pctwitchfacebooktwitteryoutubeinstagramdiscordredditpubg-krafton","headersPath":"headers/http__www_pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__www_pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/http__www_pubg_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"X-Xss-Protection","value":"1; mode=block","decreasesSecurity":false,"increasesSecurity":true},{"name":"Content-Type","value":"text/html; charset=UTF-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Link","value":"\u003chttps://www.pubg.com/wp-json/\u003e; rel=\"https://api.w.org/\" \u003chttps://bit.ly/2UN53Vp\u003e; rel=shortlink","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Security-Policy","value":"upgrade-insecure-requests","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Cache","value":"HIT: 20","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Cache-Group","value":"normal","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Pass-Why","value":"","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Frame-Options","value":"DENY","decreasesSecurity":false,"increasesSecurity":true},{"name":"Cache-Control","value":"max-age=600, must-revalidate","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"nginx","decreasesSecurity":true,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding Accept-Encoding Accept-Encoding,Cookie","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Cacheable","value":"SHORT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Mon, 16 Dec 2019 13:32:15 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Nginx","type":"info","link":"http://nginx.org/en","hash":"c5f9bde4da1314a38cd29cddb1dd216b15d84c8e"},{"text":"Google Font API","type":"info","link":"http://google.com/fonts","hash":"eeca1cac1d3c4856be7c3bdf554889341e16c738"},{"text":"Google Tag Manager","type":"info","link":"http://www.google.com/tagmanager","hash":"32c1785f479b1aa00e898891bc206fd131fcf7b7"},{"text":"Modernizr","type":"info","link":"https://modernizr.com","hash":"afa67ee2e20e952692a3a8cfcd1598ae0615ebeb"},{"text":"Sizmek","type":"info","link":"http://sizmek.com","hash":"ebe4b8f7c9aa9eefcae0ac09663862e2b4d47816"},{"text":"WordPress","type":"info","link":"https://wordpress.org","hash":"a52bef2d19c06ff28d27be1ed14383fc8a3ce31d"},{"text":"jQuery","type":"info","link":"https://jquery.com","hash":"61ca870c2763b90da43197f43bf497893e9b1166"}],"notes":null},"http://xboxsupport.pubg.com":{"uuid":"64da47a9-4732-496d-82fb-42a8d03d38d0","url":"http://xboxsupport.pubg.com","hostname":"xboxsupport.pubg.com","addrs":["104.16.53.111","104.16.54.111","104.16.52.111","104.16.55.111","104.16.51.111"],"status":"200 OK","pageTitle":"PUBG XBOX Support","headersPath":"headers/http__xboxsupport_pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/http__xboxsupport_pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/http__xboxsupport_pubg_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Date","value":"Mon, 16 Dec 2019 13:32:13 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Tags","value":"resource:help_center#index, pod:pod14","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Control","value":"max-age=0, public, s-maxage=180, stale-while-revalidate=60, stale-if-error=10800","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cf-Cache-Status","value":"EXPIRED","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=utf-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Ua-Compatible","value":"IE=edge","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Xss-Protection","value":"1; mode=block","decreasesSecurity":false,"increasesSecurity":true},{"name":"Etag","value":"W/\"dfc1fb5a61125182537f91bca670b23f\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Request-Id","value":"5461059fdd6dd9d8-SIN","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Content-Type-Options","value":"nosniff","decreasesSecurity":false,"increasesSecurity":true},{"name":"Server","value":"cloudflare","decreasesSecurity":true,"increasesSecurity":false},{"name":"Content-Language","value":"en-us","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Frame-Options","value":"SAMEORIGIN","decreasesSecurity":false,"increasesSecurity":true},{"name":"Strict-Transport-Security","value":"max-age=259200;","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Zendesk-User-Id","value":"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Protocol","value":"HTTP/1.0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Expect-Ct","value":"max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cf-Ray","value":"5461059fdd6dd9d8-SIN","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Zendesk-Origin-Server","value":"help-center-unicorn-55cb847cf6-cxg4n","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Runtime","value":"0.163158","decreasesSecurity":false,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"CloudFlare","type":"info","link":"http://www.cloudflare.com","hash":"9ea92fc7dce5e740ccc8e64d8f9e3336a96efc2a"},{"text":"Font Awesome","type":"info","link":"http://fontawesome.io","hash":"99fb5103c4d099ae7f570cd1a507ac4e61a74bee"},{"text":"Highlight.js","type":"info","link":"https://highlightjs.org/","hash":"700243272d936493db46a13421a0dc5c5c530b25"},{"text":"Ruby on Rails","type":"info","link":"https://rubyonrails.org","hash":"e4a7da106756a0c1f4e6537f9f039cd9a37628cb"},{"text":"jQuery","type":"info","link":"https://jquery.com","hash":"61ca870c2763b90da43197f43bf497893e9b1166"}],"notes":null},"https://esports.pubg.com":{"uuid":"c609ef78-25ee-479b-b75d-b5b7612f8db0","url":"https://esports.pubg.com","hostname":"esports.pubg.com","addrs":["13.250.39.137","2406:da18:880:3800:28c3:a58f:c18b:a7dd"],"status":"200 OK","pageTitle":"PUBG Global Esports","headersPath":"headers/https__esports_pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/https__esports_pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/https__esports_pubg_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"X-Nf-Request-Id","value":"e4e57541-2996-4799-8c8b-e5836ea55e0d-3230053","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Control","value":"public, max-age=0, must-revalidate","decreasesSecurity":false,"increasesSecurity":false},{"name":"Strict-Transport-Security","value":"max-age=31536000","decreasesSecurity":false,"increasesSecurity":true},{"name":"Age","value":"479856","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"Netlify","decreasesSecurity":true,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=UTF-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Wed, 11 Dec 2019 00:14:24 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Etag","value":"\"eac916e5261989b1819e7de94de5e75e-ssl-df\"","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Netlify","type":"info","link":"https://www.netlify.com/","hash":"83d65b7190f2ad536cd78cfc16fed00cf050b976"},{"text":"Polyfill","type":"info","link":"https://polyfill.io","hash":"e3324b020c5d630481a56b61a263109e8d75e9b1"}],"notes":null},"https://lite.pubg.com":{"uuid":"8799ead5-d23a-4c13-911f-f7724f70a9da","url":"https://lite.pubg.com","hostname":"lite.pubg.com","addrs":["3.134.122.203","3.18.254.75","18.217.44.250","3.13.69.252"],"status":"200 OK","pageTitle":"PLAYERUNKNOWN'S BATTLEGROUNDS LITEaccountaccountpubg-bluehole","headersPath":"headers/https__lite_pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/https__lite_pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/https__lite_pubg_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Vary","value":"Accept-Encoding Accept-Encoding Accept-Encoding,Cookie","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Cacheable","value":"SHORT","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Cache","value":"HIT: 93","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Cache-Group","value":"normal","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Frame-Options","value":"DENY","decreasesSecurity":false,"increasesSecurity":true},{"name":"Server","value":"nginx","decreasesSecurity":true,"increasesSecurity":false},{"name":"Date","value":"Mon, 16 Dec 2019 13:32:17 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=UTF-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Link","value":"\u003chttps://lite.pubg.com/wp-json/\u003e; rel=\"https://api.w.org/\" \u003chttps://lite.pubg.com/\u003e; rel=shortlink","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Control","value":"max-age=600, must-revalidate","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Pass-Why","value":"","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Xss-Protection","value":"1; mode=block","decreasesSecurity":false,"increasesSecurity":true}],"tags":[{"text":"Nginx","type":"info","link":"http://nginx.org/en","hash":"c5f9bde4da1314a38cd29cddb1dd216b15d84c8e"},{"text":"Google Font API","type":"info","link":"http://google.com/fonts","hash":"eeca1cac1d3c4856be7c3bdf554889341e16c738"},{"text":"Google Tag Manager","type":"info","link":"http://www.google.com/tagmanager","hash":"32c1785f479b1aa00e898891bc206fd131fcf7b7"},{"text":"Modernizr","type":"info","link":"https://modernizr.com","hash":"afa67ee2e20e952692a3a8cfcd1598ae0615ebeb"},{"text":"WordPress","type":"info","link":"https://wordpress.org","hash":"a52bef2d19c06ff28d27be1ed14383fc8a3ce31d"},{"text":"jQuery","type":"info","link":"https://jquery.com","hash":"61ca870c2763b90da43197f43bf497893e9b1166"},{"text":"jQuery Migrate","type":"info","link":"https://github.com/jquery/jquery-migrate","hash":"8e6409adfb62d2e46014dbcb21585f311899771a"}],"notes":null},"https://litesupport.pubg.com":{"uuid":"c17933d1-0ce9-46c5-92d6-a56131d707c8","url":"https://litesupport.pubg.com","hostname":"litesupport.pubg.com","addrs":["104.16.51.111","104.16.54.111","104.16.52.111","104.16.55.111","104.16.53.111"],"status":"200 OK","pageTitle":"PUBG LITE Support","headersPath":"headers/https__litesupport_pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/https__litesupport_pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/https__litesupport_pubg_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Content-Type","value":"text/html; charset=utf-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Ua-Compatible","value":"IE=edge","decreasesSecurity":false,"increasesSecurity":false},{"name":"Strict-Transport-Security","value":"max-age=259200;","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Runtime","value":"0.170679","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Mon, 16 Dec 2019 13:32:02 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Tags","value":"resource:help_center#index, pod:pod14","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Xss-Protection","value":"1; mode=block","decreasesSecurity":false,"increasesSecurity":true},{"name":"Etag","value":"W/\"0bd3f72dcb35e720d2a8ae505ff124c9\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Control","value":"max-age=0, public, s-maxage=180, stale-while-revalidate=60, stale-if-error=10800","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Zendesk-Origin-Server","value":"help-center-unicorn-55cb847cf6-pqvjz","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Content-Type-Options","value":"nosniff","decreasesSecurity":false,"increasesSecurity":true},{"name":"Vary","value":"Accept-Encoding","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"cloudflare","decreasesSecurity":true,"increasesSecurity":false},{"name":"Cf-Ray","value":"5461055fec9ccbec-SIN","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Protocol","value":"HTTP/1.0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Expect-Ct","value":"max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Language","value":"en-us","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Frame-Options","value":"SAMEORIGIN","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Zendesk-User-Id","value":"","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Request-Id","value":"546102907a73d509-IAD","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cf-Cache-Status","value":"EXPIRED","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"CloudFlare","type":"info","link":"http://www.cloudflare.com","hash":"9ea92fc7dce5e740ccc8e64d8f9e3336a96efc2a"},{"text":"Font Awesome","type":"info","link":"http://fontawesome.io","hash":"99fb5103c4d099ae7f570cd1a507ac4e61a74bee"},{"text":"Google Font API","type":"info","link":"http://google.com/fonts","hash":"eeca1cac1d3c4856be7c3bdf554889341e16c738"},{"text":"Highlight.js","type":"info","link":"https://highlightjs.org/","hash":"700243272d936493db46a13421a0dc5c5c530b25"},{"text":"Ruby on Rails","type":"info","link":"https://rubyonrails.org","hash":"e4a7da106756a0c1f4e6537f9f039cd9a37628cb"},{"text":"jQuery","type":"info","link":"https://jquery.com","hash":"61ca870c2763b90da43197f43bf497893e9b1166"}],"notes":null},"https://pass-dev.pubg.com":{"uuid":"c945a74a-a4e8-4aa2-bc81-ff243f90e720","url":"https://pass-dev.pubg.com","hostname":"pass-dev.pubg.com","addrs":["23.92.24.94"],"status":"401 Unauthorized","pageTitle":"401 Authorization Required","headersPath":"headers/https__pass-dev_pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/https__pass-dev_pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/https__pass-dev_pubg_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Www-Authenticate","value":"Basic realm=\"Secure Area\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"nginx/1.15.8","decreasesSecurity":true,"increasesSecurity":false},{"name":"Date","value":"Mon, 16 Dec 2019 13:32:00 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=utf-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Length","value":"581","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Nginx","type":"info","link":"http://nginx.org/en","hash":"c5f9bde4da1314a38cd29cddb1dd216b15d84c8e"}],"notes":null},"https://pass.pubg.com":{"uuid":"9d73d763-bbdc-4fb7-a2b1-26a6c33c3b16","url":"https://pass.pubg.com","hostname":"pass.pubg.com","addrs":["13.224.253.60","13.224.253.13","13.224.253.33","13.224.253.79"],"status":"200 OK","pageTitle":"PUBG Survivor Pass: BadlandsPUBG","headersPath":"headers/https__pass_pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/https__pass_pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/https__pass_pubg_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Via","value":"1.1 7ee5688c67d5a422c680ec4f06b2838d.cloudfront.net (CloudFront)","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Amz-Cf-Id","value":"xIhKityhNx0nQySg3vTZmTraKxjxyKPoYLNwdtZIX1nbSGYPv6HW0w==","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Tue, 29 Oct 2019 06:51:37 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Cache","value":"Hit from cloudfront","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Amz-Cf-Pop","value":"SIN52-C2","decreasesSecurity":false,"increasesSecurity":false},{"name":"Age","value":"4171228","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=UTF-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"Apache","decreasesSecurity":true,"increasesSecurity":false},{"name":"Cache-Control","value":"max-age=600, private, must-revalidate","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Amazon Cloudfront","type":"info","link":"http://aws.amazon.com/cloudfront/","hash":"f1fbd77bc96e18c6434c0f483da45f2d87a552b7"},{"text":"Apache","type":"info","link":"http://apache.org","hash":"9e65aeab151c3b7d08b1950c6fefa366b79f81e4"},{"text":"Google Font API","type":"info","link":"http://google.com/fonts","hash":"eeca1cac1d3c4856be7c3bdf554889341e16c738"},{"text":"Google Tag Manager","type":"info","link":"http://www.google.com/tagmanager","hash":"32c1785f479b1aa00e898891bc206fd131fcf7b7"},{"text":"Polyfill","type":"info","link":"https://polyfill.io","hash":"e3324b020c5d630481a56b61a263109e8d75e9b1"}],"notes":null},"https://project-thai.pubg.com":{"uuid":"2c754189-ccef-4dcb-a3ca-9ef6ada2f30a","url":"https://project-thai.pubg.com","hostname":"project-thai.pubg.com","addrs":["3.13.69.252","18.217.44.250","3.134.122.203","3.18.254.75"],"status":"200 OK","pageTitle":"PLAYERUNKNOWN'S BATTLEGROUNDS LITEaccountaccountpubg-bluehole","headersPath":"headers/https__project-thai_pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/https__project-thai_pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/https__project-thai_pubg_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Link","value":"\u003chttps://lite.pubg.com/wp-json/\u003e; rel=\"https://api.w.org/\" \u003chttps://lite.pubg.com/\u003e; rel=shortlink","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Frame-Options","value":"DENY","decreasesSecurity":false,"increasesSecurity":true},{"name":"Date","value":"Mon, 16 Dec 2019 13:32:16 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=UTF-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding Accept-Encoding Accept-Encoding,Cookie","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Pass-Why","value":"","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Xss-Protection","value":"1; mode=block","decreasesSecurity":false,"increasesSecurity":true},{"name":"Server","value":"nginx","decreasesSecurity":true,"increasesSecurity":false},{"name":"X-Cacheable","value":"SHORT","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Cache-Group","value":"normal","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Control","value":"max-age=600, must-revalidate","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Cache","value":"HIT: 108","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Nginx","type":"info","link":"http://nginx.org/en","hash":"c5f9bde4da1314a38cd29cddb1dd216b15d84c8e"},{"text":"Google Font API","type":"info","link":"http://google.com/fonts","hash":"eeca1cac1d3c4856be7c3bdf554889341e16c738"},{"text":"Google Tag Manager","type":"info","link":"http://www.google.com/tagmanager","hash":"32c1785f479b1aa00e898891bc206fd131fcf7b7"},{"text":"Modernizr","type":"info","link":"https://modernizr.com","hash":"afa67ee2e20e952692a3a8cfcd1598ae0615ebeb"},{"text":"WordPress","type":"info","link":"https://wordpress.org","hash":"a52bef2d19c06ff28d27be1ed14383fc8a3ce31d"},{"text":"jQuery","type":"info","link":"https://jquery.com","hash":"61ca870c2763b90da43197f43bf497893e9b1166"},{"text":"jQuery Migrate","type":"info","link":"https://github.com/jquery/jquery-migrate","hash":"8e6409adfb62d2e46014dbcb21585f311899771a"}],"notes":null},"https://ps4support.pubg.com":{"uuid":"8527bddb-4b88-4706-a0ad-b3943e8fc4e3","url":"https://ps4support.pubg.com","hostname":"ps4support.pubg.com","addrs":["104.16.55.111","104.16.51.111","104.16.53.111","104.16.54.111","104.16.52.111"],"status":"200 OK","pageTitle":"PUBG PS4 Support","headersPath":"headers/https__ps4support_pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/https__ps4support_pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/https__ps4support_pubg_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"X-Frame-Options","value":"SAMEORIGIN","decreasesSecurity":false,"increasesSecurity":true},{"name":"Etag","value":"W/\"198fbfda0ddd292a2d05ac00ff0e448b\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Control","value":"max-age=0, public, s-maxage=180, stale-while-revalidate=60, stale-if-error=10800","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Mon, 16 Dec 2019 13:32:16 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Tags","value":"resource:help_center#index, pod:pod14","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Xss-Protection","value":"1; mode=block","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Zendesk-Origin-Server","value":"help-center-unicorn-55cb847cf6-mjkc8","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Request-Id","value":"5460fb8e7c3df561-SEA","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Runtime","value":"0.253879","decreasesSecurity":false,"increasesSecurity":false},{"name":"Protocol","value":"HTTP/1.0","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Content-Type-Options","value":"nosniff","decreasesSecurity":false,"increasesSecurity":true},{"name":"Age","value":"12","decreasesSecurity":false,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Ua-Compatible","value":"IE=edge","decreasesSecurity":false,"increasesSecurity":false},{"name":"Strict-Transport-Security","value":"max-age=259200;","decreasesSecurity":false,"increasesSecurity":true},{"name":"Cf-Ray","value":"546105bcd81ee23b-SIN","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=utf-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Language","value":"en-us","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Zendesk-User-Id","value":"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cf-Cache-Status","value":"HIT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Expect-Ct","value":"max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"cloudflare","decreasesSecurity":true,"increasesSecurity":false}],"tags":[{"text":"CloudFlare","type":"info","link":"http://www.cloudflare.com","hash":"9ea92fc7dce5e740ccc8e64d8f9e3336a96efc2a"},{"text":"Font Awesome","type":"info","link":"http://fontawesome.io","hash":"99fb5103c4d099ae7f570cd1a507ac4e61a74bee"},{"text":"Highlight.js","type":"info","link":"https://highlightjs.org/","hash":"700243272d936493db46a13421a0dc5c5c530b25"},{"text":"Ruby on Rails","type":"info","link":"https://rubyonrails.org","hash":"e4a7da106756a0c1f4e6537f9f039cd9a37628cb"},{"text":"jQuery","type":"info","link":"https://jquery.com","hash":"61ca870c2763b90da43197f43bf497893e9b1166"}],"notes":null},"https://pubg.com":{"uuid":"68885e0e-6b6d-4132-a6e8-4101e9499d8c","url":"https://pubg.com","hostname":"pubg.com","addrs":["3.13.69.252","18.217.44.250","3.134.122.203","3.18.254.75"],"status":"200 OK","pageTitle":"PLAYERUNKNOWN'S BATTLEGROUNDS - THIS IS BATTLE ROYALEPUBG-TMaccountglobePUBG-TMdropdownexternalexternalexternalaccountglobedropdownpcxboxplaystation4pcdropdowndropdownpcxboxplaystation4pctwitchfacebooktwitteryoutubeinstagramdiscordredditpubg-krafton","headersPath":"headers/https__pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/https__pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/https__pubg_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Date","value":"Mon, 16 Dec 2019 13:32:18 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Link","value":"\u003chttps://www.pubg.com/wp-json/\u003e; rel=\"https://api.w.org/\" \u003chttps://bit.ly/2UN53Vp\u003e; rel=shortlink","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Control","value":"max-age=600, must-revalidate","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Cache","value":"HIT: 9","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding Accept-Encoding Accept-Encoding,Cookie","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Cacheable","value":"SHORT","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Cache-Group","value":"normal","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"nginx","decreasesSecurity":true,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=UTF-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Xss-Protection","value":"1; mode=block","decreasesSecurity":false,"increasesSecurity":true},{"name":"Content-Security-Policy","value":"upgrade-insecure-requests","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Pass-Why","value":"","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Frame-Options","value":"DENY","decreasesSecurity":false,"increasesSecurity":true}],"tags":[{"text":"Nginx","type":"info","link":"http://nginx.org/en","hash":"c5f9bde4da1314a38cd29cddb1dd216b15d84c8e"},{"text":"Google Font API","type":"info","link":"http://google.com/fonts","hash":"eeca1cac1d3c4856be7c3bdf554889341e16c738"},{"text":"Google Tag Manager","type":"info","link":"http://www.google.com/tagmanager","hash":"32c1785f479b1aa00e898891bc206fd131fcf7b7"},{"text":"Modernizr","type":"info","link":"https://modernizr.com","hash":"afa67ee2e20e952692a3a8cfcd1598ae0615ebeb"},{"text":"Sizmek","type":"info","link":"http://sizmek.com","hash":"ebe4b8f7c9aa9eefcae0ac09663862e2b4d47816"},{"text":"WordPress","type":"info","link":"https://wordpress.org","hash":"a52bef2d19c06ff28d27be1ed14383fc8a3ce31d"},{"text":"jQuery","type":"info","link":"https://jquery.com","hash":"61ca870c2763b90da43197f43bf497893e9b1166"}],"notes":null},"https://support.pubg.com":{"uuid":"4bb60518-e95a-48de-93da-2c722da0533a","url":"https://support.pubg.com","hostname":"support.pubg.com","addrs":["104.16.55.111","104.16.51.111","104.16.52.111","104.16.53.111","104.16.54.111"],"status":"200 OK","pageTitle":"PUBG Support","headersPath":"headers/https__support_pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/https__support_pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/https__support_pubg_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Protocol","value":"HTTP/1.0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cf-Cache-Status","value":"REVALIDATED","decreasesSecurity":false,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"cloudflare","decreasesSecurity":true,"increasesSecurity":false},{"name":"Content-Language","value":"en-us","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Zendesk-User-Id","value":"","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Runtime","value":"0.227890","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cf-Ray","value":"5461057799aadcda-SIN","decreasesSecurity":false,"increasesSecurity":false},{"name":"Expect-Ct","value":"max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Mon, 16 Dec 2019 13:32:06 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Tags","value":"resource:help_center#index, pod:pod14","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Xss-Protection","value":"1; mode=block","decreasesSecurity":false,"increasesSecurity":true},{"name":"Etag","value":"W/\"3643cf0c7ac19d4d67767b8d5856d40b\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Control","value":"max-age=0, public, s-maxage=180, stale-while-revalidate=60, stale-if-error=10800","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Zendesk-Origin-Server","value":"help-center-unicorn-55cb847cf6-k4hjm","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=utf-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Ua-Compatible","value":"IE=edge","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Frame-Options","value":"SAMEORIGIN","decreasesSecurity":false,"increasesSecurity":true},{"name":"Strict-Transport-Security","value":"max-age=259200;","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Request-Id","value":"5460f8542eaf7f29-IAD","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Content-Type-Options","value":"nosniff","decreasesSecurity":false,"increasesSecurity":true},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"CloudFlare","type":"info","link":"http://www.cloudflare.com","hash":"9ea92fc7dce5e740ccc8e64d8f9e3336a96efc2a"},{"text":"Font Awesome","type":"info","link":"http://fontawesome.io","hash":"99fb5103c4d099ae7f570cd1a507ac4e61a74bee"},{"text":"Highlight.js","type":"info","link":"https://highlightjs.org/","hash":"700243272d936493db46a13421a0dc5c5c530b25"},{"text":"Ruby on Rails","type":"info","link":"https://rubyonrails.org","hash":"e4a7da106756a0c1f4e6537f9f039cd9a37628cb"},{"text":"jQuery","type":"info","link":"https://jquery.com","hash":"61ca870c2763b90da43197f43bf497893e9b1166"}],"notes":null},"https://vikendi.pass.pubg.com":{"uuid":"44422248-6cf9-454b-b3f8-46bd5aad3483","url":"https://vikendi.pass.pubg.com","hostname":"vikendi.pass.pubg.com","addrs":["206.189.89.118","2400:6180:0:d1::808:1"],"status":"200 OK","pageTitle":"Survivor Pass : Vikendi | Every Day is a Snow DayPUBG_icon_white_TMXbox iconps4iconPUBG_icon_white_TMXbox iconps4iconFacebook iconTwitter iconYouTube iconInstagram iconDiscord iconReddit icon","headersPath":"headers/https__vikendi_pass_pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/https__vikendi_pass_pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"","hasScreenshot":false,"headers":[{"name":"Vary","value":"Accept-Encoding","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Nf-Request-Id","value":"5747f465-0fb2-43ac-9758-450ebe868972-13595735","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Control","value":"public, max-age=0, must-revalidate","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Sun, 15 Dec 2019 15:58:07 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Strict-Transport-Security","value":"max-age=31536000","decreasesSecurity":false,"increasesSecurity":true},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"Netlify","decreasesSecurity":true,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=UTF-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Etag","value":"\"474919ee8bd7f3625e99982e237ed732-ssl-df\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Age","value":"77647","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Netlify","type":"info","link":"https://www.netlify.com/","hash":"83d65b7190f2ad536cd78cfc16fed00cf050b976"},{"text":"Angular","type":"info","link":"https://angular.io","hash":"dc36b02c1d4b9843077c22b2a0fafc168db087ae"},{"text":"Google Analytics","type":"info","link":"http://google.com/analytics","hash":"8b3048ab834882a576e4c5c01e136b9ce47198df"},{"text":"Google Font API","type":"info","link":"http://google.com/fonts","hash":"eeca1cac1d3c4856be7c3bdf554889341e16c738"},{"text":"Sizmek","type":"info","link":"http://sizmek.com","hash":"ebe4b8f7c9aa9eefcae0ac09663862e2b4d47816"}],"notes":null},"https://vikendi.pubg.com":{"uuid":"b77f0337-cb0c-4f42-9410-cd17e4cb34c7","url":"https://vikendi.pubg.com","hostname":"vikendi.pubg.com","addrs":["206.189.89.118","2400:6180:0:d1::575:a001"],"status":"200 OK","pageTitle":"Vikendi is Here | Squad Up. Beat The Cold.PUBG_icon_white_TMXbox iconps4iconPUBG_icon_white_TMFacebook iconTwitter iconYouTube iconInstagram iconDiscord iconReddit icon","headersPath":"headers/https__vikendi_pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/https__vikendi_pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"","hasScreenshot":false,"headers":[{"name":"Cache-Control","value":"public, max-age=0, must-revalidate","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Fri, 13 Dec 2019 06:52:44 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Strict-Transport-Security","value":"max-age=31536000","decreasesSecurity":false,"increasesSecurity":true},{"name":"Server","value":"Netlify","decreasesSecurity":true,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Type","value":"text/html; charset=UTF-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Etag","value":"\"f52c2619cbcbe5fd1ec0c4cecc573cb3-ssl-df\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Age","value":"283174","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Nf-Request-Id","value":"5747f465-0fb2-43ac-9758-450ebe868972-13597400","decreasesSecurity":false,"increasesSecurity":false}],"tags":[{"text":"Netlify","type":"info","link":"https://www.netlify.com/","hash":"83d65b7190f2ad536cd78cfc16fed00cf050b976"},{"text":"Angular","type":"info","link":"https://angular.io","hash":"dc36b02c1d4b9843077c22b2a0fafc168db087ae"},{"text":"Google Analytics","type":"info","link":"http://google.com/analytics","hash":"8b3048ab834882a576e4c5c01e136b9ce47198df"},{"text":"Google Font API","type":"info","link":"http://google.com/fonts","hash":"eeca1cac1d3c4856be7c3bdf554889341e16c738"},{"text":"Sizmek","type":"info","link":"http://sizmek.com","hash":"ebe4b8f7c9aa9eefcae0ac09663862e2b4d47816"}],"notes":null},"https://xboxsupport.pubg.com":{"uuid":"2e2ff6f4-bacd-45b5-8437-52887fc9f1f4","url":"https://xboxsupport.pubg.com","hostname":"xboxsupport.pubg.com","addrs":["104.16.53.111","104.16.54.111","104.16.52.111","104.16.55.111","104.16.51.111"],"status":"200 OK","pageTitle":"PUBG XBOX Support","headersPath":"headers/https__xboxsupport_pubg_com__da39a3ee5e6b4b0d.txt","bodyPath":"html/https__xboxsupport_pubg_com__da39a3ee5e6b4b0d.html","screenshotPath":"screenshots/https__xboxsupport_pubg_com__da39a3ee5e6b4b0d.png","hasScreenshot":true,"headers":[{"name":"Age","value":"2","decreasesSecurity":false,"increasesSecurity":false},{"name":"Expect-Ct","value":"max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Control","value":"max-age=0, public, s-maxage=180, stale-while-revalidate=60, stale-if-error=10800","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Zendesk-Origin-Server","value":"help-center-unicorn-55cb847cf6-cxg4n","decreasesSecurity":false,"increasesSecurity":false},{"name":"Protocol","value":"HTTP/1.0","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cf-Cache-Status","value":"HIT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Server","value":"cloudflare","decreasesSecurity":true,"increasesSecurity":false},{"name":"Cf-Ray","value":"546105b1aec4de01-SIN","decreasesSecurity":false,"increasesSecurity":false},{"name":"Date","value":"Mon, 16 Dec 2019 13:32:15 GMT","decreasesSecurity":false,"increasesSecurity":false},{"name":"Retry-Count","value":"0","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Ua-Compatible","value":"IE=edge","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Frame-Options","value":"SAMEORIGIN","decreasesSecurity":false,"increasesSecurity":true},{"name":"Strict-Transport-Security","value":"max-age=259200;","decreasesSecurity":false,"increasesSecurity":true},{"name":"Content-Type","value":"text/html; charset=utf-8","decreasesSecurity":false,"increasesSecurity":false},{"name":"Cache-Tags","value":"resource:help_center#index, pod:pod14","decreasesSecurity":false,"increasesSecurity":false},{"name":"Etag","value":"W/\"dfc1fb5a61125182537f91bca670b23f\"","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Request-Id","value":"5461059fdd6dd9d8-SIN","decreasesSecurity":false,"increasesSecurity":false},{"name":"Vary","value":"Accept-Encoding","decreasesSecurity":false,"increasesSecurity":false},{"name":"Content-Language","value":"en-us","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Xss-Protection","value":"1; mode=block","decreasesSecurity":false,"increasesSecurity":true},{"name":"X-Zendesk-User-Id","value":"","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Runtime","value":"0.163158","decreasesSecurity":false,"increasesSecurity":false},{"name":"X-Content-Type-Options","value":"nosniff","decreasesSecurity":false,"increasesSecurity":true}],"tags":[{"text":"CloudFlare","type":"info","link":"http://www.cloudflare.com","hash":"9ea92fc7dce5e740ccc8e64d8f9e3336a96efc2a"},{"text":"Font Awesome","type":"info","link":"http://fontawesome.io","hash":"99fb5103c4d099ae7f570cd1a507ac4e61a74bee"},{"text":"Highlight.js","type":"info","link":"https://highlightjs.org/","hash":"700243272d936493db46a13421a0dc5c5c530b25"},{"text":"Ruby on Rails","type":"info","link":"https://rubyonrails.org","hash":"e4a7da106756a0c1f4e6537f9f039cd9a37628cb"},{"text":"jQuery","type":"info","link":"https://jquery.com","hash":"61ca870c2763b90da43197f43bf497893e9b1166"}],"notes":null}},"pageSimilarityClusters":{"0d2f6ccc-59e1-468a-9d0b-c2c5630590f6":["http://vikendi.pass.pubg.com","https://vikendi.pass.pubg.com"],"17893d03-a5df-4b2a-84c7-b1134001ab0f":["http://lite.pubg.com","http://project-thai.pubg.com","https://lite.pubg.com","https://project-thai.pubg.com"],"2956e89e-4395-4ea9-8e73-603309b55c43":["http://msupport.pubg.com"],"3d83f81f-7641-4be4-8f5a-9737fc236d49":["http://pass-dev.pubg.com","https://pass-dev.pubg.com"],"817a221b-c1f9-4b3a-8136-d6806dc568dd":["https://pubg.com","http://www.pubg.com","http://pubg.com"],"92449696-c97b-4738-9b91-42930448ad6e":["http://vikendi.pubg.com","https://vikendi.pubg.com"],"b972b701-0949-4aa5-9520-6333c14d38d0":["http://support.pubg.com","https://litesupport.pubg.com","https://support.pubg.com","http://xboxsupport.pubg.com","http://litesupport.pubg.com","https://ps4support.pubg.com","http://ps4support.pubg.com","https://xboxsupport.pubg.com"],"d95f791c-d109-403b-ba91-cf8b3999361a":["http://pass.pubg.com","https://pass.pubg.com"],"e8a53ffe-40a4-4ffe-b8cd-874f727fe806":["http://esports.pubg.com","https://esports.pubg.com"],"ff6d11c8-906c-479c-8021-2849d4427f7d":["http://esports-web-cms.pubg.com"]}};
+    const data = _.extend(parseSession(session), { currentRoute: window.location.hash });
+    const router = new VueRouter({
+      routes: [
+        { path: '/', alias: '/pages/by-similarity', component: Vue.component('PagesBySimilarityPage'), props: { pageSimilarityClusters: data.pageSimilarityClusters } },
+        { path: '/pages/by-hosts', component: Vue.component('PagesByHostsPage'), props: { pages: data.pages } },
+        { path: '/pages/single', component: Vue.component('SinglePagesPage'), props: { pages: data.pages } },
+        { path: '/pages/graph', component: Vue.component('GraphPage'), props: { pages: data.pages, pageSimilarityClusters: data.pageSimilarityClusters } },
+        { path: '/pages/stats', component: Vue.component('StatsPage'), props: { pages: data.pages, pageSimilarityClusters: data.pageSimilarityClusters, stats: data.stats } },
+        { path: '*', component: Vue.component('NotFoundPage') }
+      ]
+    })
+
+    var app = new Vue({
+      el: '#app',
+      data: data,
+      delimiters: ['${', '}'],
+      router: router
+    });
+  </script>
+
+  <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="screenshotModal">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <a href="" target="_blank" class="screenshot-link"><img class="page-screenshot" src="" alt="" /></a>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="detailsModal">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h3>Response Headers:</h3>
+          <table class="page-headers-table"></table>
+        </div>
+        <div class="modal-footer">
+          <a href="" target="_blank" class="btn btn-primary visit-page-button">Visit Page</a>
+          <a href="" target="_blank" class="btn btn-primary view-raw-headers-button">View Raw Headers</a>
+          <a href="" target="_blank" class="btn btn-primary view-raw-response-button">View Raw Response</a>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

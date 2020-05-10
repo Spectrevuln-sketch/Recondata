@@ -1,0 +1,18 @@
+200 OK
+X-Content-Type-Options: nosniff
+Set-Cookie: jet.csrf=culKTBV6M8OiqqMe51rSRS9j; path=/; secure; httponly signupShown=; path=/; expires=Sat, 01 Jan 2039 00:00:00 GMT; domain=batmanweb-proxy-qa.envoy.eastus2.qa.notjet.net; secure signupShown=0; Domain=batmanweb-proxy-qa.envoy.eastus2.qa.notjet.net; Path=/; Expires=Sat, 01 Jan 2039 00:00:00 GMT jid=4a71bf33-c025-404b-b260-5689fa58e753; path=/; expires=Sat, 01 Jan 2039 00:00:00 GMT; domain=batmanweb-proxy-qa.envoy.eastus2.qa.notjet.net; secure; httponly jid=4a71bf33-c025-404b-b260-5689fa58e753; Domain=batmanweb-proxy-qa.envoy.eastus2.qa.notjet.net; Path=/; Expires=Sat, 01 Jan 2039 00:00:00 GMT jet-referer=%2F; Path=/ jet-phaser=2%3Bea5cbf8c8c924e0589b57289bff8fb2e%3B7tJh%3B7uvR%3B92CBI%3B93oFG%3B98Cw0%3B996pFe%3B9GQ1%3B9GSao%3B9HLr%3B9J12T%3B9JJvH%3B9Jp4i%3B9MAixN%3B9UbxmC%3B9gQC%3B9ln3%3B9n8jG%3B9uJgwR%3B9vFW8X%3B9x6au%3B9zfkN%3B1575204137; path=/; expires=Tue, 31 Dec 2019 12:42:17 GMT; secure; httponly jet-phaser=2%3Bea5cbf8c8c924e0589b57289bff8fb2e%3B7tJh%3B7uvR%3B92CBI%3B93oFG%3B98Cw0%3B996pFe%3B9GQ1%3B9GSao%3B9HLr%3B9J12T%3B9JJvH%3B9Jp4i%3B9MAixN%3B9UbxmC%3B9gQC%3B9ln3%3B9n8jG%3B9uJgwR%3B9vFW8X%3B9x6au%3B9zfkN%3B1575204137; Max-Age=2592000000; Path=/; Expires=Fri, 20 Jan 2102 12:42:17 GMT; HttpOnly jet.qa-id=f5615fb3-b817-49f3-bee1-d0db80febdf0; path=/; expires=Tue, 31 Dec 2019 12:42:17 GMT; secure; httponly jet.qa-clientTicket=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiI0NmU0MGY5MDAwOWY0YTllOGY5MDIyMDZjMmU3NWEwYSIsImlzcyI6ImpldC5jb20iLCJhdWQiOiJ3ZWJjbGllbnQifQ.Ki_zgZBRYNKi6BpOgXwbvo0IL7KwyN3J9j92OQCc8lM; path=/; expires=Tue, 31 Dec 2019 12:42:17 GMT; secure; httponly X-Akamai-Chosen=qa_phased_nomad_eastus2 akacd_phased_release=3752656936~rv=72~id=1032a50daccd5967fb2ef71765d2e042; path=/;
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 1; mode=block;
+Strict-Transport-Security: max-age=31536000
+Jet-Dr-Orpheus: {"headerSchemaVersion":3,"correlationIds":["ec36297c06a84ac78597bd83513334ce"],"messageId":"e81060b21cb540298d4658d59d988407","parentIds":["2e26b1aec82c40cbb12bd4838f57facd"],"producerId":"Batman-API","ticksFromEpoch":637108009379154700,"payloadSchemaUri":"CmsProxy/cms/GET/1.0","mTags":[],"pTags":[["phaser","2;ea5cbf8c8c924e0589b57289bff8fb2e;7tJh;7uvR;92CBI;93oFG;98Cw0;996pFe;9GQ1;9GSao;9HLr;9J12T;9JJvH;9Jp4i;9MAixN;9UbxmC;9gQC;9ln3;9n8jG;9uJgwR;9vFW8X;9x6au;9zfkN;1575204137"]]}
+Server: envoy
+Referrer-Policy: strict-origin-when-cross-origin
+X-Envoy-Decorator-Operation: batmanweb-proxy-qa
+Date: Sun, 01 Dec 2019 12:42:18 GMT
+Retry-Count: 0
+X-Envoy-Upstream-Service-Time: 256
+Vary: Accept-Encoding
+X-Powered-By: Next.js 8.0.0
+Content-Type: text/html; charset=utf-8
+Jet: 4:1.861:1575061838:540a6
+Etag: "5c7f8-dLnvEFsPz3t7rHiGWh1KjXFnM/Y"

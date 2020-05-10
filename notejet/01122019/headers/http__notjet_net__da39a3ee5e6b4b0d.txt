@@ -1,0 +1,19 @@
+200 OK
+X-Envoy-Decorator-Operation: batmanweb-proxy-qa
+Strict-Transport-Security: max-age=31536000
+Jet: 4:1.861:1575061838:540a6
+Jet-Dr-Orpheus: {"headerSchemaVersion":3,"correlationIds":["0a805e3dccf34d06ab3a3a19298d3276"],"messageId":"58ed0e58cfa148438f1468516dd21eec","parentIds":["9f32ac5cf68d416b85d5030b14f71c31"],"producerId":"Batman-API","ticksFromEpoch":637108009380780400,"payloadSchemaUri":"CmsProxy/cms/GET/1.0","mTags":[],"pTags":[["phaser","2;e1bf9ddd563f4fa78320277c9c6ed94a;7tJh;7uvR;92CBI;93oFG;98Cw0;996pFe;9GQ1;9GSao;9HLr;9J12T;9JJvH;9Jp4i;9MAixN;9UbxmC;9gQC;9ln3;9n8jG;9uJgwR;9vFW8X;9x6au;9zfkN;1575204137"]]}
+Content-Type: text/html; charset=utf-8
+X-Envoy-Upstream-Service-Time: 251
+X-Frame-Options: SAMEORIGIN
+Server: envoy
+X-Akamai-Transformed: 9 375818 0 pmb=mTOE,2
+Set-Cookie: jet.csrf=iyz3MIxs1b-LdEF_JwUQ7piA; path=/; secure; httponly signupShown=; path=/; expires=Sat, 01 Jan 2039 00:00:00 GMT; domain=batmanweb-proxy-qa.envoy.eastus2.qa.notjet.net; secure signupShown=0; Domain=batmanweb-proxy-qa.envoy.eastus2.qa.notjet.net; Path=/; Expires=Sat, 01 Jan 2039 00:00:00 GMT jid=d06f3024-16f5-4c66-a9d5-c7820881cbad; path=/; expires=Sat, 01 Jan 2039 00:00:00 GMT; domain=batmanweb-proxy-qa.envoy.eastus2.qa.notjet.net; secure; httponly jid=d06f3024-16f5-4c66-a9d5-c7820881cbad; Domain=batmanweb-proxy-qa.envoy.eastus2.qa.notjet.net; Path=/; Expires=Sat, 01 Jan 2039 00:00:00 GMT jet-referer=%2F; Path=/ jet-phaser=2%3Be1bf9ddd563f4fa78320277c9c6ed94a%3B7tJh%3B7uvR%3B92CBI%3B93oFG%3B98Cw0%3B996pFe%3B9GQ1%3B9GSao%3B9HLr%3B9J12T%3B9JJvH%3B9Jp4i%3B9MAixN%3B9UbxmC%3B9gQC%3B9ln3%3B9n8jG%3B9uJgwR%3B9vFW8X%3B9x6au%3B9zfkN%3B1575204137; path=/; expires=Tue, 31 Dec 2019 12:42:18 GMT; secure; httponly jet-phaser=2%3Be1bf9ddd563f4fa78320277c9c6ed94a%3B7tJh%3B7uvR%3B92CBI%3B93oFG%3B98Cw0%3B996pFe%3B9GQ1%3B9GSao%3B9HLr%3B9J12T%3B9JJvH%3B9Jp4i%3B9MAixN%3B9UbxmC%3B9gQC%3B9ln3%3B9n8jG%3B9uJgwR%3B9vFW8X%3B9x6au%3B9zfkN%3B1575204137; Max-Age=2592000000; Path=/; Expires=Fri, 20 Jan 2102 12:42:18 GMT; HttpOnly jet.qa-id=b743ee83-a88f-4d63-8575-be79b79f7299; path=/; expires=Tue, 31 Dec 2019 12:42:18 GMT; secure; httponly jet.qa-clientTicket=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiIyNzQzYjZiZDQzZjc0YjBjOWU4OTNiNTc3M2FiNWEzMyIsImlzcyI6ImpldC5jb20iLCJhdWQiOiJ3ZWJjbGllbnQifQ.8lMKJxmsRm0BvBKoxdLd1M-9P6u-dmMOxkAW41kzSac; path=/; expires=Tue, 31 Dec 2019 12:42:18 GMT; secure; httponly ak_bmsc=3A7E58FF867C1068D7EB7684E09E4CFC76625DF6577D00002AB5E35D1B8F7847~plC0MeS5zIgg93aTKOK9JeVKbfgiQ1PLWP3OoD/625X4WsWy0gF6MEQof4n89Hqv1FOmbMQJ+aDzWpFt9Uy1MtETHH64jTStjPHvfElNMfj+g8kbCm+sPuHhwEnTr8W7KMX6BxAy8yMEs1o0AhtzbPnXwnanCe6QrPfNtlGXTbyxq9JMxSvclzGS61gRaFwPt0sCOXznZV2pzyG/7S1Kzb+p7cbxAiLYeb283Bc1qoehg=; expires=Sun, 01 Dec 2019 14:42:18 GMT; max-age=7200; path=/; domain=.notjet.net; HttpOnly bm_mi=0EA3417AB66411373B0C909316546BE0~pKY4i0O9ZOLiIGato4h0P3Qn56m7K35Qs55TazlOp+weNadMkrB1HRZdoXV4n7L9nr3qs6XyBHL8p4p0zjtErENP8ZVmieh17EH9v/ltidxXi2IZj3rI9dj6sRS2RcDNYheRh+RyCHmCUGOHe3irZD/bvTFC68CbPflePBZ683rK1yfcvkRs/Rd7+NZF4HDHcS4z494ux6LErcgkfW/5E+x8rUPmVAYzbyZA0Hiw/QU=; Domain=.notjet.net; Path=/; Max-Age=0; HttpOnly
+Retry-Count: 0
+Etag: "5bc0a-tnBdXA0dtHCBdI9s7nSYfBAi2TQ"
+Referrer-Policy: strict-origin-when-cross-origin
+X-Xss-Protection: 1; mode=block;
+Vary: Accept-Encoding
+X-Content-Type-Options: nosniff
+X-Powered-By: Next.js 8.0.0
+Date: Sun, 01 Dec 2019 12:42:18 GMT

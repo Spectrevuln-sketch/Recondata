@@ -1,0 +1,17 @@
+200 
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+Date: Sun, 01 Dec 2019 12:35:12 GMT
+Content-Length: 18415
+Accept-Ranges: bytes
+Server: nginx/1.10.1
+X-Xss-Protection: 1; mode=block
+Pragma: no-cache
+Access-Control-Allow-Origin: *
+Content-Type: text/html
+X-Application-Context: sky-gateway:prod:8080
+Expires: 0
+Last-Modified: Thu, 26 Sep 2019 09:21:33 GMT
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Retry-Count: 0

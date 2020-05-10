@@ -1,0 +1,13 @@
+200 OK
+Server: nginx
+Vary: Accept-Encoding Cookie
+Link: <https://wp.me/7Frx3>; rel=shortlink
+X-Ac: 1.sin _bur
+X-Nananana: Batcache
+Retry-Count: 0
+Date: Sun, 01 Dec 2019 13:53:28 GMT
+Content-Type: text/html; charset=UTF-8
+Strict-Transport-Security: max-age=86400
+Last-Modified: Sun, 01 Dec 2019 13:53:25 GMT
+Cache-Control: max-age=297, must-revalidate
+X-Hacker: If you're reading this, you should visit automattic.com/jobs and apply to join the fun, mention this header.

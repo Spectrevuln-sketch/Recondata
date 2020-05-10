@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="vendor/bulma.min.css">
+  <title>VID Demo</title>
+  <script src="./vendor/rx.js"></script>
+  <script src="./vendor/vue.min.js"></script>
+  <script src="./vendor/anime.min.js"></script>
+  <script defer src="./vendor/recorder.js"></script>
+</head>
+<style>
+  #buttonLoadModel {
+    display: none;
+  }
+
+  #buttonVisualize {
+    visibility: hidden;
+  }
+
+  .threshold {
+    justify-content: space-around;
+  }
+
+  #anime__area {
+    position: relative;
+    justify-content: center;
+  }
+
+  #anime__predicate {
+    z-index: 1;
+    margin: auto;
+    font-family: Gill Sans, sans-serif;
+    font-weight: 700;
+    white-space: nowrap;
+    color: white;
+  }
+
+  #anime__overlay {
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  #notificationTag {
+    position: fixed;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    opacity: 0;
+  }
+
+  /* @see: https://stackoverflow.com/questions/36186831/vuejs-hide-vuejs-syntax-when-page-loading */
+  [v-cloak] {
+    visibility: hidden;
+  }
+</style>
+
+<body>
+  <div id="app">
+    <div class="container is-fluid">
+      <button
+        v-stream:click="loadModel$"
+        id="buttonLoadModel"
+        ref="buttonLoadModel"
+        type="button"
+      >
+        Load Model
+      </button>
+      <p v-cloak ref="notificationTag" id="notificationTag" class="tag subtitle is-3 is-success has-text-centered">
+          {{ notification }}
+      </p>
+      <section class="notification columns is-mobile is-warning">
+        <div class="column is-half has-text-centered">
+          <p
+            v-cloak
+            class="subtitle is-4">
+            {{ wasmWorkerStatus }}
+          </p>
+        </div>
+        <div class="column is-half has-text-centered">
+          <p class="subtitle is-4">
+            Microphone Status: <strong v-cloak>{{ microphoneStatus }}</strong>
+          </p>
+        </div>
+      </section>
+  
+      <section class="threshold level">
+        <div class="level-left">
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">Threshold</p>
+              <p
+                v-cloak
+                class="title"
+              >
+                {{ thresholdHeading }}
+              </p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="level-right">
+          <div class="level-item">
+            <div class="field">
+              <label for="thresholdInput" class="label">
+                Set VID Threshold
+              </label>
+            </div>
+          </div>
+          <div class="level-item">
+            <div class="field has-addons">
+              <div class="control">
+                <input
+                  id="thresholdInput"
+                  v-model.number="thresholdInput"
+                  class="input"
+                  type="number"
+                  :placeholder="`Default ${thresholdInput}`"
+                />
+              </div>
+              <div class="control">
+                <button
+                  @click="updateThreshold"
+                  class="button is-info"
+                  :disabled="!canUpdateThreshold"
+                >
+                  Update threshold
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <div class="tile is-ancestor">
+        <div class="tile is-child box has-text-centered">
+          <canvas
+            ref="audioOutput"
+            style="max-width: 100%; width: 100%">
+          </canvas>
+          <label v-if="canVisualize" class="label">
+            Who are you?
+            <input
+              v-model="vidLabel"
+              v-if="canVisualize"
+              :disabled="isAudioCapturing"
+              class="input"
+              type="text"
+              placeholder="Who are you ?"
+            />
+          </label>
+          <button
+            v-cloak
+            @click="record"
+            :disabled="!canVisualize"
+            class="button is-primary is-large is-fullwidth"
+            id="buttonVisualize"
+            ref="buttonVisualize"
+            type="button"
+          >
+              {{ recocrdBtnText }}
+          </button>
+          <div class="tile is-parent">
+            <div v-for="identity in identities" :key="identity" class="tile is-child has-text-centered">
+              <p class="heading">Identity</p>
+              <p v-cloak class="subtitle">
+                {{ identity }}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="tile is-5 is-vertical">
+            <div class="tile is-child box has-text-centered">
+              <p class="title is-4">Result </p>
+              <section class="hero is-halfheight">
+                <div
+                  ref="anime__area"
+                  id="anime__area"
+                  class="hero-body has-text-centered"
+                >
+                  <div ref="animeOverlay" id="anime__overlay"></div>
+                  <p
+                    v-cloak
+                    id="anime__predicate"
+                    class="title is-1"
+                  >
+                    {{ predict }}
+                  </p>
+                </div>
+              </section>
+              <button
+                v-cloak
+                @click="vidTest"
+                :disabled="!canVisualize"
+                class="button is-info is-large is-outlined is-half-widescreen"
+              >
+                  {{ guessBtnText }}
+              </button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./vendor/ramda.js"></script>
+  <script src="./vendor/vue-rx.js"></script>
+  <script src="./helper.js"></script>
+  <script src="./eventTypes.js"></script>
+  <script src="./app.js"></script>
+</body>
+
+</html>

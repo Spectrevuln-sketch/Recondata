@@ -1,0 +1,7 @@
+410 Gone
+Server: nginx
+Date: Fri, 22 Nov 2019 03:45:50 GMT
+Content-Type: text/html
+Retry-Count: 0
+Access-Control-Allow-Origin: https://m-staging.tokopedia.com https://lite-staging.tokopedia.com
+Access-Control-Allow-Credentials: true

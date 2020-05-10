@@ -1,0 +1,12 @@
+200 OK
+Last-Modified: Sun, 01 Dec 2019 12:15:07 GMT
+Pragma: public
+Vary: Accept-Encoding
+Retry-Count: 0
+Content-Type: text/html; charset=UTF-8
+Expires: Sun, 01 Dec 2019 13:15:07 GMT
+Server: nginx/1.10.3 (Ubuntu)
+Link: <https://www.scubajet.com/wp-json/>; rel="https://api.w.org/" <https://www.scubajet.com/>; rel=shortlink
+Cache-Control: max-age=1959, public
+Date: Sun, 01 Dec 2019 12:42:28 GMT
+Etag: "32bc63badfab2407b2f1d873b673ad1c"

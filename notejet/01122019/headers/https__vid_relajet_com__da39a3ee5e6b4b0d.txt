@@ -1,0 +1,12 @@
+200 OK
+Content-Type: text/html; charset=utf-8
+Etag: W/"pj70xp4jh"
+Strict-Transport-Security: max-age=31536000;
+Vary: Accept-Encoding
+X-Content-Type-Options: nosniff
+X-Xss-Protection: 1; mode=block
+Accept-Ranges: bytes
+Last-Modified: Tue, 04 Dec 2018 03:41:49 GMT
+Server: Caddy
+Date: Sun, 01 Dec 2019 12:41:12 GMT
+Retry-Count: 0

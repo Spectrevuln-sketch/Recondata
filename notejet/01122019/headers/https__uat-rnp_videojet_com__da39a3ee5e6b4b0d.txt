@@ -1,0 +1,14 @@
+200 OK
+X-Aspnetmvc-Version: 5.1
+Content-Type: text/html; charset=utf-8
+Last-Modified: Sun, 01 Dec 2019 12:40:27 GMT
+Vary: *
+Set-Cookie: ASP.NET_SessionId=oajn1snrr0sbl2gpkwmm3ehm; path=/; HttpOnly
+X-Ua-Compatible: IE=10
+Date: Sun, 01 Dec 2019 12:40:27 GMT
+Content-Length: 12309
+Retry-Count: 0
+Cache-Control: public, no-store, max-age=0
+Expires: Sun, 01 Dec 2019 12:40:27 GMT
+Server: Microsoft-IIS/8.5
+X-Aspnet-Version: 4.0.30319

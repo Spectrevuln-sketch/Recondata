@@ -1,0 +1,24 @@
+200 OK
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET,PUT,POST,DELETE
+X-Xss-Protection: 1; mode=block
+Last-Modified: Fri, 10 Jan 2020 04:51:28 GMT
+X-Cache: Miss from cloudfront
+Via: 1.1 ce0e8866b1594e64ad19a5bfae256caf.cloudfront.net (CloudFront)
+Content-Type: text/html; charset=UTF-8
+Date: Sat, 11 Jan 2020 07:15:30 GMT
+X-Frame-Options: DENY
+Referrer-Policy: no-referrer
+Etag: W/"691-16f8dcafc80"
+X-Amz-Cf-Id: 9ITm5IU51-XFkTPrcqYMfGjiL7_Wlbm4Hsh7wT4uKkzq12VNi-iX-Q==
+X-Dns-Prefetch-Control: off
+Strict-Transport-Security: max-age=15768000; includeSubDomains
+X-Download-Options: noopen
+X-Content-Type-Options: nosniff
+Accept-Ranges: bytes
+Retry-Count: 0
+Content-Length: 1681
+Access-Control-Allow-Headers: Content-Type, Authorization
+Content-Security-Policy: default-src 'none'; script-src 'nonce-899a1de6-2bfa-44e3-845d-659c10ae91eb' 'self' api.stripe.com cdnjs.cloudflare.com https://ajax.googleapis.com https://cdn.au.auth0.com https://secure.gravatar.com https://www.google-analytics.com https://www.google.com/recaptcha/api.js https://www.googleadservices.com https://www.gstatic.com js.stripe.com; connect-src 'self' api.rollbar.com api.stripe.com https://api-prod.certsynonprod.com https://api-prod.certsynonprod.com/api/v1/internal/graphql_query.json https://api-staging.certsynonprod.com https://api-staging.certsynonprod.com/api/v1/internal/graphql_query.json https://auth.certsy.com https://auth.certsynonprod.com https://certsy-personal-doc-uploads-099968312121-staging.s3.ap-southeast-2.amazonaws.com https://certsy-personal-doc-uploads-487143725511-prod.s3.ap-southeast-2.amazonaws.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' blob: fonts.googleapis.com https://cdnjs.cloudflare.com; img-src 'self' blob: data: https://*.g.doubleclick.net https://*.googleapis.com https://certsy-personal-doc-uploads-099968312121-staging.s3.ap-southeast-2.amazonaws.com https://certsy-personal-doc-uploads-487143725511-prod.s3.ap-southeast-2.amazonaws.com https://secure.gravatar.com https://www.google-analytics.com https://www.google.ae https://www.google.be https://www.google.bg https://www.google.by https://www.google.ca https://www.google.ch https://www.google.cl https://www.google.co.il https://www.google.co.in https://www.google.co.jp https://www.google.co.kr https://www.google.co.nz https://www.google.co.th https://www.google.co.uk https://www.google.co.za https://www.google.com https://www.google.com.ar https://www.google.com.au https://www.google.com.bd https://www.google.com.bh https://www.google.com.br https://www.google.com.eg https://www.google.com.hk https://www.google.com.mx https://www.google.com.my https://www.google.com.ph https://www.google.com.pk https://www.google.com.sa https://www.google.com.sg https://www.google.com.sv https://www.google.com.tr https://www.google.com.tw https://www.google.com.ua https://www.google.com.uy https://www.google.com.vn https://www.google.cz https://www.google.de https://www.google.dk https://www.google.es https://www.google.fi https://www.google.fr https://www.google.hu https://www.google.ie https://www.google.it https://www.google.nl https://www.google.pl https://www.google.ro https://www.google.rs https://www.google.se https://www.google.sk q.stripe.com; font-src 'self' data: fonts.googleapis.com fonts.gstatic.com themes.googleusercontent.com; base-uri 'self'; object-src 'none'; frame-src https://auth.certsy.com https://auth.certsynonprod.com https://www.google.com js.stripe.com; manifest-src 'self'
+Cache-Control: public, max-age=0
+X-Amz-Cf-Pop: SIN52-C2

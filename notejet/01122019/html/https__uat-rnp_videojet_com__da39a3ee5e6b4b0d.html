@@ -1,0 +1,349 @@
+
+
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log in</title>
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <!-- font scripts -->
+    <!--
+        <script type="text/javascript" src="http://use.typekit.net/ssz8jcg.js"></script>
+        <script type="text/javascript">try { Typekit.load(); } catch (e) { }</script>
+    -->
+    
+    <link href="/Content/themes/base/jquery-ui.css" rel="stylesheet"/>
+
+    <link href="/Content/jquery-ui-timepicker-addon.css" rel="stylesheet"/>
+
+    <link href="/Content/foundation/foundation.css" rel="stylesheet"/>
+<link href="/Content/foundation/foundation.mvc.css" rel="stylesheet"/>
+
+    <link href="/Content/chosen/chosen.min.css" rel="stylesheet"/>
+
+    <link href="/Scripts/jqPlot/jquery.jqplot.min.css" rel="stylesheet"/>
+
+    <link href="/Content/Site-VRS.css?d=9a3fc1d4-d906-4ea2-828f-10ea6c64fe34" rel="stylesheet"/>
+
+    <link href="/Content/font-awesome.min.css" rel="stylesheet"/>
+
+    <link href="/Content/wickedpicker.css" rel="stylesheet"/>
+
+    <link href="/Content/DataTables/css/jquery.dataTables.min.css" rel="stylesheet"/>
+
+    <link href="/Content/select2.min.css" rel="stylesheet"/>
+
+
+    
+    <script>
+    var Lang = {
+        Bar_Chart: "Bar Chart",
+        Change: "Change",
+        Dashboard_Refresh_Error: "Dashboard refresh error",
+        Deviation_Percent: "Deviation %",
+        Disconnected: "Disconnected",
+        Error: "Fault",
+        Unknown: "Unknown",
+        Events: "Events",
+        Large_Response: "Large Response",
+        Loading_Error: "Loading Error",
+        Max: "Max",
+        Min: "Min",
+        No_Data: "No Data!",
+        No_Events_Selected: "No Events Selected",
+        Normal: "Normal",
+        Offline: "OFFLINE",
+        Online: "Online",
+        Other: "Other",
+        Pie_Chart: "Pie Chart",
+        Reduce_Time: "Please reduce the time selection and try again!",
+        Select_Account: "Please select an Account or enter a serial number!",
+        Time: "Time",
+        Warning: "WARNING",
+        Viscosity_not_calibrated: "Viscosity not calibrated",
+        No_ink_cartridge: "No ink cartridge",
+
+        January: "January",
+        February: "February",
+        March: "March",
+        April: "April",
+        May: "May",
+        June: "June",
+        July: "July",
+        August: "August",
+        September: "September",
+        October: "October",
+        November: "November",
+        December: "December",
+        Jan: "Jan",
+        Feb: "Feb",
+        Mar: "Mar",
+        Apr: "Apr",
+        MayShort: "May",
+        Jun: "Jun",
+        Jul: "Jul",
+        Aug: "Aug",
+        Sep: "Sep",
+        Oct: "Oct",
+        Nov: "Nov",
+        Dec: "Dec",
+
+        Monday: "Monday",
+        Tuesday: "Tuesday",
+        Wednesday: "Wednesday",
+        Thursday: "Thursday",
+        Friday: "Friday",
+        Saturday: "Saturday",
+        Sunday: "Sunday",
+        Mon: "Mon",
+        Tue: "Tue",
+        Wed: "Wed",
+        Thu: "Thu",
+        Fri: "Fri",
+        Sat: "Sat",
+        Sun: "Sun",
+        Mo: "Mo",
+        Tu: "Tu",
+        We: "We",
+        Th: "Th",
+        Fr: "Fr",
+        Sa: "Sa",
+        Su: "Su",
+
+        Done: "Done",
+        Prev: "Prev",
+        Next: "Next",
+        Today: "Today",
+        Hour: "Hour",
+        Minute: "Minute",
+        Second: "Second",
+        Now: "Now",
+
+        AM: "AM",
+        PM: "PM",
+        A: "A",
+        P: "P"
+    };
+</script>
+    <script src="/Scripts/modernizr-2.6.2.js"></script>
+
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+
+    <script src="/Scripts/jquery-ui-1.10.4.min.js"></script>
+
+    <script src="/Scripts/jquery.validate.js"></script>
+
+    <script src="/Scripts/wickedpicker.js"></script>
+
+    <script src="/Scripts/chosen/chosen.jquery.min.js"></script>
+
+    <script src="/Scripts/jquery-ui-timepicker-addon.js"></script>
+
+    <script src="/Scripts/knockout-3.1.0.js"></script>
+    
+    
+    <script src="/Scripts/jqPlot/jquery.jqplot.js"></script>
+
+    <script src="/Scripts/jqPlot/plugins/jqplot.highlighter.min.js"></script>
+
+    <script src="/Scripts/jqPlot/plugins/jqplot.cursor.min.js"></script>
+
+    <script src="/Scripts/jqPlot/plugins/jqplot.pieRenderer.min.js"></script>
+
+    <script src="/Scripts/jqPlot/plugins/jqplot.barRenderer.min.js"></script>
+
+    <script src="/Scripts/jqPlot/plugins/jqplot.canvasTextRenderer.min.js"></script>
+
+    <script src="/Scripts/jqPlot/plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>
+
+    <script src="/Scripts/jqPlot/plugins/jqplot.canvasAxisTickRenderer.min.js"></script>
+
+    <script src="/Scripts/jqPlot/plugins/jqplot.canvasTextRenderer.min.js"></script>
+
+    <script src="/Scripts/jqPlot/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+
+    <script src="/Scripts/jqPlot/plugins/jqplot.dateAxisRenderer.min.js"></script>
+
+    <script src="/Scripts/jqPlot/plugins/jqplot.pointLabels.min.js"></script>
+
+    <script src="/Scripts/DataTables/jquery.dataTables.min.js"></script>
+
+    
+    <script src="/Scripts/widgets.js?d=9a3fc1d4-d906-4ea2-828f-10ea6c64fe34"></script>
+
+    <script src="/Scripts/raphael-min.js"></script>
+
+    <script src="/Scripts/kuma-gauge.jquery.js"></script>
+
+    <script src="/Scripts/select2.full.js"></script>
+
+    <script src="/Scripts/fastclick.min.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    
+    
+
+</head>
+<body>
+    
+<div class="contain-to-grid hide-for-print">
+    <nav class="top-bar" data-topbar data-options="sticky_on: large">
+        <ul class="title-area">
+            <li class="name">
+                <div class="logo">
+                    <a id="logo" href="/"><img alt="" src="/Content/Images/VRS-logo.png"></a>
+                </div>
+            </li>
+
+            <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+            <!-- TODO -->
+            <!-- Remove span styling when menu-icon bug is fixed by foundation-->
+            <li class="toggle-topbar menu-icon"><a href="javascript: void(0);"><span style="font-size:2rem; font-stretch:wider;"></span></a></li>
+        </ul>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li class="divider"></li>
+                                <li><a href="/Account/Login" onclick="splash($('HTML'), true);">Login</a></li>
+                <li class="divider"></li>
+            </ul>
+
+        </section>
+    </nav>
+</div>
+
+
+    
+
+
+
+
+<div class="row">
+    <div class="small-12 medium-10 large-8 small-centered medium-centered large-centered columns">
+        <br />
+        <section id="loginForm">
+<form action="/Account/Login?ReturnUrl=%2F" class="panel radius" method="post" role="form">                <h4>Welcome to Videojet Remote Service!</h4>
+                <hr />
+                <div class="row">
+
+                    <div class="small-12 medium-12 large-12 columns">
+                        <label for="Email" class="col-md-2 control-label">Email</label>
+                        <input class="form-control" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Email" name="Email" type="text" value="" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Email" data-valmsg-replace="true"></span>  <!--TODO localization Question-->
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="small-12 medium-12 large-12 columns">
+                        <label for="Password" class="col-md-2 control-label">Password</label>
+                        <input class="form-control" data-val="true" data-val-required="The Password field is required." id="Password" name="Password" type="password" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Password" data-valmsg-replace="true"></span>   <!--TODO localization Question-->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 medium-12 large-12 columns">
+                        <input class="left" data-val="true" data-val-required="The RememberMe field is required." id="RememberMe" name="RememberMe" type="checkbox" value="true" /><input name="RememberMe" type="hidden" value="false" />
+                        <label for="RememberMe" class="left checkbox_label">Remember Me</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-12 columns">
+                        <input type="submit" value="Log in" class="button radius expanded" />
+                    </div>
+                </div>
+                <div class="row" style="text-align: center; margin-bottom:10px;">
+                    <div class="small-12 medium-12 large-12 columns">
+                        <a href="/Account/LostPassword">Forget your password?</a>
+                        
+                    </div>
+                </div>
+</form>        </section>
+    </div>
+</div>
+<script type="text/javascript">
+
+    if (GetParameterValues('loginAgain') == 'true') {
+        alert("Please log in with your new email address");
+    };
+</script>
+
+    <script src="/Scripts/foundation/fastclick.js"></script>
+<script src="/Scripts/foundation/foundation.js"></script>
+<script src="/Scripts/foundation/foundation.abide.js"></script>
+<script src="/Scripts/foundation/foundation.accordion.js"></script>
+<script src="/Scripts/foundation/foundation.alert.js"></script>
+<script src="/Scripts/foundation/foundation.clearing.js"></script>
+<script src="/Scripts/foundation/foundation.dropdown.js"></script>
+<script src="/Scripts/foundation/foundation.equalizer.js"></script>
+<script src="/Scripts/foundation/foundation.interchange.js"></script>
+<script src="/Scripts/foundation/foundation.joyride.js"></script>
+<script src="/Scripts/foundation/foundation.magellan.js"></script>
+<script src="/Scripts/foundation/foundation.offcanvas.js"></script>
+<script src="/Scripts/foundation/foundation.orbit.js"></script>
+<script src="/Scripts/foundation/foundation.reveal.js"></script>
+<script src="/Scripts/foundation/foundation.slider.js"></script>
+<script src="/Scripts/foundation/foundation.tab.js"></script>
+<script src="/Scripts/foundation/foundation.tooltip.js"></script>
+<script src="/Scripts/foundation/foundation.topbar.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).foundation();
+        $(function () {
+            $(".chosen-deselect").chosen({ allow_single_deselect: true });
+            $(".chosen").chosen();
+        });
+
+        // If user is using IE 10 or below, show an alert
+        var IEversion = detectIE();
+
+        if (IEversion != 'false') {             // if not IE, do nothing
+            if (!isNaN(parseInt(IEversion))) {
+                if (parseInt(IEversion) < 11) {
+                    alert('Dear User,\n\n You are using an unsupported version of Internet Explorer. \n\n Please upgrade to Internet Explorer 11 or install Google Chrome as your web browser.');
+                }
+            }
+        }
+
+        //var language = window.navigator.userLanguage || window.navigator.language;
+        //alert(language);
+    </script>
+
+
+
+
+
+
+
+    
+
+<div class="row">
+    <hr />
+    <div class="small-9 small-centered columns">
+        <div class="row footer">
+            <div class="large-12 medium-12 small-12 columns">
+                <p>&#169; 2017 Videojet Laser Technologies, Inc. v1.5.30</p>
+            </div>
+        </div> 
+    </div>    
+</div>
+   
+    
+
+
+
+
+    
+    
+    <script src="/Scripts/jquery.validate.js"></script>
+<script src="/Scripts/jquery.validate.unobtrusive.js"></script>
+
+
+
+</body>
+</html>

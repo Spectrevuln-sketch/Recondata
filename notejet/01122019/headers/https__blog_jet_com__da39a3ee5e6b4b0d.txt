@@ -1,0 +1,13 @@
+200 OK
+Content-Type: text/html; charset=UTF-8
+X-Nananana: Batcache
+Date: Sun, 01 Dec 2019 12:42:28 GMT
+Last-Modified: Sun, 01 Dec 2019 12:42:27 GMT
+X-Hacker: If you're reading this, you should visit automattic.com/jobs and apply to join the fun, mention this header.
+Link: <https://wp.me/7Frx3>; rel=shortlink
+Server: nginx
+Vary: Accept-Encoding Cookie
+Cache-Control: max-age=300, must-revalidate
+X-Ac: 1.sin _bur
+Retry-Count: 0
+Strict-Transport-Security: max-age=86400

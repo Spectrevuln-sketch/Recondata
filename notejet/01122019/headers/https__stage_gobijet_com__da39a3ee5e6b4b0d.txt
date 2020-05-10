@@ -1,0 +1,10 @@
+200 OK
+X-Litespeed-Cache: miss
+Date: Sun, 01 Dec 2019 12:42:29 GMT
+Link: <https://stage.gobijet.com/wp-json/>; rel="https://api.w.org/"
+Etag: "2918-1575204149;gz"
+Content-Type: text/html; charset=UTF-8
+Vary: Accept-Encoding
+Server: LiteSpeed
+Retry-Count: 0
+X-Powered-By: PHP/7.2.25

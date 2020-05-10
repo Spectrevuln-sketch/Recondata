@@ -1,0 +1,11 @@
+400 Bad Request
+Content-Type: application/json
+Content-Length: 86
+Access-Control-Allow-Methods: GET, HEAD, PUT, PATCH, POST, DELETE
+Access-Control-Allow-Origin: https://www.tokopedia.com
+Date: Fri, 22 Nov 2019 03:45:50 GMT
+Access-Control-Allow-Headers: Content-type, Fingerprint-Data, x-user-id, Webview-App-Version, Redirect, Access-Control-Allow-Origin, Content-MD5, Tkpd-UserId, X-Tkpd-UserId, Tkpd-SessionId, X-Device, X-Source, X-Method, X-Date, Authorization, Accounts-Authorization, flight-thirdparty, x-origin, Cshld-SessionID, X-Mitra-Device, x-tkpd-akamai, x-tkpd-lite-service
+X-Envoy-Upstream-Service-Time: 1
+Access-Control-Allow-Credentials: true
+Set-Cookie: bm_sz=0130FB2916E0ADE8059C3BEFEB8A00EA~YAAQ3J5hdslRvYduAQAAQU03kQXOOA5VBR85VFYEAicjNN4f7G9V8f3UcN9bHs/KblqbhQhD4nCJ8g/jraNqGjMeWoQo8xE+SUODntt0Fw4QAbgBnfMqfajeLrn1zUYJqk6s6NwCgSAGxx6jzN+LpuaGAAw+LUMbkJC7p7B9EWRuit6Gq0BGCoh1K9l5fWx1ZvrV; Domain=.tokopedia.com; Path=/; Expires=Fri, 22 Nov 2019 07:45:50 GMT; Max-Age=14400; HttpOnly _abck=6D1354FA3D9A915CF9D05069A320D5CF~-1~YAAQ3J5hdspRvYduAQAAQU03kQJDuwSp4590jeEDO48QQtiWYSGuU1Gy7+Fc6moFsuXEihf2ARyd3ri7XgeHSqYY3AanN2aUmnvkXe3g30kt5FGCG3Dd1vM2Kzh1A+9aq/9v7On4ipIPKAeZ3BwZ92uNkDTt99XtyWh+aC1/gNq0ngyI0kIv5X8v4eqmode8m3uSm6mGDte7GVWwqa1RUSO7sYU/Az2Ca52KHY1ClSD+LxC8UGTTy0l5qsleR+NvTLkmSLHEDEVGG0V8j38MsnClN34NZSljTWxUtHeFbZhixTJMo2EHkuOTVzj1~-1~-1~-1; Domain=.tokopedia.com; Path=/; Expires=Sat, 21 Nov 2020 03:45:50 GMT; Max-Age=31536000; Secure
+Retry-Count: 0

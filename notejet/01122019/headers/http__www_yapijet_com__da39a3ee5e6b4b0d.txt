@@ -1,0 +1,10 @@
+200 OK
+Set-Cookie: ci_session=iltp927i8pq9887vla2ku4njqh0puomu; expires=Sun, 01-Dec-2019 14:42:15 GMT; Max-Age=7200; path=/; HttpOnly
+Server: nginx
+Content-Type: text/html; charset=UTF-8
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Date: Sun, 01 Dec 2019 12:42:15 GMT
+X-Powered-By: PHP/7.0.33 PleskLin
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Retry-Count: 0

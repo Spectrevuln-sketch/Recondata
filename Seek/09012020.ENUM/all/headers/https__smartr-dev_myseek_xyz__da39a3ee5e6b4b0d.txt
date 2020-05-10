@@ -1,0 +1,14 @@
+200 OK
+Content-Type: text/html
+Content-Length: 3298
+Date: Fri, 10 Jan 2020 20:11:00 GMT
+Etag: "23c7a462f8f2860539487decb664fa7a"
+X-Cache: RefreshHit from cloudfront
+Via: 1.1 80a9a66193c3e6350d12faf1c397c974.cloudfront.net (CloudFront)
+X-Amz-Cf-Pop: SIN5-C1
+Retry-Count: 0
+Last-Modified: Mon, 06 Jan 2020 04:01:08 GMT
+Cache-Control: public, max-age=60
+Accept-Ranges: bytes
+Server: AmazonS3
+X-Amz-Cf-Id: hb15y76rdWUrWsrj5wXveziP3s5eCb9t5pTf_tZDsYHk9QeMy4YAYA==

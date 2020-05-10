@@ -1,0 +1,8 @@
+404 Not Found
+Date: Fri, 22 Nov 2019 03:46:16 GMT
+Retry-Count: 0
+Set-Cookie: bm_sz=8A5EC85C56D24F93855086377B04F36E~YAAQ3J5hdrNSvYduAQAAMrI3kQVvCt2y+vXb3K2Pcv5EJb8YpoXbxNLlfZU6mfoLtjkf/XTQOJMr7fRdCNpEyI+5hNUx4CWZTd1vPemmSuEiMDird9T9Lb3X+UBXm+vWg4Umvvcz3f+6iY7tqVZwVI2qvhpq6VckwmyhkkrPOpouYFtLAj0XARW2dG0BSGKVkZQp; Domain=.tokopedia.com; Path=/; Expires=Fri, 22 Nov 2019 07:46:16 GMT; Max-Age=14400; HttpOnly _abck=474D3FDB5FA23C6E01095FD97BC1FB59~-1~YAAQ3J5hdrRSvYduAQAAMrI3kQL0cBzfQzdRjG2qjVPum72Mg1bbJVuwnVF0yZ5HtP2qBGXUaPqJydc/NtIaEtZ3tsMG25a07M8mqe+cWJgg8v+/burKo3HqtFQMzKrcbJvc/rCJLHtGrQNkg7OT+wGEWNn66OKhcpywGRzIcUJ0lu0d2Z/rdGLKkNeIan2O6gSeDrmgT5xbmstivs4T8+bLyB065B+YFC74nLIFBvTIyJpulcY0GOfKrZcCuQg+GiecOqRHa/XDOXko/VIN0RQp/elYL23cTekc8GMB+vsJGcgCVpSF5x+WCrJF~-1~-1~-1; Domain=.tokopedia.com; Path=/; Expires=Sat, 21 Nov 2020 03:46:16 GMT; Max-Age=31536000; Secure
+Content-Type: text/plain; charset=utf-8
+Content-Length: 19
+X-Content-Type-Options: nosniff
+Access-Control-Allow-Origin: https://www.tokopedia.com

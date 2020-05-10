@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>GC API Help</title>   
+</head>
+<body>
+    
+
+<div id="body" class="content-wrapper">
+<h2>API Help</h2>
+
+    <h3>LicenseKeys</h3>
+    <div class="accordion">
+        <h4><a href="#">POST licenseKeys</a></h4>
+        <div>
+            <p>Parameter: <em>licenseKeyInfo</em> (FromBody)</p>
+        </div>
+        <h4><a href="#">GET licenseKeys/{licenseKey}</a></h4>
+        <div>
+            <p>Parameter: <em>licenseKey</em> (FromUri)</p>
+        </div>
+    </div>
+    <h3>Renewals</h3>
+    <div class="accordion">
+        <h4><a href="#">GET renewal/{orderID}/{userID}</a></h4>
+        <div>
+            <p>Parameter: <em>orderID</em> (FromUri)</p>
+            <p>Parameter: <em>userID</em> (FromUri)</p>
+        </div>
+        <h4><a href="#">GET recurringrenewal/{orderID}/{userID}</a></h4>
+        <div>
+            <p>Parameter: <em>orderID</em> (FromUri)</p>
+            <p>Parameter: <em>userID</em> (FromUri)</p>
+        </div>
+        <h4><a href="#">POST renewals</a></h4>
+        <div>
+            <p>Parameter: <em>request</em> (FromBody)</p>
+        </div>
+    </div>
+    <h3>Carts</h3>
+    <div class="accordion">
+        <h4><a href="#">POST carts</a></h4>
+        <div>
+            <p>Parameter: <em>cart</em> (FromBody)</p>
+        </div>
+        <h4><a href="#">GET carts?anonymousGuid={anonymousGuid}</a></h4>
+        <div>
+            <p>Parameter: <em>anonymousGuid</em> (FromUri)</p>
+        </div>
+        <h4><a href="#">GET carts/{anonymousGuid}/products/{productId}</a></h4>
+        <div>
+            <p>Parameter: <em>anonymousGuid</em> (FromUri)</p>
+            <p>Parameter: <em>productId</em> (FromUri)</p>
+        </div>
+    </div>
+    <h3>Products</h3>
+    <div class="accordion">
+        <h4><a href="#">GET products/{countrycode}</a></h4>
+        <div>
+            <p>Parameter: <em>countrycode</em> (FromUri)</p>
+        </div>
+    </div>
+    <h3>Country</h3>
+    <div class="accordion">
+        <h4><a href="#">GET country</a></h4>
+        <div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

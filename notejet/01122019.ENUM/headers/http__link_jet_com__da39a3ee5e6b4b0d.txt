@@ -1,0 +1,22 @@
+200 OK
+Server: envoy
+Retry-Count: 0
+X-Edgeconnect-Midmile-Rtt: 256 256
+X-Xss-Protection: 1; mode=block;
+X-Envoy-Decorator-Operation: batmanweb-proxy-prod
+Jet-Dr-Orpheus: {"headerSchemaVersion":3,"correlationIds":["82986cbf332342c982aa18ce27589b2b"],"messageId":"f900519e98e04b97be323a39d5be21a3","parentIds":["f0f576249119403599dbf41d2a319c29"],"producerId":"Batman-API","ticksFromEpoch":637108052064491000,"payloadSchemaUri":"CmsProxy/cms/GET/1.0","mTags":[]}
+Content-Type: text/html; charset=utf-8
+Referrer-Policy: strict-origin-when-cross-origin
+Vary: Accept-Encoding
+X-Edgeconnect-Cache-Status: 0
+X-Powered-By: Next.js 8.0.0
+X-Edgeconnect-Origin-Mex-Latency: 242 242
+X-Akamai-Transformed: 9 260853 0 pmb=mTOE,2
+Strict-Transport-Security: max-age=31536000; preload
+Jet: 4:1.857:1574714943:971fa
+X-Frame-Options: SAMEORIGIN
+Date: Sun, 01 Dec 2019 13:53:27 GMT
+Set-Cookie: jet.csrf=tpf4FsKXZL24K0UJDwx16oT_; path=/; secure; httponly signupShown=; path=/; expires=Sat, 01 Jan 2039 00:00:00 GMT; domain=batmanweb-proxy-prod.envoy.eastus2.prod.jet.com; secure signupShown=0; Domain=batmanweb-proxy-prod.envoy.eastus2.prod.jet.com; Path=/; Expires=Sat, 01 Jan 2039 00:00:00 GMT jid=d94bac7a-d3b7-41ad-aa56-7ee9499dd326; path=/; expires=Sat, 01 Jan 2039 00:00:00 GMT; domain=batmanweb-proxy-prod.envoy.eastus2.prod.jet.com; secure; httponly jid=d94bac7a-d3b7-41ad-aa56-7ee9499dd326; Domain=batmanweb-proxy-prod.envoy.eastus2.prod.jet.com; Path=/; Expires=Sat, 01 Jan 2039 00:00:00 GMT jet-referer=%2F; Path=/ jet-id=b6dcf751-fbf8-4b85-af41-067b8b150bae; path=/; expires=Tue, 31 Dec 2019 13:53:26 GMT; secure; httponly jet-jetGeoIp=%7B%22postal_code%22%3A%2220149%22%2C%22city_name%22%3A%22Ashburn%22%2C%22country_code%22%3A%22US%22%2C%22time_zone%22%3A%22America%2FNew_York%22%7D; path=/; expires=Tue, 31 Dec 2019 13:53:26 GMT; secure; httponly ipZipcode=20149; path=/; expires=Tue, 31 Dec 2019 13:53:26 GMT; secure jet-clientTicket=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiJkMGRhZDk5MzQ0ODA0ZWY2OWZiYjlhZTgwOWNhNGU3YSIsImlzcyI6ImpldC5jb20iLCJhdWQiOiJ3ZWJjbGllbnQifQ.jBiydt5-SuQTbpMVPpnk-TzpagaZ4tQdgvqk56DYOUA; path=/; expires=Tue, 31 Dec 2019 13:53:26 GMT; secure; httponly ak_bmsc=D36E7E98C6DEC30706C45B0DE3C0DE3E1700A215CD520000D6C5E35D92AD4571~plPxBjDv6Xl9ot/A2a6CEIKFyWW9AZz+CufMa7XrKCexwATbyQEaUTL9iYbfZtvmDSzx+8iDZuFylKEc3BkdhiIuUQxZcBvnpIYuz6gWrnZEnzxR6vl1HfDM9enm0i2WtHu8ALn9F6yKlMEyDyXNvMhW2K+wQpZKqD6j6uxwTAMfMb0jlubqv6x0uGkNdpE4fYj97B55ILC3BLAQ2LzgEe7wuCKEMWtpLh4SAxkCLYIZ4=; expires=Sun, 01 Dec 2019 15:53:26 GMT; max-age=7200; path=/; domain=.jet.com; HttpOnly bm_mi=42D352E6E0C6ADCC6AC74FFD4CE4547B~4W/JAWyx0KNg/E7jU+i11CZwxTNAwnpAOFDBa2bv3rN5IrfikyhxSvLuJU3dvI9xtO4smfjt2LhlHnYB43LxjZ3NhPEDlQFSHTSsRRlNhPHiCgNzYlCG/NfGBXqiUwcR5RHnklU1ZmRsWBUSpc6KTD7jUS2HKYjirurUxmSbNbbdKEnG+2TqgoB1Vw04WvjjdqNBnfJ7XSTfYOv73nbnag==; Domain=.jet.com; Path=/; Max-Age=0; HttpOnly
+Etag: "3faf5-6Jdw6Ql7M9rMI36eOLaZ1aUzy+0"
+X-Envoy-Upstream-Service-Time: 233
+X-Content-Type-Options: nosniff

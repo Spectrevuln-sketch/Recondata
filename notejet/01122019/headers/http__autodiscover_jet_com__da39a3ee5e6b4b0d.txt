@@ -1,0 +1,18 @@
+200 OK
+Cache-Control: no-cache, no-store
+Vary: Accept-Encoding
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Date: Sun, 01 Dec 2019 12:40:08 GMT
+Expires: -1
+X-Content-Type-Options: nosniff
+Link: <https://aadcdn.msftauth.net>; rel=preconnect; crossorigin <https://aadcdn.msftauth.net>; rel=dns-prefetch <https://aadcdn.msauth.net>; rel=dns-prefetch
+X-Dns-Prefetch-Control: on
+Referrer-Policy: strict-origin-when-cross-origin
+Retry-Count: 0
+X-Frame-Options: DENY
+X-Ms-Request-Id: 17d4063b-904f-4036-bdc2-14ca9d552d01
+X-Ms-Ests-Server: 2.1.9677.8 - SIN1 ProdSlices
+Pragma: no-cache
+Content-Type: text/html; charset=utf-8
+P3p: CP="DSP CUR OTPi IND OTRi ONL FIN"
+Set-Cookie: buid=AQABAAEAAACQN9QBRU3jT6bcBQLZNUj7M70gJRJXRO8Fw-tK860oDW1eWnHoUZWQtrYaMKWSYgkb60mR7Kbn4hoZqVuYP_XGIPB4IREdkgrEbAyB3gHL_k7Fd84VEqelQ-wzRJmHRHIgAA; expires=Tue, 31-Dec-2019 12:40:06 GMT; path=/; secure; HttpOnly fpc=AsBL0brDt65LhXw1itp-vSo-NjKRAQAAAKWrddUOAAAA; expires=Tue, 31-Dec-2019 12:40:08 GMT; path=/; secure; HttpOnly esctx=AQABAAAAAACQN9QBRU3jT6bcBQLZNUj76Mp-x_-rx9z4_U0CHj_G_KvfKoPRpAcbWI93XouAG2RblvSpmQKBZMI26ILHQ-jC2dfrZZREP45QY1AOHxDKIasFmiI5X3LDWOMKINCBNDFJ082l7TLHdFZdGHN_IoiZoKfUvRYCo-2vorDMU1ZNiLfRCLc_8pGWoDZKPe7IMucgAA; domain=.login.microsoftonline.com; path=/; secure; HttpOnly x-ms-gateway-slice=prod; path=/; SameSite=None; secure; HttpOnly stsservicecookie=ests; path=/; SameSite=None; secure; HttpOnly

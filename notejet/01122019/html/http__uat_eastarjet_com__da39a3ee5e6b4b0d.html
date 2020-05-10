@@ -1,0 +1,18 @@
+<script type="text/javascript" src="js/netfunnel2.js" charset="UTF-8"></script>
+<script type="text/javascript">
+var uAgent = navigator.userAgent.toLowerCase();
+
+var mobilePhones = new Array('iphone', 'ipod', 'mobile', 'blackberry', 'windows ce', 'nokia', 'webos', 'opera mini', 'sonyericsson', 'opera mobi', 'iemobile');
+
+var sUrl = "/newstar/PGWHC00001";
+for (var i = 0; i < mobilePhones.length; i++) {
+        if (uAgent.indexOf(mobilePhones[i]) != -1) {
+                sUrl = "/newstar/PGWHD00001";
+                break;
+        }
+}
+ 
+NetFunnel_Action({action_id:"index"},function(ev,ret){  top.location.href = sUrl;       });
+//top.location.href = sUrl;
+</script>
+

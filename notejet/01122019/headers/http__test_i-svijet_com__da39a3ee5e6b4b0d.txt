@@ -1,0 +1,8 @@
+200 OK
+Server: Apache
+Vary: Accept-Encoding
+Retry-Count: 0
+Content-Type: text/html;charset=ISO-8859-1
+Set-Cookie: PH_HPXY_CHECK=s1; path=/
+Date: Sun, 01 Dec 2019 12:41:06 GMT
+Cache-Control: private

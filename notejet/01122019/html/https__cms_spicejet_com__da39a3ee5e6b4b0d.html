@@ -1,0 +1,425 @@
+<!doctype html>
+<html ng-app="skyApp">
+<head>
+    <meta charset="utf-8">
+    <title>NetzChef CMS</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="/webjars/angular-ui-switch/0.1.1/angular-ui-switch.min.css" />
+    <link rel="stylesheet" href="/webjars/angular-busy/4.1.1/angular-busy.min.css">
+    <link rel="stylesheet" href="/webjars/ng-tags-input/2.3.0/ng-tags-input.min.css">
+    <link rel="stylesheet" href="/webjars/angularjs-toaster/0.4.8/toaster.css" />
+    <link rel="stylesheet" href="/webjars/jquery-timepicker-jt/1.8.1/jquery.timepicker.css" />
+    <link rel="stylesheet" href="/webjars/github-com-aaronmarruk-bootstrap-daterangepicker/v2.1.17/daterangepicker.css" />
+
+</head>
+
+<body ng-controller="App"
+      ng-class="{'nav-static': app.state['nav-static'], 'login-page': $state.is('login'), 'error-page': $state.is('error')}">
+
+
+<!--[if lt IE 10]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+
+
+<div class="app" id="app" cg-busy="mainBusyLoader" ui-view=""></div>
+<toaster-container toaster-options="{'time-out': 5000, 'close-button':true, 'animation-class': 'toast-top-full-width','position-class': 'toast-bottom-full-width'}"></toaster-container>
+<!--<oauth
+        template="template/login/oauth.html"
+        site="{{site}}"
+        client-id="sky-admin"
+        redirect-uri="{{redirectUri}}"
+        profile-uri="sky-auth/user"
+        response-type="token"
+>
+</oauth>-->
+<!--<oauth
+        template="template/login/oauth.html"
+        site="http://139.59.70.20:9999/fiero"
+        client-id="sky-admin"
+        redirect-uri="{{redirectUri}}"
+        profile-uri="sky-auth/user"
+        response-type="token"
+>
+</oauth>-->
+
+<!--Production-->
+<oauth
+        template="template/login/oauth.html"
+        site="https://auth-cms.spicejet.com/fiero"
+        client-id="sky-web"
+        redirect-uri="{{redirectUri}}"
+        profile-uri="/me"
+        response-type="token" >
+
+</oauth>
+
+<!--Staging-->
+<!--<oauth
+        template="template/login/oauth.html"
+        site="https://auth.cms.spicejet.com/fiero"
+        client-id="sky-web"
+        redirect-uri="{{redirectUri}}"
+        profile-uri="/me"
+        response-type="token">
+
+</oauth>-->
+
+
+
+
+<!--logout-path="logout"-->
+<!-- LIBRARIES -->
+
+
+
+<script type="text/javascript" src="/webjars/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/webjars/angularjs/1.4.3/angular.min.js"></script>
+<script type="text/javascript" src="/webjars/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="/webjars/jquery-ui/1.11.4/jquery-ui.min.js"></script>
+<!--<script type="text/javascript" src="/webjars/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>-->
+
+
+<script type="text/javascript" src="/webjars/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.min.js"></script>
+
+
+<!--<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.3.js"></script>-->
+
+<script type="text/javascript" src="/webjars/angular-animate/1.4.0/angular-animate.min.js"></script>
+<script type="text/javascript" src="/webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/webjars/angular-cookies/1.5.0-rc.0/angular-cookies.min.js"></script>
+<script type="text/javascript" src="/webjars/angular-mocks/1.5.0-beta.2/angular-mocks.js"></script>
+<script type="text/javascript" src="/webjars/angular-sanitize/1.3.11/angular-sanitize.min.js"></script>
+<script type="text/javascript" src="/webjars/angular-touch/1.4.8/angular-touch.min.js"></script>
+<script type="text/javascript" src="/webjars/ngStorage/0.3.0/ngStorage.min.js"></script>
+<script type="text/javascript" src="/webjars/jQuery-slimScroll/1.3.3/jquery.slimscroll.min.js"></script>
+<script type="text/javascript" src="/webjars/angularjs-toaster/0.4.8/toaster.js"></script>
+<script type="text/javascript" src="/webjars/angular-dragdrop/1.0.8/draganddrop.js"></script>
+<script type="text/javascript" src="/webjars/oauth-ng/0.3.8/dist/oauth-ng.js"></script>
+<script type="text/javascript" src="/webjars/ng-context-menu/1.0.2/dist/ng-context-menu.min.js"></script>
+<script type="text/javascript" src="/webjars/ng-tags-input/2.3.0/ng-tags-input.min.js"></script>
+<script type="text/javascript" src="js/jquery.bootstrap.wizard.min.js"></script>
+<script type="text/javascript" src="/webjars/jquery-timepicker-jt/1.8.1/jquery.timepicker.min.js"></script>
+<script type="text/javascript" src="/webjars/moment/2.11.1/min/moment.min.js"></script>
+<script type="text/javascript" src="/webjars/angular-jquery-timepicker/0.10.0/src/timepickerdirective.min.js"></script>
+<script type="text/javascript" src="/webjars/angular-daterangepicker/0.2.2/js/angular-daterangepicker.min.js"></script>
+<script type="text/javascript" src="/webjars/github-com-aaronmarruk-bootstrap-daterangepicker/v2.1.17/daterangepicker.js"></script>
+<script type="text/javascript" src="/webjars/angular-busy/4.1.1/angular-busy.min.js"></script>
+<script type="text/javascript" src="/webjars/angular-ui-switch/0.1.1/angular-ui-switch.min.js"></script>
+<script type="text/javascript" src="/webjars/angular-file-upload/11.0.0/ng-file-upload.js"></script>
+
+
+
+
+<!--Core Modules-->
+
+<script src="js/module/core.module.js"></script>
+<script src="js/directive/inputGroupNoBorder.js"></script>
+<script src="js/directive/ajaxLoad.js"></script>
+<script src="js/directive/notifications.js"></script>
+<script src="js/directive/snAction.js"></script>
+<script src="js/directive/snNavigation.js"></script>
+<script src="js/index.js"></script>
+<script src="js/controller/app.js"></script>
+<script src="js/service/config.js"></script>
+<script src="js/service/jquery.service.js"></script>
+<script src="js/service/exceptionHandler.js"></script>
+
+
+<!--API Factory-->
+<script src="js/service/apiFactory.js"></script>
+<script src="js/service/busyLoader.js"></script>
+
+<!--Utility Service-->
+<script src="js/service/utility.service.js"></script>
+
+<!--Custom Filters-->
+<script src="js/filters/customFilters.js"></script>
+
+<!-- Flight Module-->
+<script src="js/service/flights.service.js"></script>
+
+<!-- Airport  Module-->
+<script src="js/service/airport.service.js"></script>
+
+<!-- org module-->
+
+
+<!-- Sector  Module-->
+<script src="js/service/sector.service.js"></script>
+
+<!--Login Module-->
+<script src="js/module/login.module.js"></script>
+<script src="js/controller/login.controller.js"></script>
+
+<!--Dashboard Module-->
+<script src="js/module/dashboard.module.js"></script>
+<script src="js/controller/dashboard.js"></script>
+
+<!--Authentication Module-->
+<script src="js/service/authservice.js"></script>
+<script src="js/model/userroles.js"></script>
+<script src="js/service/session.js"></script>
+<script src="js/model/authevents.js"></script>
+
+
+<!-- Meal Planner Module-->
+<script src="js/module/mealPlan.module.js"></script>
+<script src="js/controller/mealPlan.controller.js"></script>
+<script src="js/controller/mealPlan.create.controller.js"></script>
+<script src="js/service/mealPlan.service.js"></script>
+
+
+<!-- Planning Criteria Module-->
+<script src="js/module/planningCriteria.module.js"></script>
+<script src="js/controller/planningCriteria.controller.js"></script>
+<script src="js/controller/planningCriteria.createUpdate.controller.js"></script>
+<script src="js/service/mealPlanCriteria.service.js"></script>
+
+
+<!-- Catering Plan Module-->
+<script src="js/module/cateringPlan.module.js"></script>
+<script src="js/controller/cateringPlan.controller.js"></script>
+<script src="js/service/bobUplift.service.js"></script>
+<script src="js/controller/cateringPlan.copyBobModal.controller.js"></script>
+<script src="js/controller/cateringPlan.associateScheduleModal.controller.js"></script>
+
+<!-- Meal Category and Planning Group Module-->
+<script src="js/module/mealCategory.module.js"></script>
+<script src="js/controller/mealCategory.controller.js"></script>
+<script src="js/controller/mealCategoryPopUp.controller.js"></script>
+<script src="js/controller/planningGroup.controller.js"></script>
+<script src="js/controller/planningGroup.create.controller.js"></script>
+<script src="js/service/planningGroup.service.js"></script>
+<script src="js/service/mealCategory.service.js"></script>
+<script src="js/service/product.service.js"></script>
+
+<!-- Catering Order Module-->
+<script src="js/module/cateringOrder.module.js"></script>
+<script src="js/controller/cateringOrder.controller.js"></script>
+<script src="js/controller/cateringOrder.detailView.controller.js"></script>
+<script src="js/service/cateringOrder.service.js"></script>
+<script src="js/controller/cateringOrder.flightSchedule.controller.js"></script>
+<script src="js/controller/cateringOrder.FollowUpModal.controller.js"></script>
+<script src="js/controller/cateringOrder.preBookingModal.controller.js"></script>
+<script src="js/controller/cateringOrderVendor.popUp.controller.js"></script>
+
+
+<!--Purchase Order Module-->
+<script src="js/module/purchaseOrder.module.js"></script>
+<script src="js/controller/purchaseOrder.controller.js"></script>
+<script src="js/controller/purchaseOrder.detailView.controller.js"></script>
+<script src="js/controller/purchaseOrder.orderList.controller.js"></script>
+<script src="js/controller/purchaseOrder.create.controller.js"></script>
+<script src="js/service/purchaseOrder.Service.js"></script>
+
+<!--GRN Module-->
+<script src="js/module/GRN.module.js"></script>
+<script src="js/controller/grn.controller.js"></script>
+<script src="js/controller/grn.grnList.controller.js"></script>
+<script src="js/controller/grn.detailView.controller.js"></script>
+<script src="js/service/grn.services.js"></script>
+
+<!--Inventory Module-->
+<script src="js/module/inventory.module.js"></script>
+<script src="js/controller/inventory.controller.js"></script>
+<script src="js/service/inventory.service.js"></script>
+
+
+<!--TransferOrder Module-->
+<script src="js/module/transferOrder.module.js"></script>
+<script src="js/controller/transferOrder.create.controller.js"></script>
+<script src="js/service/transferOrder.service.js"></script>
+
+
+<!-- Report Module-->
+<script src="js/module/report.module.js"></script>
+
+<script src="js/controller/preBooking.controller.js"></script>
+<script src="js/controller/passengerList.controller.js"></script>
+<script src="js/controller/flightList.controller.js"></script>
+<script src="js/controller/flightList.tailNoPopUp.controller.js"></script>
+<script src="js/controller/cateringOrderProjection.controller.js"></script>
+<script src="js/controller/eventLogList.controller.js"></script>
+<script src="js/service/eventLog.service.js"></script>
+
+<script src="js/controller/inbox.controller.js"></script>
+<script src="js/service/inbox.service.js"></script>
+
+
+
+<!--Exchange Trigger Module-->
+<script src="js/module/exchangeTrigger.module.js"></script>
+<script src="js/controller/exchangeTrigger.controller.js"></script>
+<script src="js/service/exchangeTrigger.service.js"></script>
+
+<!--Product Module-->
+<script src="js/module/product.module.js"></script>
+<script src="js/controller/product.controller.js"></script>
+<script src="js/controller/product.edit.controller.js"></script>
+
+<!--Uplift Module-->
+<script src="js/module/upliftOrder.module.js"></script>
+<script src="js/controller/upliftOrder.controller.js"></script>
+<script src="js/controller/upliftOrder.orderList.controller.js"></script>
+<script src="js/controller/upliftOrder.detailView.controller.js"></script>
+<script src="js/service/upliftOrder.service.js"></script>
+
+<!--Unload Module-->
+<script src="js/module/unloadOrder.module.js"></script>
+<script src="js/controller/unloadOrder.controller.js"></script>
+<script src="js/controller/unloadOrder.orderList.controller.js"></script>
+<script src="js/controller/unloadOrder.detailView.controller.js"></script>
+<script src="js/service/unloadOrder.service.js"></script>
+
+
+<!--Pre Booking Role Module-->
+<script src="js/module/preBookingRule.module.js"></script>
+<script src="js/service/preBookingRule.service.js"></script>
+<script src="js/controller/preBookingRule.create.controller.js"></script>
+<script src="js/controller/preBookingRule.controller.js"></script>
+
+
+
+<!--AppSettings Module-->
+<script src="js/module/appSettings.module.js"></script>
+<script src="js/service/appSettings.service.js"></script>
+<script src="js/controller/appSettings.controller.js"></script>
+<script src="js/controller/appsettings.popUp.controller.js"></script>
+
+<!--GLP Module-->
+<script src="js/module/glp.module.js"></script>
+<script src="js/service/glp.service.js"></script>
+<script src="js/controller/glp.controller.js"></script>
+<script src="js/controller/glp.createGlpPopUp.controller.js"></script>
+
+<!-- Organization structure Module -->
+<script src="js/module/organization.module.js"></script>
+<script src="js/service/modelService.js"></script>
+<script src="js/service/department.service.js"></script>
+<script src="js/service/employee.service.js"></script>
+<script src="js/service/organizationStructureService.js"></script>
+<script src="js/service/organizationUnit.service.js"></script>
+<script src="js/service/position.service.js"></script>
+<script src="js/service/user.service.js"></script>
+
+<script src="js/model/modelTransformerService.js"></script>
+<script src="js/model/address.js"></script>
+<script src="js/model/phone.js"></script>
+<script src="js/model/email.js"></script>
+<script src="js/model/validity.js"></script>
+<script src="js/model/organizationUnit.js"></script>
+<script src="js/model/department.js"></script>
+<script src="js/model/position.js"></script>
+<script src="js/model/employee.js"></script>
+<script src="js/model/partner.js"></script>
+
+<script src="js/controller/department.controller.js"></script>
+<script src="js/controller/department.create.controller.js"></script>
+
+<script src="js/controller/employee.controller.js"></script>
+<script src="js/controller/employee.detailView.controller.js"></script>
+<script src="js/controller/employee.employeeList.controller.js"></script>
+<script src="js/controller/employee.popup.controller.js"></script>
+
+<script src="js/controller/organizationUnit.controller.js"></script>
+<script src="js/controller/organizationUnit.create.controller.js"></script>
+<script src="js/controller/organizationStructure.controller.js"></script>
+<script src="js/controller/organizationStructure.popup.controller.js"></script>
+
+<script src="js/controller/position.controller.js"></script>
+<script src="js/controller/position.create.controller.js"></script>
+
+<script src="js/controller/user.controller.js"></script>
+<script src="js/controller/user.create.controller.js"></script>
+
+<script src="js/controller/station.controller.js"></script>
+<script src="js/controller/station.detailView.js"></script>
+
+
+<script src="js/controller/vendor.controller.js"></script>
+<script src="js/controller/vendor.detailView.js"></script>
+<script src="js/controller/vendor.create.js"></script>
+
+<!--Service Module-->
+<script src="js/module/service.module.js"></script>
+<script src="js/service/service.service.js"></script>
+<script src="js/controller/service.controller.js"></script>
+<script src="js/controller/service.detailView.controller.js"></script>
+<script src="js/controller/service.create.controller.js"></script>
+<!--Product Replacement Module-->
+<script src="js/module/productReplacementSchedule.module.js"></script>
+<script src="js/service/productReplacementSchedule.service.js"></script>
+<script src="js/controller/productReplacementSchedule.controller.js"></script>
+<script src="js/directive/productReplacementSchedulePopup.js"></script>
+
+<!-- Warning Directive-->
+<script src="js/directive/navigation.warningDirective.js"></script>
+<script src="js/controller/navigation.unSavePopup.controller.js"></script>
+<script src="js/controller/orders.EmailPopUp.controller.js"></script>
+<script src="js/controller/deletePopUp.controller.js"></script>
+<script src="js/controller/confirmPopUp.controller.js"></script>
+<script src="js/controller/dateRangeSearchPopup.dashBoard.controller.js"></script>
+<script src="js/controller/additionalInfoPopup.eventLog.controller.js"></script>
+
+
+
+<script src="js/service/notification.service.js"></script>
+
+<!--Arrow Select Directive-->
+<script src="js/directive/arrowSelect.js"></script>
+
+<!-- Pagination Directive-->
+<script src="js/directive/pagination.js"></script>
+
+<!-- Sorting Directive-->
+<script src="js/directive/sorting.js"></script>
+
+<!-- Validation Directive-->
+<script src="js/directive/validationDirective.js"></script>
+
+<!-- Auto Tab Directive-->
+<script src="js/directive/autoTab.js"></script>
+
+<!-- Wizard Directive-->
+<script src="js/directive/bootstrapWizard.js"></script>
+
+<!-- Password Compare Directive-->
+<script src="js/directive/confirmPasswordDirective.js"></script>
+
+<!-- Search Panel Directive-->
+<script src="js/directive/searchPanel.js"></script>
+<script src="js/directive/searchResult.js"></script>
+
+<!--Directive to Limit the Input-->
+<script src="js/directive/inputLimitDirective.js"></script>
+
+<!--Directive for Product Search PopUp-->
+<script src="js/directive/productSearch.js"></script>
+<script src="js/directive/productSearchPopup.js"></script>
+
+<!--Date Range Picker Directive -->
+<script src="js/directive/dateRangePicker.js"></script>
+
+<!-- select multiple items from the drop down -->
+<script src="js/directive/multiSelectDropdown.js"></script>
+<script src="js/lodash.js"></script>
+
+<!--Directive to Enable Modal popUp Drag-->
+<script src="js/directive/modalDrag.directive.js"></script>
+
+<!--Employee Search Directive-->
+<script src="js/directive/employeeSearch.js"></script>
+<script src="js/directive/employeeSearchPopup.js"></script>
+
+<script src="js/directive/validateAccess.directive.js"></script>
+
+
+</body>
+</html>

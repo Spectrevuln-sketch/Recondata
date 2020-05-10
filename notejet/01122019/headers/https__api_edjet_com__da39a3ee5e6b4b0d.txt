@@ -1,0 +1,6 @@
+200 OK
+Vary: Origin,Accept-Encoding
+Retry-Count: 0
+Content-Type: text/html
+Date: Sun, 01 Dec 2019 12:42:42 GMT
+Server: Apache

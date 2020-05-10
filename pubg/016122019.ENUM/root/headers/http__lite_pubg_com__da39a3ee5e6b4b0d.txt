@@ -1,0 +1,14 @@
+200 OK
+Server: nginx
+Cache-Control: max-age=600, must-revalidate
+X-Cache: HIT: 128
+X-Pass-Why: 
+Content-Type: text/html; charset=UTF-8
+Link: <https://lite.pubg.com/wp-json/>; rel="https://api.w.org/" <https://lite.pubg.com/>; rel=shortlink
+Vary: Accept-Encoding Accept-Encoding Accept-Encoding,Cookie
+X-Xss-Protection: 1; mode=block
+Retry-Count: 0
+Date: Mon, 16 Dec 2019 13:52:51 GMT
+X-Cacheable: SHORT
+X-Cache-Group: normal
+X-Frame-Options: DENY

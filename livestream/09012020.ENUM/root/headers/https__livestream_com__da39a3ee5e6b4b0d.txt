@@ -1,0 +1,16 @@
+200 OK
+Date: Sun, 05 Apr 2020 21:59:42 GMT
+Age: 0
+X-Cache: HIT, MISS
+X-Timer: S1586123982.772795,VS0,VE466
+Vary: Accept-Encoding
+Retry-Count: 0
+Content-Type: text/html; charset=utf-8
+X-Cache-Hits: 1, 0
+Via: 1.1 varnish
+Pragma: no-cache
+Accept-Ranges: bytes
+X-Frame-Options: SAMEORIGIN
+X-Served-By: cache-lga21983-LGA, cache-sin18036-SIN
+Cache-Control: no-cache, no-store, private, must-revalidate, max-age=0, max-stale=0, post-check=0, pre-check=0
+Expires: 0
